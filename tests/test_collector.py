@@ -32,6 +32,10 @@ class ExtractAppIdTest(unittest.TestCase):
         url = "https://apps.apple.com/us/app/workout-for-women-home-gym/id839285684"
         self.assertEqual(extract_app_id(url), "839285684")
 
+    def test_cn_app_store_url(self):
+        url = "https://apps.apple.com/cn/app/workout-for-women-home-gym/id839285684"
+        self.assertEqual(extract_app_id(url), "839285684")
+
     def test_invalid_raises(self):
         with self.assertRaises(ValueError):
             extract_app_id("not-a-link")

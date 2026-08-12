@@ -80,6 +80,9 @@ python app/server.py --port 8765
   - `sortBy` 支持 `mostRecent` / `mostHelpful`，每页最多 50 条、最多 10 页，合计约 1000 条
   - 请求间隔默认 ≥ 1 秒，原始响应按页缓存（`data/raw/<app_id>/reviews-<sort>-p<n>.json`），可断点续采
 
+输入链接可以是美区或中国区页面（如 `https://apps.apple.com/cn/app/.../id839285684`），
+链接只用于识别应用 ID；**评论数据始终从美国区商店（`country=us`）采集**，符合 README 要求。
+
 ### 已知限制（实测）
 
 在部分网络环境（如中国大陆直连）下，美国区评论 RSS 对任意应用都返回**空 feed**（元数据接口正常）。
