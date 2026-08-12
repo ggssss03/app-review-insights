@@ -21,7 +21,24 @@ from app_review_insights.storage import ensure_dir, write_csv, write_json  # noq
 def load_raw_reviews(raw_dir: pathlib.Path, app_id: str) -> list[ReviewRaw]:
     reviews: list[ReviewRaw] = []
     for file in sorted(raw_dir.glob("*.json")):
-        if file.name in ("app.json", "collection_notes.json", "imported-reviews.json"):
+        if file.name in ("app.json", "collection_notes.json"):
+            continue
+        if file.name == "imported-reviews.json":
+            payload = json.loads(file.read_text(encoding="utf-8"))
+            for row in payload.get("reviews", []):
+                reviews.append(ReviewRaw.create(
+                    source="import",
+                    app_id=app_id,
+                    review_id=row.get("review_id", ""),
+                    author=row.get("author", ""),
+                    rating=row.get("rating", 0),
+                    title=row.get("title", ""),
+                    body=row.get("body", ""),
+                    version=row.get("version", ""),
+                    updated=row.get("updated", ""),
+                    helpful_votes=row.get("helpful_votes", 0),
+                    raw=row,
+                ))
             continue
         payload = json.loads(file.read_text(encoding="utf-8"))
         feed = payload.get("data", {}).get("feed", payload.get("feed", {}))
@@ -65,8 +82,9 @@ def main() -> int:
     write_json(out_dir / "reviews_clean.json", {"app_id": args.app_id, "stats": stats, "reviews": reviews})
     write_json(out_dir / "stats.json", stats)
     fieldnames = [
-        "source", "app_id", "review_id", "rating", "title", "body", "version",
-        "country", "updated", "helpful_votes", "lang", "is_junk", "junk_reason", "sort_by",
+        "source", "app_id", "review_id", "dedup_key", "author", "rating", "title", "body",
+        "version", "country", "updated", "helpful_votes", "lang", "lang_method",
+        "is_junk", "junk_reason", "pii_scrubbed", "sort_by", "fetched_at",
     ]
     write_csv(out_dir / "reviews_clean.csv", reviews, fieldnames)
     print(f"输入 {stats['input_count']} -> 去重后 {stats['unique_count']}，"

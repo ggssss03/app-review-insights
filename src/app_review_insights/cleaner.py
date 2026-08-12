@@ -75,7 +75,8 @@ def dedup_key(review: ReviewRaw) -> str:
 
 def clean_reviews(raw_reviews: Iterable[ReviewRaw]) -> dict:
     """去重 + 清洗 + 统计。返回 {reviews, stats}。"""
-    seen: dict[str, ReviewRaw] = {}
+    seen_ids: set[str] = set()
+    seen_content: dict[str, tuple[str, str]] = {}  # content_fp -> (author, updated)
     removed_dupes = 0
     cleaned = []
     rating_dist: Counter = Counter()
@@ -83,11 +84,22 @@ def clean_reviews(raw_reviews: Iterable[ReviewRaw]) -> dict:
     junk_count = 0
 
     for raw in raw_reviews:
-        key = dedup_key(raw)
-        if key in seen:
+        if raw.review_id and raw.review_id in seen_ids:
             removed_dupes += 1
             continue
-        seen[key] = raw
+        content_fp = hashlib.sha1(
+            f"{raw.title.lower()}|{raw.body.lower()[:200]}".encode("utf-8")
+        ).hexdigest()
+        if content_fp in seen_content:
+            prev_author, prev_updated = seen_content[content_fp]
+            same_author = prev_author == raw.author.lower()
+            same_time = bool(prev_updated) and prev_updated == raw.updated
+            if same_author or same_time:
+                removed_dupes += 1
+                continue
+        seen_content[content_fp] = (raw.author.lower(), raw.updated)
+        if raw.review_id:
+            seen_ids.add(raw.review_id)
         junk, junk_reason = is_junk(raw)
         rating = raw.rating if 1 <= raw.rating <= 5 else 0
         rating_dist[rating] += 1
@@ -101,7 +113,7 @@ def clean_reviews(raw_reviews: Iterable[ReviewRaw]) -> dict:
             "source": raw.source,
             "app_id": raw.app_id,
             "review_id": raw.review_id,
-            "dedup_key": key,
+            "dedup_key": dedup_key(raw),
             "author": raw.author,
             "rating": rating,
             "title": title,

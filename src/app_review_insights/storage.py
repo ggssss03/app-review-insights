@@ -35,6 +35,6 @@ def read_json(path: pathlib.Path) -> Any:
 def write_csv(path: pathlib.Path, rows: Iterable[dict], fieldnames: list[str]) -> None:
     ensure_dir(path.parent)
     with path.open("w", newline="", encoding="utf-8-sig") as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
+        writer = csv.DictWriter(f, fieldnames=fieldnames, extrasaction="ignore")
         writer.writeheader()
         writer.writerows(rows)

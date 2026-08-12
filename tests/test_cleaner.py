@@ -29,6 +29,15 @@ class DedupTest(unittest.TestCase):
         result = clean_reviews(raw)
         self.assertEqual(result["stats"]["unique_count"], 1)
 
+    def test_dedup_same_content_different_ids(self):
+        raw = [
+            review(review_id="r1", author="A", updated="2026-01-01", title="T", body="same text"),
+            review(review_id="r2", author="A", updated="2026-01-01", title="T", body="same text"),
+        ]
+        result = clean_reviews(raw)
+        self.assertEqual(result["stats"]["unique_count"], 1)
+        self.assertEqual(result["stats"]["removed_duplicates"], 1)
+
 
 class JunkTest(unittest.TestCase):
     def test_too_short(self):
