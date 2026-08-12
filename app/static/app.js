@@ -54,6 +54,7 @@ async function start() {
     });
     currentAppId = run.app_id;
     currentRunId = run.run_id;
+    tickerPush(`分析任务已提交（${run.app_id}）`);
     showMsg(`运行已启动（${run.app_id}），等待进度…`);
     pollTimer = setInterval(pollStatus, 800);
   } catch (e) {
@@ -88,8 +89,10 @@ async function pollStatus() {
 function renderProgress(events) {
   const list = $("progress-list");
   list.innerHTML = events
-    .map((e) => `<li class="${esc(e.status)}"><strong>${esc(e.stage)}</strong> · ${esc(e.status)}：${esc(e.detail)}</li>`)
+    .map((e) => `<li class="${esc(e.status)}"><strong>${esc(e.stage)}</strong> <span class="term-status">${esc(e.status)}</span>：${esc(e.detail)}</li>`)
     .join("");
+  const last = events[events.length - 1];
+  if (last) tickerPush(`${last.stage} · ${last.status}：${last.detail}`);
 }
 
 async function loadResults(summary) {
@@ -97,6 +100,8 @@ async function loadResults(summary) {
   $("summary-data") || null;
   window.__summary = summary;
   renderTab("summary");
+  const cc = (summary && summary.counts) || {};
+  tickerPush(`分析完成：${cc.reviews || 0} 条评论 · ${cc.findings || 0} 项发现 · ${(summary && summary.traceability ? summary.traceability.passed_checks : 0) || 0} 项追溯通过`);
 }
 
 async function fetchStage(stage) {
@@ -122,14 +127,18 @@ async function renderTab(tab) {
 
 function renderSummary(s) {
   if (!s) return "<p>暂无结果。</p>";
-  const c = s.counts;
+  const c = s.counts || {};
   const cards = [
-    ["评论", c.reviews], ["主题", c.topics], ["发现", c.findings],
-    ["需求", c.requirements], ["测试用例", c.test_cases],
-  ].map(([lbl, num]) => `<div><div class="num">${num}</div><div class="lbl">${lbl}</div></div>`).join("");
-  const trace = s.traceability;
+    ["评论", c.reviews || 0], ["主题", c.topics || 0], ["发现", c.findings || 0],
+    ["需求", c.requirements || 0], ["测试用例", c.test_cases || 0],
+  ].map(([lbl, num]) =>
+    `<div class="kpi-card"><div class="num" data-count="${Number(num) || 0}">0</div><div class="lbl">${lbl}</div></div>`
+  ).join("");
+  const trace = s.traceability || {};
+  setTimeout(() => animateCounts(), 30);
   return `
     <div class="summary-grid">${cards}</div>
+    ${renderDist(s.clean_stats)}
     ${renderScope(s.scope)}
     <div class="meta-row">
       <div class="meta-chip"><span class="meta-label">说明</span>
@@ -137,7 +146,7 @@ function renderSummary(s) {
       </div>
       <div class="meta-chip">
         <span class="meta-label">追溯校验</span>
-        <span class="trace-big">${trace.passed_checks}/${trace.total_checks} <small>通过</small></span>
+        <span class="trace-big">${trace.passed_checks || 0}/${trace.total_checks || 0} <small>通过</small></span>
         <span class="trace-tag ${s.model_driven ? "model" : ""}">${s.model_driven ? "模型驱动" : "确定性模式"}</span>
       </div>
     </div>
@@ -278,6 +287,7 @@ async function doImport() {
       body: content,
     });
     showMsg(`导入成功：${result.count} 条评论（${appId}）。`);
+    tickerPush(`导入完成：${result.count} 条评论（${appId}）`);
   } catch (e) {
     showMsg(`导入失败：${e.message}`, true);
   }
@@ -374,4 +384,80 @@ init();
       el.style.borderRight = "none";
     }
   }, 28);
+})();
+
+/* ============ 评分 / 语言分布渲染 ============ */
+function renderDist(cs) {
+  if (!cs) return "";
+  const rd = cs.rating_distribution || {};
+  const ld = cs.language_distribution || {};
+  const hasRating = Object.keys(rd).length > 0;
+  const hasLang = Object.keys(ld).length > 0;
+  if (!hasRating && !hasLang) return "";
+
+  const ratingRows = hasRating
+    ? [5, 4, 3, 2, 1].map((star) => {
+        const n = Number(rd[String(star)] || 0);
+        const max = Math.max(1, ...Object.values(rd).map(Number));
+        const pct = Math.round((n / max) * 100);
+        return `<div class="dist-row"><span class="dist-label">${star}★</span><div class="dist-track"><div class="dist-fill f${star}" style="width:${pct}%"></div></div><span class="dist-val">${n}</span></div>`;
+      }).join("")
+    : "";
+
+  const langTotal = Object.values(ld).reduce((a, b) => a + Number(b || 0), 0) || 1;
+  const langRows = Object.entries(ld)
+    .map(([k, v]) => {
+      const n = Number(v || 0);
+      const pct = Math.round((n / langTotal) * 100);
+      const name = k === "zh" ? "中文" : k === "en" ? "英文" : k.toUpperCase();
+      return `<div class="dist-row"><span class="dist-label">${name}</span><div class="dist-track"><div class="dist-fill lang-fill" style="width:${pct}%"></div></div><span class="dist-val">${n} · ${pct}%</span></div>`;
+    })
+    .join("");
+
+  return `<div class="dist-panel">
+    ${hasRating ? `<div class="dist-col"><h3 class="dist-title">★ 评分分布</h3>${ratingRows}</div>` : ""}
+    ${hasLang ? `<div class="dist-col"><h3 class="dist-title">◉ 语言分布</h3>${langRows}</div>` : ""}
+  </div>`;
+}
+
+/* ============ KPI 数字滚动 ============ */
+function animateCounts() {
+  document.querySelectorAll("#tab-content .num[data-count]").forEach((el) => {
+    const target = parseInt(el.dataset.count || "0", 10) || 0;
+    const start = performance.now();
+    const dur = 900;
+    function step(t) {
+      const p = Math.min(1, (t - start) / dur);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  });
+}
+
+/* ============ 底部 LIVE 滚动状态条 ============ */
+const tickerMsgs = [];
+
+function tickerRender() {
+  const track = document.getElementById("ticker-track");
+  if (!track) return;
+  const text = tickerMsgs.slice(-18).map((m) => `▸ ${m}`).join("　　");
+  track.innerHTML = `<span>${esc(text)}</span><span>${esc(text)}</span>`;
+}
+
+function tickerPush(msg) {
+  tickerMsgs.push(String(msg));
+  if (tickerMsgs.length > 80) tickerMsgs.shift();
+  tickerRender();
+}
+
+(function initTicker() {
+  const boot = [
+    "系统启动完成",
+    "粒子网络已连接",
+    "评论采集引擎就绪（中国区 RSS）",
+    "LLM 分析核心待命",
+    "等待任务指令…",
+  ];
+  boot.forEach((m, i) => setTimeout(() => tickerPush(m), 600 + i * 700));
 })();

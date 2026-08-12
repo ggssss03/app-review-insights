@@ -10,6 +10,10 @@
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
   <div class="scanlines" aria-hidden="true"></div>
   <div class="vignette" aria-hidden="true"></div>
+  <div class="hud-corner tl" aria-hidden="true"></div>
+  <div class="hud-corner tr" aria-hidden="true"></div>
+  <div class="hud-corner bl" aria-hidden="true"></div>
+  <div class="hud-corner br" aria-hidden="true"></div>
 
   <header class="topbar">
     <div class="brand">
@@ -19,7 +23,16 @@
         <p class="subtitle">把 App Store 用户评论变成可追溯的产品需求 · 版本规划与测试用例</p>
       </div>
     </div>
-    <div id="health" class="health">系统自检中…</div>
+    <div class="topbar-right">
+      <div class="radar" aria-hidden="true">
+        <span class="radar-ring r1"></span>
+        <span class="radar-ring r2"></span>
+        <span class="radar-ring r3"></span>
+        <span class="radar-sweep"></span>
+        <span class="radar-blip"></span>
+      </div>
+      <div id="health" class="health">系统自检中…</div>
+    </div>
   </header>
 
   <main>
@@ -64,6 +77,11 @@
       <div id="tab-content"></div>
     </section>
   </main>
+
+  <div class="ticker" aria-hidden="true">
+    <span class="ticker-label"><span class="live-dot"></span>LIVE</span>
+    <div class="ticker-viewport"><div id="ticker-track" class="ticker-track"></div></div>
+  </div>
 
   <footer class="footer">
     数据来源：Apple iTunes Customer Reviews RSS（中国区可用）· 离线缓存与限制见 <code>data/README.md</code> ·
