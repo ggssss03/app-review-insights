@@ -5,14 +5,16 @@
 > 目标与评估标准见 [PLAN.md](PLAN.md)，其源头是
 > [retro-labs/app-review-insights](https://github.com/retro-labs/app-review-insights/blob/main/README.md)。
 
-## 当前进度（M1：数据层）
+## 当前进度（M1-M3）
 
 - [x] M0 项目骨架：git 仓库、目录结构、`.env.example`、CI 占位
 - [x] M1 数据采集：Apple Lookup（元数据）+ Customer Reviews RSS（美国区评论），限速、缓存、断点续采
 - [x] M1 数据导入：支持 JSON / CSV 评论数据集导入（README 硬性要求）
 - [x] M1 清洗去重：字段规范化、去重、垃圾过滤、PII 脱敏、语言启发式识别
-- [ ] M2 分析层（动态主题发现 / LLM 命名归并 / 证据评估）
-- [ ] M3 规划层（PRD / 版本拆分 / 测试用例 / 追溯校验）
+- [x] M2 分析层：动态主题发现（TF-IDF/模型嵌入 + 聚类 + LLM 命名）、
+  证据化发现（引用白名单、置信度、冲突、provenance 区分统计与模型）
+- [x] M3 规划层：需求生成（优先级/版本拆分）、Gherkin 测试用例、
+  追溯校验（孤儿结论删除 / 无支持需求标 assumption / 校验报告）
 - [ ] M4 应用层（FastAPI + 前端 UI，进度与交付物展示）
 - [ ] M5 交付加固（E2E、文档、GitHub 推送）
 
@@ -32,10 +34,20 @@ PYTHONPATH=src python scripts/clean_reviews.py 839285684
 
 # 4) 运行测试（M1 用标准库 unittest，pytest 也能收集）
 PYTHONPATH=src python -m unittest discover -s tests -v
+
+# 5) 运行完整分析流水线（S0 范围 -> S8 汇总）
+#    未配置 LLM 时自动降级为确定性模式；配置 .env 后自动启用模型驱动
+PYTHONPATH=src python scripts/analyze.py 839285684 --goal "订阅转化与付费墙体验"
+PYTHONPATH=src python scripts/analyze.py 839285684 --no-llm
 ```
 
 示例应用（评估用主样例）：`Workout for Women: Home & Gym`
 `https://apps.apple.com/us/app/workout-for-women-home-gym/id839285684`
+
+分析结果输出到 `data/processed/<app_id>/analysis/`，包含：范围、清洗统计、
+动态主题、带证据的发现、需求（PRD）、测试用例、追溯校验报告、进度事件。
+
+模型设计（提示词、防幻觉、失败处理、无硬编码承诺）见 [docs/AI.md](docs/AI.md)。
 
 ## 数据来源与限制（重要）
 

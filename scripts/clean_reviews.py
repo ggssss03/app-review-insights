@@ -14,51 +14,8 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[1] / "src"))
 
 from app_review_insights.cleaner import clean_reviews  # noqa: E402
-from app_review_insights.models import ReviewRaw  # noqa: E402
+from app_review_insights.loader import load_raw_reviews  # noqa: E402
 from app_review_insights.storage import ensure_dir, write_csv, write_json  # noqa: E402
-
-
-def load_raw_reviews(raw_dir: pathlib.Path, app_id: str) -> list[ReviewRaw]:
-    reviews: list[ReviewRaw] = []
-    for file in sorted(raw_dir.glob("*.json")):
-        if file.name in ("app.json", "collection_notes.json"):
-            continue
-        if file.name == "imported-reviews.json":
-            payload = json.loads(file.read_text(encoding="utf-8"))
-            for row in payload.get("reviews", []):
-                reviews.append(ReviewRaw.create(
-                    source="import",
-                    app_id=app_id,
-                    review_id=row.get("review_id", ""),
-                    author=row.get("author", ""),
-                    rating=row.get("rating", 0),
-                    title=row.get("title", ""),
-                    body=row.get("body", ""),
-                    version=row.get("version", ""),
-                    updated=row.get("updated", ""),
-                    helpful_votes=row.get("helpful_votes", 0),
-                    raw=row,
-                ))
-            continue
-        payload = json.loads(file.read_text(encoding="utf-8"))
-        feed = payload.get("data", {}).get("feed", payload.get("feed", {}))
-        entry = feed.get("entry", []) if isinstance(feed, dict) else []
-        if isinstance(entry, dict):
-            entry = [entry]
-        for item in entry:
-            reviews.append(ReviewRaw.create(
-                source="rss",
-                app_id=app_id,
-                review_id=str(item.get("id", {}).get("label", "")),
-                author=str(item.get("author", {}).get("name", {}).get("label", "")),
-                rating=int(float(str(item.get("im:rating", {}).get("label", 0))) or 0),
-                title=str(item.get("title", {}).get("label", "")),
-                body=str(item.get("content", {}).get("label", "")),
-                version=str(item.get("im:version", {}).get("label", "")),
-                updated=str(item.get("updated", {}).get("label", "")),
-                raw=item,
-            ))
-    return reviews
 
 
 def main() -> int:
