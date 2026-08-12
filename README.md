@@ -15,7 +15,8 @@
   证据化发现（引用白名单、置信度、冲突、provenance 区分统计与模型）
 - [x] M3 规划层：需求生成（优先级/版本拆分）、Gherkin 测试用例、
   追溯校验（孤儿结论删除 / 无支持需求标 assumption / 校验报告）
-- [ ] M4 应用层（FastAPI + 前端 UI，进度与交付物展示）
+- [x] M4 应用层：零依赖 Web UI（纯标准库服务器 + 原生 JS），
+  支持进度流展示、交付物 Tab、JSON/CSV 导入；FastAPI/React 为可选升级
 - [ ] M5 交付加固（E2E、文档、GitHub 推送）
 
 ## 快速开始
@@ -39,6 +40,10 @@ PYTHONPATH=src python -m unittest discover -s tests -v
 #    未配置 LLM 时自动降级为确定性模式；配置 .env 后自动启用模型驱动
 PYTHONPATH=src python scripts/analyze.py 839285684 --goal "订阅转化与付费墙体验"
 PYTHONPATH=src python scripts/analyze.py 839285684 --no-llm
+
+# 6) 启动 Web UI（纯标准库，零第三方依赖）
+python app/server.py --port 8765
+# 打开 http://127.0.0.1:8765
 ```
 
 示例应用（评估用主样例）：`Workout for Women: Home & Gym`
@@ -48,6 +53,20 @@ PYTHONPATH=src python scripts/analyze.py 839285684 --no-llm
 动态主题、带证据的发现、需求（PRD）、测试用例、追溯校验报告、进度事件。
 
 模型设计（提示词、防幻觉、失败处理、无硬编码承诺）见 [docs/AI.md](docs/AI.md)。
+
+## Web UI（M4）
+
+启动 `python app/server.py` 后打开 `http://127.0.0.1:8765`：
+
+- 输入美国区 App Store 链接或应用 ID + 分析目标，点击「开始分析」；
+- 页面实时展示 S0-S8 阶段进度（轮询 `/api/status/<run_id>`）；
+- 完成后通过 Tab 查看：摘要 / 动态主题 / 带证据的发现 / 需求 PRD / 测试用例 /
+  追溯校验报告 / 清洗后数据；
+- 「统计 / 模型 / 假设 / 已移除」用不同徽章区分（README R6）；
+- 支持直接上传 JSON/CSV 评论数据集再分析（README R10）；
+- 未配置 LLM 时自动进入确定性模式，界面明确提示，不伪装成功。
+
+服务器与前端均为纯标准库实现（`app/server.py` + `app/static/`），无需 npm/pip 安装。
 
 ## 数据来源与限制（重要）
 

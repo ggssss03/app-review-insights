@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>App Review Insights</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>App Review Insights</h1>
+      <p class="subtitle">把 App Store 用户评论变成可追溯的产品需求、版本规划与测试用例</p>
+    </div>
+    <div id="health" class="health">检测中…</div>
+  </header>
+
+  <main>
+    <section class="card form-card">
+      <label for="url">美国区 App Store 链接或应用 ID</label>
+      <input id="url" type="text" value="https://apps.apple.com/us/app/workout-for-women-home-gym/id839285684"
+             placeholder="https://apps.apple.com/us/app/... 或纯数字 ID">
+      <label for="goal">分析目标 / 约束（可留空）</label>
+      <input id="goal" type="text" value="订阅转化与付费墙体验" placeholder="例如：订阅转化、可用性、低分评论、指定版本">
+      <div class="row">
+        <label class="check"><input id="use-llm" type="checkbox" checked> 使用 LLM（模型驱动）</label>
+        <button id="start-btn" class="primary">开始分析</button>
+      </div>
+      <div class="row">
+        <label class="file-label">
+          或导入评论数据文件（JSON / CSV）
+          <input id="import-file" type="file" accept=".json,.csv">
+        </label>
+        <input id="import-app-id" type="text" placeholder="导入目标 app id（纯数字）" style="width:180px">
+        <button id="import-btn">导入</button>
+      </div>
+      <div id="form-msg" class="msg"></div>
+    </section>
+
+    <section id="progress-card" class="card hidden">
+      <h2>执行进度</h2>
+      <ol id="progress-list" class="progress-list"></ol>
+    </section>
+
+    <section id="result-card" class="card hidden">
+      <div class="tabs">
+        <button class="tab active" data-tab="summary">摘要</button>
+        <button class="tab" data-tab="topics">主题</button>
+        <button class="tab" data-tab="findings">发现</button>
+        <button class="tab" data-tab="requirements">需求(PRD)</button>
+        <button class="tab" data-tab="testcases">测试用例</button>
+        <button class="tab" data-tab="traceability">追溯校验</button>
+        <button class="tab" data-tab="clean">清洗数据</button>
+      </div>
+      <div id="tab-content"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    数据来源：Apple iTunes Customer Reviews RSS（美国区）。离线缓存与限制见 <code>data/README.md</code>；
+    模型设计见 <code>docs/AI.md</code>。
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

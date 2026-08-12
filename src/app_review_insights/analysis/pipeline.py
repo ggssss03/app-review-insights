@@ -35,10 +35,11 @@ def run_pipeline(
     llm: Optional[object] = None,
     embed_backend: str = "auto",
     force: bool = False,
+    progress: Optional[list] = None,
 ) -> dict:
     ensure_dir(out_dir / "analysis")
     analysis_dir = out_dir / "analysis"
-    events: list[dict] = []
+    events: list[dict] = progress if progress is not None else []
 
     def stage(name: str, fn, *args, **kwargs):
         cache = analysis_dir / f"{name}.json"

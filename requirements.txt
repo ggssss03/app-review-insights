@@ -8,9 +8,11 @@
 #   scikit-learn>=1.5
 #
 # M4 应用层：
+#   当前 Web UI（app/server.py）为纯标准库实现，无需安装即可运行。
 #   fastapi>=0.115
 #   uvicorn>=0.30
 #   pydantic>=2.8
+#   （如需 React 前端，另行引入 node 工具链）
 #
 # 测试：
 #   pytest>=8

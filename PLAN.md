@@ -232,7 +232,9 @@ validation_report(run_id, checks_json, removed_ids, revised_ids, assumption_ids)
 - **验收**：需求→测试全链路可追溯；孤立结论被处理；校验报告生成。
 
 ### M4 应用层（1–2 天）
-- FastAPI 后端 + SSE 进度；前端（先 Streamlit MVP，后 React）；交付物与追溯视图。
+- 已交付：纯标准库 Web 服务器 + 原生 JS 前端（`app/server.py` + `app/static/`），
+  进度轮询、交付物 Tab、JSON/CSV 导入、统计/模型/假设徽章区分。
+- 可选升级：FastAPI + SSE + React（不影响 README 验收，仅在需要更强扩展性时做）。
 - **验收**：输入链接+目标 → Start → 全流程可视化跑完。
 
 ### M5 交付加固（1 天）
