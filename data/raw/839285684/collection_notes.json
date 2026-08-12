@@ -1,27 +1,23 @@
 {
   "app_id": "839285684",
   "url": "",
-  "fetched_at": "2026-08-12T08:28:36+00:00",
+  "fetched_at": "2026-08-12T08:43:26+00:00",
   "data": {
     "app_id": "839285684",
     "country": "us",
-    "method": "amp",
-    "fetched_at": "2026-08-12T08:28:36+00:00",
-    "pages_fetched": 0,
+    "method": "itml",
+    "fetched_at": "2026-08-12T08:43:26+00:00",
+    "pages_fetched": 1,
     "pages_skipped": 0,
-    "reviews_total": 0,
-    "reviews_by_offset": {},
+    "reviews_total": 10,
+    "reviews_by_sort": {
+      "mostRecent": 10
+    },
     "empty_pages": [],
-    "errors": [
-      {
-        "stage": "token",
-        "error": "未能在应用页面中找到 AMP API token（可能被地理重定向或接口变更）"
-      }
-    ],
+    "errors": [],
     "notes": [
-      "数据来源：Apple AMP Reviews API（App Store 页面使用的官方接口）。",
-      "获取 AMP token 失败（页面被地理重定向或接口变更），请使用 GitHub Actions（US runner）或导入 JSON/CSV。"
-    ],
-    "token_ok": false
+      "数据来源：Apple iTunes WebObjects userReviewsRow 官方接口（2026 年实测仍可用）。",
+      "注意：该接口当前只返回同一批热门评论（分页参数已被苹果忽略），批量数据请使用 GitHub Actions 定时刷新或导入 JSON/CSV。"
+    ]
   }
 }
