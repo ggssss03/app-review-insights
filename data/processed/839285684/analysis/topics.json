@@ -22,12 +22,12 @@
         }
       ],
       "label": "短时高效锻炼",
-      "description": "用户认为该应用提供短时（如7分钟）但强度足够的锻炼，适合平时不运动的人，且容易坚持，甚至能在冬天保暖。",
+      "description": "用户认为该应用提供短时（如7分钟）但强度足够的锻炼，适合平时不运动的人，且容易坚持，冬天锻炼还能保暖。",
       "keywords": [
         "易坚持",
         "七分钟",
         "很累",
-        "适合不运动",
+        "适合",
         "保暖"
       ]
     },
@@ -52,14 +52,15 @@
           "text": "Awesome workouts I really love this work out app!! I had not used it in a long time, when I opened it again they had completely updated and redid the app. And I love the new updates. There is a little"
         }
       ],
-      "label": "便捷且激励的锻炼应用",
-      "description": "用户称赞该应用方便易用，能持续激励他们锻炼，尤其适合忙碌或身体条件有限的人群，提供提醒功能，且更新后体验更佳。",
+      "label": "便捷实用且激励性强",
+      "description": "用户称赞该应用便捷、一致性好，提醒功能有激励作用，适合忙碌或身体条件有限的人群，且更新后体验更佳。",
       "keywords": [
-        "方便",
-        "激励",
-        "提醒",
-        "适合忙碌",
-        "更新"
+        "convenient",
+        "consistent",
+        "reminder",
+        "motivation",
+        "no time",
+        "updated"
       ]
     }
   ],

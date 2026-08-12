@@ -2,7 +2,7 @@
   {
     "id": "F-stat-0",
     "topic_id": 0,
-    "statement": "主题「便捷且激励的锻炼应用」共出现 33 条相关评论，平均评分 4.88。",
+    "statement": "主题「便捷实用且激励性强」共出现 33 条相关评论，平均评分 4.88。",
     "evidence_review_ids": [
       "3492973040",
       "6052795032",
@@ -51,14 +51,16 @@
   {
     "id": "F-model-0-1",
     "topic_id": 0,
-    "statement": "用户认为该应用方便且能适应忙碌日程，通过提醒功能激励持续锻炼。",
+    "statement": "用户认为该应用便捷实用，能适应忙碌或特殊身体状况（如产后、老年）的用户，并提供多样化锻炼选项。",
     "evidence_review_ids": [
       "5684535804",
-      "5786142670"
+      "9220792708",
+      "5786142670",
+      "11593815773"
     ],
-    "sample_count": 2,
-    "confidence": 0.8,
-    "uncertainty": "评论者未提供具体细节，但明确提及便捷性和提醒功能。",
+    "sample_count": 4,
+    "confidence": 0.9,
+    "uncertainty": "样本量有限，但多个评论一致强调便捷性和适应性。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -67,14 +69,14 @@
   {
     "id": "F-model-0-2",
     "topic_id": 0,
-    "statement": "应用提供针对特定人群（如老年人、产后女性）的多样化锻炼选项，满足不同用户需求。",
+    "statement": "应用具有激励性，通过提醒功能和一致性帮助用户坚持锻炼。",
     "evidence_review_ids": [
-      "9220792708",
-      "11593815773"
+      "5684535804",
+      "5786142670"
     ],
     "sample_count": 2,
-    "confidence": 0.9,
-    "uncertainty": "评论者明确提到针对老年人和产后女性的选项，但未提及具体数量。",
+    "confidence": 0.8,
+    "uncertainty": "仅两个评论明确提及激励性，但内容具体。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -83,13 +85,13 @@
   {
     "id": "F-model-0-3",
     "topic_id": 0,
-    "statement": "应用更新后获得用户好评，提供丰富内容，适合不同水平用户。",
+    "statement": "应用更新后获得好评，界面和功能得到改进。",
     "evidence_review_ids": [
       "8320450139"
     ],
     "sample_count": 1,
-    "confidence": 0.6,
-    "uncertainty": "仅一条评论提及更新，样本不足。",
+    "confidence": 0.4,
+    "uncertainty": "仅一个评论提及更新，样本不足。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -126,14 +128,15 @@
   {
     "id": "F-model-1-1",
     "topic_id": 1,
-    "statement": "用户普遍认为该锻炼应用适合短时高效锻炼，但部分用户反映缺少视频指导，动作不清晰。",
+    "statement": "用户普遍认为该锻炼应用适合平时不运动的人，且能坚持并出汗，但部分用户希望有视频指导。",
     "evidence_review_ids": [
+      "1124547437",
       "1171657357",
-      "1333334752"
+      "1081072507"
     ],
-    "sample_count": 2,
+    "sample_count": 3,
     "confidence": 0.7,
-    "uncertainty": "仅两条评论提及视频指导问题，样本有限。",
+    "uncertainty": "样本量较小，且部分评论未明确提及适合人群。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -142,14 +145,14 @@
   {
     "id": "F-model-1-2",
     "topic_id": 1,
-    "statement": "部分用户抱怨应用内所有项目都需要付费开通会员，存在付费门槛。",
+    "statement": "部分用户反映应用内所有项目都需要开通会员付费，引起不满。",
     "evidence_review_ids": [
       "11843515227",
       "4871268841"
     ],
     "sample_count": 2,
     "confidence": 0.8,
-    "uncertainty": "两条差评均提及付费问题，但未提供具体项目细节。",
+    "uncertainty": "仅两条评论提及付费问题，但评分均为1星，冲突证据未出现。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -158,14 +161,13 @@
   {
     "id": "F-model-1-3",
     "topic_id": 1,
-    "statement": "用户认为该应用易于坚持，适合平时不运动的人，且能出汗保暖。",
+    "statement": "用户希望动作有动画或视频指导，因为有些动作不知道怎么做。",
     "evidence_review_ids": [
-      "1081072507",
-      "1124547437"
+      "1333334752"
     ],
-    "sample_count": 2,
-    "confidence": 0.6,
-    "uncertainty": "仅两条正面评论提及，样本不足。",
+    "sample_count": 1,
+    "confidence": 0.4,
+    "uncertainty": "仅一条评论提及，样本不足，可能不代表普遍需求。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",

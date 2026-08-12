@@ -1,17 +1,13 @@
 {
   "focus_areas": [
-    "features",
-    "other",
-    "performance",
     "pricing",
-    "subscription_conversion",
-    "usability"
+    "subscription_conversion"
   ],
   "star_filter": {
     "min": null,
     "max": null
   },
   "version_filter": null,
-  "note": "模型解析（无明确分析目标，默认全量分析所有方面。）",
-  "_goal_fp": "e3b0c44298fc"
+  "note": "模型解析（分析目标明确指向订阅转化和付费墙体验，因此聚焦于订阅转化和定价相关评论。）",
+  "_goal_fp": "a8092101dec5"
 }
