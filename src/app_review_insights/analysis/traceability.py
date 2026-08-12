@@ -20,6 +20,10 @@ def validate_traceability(
     kept_tests = []
 
     for f in findings:
+        if f.get("status") == "removed":
+            removed_findings.append(f["id"])
+            checks.append({"check": "finding_evidence", "id": f["id"], "passed": False, "detail": "结论不可用（模型失败或证据不足），已移除"})
+            continue
         valid = [i for i in f.get("evidence_review_ids", []) if i in review_ids]
         if not valid:
             f["status"] = "removed"

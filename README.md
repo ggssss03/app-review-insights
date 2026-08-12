@@ -17,7 +17,9 @@
   追溯校验（孤儿结论删除 / 无支持需求标 assumption / 校验报告）
 - [x] M4 应用层：零依赖 Web UI（纯标准库服务器 + 原生 JS），
   支持进度流展示、交付物 Tab、JSON/CSV 导入；FastAPI/React 为可选升级
-- [ ] M5 交付加固（E2E、文档、GitHub 推送）
+- [x] M5 部分：E2E 场景测试（混合语言/证据不足/模型失败/重复冲突）、
+  [docs/EVALUATION.md](docs/EVALUATION.md) 评估自检、`scripts/self_check.py` 一键自检
+- [ ] M5 剩余：真实模型运行验证（需 .env 的 LLM_API_KEY）、GitHub 推送与定时采集（需连接 GitHub）
 
 ## 快速开始
 
