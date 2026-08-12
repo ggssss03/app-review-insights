@@ -136,8 +136,9 @@ def fetch_reviews(
     delay: float = 1.0,
     cache_dir: pathlib.Path,
     timeout: int = 30,
+    refresh: bool = False,
 ) -> dict:
-    """采集评论并缓存；已存在的缓存页跳过（断点续采）。"""
+    """采集评论并缓存；refresh=False 时已存在的缓存页跳过（断点续采）。"""
     ensure_dir(cache_dir)
     fetched_at = utcnow_iso()
     stats = {
@@ -161,7 +162,7 @@ def fetch_reviews(
         for page in range(1, max_pages + 1):
             url = build_rss_url(app_id, sort_by, page, country=country)
             cache_file = cache_dir / f"reviews-{sort_by}-p{page}.json"
-            if cache_file.exists():
+            if cache_file.exists() and not refresh:
                 payload = json.loads(cache_file.read_text(encoding="utf-8"))
                 stats["pages_skipped"] += 1
             else:

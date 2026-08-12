@@ -30,6 +30,7 @@ def main() -> int:
     parser.add_argument("--pages", type=int, default=10, help="每个排序最多采集页数（每页 50 条）")
     parser.add_argument("--delay", type=float, default=1.0, help="请求间隔秒数（礼貌限速）")
     parser.add_argument("--cache-dir", default="data/raw", help="原始缓存目录")
+    parser.add_argument("--refresh", action="store_true", help="忽略已有缓存，强制重新抓取")
     args = parser.parse_args()
 
     app_id = extract_app_id(args.app)
@@ -52,6 +53,7 @@ def main() -> int:
         max_pages=args.pages,
         delay=args.delay,
         cache_dir=cache_dir,
+        refresh=args.refresh,
     )
     print(f"      新抓页 {stats['pages_fetched']}，跳过缓存 {stats['pages_skipped']}，"
           f"累计评论 {stats['reviews_total']}")

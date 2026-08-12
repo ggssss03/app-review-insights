@@ -18,7 +18,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Collect reviews for sample app
-        run: python scripts/fetch_reviews.py 839285684 --delay 1.0
+        run: python scripts/fetch_reviews.py 839285684 --delay 1.0 --refresh
         env:
           PYTHONPATH: src
       - name: Commit cached data
