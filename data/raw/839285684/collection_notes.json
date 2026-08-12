@@ -1,17 +1,18 @@
 {
   "app_id": "839285684",
   "url": "",
-  "fetched_at": "2026-08-12T09:57:29+00:00",
+  "fetched_at": "2026-08-12T10:04:51+00:00",
   "data": {
     "app_id": "839285684",
     "country": "cn",
     "method": "merged",
-    "fetched_at": "2026-08-12T09:57:29+00:00",
+    "fetched_at": "2026-08-12T10:04:51+00:00",
     "reviews_total": 45,
     "reviews_unique": 45,
     "reviews_by_source": {
+      "amp-page": 8,
       "itml": 10,
-      "rss": 35
+      "rss": 27
     },
     "errors": [],
     "notes": [

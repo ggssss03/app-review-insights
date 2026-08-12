@@ -1,7 +1,7 @@
 {
   "app_id": "839285684",
   "url": "https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684?uo=4",
-  "fetched_at": "2026-08-12T09:57:06+00:00",
+  "fetched_at": "2026-08-12T10:04:37+00:00",
   "data": {
     "app_id": "839285684",
     "track_name": "Workout for Women -Lose Weight",
@@ -13,7 +13,7 @@
     "minimum_os_version": "15.0",
     "url": "https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684?uo=4",
     "storefront": "cn",
-    "fetched_at": "2026-08-12T09:57:06+00:00",
+    "fetched_at": "2026-08-12T10:04:37+00:00",
     "raw": {
       "isGameCenterEnabled": false,
       "screenshotUrls": [
@@ -177,9 +177,6 @@
       "artistViewUrl": "https://apps.apple.com/cn/developer/fast-builder-limited/id596300475?uo=4",
       "artworkUrl60": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1c/0e/a9/1c0ea9e4-fd19-95c0-8e38-c49f000cf5de/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/60x60bb.jpg",
       "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1c/0e/a9/1c0ea9e4-fd19-95c0-8e38-c49f000cf5de/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg",
-      "minimumOsVersion": "15.0",
-      "averageUserRatingForCurrentVersion": 4.76604,
-      "sellerUrl": "https://7mfitness.com",
       "languageCodesISO2A": [
         "AR",
         "HR",
@@ -209,27 +206,25 @@
       "formattedPrice": "免费",
       "userRatingCountForCurrentVersion": 530,
       "trackContentRating": "4+",
-      "artistId": 596300475,
-      "artistName": "Fast Builder Limited",
+      "sellerUrl": "https://7mfitness.com",
+      "averageUserRatingForCurrentVersion": 4.76604,
       "genres": [
         "健康健美",
         "生活"
       ],
-      "price": 0.0,
+      "artistId": 596300475,
+      "artistName": "Fast Builder Limited",
       "bundleId": "com.oneothergame.7min-fitness",
       "genreIds": [
         "6013",
         "6012"
       ],
-      "currentVersionReleaseDate": "2026-08-10T18:15:25Z",
-      "releaseDate": "2014-03-21T16:41:53Z",
-      "trackId": 839285684,
-      "trackName": "Workout for Women -Lose Weight",
       "primaryGenreName": "Health & Fitness",
       "primaryGenreId": 6013,
       "sellerName": "Fast Builder Limited",
+      "releaseDate": "2014-03-21T16:41:53Z",
       "isVppDeviceBasedLicensingEnabled": true,
-      "releaseNotes": "Bug fixes and optimizations. \n\nWe're always hard at work on our next update. Make sure to leave us a review and let us know what you would like to see next!\n\nHappy sweating~",
+      "currentVersionReleaseDate": "2026-08-10T18:15:25Z",
       "version": "8.5.0",
       "wrapperType": "software",
       "currency": "CNY",
@@ -238,6 +233,11 @@
       "trackViewUrl": "https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684?uo=4",
       "contentAdvisoryRating": "4+",
       "averageUserRating": 4.76604,
+      "minimumOsVersion": "15.0",
+      "releaseNotes": "Bug fixes and optimizations. \n\nWe're always hard at work on our next update. Make sure to leave us a review and let us know what you would like to see next!\n\nHappy sweating~",
+      "price": 0.0,
+      "trackId": 839285684,
+      "trackName": "Workout for Women -Lose Weight",
       "userRatingCount": 530
     }
   }

@@ -1,7 +1,7 @@
 {
-  "app_id": "1544884479",
-  "url": "https://itunes.apple.com/cn/rss/customerreviews/id=1544884479/page=1/sortBy=mostHelpful/json",
-  "fetched_at": "2026-08-12T10:04:51+00:00",
+  "app_id": "839285684",
+  "url": "https://itunes.apple.com/cn/rss/customerreviews/id=839285684/page=2/sortBy=mostRecent/json",
+  "fetched_at": "2026-08-12T10:04:37+00:00",
   "data": {
     "feed": {
       "author": {
@@ -13,7 +13,7 @@
         }
       },
       "updated": {
-        "label": "2026-08-12T03:04:58-07:00"
+        "label": "2026-08-12T03:04:37-07:00"
       },
       "rights": {
         "label": "Copyright 2008 Apple Inc."
@@ -35,7 +35,7 @@
         {
           "attributes": {
             "rel": "self",
-            "href": "https://itunes.apple.com/cn/rss/customerreviews/id=1544884479/page=1/sortBy=mostHelpful/json"
+            "href": "https://itunes.apple.com/cn/rss/customerreviews/id=839285684/page=2/sortBy=mostRecent/json"
           }
         },
         {
@@ -64,7 +64,7 @@
         }
       ],
       "id": {
-        "label": "https://itunes.apple.com/cn/rss/customerreviews/id=1544884479/page=1/sortBy=mostHelpful/json"
+        "label": "https://itunes.apple.com/cn/rss/customerreviews/id=839285684/page=2/sortBy=mostRecent/json"
       }
     }
   }

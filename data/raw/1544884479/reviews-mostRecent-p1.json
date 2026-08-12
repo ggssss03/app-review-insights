@@ -1,7 +1,7 @@
 {
   "app_id": "1544884479",
   "url": "https://itunes.apple.com/cn/rss/customerreviews/id=1544884479/page=1/sortBy=mostRecent/json",
-  "fetched_at": "2026-08-12T10:03:09+00:00",
+  "fetched_at": "2026-08-12T10:04:51+00:00",
   "data": {
     "feed": {
       "author": {
@@ -13,7 +13,7 @@
         }
       },
       "updated": {
-        "label": "2026-08-12T03:03:09-07:00"
+        "label": "2026-08-12T03:04:52-07:00"
       },
       "rights": {
         "label": "Copyright 2008 Apple Inc."
