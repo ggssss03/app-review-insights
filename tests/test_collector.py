@@ -6,6 +6,8 @@ import unittest
 from app_review_insights.collector import (
     build_rss_url,
     extract_app_id,
+    extract_amp_token,
+    parse_amp_payload,
     parse_review_entry,
     parse_review_feed,
 )
@@ -80,6 +82,38 @@ class ParseReviewTest(unittest.TestCase):
     def test_build_rss_url(self):
         url = build_rss_url("839285684", "mostRecent", 2)
         self.assertIn("/us/rss/customerreviews/id=839285684/page=2/sortBy=mostRecent/json", url)
+
+
+class AmpParseTest(unittest.TestCase):
+    def test_extract_token(self):
+        html = '<script>{"token":"abc123.def456","other":1}</script>'
+        self.assertEqual(extract_amp_token(html), "abc123.def456")
+
+    def test_extract_token_near_amp_api(self):
+        html = 'x' * 100 + 'amp-api.apps.apple.com/v1/catalog"token":"tok-xyz"'
+        self.assertEqual(extract_amp_token(html), "tok-xyz")
+
+    def test_missing_token_raises(self):
+        with self.assertRaises(ValueError):
+            extract_amp_token("<html>no token here</html>")
+
+    def test_parse_amp_payload(self):
+        payload = {"data": [
+            {"id": "a1", "attributes": {
+                "rating": 5, "title": "Great", "review": "Love it",
+                "date": "2026-08-01T00:00:00Z", "version": "8.5.0", "author": "Alice",
+            }},
+            {"id": "a2", "attributes": {"rating": 1, "review": "Bad", "date": "2026-08-02T00:00:00Z"}},
+        ]}
+        reviews = parse_amp_payload(
+            payload, source="amp", app_id="839285684", country="us",
+            page_url="u", sort_by="relevance", fetched_at="t",
+        )
+        self.assertEqual(len(reviews), 2)
+        self.assertEqual(reviews[0].review_id, "a1")
+        self.assertEqual(reviews[0].rating, 5)
+        self.assertEqual(reviews[0].body, "Love it")
+        self.assertEqual(reviews[1].rating, 1)
 
 
 if __name__ == "__main__":

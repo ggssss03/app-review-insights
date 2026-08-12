@@ -20,9 +20,16 @@ from .storage import envelope, ensure_dir, write_json
 
 ITUNES_LOOKUP_URL = "https://itunes.apple.com/lookup"
 RSS_BASE_URL = "https://itunes.apple.com/us/rss/customerreviews"
+AMP_PAGE_URL = "https://apps.apple.com/{country}/app/id{app_id}"
+AMP_REVIEWS_URL = "https://amp-api.apps.apple.com/v1/catalog/{country}/apps/{app_id}/reviews"
 SORT_ORDERS = ("mostRecent", "mostHelpful")
 MAX_PAGES = 10
+BROWSER_UA = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+    "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+)
 USER_AGENT = "app-review-insights/0.1 (local demo collector)"
+US_STORE_FRONT = "143441-1,29"
 
 REVIEW_ID_PATTERN = re.compile(r"(?:[?&]id=|/id)(\d+)")
 
@@ -31,6 +38,15 @@ def http_get_json(url: str, timeout: int = 30) -> dict:
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
     with urllib.request.urlopen(req, timeout=timeout) as resp:
         return json.loads(resp.read().decode("utf-8"))
+
+
+def http_get_text(url: str, headers: Optional[dict] = None, timeout: int = 60) -> str:
+    merged = {"User-Agent": BROWSER_UA}
+    if headers:
+        merged.update(headers)
+    req = urllib.request.Request(url, headers=merged)
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        return resp.read().decode("utf-8", errors="replace")
 
 
 def extract_app_id(url_or_id: str) -> str:
@@ -127,7 +143,129 @@ def parse_review_feed(payload: dict, *, source: str, app_id: str, country: str,
     return reviews
 
 
-def fetch_reviews(
+def extract_amp_token(html: str) -> str:
+    """从应用页面 HTML 中提取 AMP 评论 API 的 Bearer token。"""
+    m = re.search(r'"token":"([^"]+)"', html)
+    if m:
+        return m.group(1)
+    idx = html.find("amp-api.apps.apple.com")
+    if idx >= 0:
+        m2 = re.search(r'"token":"([^"]+)"', html[idx : idx + 3000])
+        if m2:
+            return m2.group(1)
+    raise ValueError("未能在应用页面中找到 AMP API token（可能被地理重定向或接口变更）")
+
+
+def fetch_amp_token(app_id: str, country: str = "us", timeout: int = 60) -> str:
+    url = AMP_PAGE_URL.format(country=country, app_id=app_id)
+    html = http_get_text(url, timeout=timeout)
+    return extract_amp_token(html)
+
+
+def parse_amp_payload(payload: dict, *, source: str, app_id: str, country: str,
+                      page_url: str, sort_by: str, fetched_at: str) -> list[ReviewRaw]:
+    """解析 AMP 评论接口返回：data[].attributes{rating,title,review,date,version,author}。"""
+    reviews = []
+    for item in payload.get("data") or []:
+        attrs = item.get("attributes") or {}
+        reviews.append(ReviewRaw.create(
+            source=source,
+            app_id=app_id,
+            review_id=str(item.get("id") or ""),
+            author=str(attrs.get("author") or ""),
+            rating=int(attrs.get("rating") or 0),
+            title=str(attrs.get("title") or ""),
+            body=str(attrs.get("review") or ""),
+            version=str(attrs.get("version") or ""),
+            country=country,
+            updated=str(attrs.get("date") or ""),
+            page_url=page_url,
+            sort_by=sort_by,
+            raw=item,
+        ))
+    return reviews
+
+
+def fetch_amp_reviews(
+    app_id: str,
+    *,
+    country: str = "us",
+    max_reviews: int = 200,
+    limit: int = 20,
+    delay: float = 1.0,
+    cache_dir: pathlib.Path,
+    timeout: int = 60,
+    refresh: bool = False,
+) -> dict:
+    """通过 App Store 页面使用的 AMP 评论 API 采集评论（官方接口）。"""
+    ensure_dir(cache_dir)
+    fetched_at = utcnow_iso()
+    stats = {
+        "app_id": app_id,
+        "country": country,
+        "method": "amp",
+        "fetched_at": fetched_at,
+        "pages_fetched": 0,
+        "pages_skipped": 0,
+        "reviews_total": 0,
+        "reviews_by_offset": {},
+        "empty_pages": [],
+        "errors": [],
+        "notes": [
+            "数据来源：Apple AMP Reviews API（App Store 页面使用的官方接口）。",
+        ],
+    }
+    try:
+        token = fetch_amp_token(app_id, country=country, timeout=timeout)
+        stats["token_ok"] = True
+    except Exception as exc:  # noqa: BLE001
+        stats["token_ok"] = False
+        stats["errors"].append({"stage": "token", "error": str(exc)})
+        stats["notes"].append("获取 AMP token 失败（页面被地理重定向或接口变更），"
+                              "请使用 GitHub Actions（US runner）或导入 JSON/CSV。")
+        write_json(cache_dir / "collection_notes.json", envelope(app_id, "", stats, fetched_at))
+        return stats
+
+    offset = 0
+    while offset < max_reviews:
+        url = (
+            f"{AMP_REVIEWS_URL.format(country=country, app_id=app_id)}"
+            f"?l=en-US&offset={offset}&limit={limit}&platform=web"
+            f"&additionalPlatforms=appletv,ipad,iphone,mac&sort=RELEVANCE"
+        )
+        cache_file = cache_dir / f"reviews-amp-offset-{offset}.json"
+        if cache_file.exists() and not refresh:
+            payload = json.loads(cache_file.read_text(encoding="utf-8"))
+            stats["pages_skipped"] += 1
+        else:
+            try:
+                text = http_get_text(url, headers={
+                    "Authorization": f"Bearer {token}",
+                    "Accept": "application/json",
+                    "X-Apple-Store-Front": US_STORE_FRONT,
+                }, timeout=timeout)
+                payload = json.loads(text)
+                write_json(cache_file, envelope(app_id, url, payload, utcnow_iso()))
+                stats["pages_fetched"] += 1
+                time.sleep(delay)
+            except Exception as exc:  # noqa: BLE001
+                stats["errors"].append({"url": url, "error": str(exc)})
+                break
+        reviews = parse_amp_payload(
+            payload, source="amp", app_id=app_id, country=country,
+            page_url=url, sort_by="relevance", fetched_at=fetched_at,
+        )
+        stats["reviews_by_offset"][str(offset)] = len(reviews)
+        stats["reviews_total"] += len(reviews)
+        if not reviews or len(reviews) < limit:
+            break
+        offset += limit
+
+    write_json(cache_dir / "collection_notes.json", envelope(app_id, "", stats, fetched_at))
+    return stats
+
+
+def _fetch_rss_reviews(
     app_id: str,
     *,
     country: str = "us",
@@ -138,12 +276,13 @@ def fetch_reviews(
     timeout: int = 30,
     refresh: bool = False,
 ) -> dict:
-    """采集评论并缓存；refresh=False 时已存在的缓存页跳过（断点续采）。"""
+    """旧版 Customer Reviews RSS 采集（苹果已停用该接口，作为兜底保留）。"""
     ensure_dir(cache_dir)
     fetched_at = utcnow_iso()
     stats = {
         "app_id": app_id,
         "country": country,
+        "method": "rss",
         "fetched_at": fetched_at,
         "pages_fetched": 0,
         "pages_skipped": 0,
@@ -152,9 +291,8 @@ def fetch_reviews(
         "empty_pages": [],
         "errors": [],
         "notes": [
-            "数据来源：Apple iTunes Customer Reviews RSS（官方公共接口）。",
-            "注意：美国区评论 RSS 在部分地区网络下可能返回空 feed（例如中国大陆直连）。"
-            "此情况下请使用 GitHub Actions 采集工作流或导入 JSON/CSV 数据集。",
+            "数据来源：Apple iTunes Customer Reviews RSS（旧接口）。",
+            "注意：该接口已被苹果停用（多地实测返回空 feed），通常无法获取评论。",
         ],
     }
     for sort_by in sort_orders:
@@ -171,7 +309,7 @@ def fetch_reviews(
                     write_json(cache_file, envelope(app_id, url, payload, fetched_at))
                     stats["pages_fetched"] += 1
                     time.sleep(delay)
-                except Exception as exc:  # noqa: BLE001 - 记录网络错误，不中断整个采集
+                except Exception as exc:  # noqa: BLE001
                     stats["errors"].append({"url": url, "error": str(exc)})
                     break
             reviews = parse_review_feed(
@@ -181,10 +319,47 @@ def fetch_reviews(
             reviews_for_sort.extend(reviews)
             if not reviews:
                 stats["empty_pages"].append({"sort_by": sort_by, "page": page, "url": url})
-                # RSS 对当前页返回空后，后续页通常也是空，停止该排序的翻页
                 break
         stats["reviews_by_sort"][sort_by] = len(reviews_for_sort)
         stats["reviews_total"] += len(reviews_for_sort)
 
     write_json(cache_dir / "collection_notes.json", envelope(app_id, "", stats, fetched_at))
     return stats
+
+
+def fetch_reviews(
+    app_id: str,
+    *,
+    country: str = "us",
+    sort_orders: tuple[str, ...] = SORT_ORDERS,
+    max_pages: int = MAX_PAGES,
+    delay: float = 1.0,
+    cache_dir: pathlib.Path,
+    timeout: int = 30,
+    refresh: bool = False,
+    method: str = "auto",
+) -> dict:
+    """采集评论：method=amp（现代接口）/ rss（旧接口）/ auto（先 amp 后 rss）。"""
+    if method == "amp":
+        return fetch_amp_reviews(
+            app_id, country=country, delay=delay, cache_dir=cache_dir,
+            timeout=timeout, refresh=refresh,
+        )
+    if method == "rss":
+        return _fetch_rss_reviews(
+            app_id, country=country, sort_orders=sort_orders, max_pages=max_pages,
+            delay=delay, cache_dir=cache_dir, timeout=timeout, refresh=refresh,
+        )
+    amp_stats = fetch_amp_reviews(
+        app_id, country=country, delay=delay, cache_dir=cache_dir,
+        timeout=timeout, refresh=refresh,
+    )
+    if amp_stats["reviews_total"] > 0:
+        return amp_stats
+    rss_stats = _fetch_rss_reviews(
+        app_id, country=country, sort_orders=sort_orders, max_pages=1,
+        delay=delay, cache_dir=cache_dir, timeout=timeout, refresh=refresh,
+    )
+    amp_stats["notes"].append("AMP 无结果，已尝试旧 RSS 接口（通常同样为空）。")
+    amp_stats["errors"].extend(rss_stats["errors"])
+    return amp_stats
