@@ -1,0 +1,105 @@
+{
+  "topics": [
+    {
+      "topic_id": 0,
+      "count": 9,
+      "samples": [
+        {
+          "review_id": "5902219913",
+          "text": "Great The Chinese PUBG is so far number one, i’d love to play it every day and night, it is much more interesting than the English and Korean versions, no wonder everyone loves to play the Chinese one"
+        },
+        {
+          "review_id": "6530244192",
+          "text": "Language problem How to change chinese to English ?"
+        },
+        {
+          "review_id": "10906860990",
+          "text": "就是歌姬 la ji"
+        },
+        {
+          "review_id": "11035742441",
+          "text": "🔥🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥"
+        }
+      ],
+      "label": "Mixed feedback on Chinese version",
+      "description": "Comments include praise for the Chinese version of PUBG, requests to change language from Chinese to English, a negative comment in Chinese, and fire emojis indicating excitement.",
+      "keywords": [
+        "Chinese PUBG",
+        "language",
+        "praise",
+        "negative",
+        "fire"
+      ]
+    },
+    {
+      "topic_id": 1,
+      "count": 1,
+      "samples": [
+        {
+          "review_id": "7614650741",
+          "text": ". Is very good"
+        }
+      ],
+      "label": "Positive short review",
+      "description": "A brief positive review stating the app is very good.",
+      "keywords": [
+        "good",
+        "positive"
+      ]
+    }
+  ],
+  "memberships": [
+    {
+      "review_key": "5902219913",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "7614650741",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "6530244192",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "11035742441",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "8496684097",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "6293765545",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "12534458524",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "12252574032",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "10906860990",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "7779191657",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    }
+  ],
+  "embed_backend": "tfidf",
+  "model_driven": true
+}

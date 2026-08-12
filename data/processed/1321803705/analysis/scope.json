@@ -1,0 +1,12 @@
+{
+  "focus_areas": [
+    "pricing",
+    "subscription_conversion"
+  ],
+  "star_filter": {
+    "min": null,
+    "max": null
+  },
+  "version_filter": null,
+  "note": "模型解析（分析目标明确指向订阅转化和付费墙体验，因此聚焦于订阅转化和定价相关方面。）"
+}

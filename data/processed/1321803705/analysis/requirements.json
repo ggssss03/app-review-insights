@@ -1,0 +1,54 @@
+[
+  [
+    {
+      "code": "R1",
+      "title": "优化中文版游戏体验",
+      "description": "根据用户反馈，中文版存在内容与运营问题，需优化游戏内容与运营策略，提升用户满意度。",
+      "priority": "P1",
+      "planned_version": "V1",
+      "finding_ids": [
+        "F-stat-0",
+        "F-model-0-3"
+      ],
+      "review_ids": [],
+      "acceptance_criteria": [
+        "中文版用户评分提升至4.0以上",
+        "负面评论比例降低至20%以下"
+      ],
+      "status": "kept"
+    },
+    {
+      "code": "R2",
+      "title": "增加语言切换功能",
+      "description": "用户反馈无法将中文切换为英文，需提供语言切换选项，满足不同用户需求。",
+      "priority": "P1",
+      "planned_version": "V1",
+      "finding_ids": [
+        "F-model-0-2"
+      ],
+      "review_ids": [],
+      "acceptance_criteria": [
+        "在设置中提供语言切换选项",
+        "切换后游戏界面与内容正确显示"
+      ],
+      "status": "kept"
+    },
+    {
+      "code": "R3",
+      "title": "保持并强化中文版优势",
+      "description": "部分用户高度认可中文版内容，认为优于其他版本，需保持并强化这些优势，作为宣传亮点。",
+      "priority": "P2",
+      "planned_version": "V2",
+      "finding_ids": [
+        "F-model-0-1"
+      ],
+      "review_ids": [],
+      "acceptance_criteria": [
+        "在更新中保留并突出中文版特色内容",
+        "用户对中文版内容的好评率提升"
+      ],
+      "status": "kept"
+    }
+  ],
+  "模型生成"
+]

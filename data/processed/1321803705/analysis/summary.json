@@ -1,0 +1,52 @@
+{
+  "app_id": "1321803705",
+  "goal_text": "",
+  "scope": {
+    "focus_areas": [
+      "pricing",
+      "subscription_conversion"
+    ],
+    "star_filter": {
+      "min": null,
+      "max": null
+    },
+    "version_filter": null,
+    "note": "模型解析（分析目标明确指向订阅转化和付费墙体验，因此聚焦于订阅转化和定价相关方面。）"
+  },
+  "clean_stats": {
+    "input_count": 10,
+    "unique_count": 10,
+    "removed_duplicates": 0,
+    "junk_count": 1,
+    "rating_distribution": {
+      "1": 5,
+      "4": 1,
+      "5": 4
+    },
+    "language_distribution": {
+      "en": 3,
+      "symbols": 1,
+      "zh": 6
+    },
+    "rules_note": "清洗/去重/语言识别使用确定性规则（详见 PLAN.md 第 7 节）。"
+  },
+  "counts": {
+    "reviews": 10,
+    "topics": 2,
+    "findings": 5,
+    "requirements": 3,
+    "test_cases": 3
+  },
+  "model_driven": true,
+  "notes": [
+    "模型生成",
+    "模型生成",
+    "主题发现使用 tfidf 嵌入；模型驱动主题命名：True。",
+    "数据来源与限制见 data/README.md；空数据/网络限制如实标注，不编造。"
+  ],
+  "traceability": {
+    "total_checks": 14,
+    "passed_checks": 14,
+    "failed_checks": 0
+  }
+}

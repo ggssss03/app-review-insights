@@ -137,7 +137,17 @@ class ServerApp:
         path = self.out_dir(app_id) / "analysis" / f"{stage}.json"
         if not path.exists():
             return {"app_id": app_id, "stage": stage, "error": "该阶段产物不存在", "data": None}
-        return {"app_id": app_id, "stage": stage, "data": json.loads(path.read_text(encoding="utf-8"))}
+        data = json.loads(path.read_text(encoding="utf-8"))
+        # pipeline 将 (列表, 生成说明) 以 [list, note] 形式落盘以保留来源说明；
+        # 前端按平铺列表渲染，这里归一化为列表，说明信息保留在 summary 的 notes 中。
+        if (
+            isinstance(data, list)
+            and len(data) == 2
+            and isinstance(data[0], list)
+            and isinstance(data[1], str)
+        ):
+            data = data[0]
+        return {"app_id": app_id, "stage": stage, "data": data}
 
 
 class Handler(BaseHTTPRequestHandler):

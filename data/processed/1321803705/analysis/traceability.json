@@ -1,0 +1,303 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "check": "finding_evidence",
+      "id": "F-stat-0",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
+      "id": "F-model-0-1",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
+      "id": "F-model-0-2",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
+      "id": "F-model-0-3",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
+      "id": "F-stat-1",
+      "passed": true
+    },
+    {
+      "check": "requirement_support",
+      "id": "R1",
+      "passed": true
+    },
+    {
+      "check": "requirement_support",
+      "id": "R2",
+      "passed": true
+    },
+    {
+      "check": "requirement_support",
+      "id": "R3",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC1",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC2",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC3",
+      "passed": true
+    },
+    {
+      "check": "requirement_review_chain",
+      "id": "R1",
+      "passed": true,
+      "detail": "链路完整",
+      "missing": []
+    },
+    {
+      "check": "requirement_review_chain",
+      "id": "R2",
+      "passed": true,
+      "detail": "链路完整",
+      "missing": []
+    },
+    {
+      "check": "requirement_review_chain",
+      "id": "R3",
+      "passed": true,
+      "detail": "链路完整",
+      "missing": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-stat-0",
+      "topic_id": 0,
+      "statement": "主题「Mixed feedback on Chinese version」共出现 9 条相关评论，平均评分 2.67。",
+      "evidence_review_ids": [
+        "5902219913",
+        "6530244192",
+        "11035742441",
+        "8496684097",
+        "6293765545",
+        "12534458524",
+        "12252574032",
+        "10906860990",
+        "7779191657"
+      ],
+      "sample_count": 9,
+      "confidence": 0.9,
+      "uncertainty": "样本量有限，结论强度受限",
+      "conflicts": [
+        "5 条低分与 4 条高分反馈并存，观点存在分歧"
+      ],
+      "provenance": "stat",
+      "status": "kept",
+      "rationale": "确定性统计：样本数、评分分布。"
+    },
+    {
+      "id": "F-model-0-1",
+      "topic_id": 0,
+      "statement": "部分用户对中文版游戏内容表示高度认可，认为其优于其他版本。",
+      "evidence_review_ids": [
+        "5902219913"
+      ],
+      "sample_count": 1,
+      "confidence": 0.6,
+      "uncertainty": "仅一条正面评论，样本不足。",
+      "conflicts": [
+        "其他负面评论可能反映不同体验"
+      ],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    },
+    {
+      "id": "F-model-0-2",
+      "topic_id": 0,
+      "statement": "存在语言切换问题，用户无法将中文切换为英文。",
+      "evidence_review_ids": [
+        "6530244192"
+      ],
+      "sample_count": 1,
+      "confidence": 0.7,
+      "uncertainty": "仅一条评论提及，但问题明确。",
+      "conflicts": [],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    },
+    {
+      "id": "F-model-0-3",
+      "topic_id": 0,
+      "statement": "部分用户对游戏内容或运营表达强烈不满，使用负面词汇。",
+      "evidence_review_ids": [
+        "10906860990",
+        "12252574032",
+        "12534458524",
+        "6293765545",
+        "7779191657"
+      ],
+      "sample_count": 5,
+      "confidence": 0.8,
+      "uncertainty": "多条负面评论，但具体原因各异。",
+      "conflicts": [
+        "正面评论显示部分用户满意"
+      ],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    },
+    {
+      "id": "F-stat-1",
+      "topic_id": 1,
+      "statement": "主题「Positive short review」共出现 1 条相关评论，平均评分 5.0。",
+      "evidence_review_ids": [
+        "7614650741"
+      ],
+      "sample_count": 1,
+      "confidence": 0.1,
+      "uncertainty": "样本量有限，结论强度受限",
+      "conflicts": [],
+      "provenance": "stat",
+      "status": "kept",
+      "rationale": "确定性统计：样本数、评分分布。"
+    }
+  ],
+  "requirements": [
+    {
+      "code": "R1",
+      "title": "优化中文版游戏体验",
+      "description": "根据用户反馈，中文版存在内容与运营问题，需优化游戏内容与运营策略，提升用户满意度。",
+      "priority": "P1",
+      "planned_version": "V1",
+      "finding_ids": [
+        "F-stat-0",
+        "F-model-0-3"
+      ],
+      "review_ids": [],
+      "acceptance_criteria": [
+        "中文版用户评分提升至4.0以上",
+        "负面评论比例降低至20%以下"
+      ],
+      "status": "kept"
+    },
+    {
+      "code": "R2",
+      "title": "增加语言切换功能",
+      "description": "用户反馈无法将中文切换为英文，需提供语言切换选项，满足不同用户需求。",
+      "priority": "P1",
+      "planned_version": "V1",
+      "finding_ids": [
+        "F-model-0-2"
+      ],
+      "review_ids": [],
+      "acceptance_criteria": [
+        "在设置中提供语言切换选项",
+        "切换后游戏界面与内容正确显示"
+      ],
+      "status": "kept"
+    },
+    {
+      "code": "R3",
+      "title": "保持并强化中文版优势",
+      "description": "部分用户高度认可中文版内容，认为优于其他版本，需保持并强化这些优势，作为宣传亮点。",
+      "priority": "P2",
+      "planned_version": "V2",
+      "finding_ids": [
+        "F-model-0-1"
+      ],
+      "review_ids": [],
+      "acceptance_criteria": [
+        "在更新中保留并突出中文版特色内容",
+        "用户对中文版内容的好评率提升"
+      ],
+      "status": "kept"
+    }
+  ],
+  "test_cases": [
+    {
+      "code": "TC1",
+      "title": "验证中文版游戏内容优化",
+      "requirement_ids": [
+        "R1"
+      ],
+      "review_ids": [],
+      "gherkin": {
+        "given": [
+          "用户已安装中文版游戏",
+          "用户反馈中文版存在内容与运营问题"
+        ],
+        "when": [
+          "用户启动游戏并体验优化后的内容",
+          "用户参与优化后的运营活动"
+        ],
+        "then": [
+          "用户满意度提升",
+          "用户反馈问题得到解决"
+        ]
+      }
+    },
+    {
+      "code": "TC2",
+      "title": "验证语言切换功能",
+      "requirement_ids": [
+        "R2"
+      ],
+      "review_ids": [],
+      "gherkin": {
+        "given": [
+          "用户已安装中文版游戏",
+          "用户希望将中文切换为英文"
+        ],
+        "when": [
+          "用户在设置中选择语言切换选项",
+          "用户选择英文作为游戏语言"
+        ],
+        "then": [
+          "游戏界面语言切换为英文",
+          "用户可正常使用英文版游戏"
+        ]
+      }
+    },
+    {
+      "code": "TC3",
+      "title": "验证中文版优势保持",
+      "requirement_ids": [
+        "R3"
+      ],
+      "review_ids": [],
+      "gherkin": {
+        "given": [
+          "用户已安装中文版游戏",
+          "用户认可中文版内容优于其他版本"
+        ],
+        "when": [
+          "用户对比中文版与其他版本内容",
+          "用户体验中文版特色内容"
+        ],
+        "then": [
+          "中文版优势得到保持",
+          "用户继续认可中文版"
+        ]
+      }
+    }
+  ],
+  "removed_findings": [],
+  "removed_test_cases": [],
+  "assumption_requirements": [],
+  "summary": {
+    "total_checks": 14,
+    "passed_checks": 14,
+    "failed_checks": 0
+  }
+}

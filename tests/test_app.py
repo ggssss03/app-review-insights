@@ -80,6 +80,33 @@ class ServerIntegrationTest(unittest.TestCase):
         self.assertEqual(summary["counts"]["reviews"], 4)
         self.assertFalse(summary["model_driven"])
 
+    def test_artifacts_normalizes_list_note_format(self):
+        base = f"http://127.0.0.1:{self.port}"
+        raw = pathlib.Path(self.tmp.name) / "raw" / "888002"
+        out = pathlib.Path(self.tmp.name) / "processed" / "888002" / "analysis"
+        raw.mkdir(parents=True, exist_ok=True)
+        out.mkdir(parents=True, exist_ok=True)
+        (raw / "reviews.json").write_text(json.dumps([{
+            "id": "r1", "author": "A", "rating": 3, "title": "T", "content": "B", "date": "2026-01-01",
+        }]), encoding="utf-8")
+        (out / "requirements.json").write_text(json.dumps([
+            [{"code": "R1", "title": "需求一", "priority": "P1", "planned_version": "V1",
+              "finding_ids": [], "review_ids": [], "acceptance_criteria": ["标准一"]}],
+            "模型生成",
+        ], ensure_ascii=False), encoding="utf-8")
+        (out / "testcases.json").write_text(json.dumps([
+            [{"code": "TC1", "title": "用例一", "requirement_ids": ["R1"], "review_ids": [],
+              "gherkin": {"given": ["已安装"], "when": ["点击开始"], "then": ["进入训练"]}}],
+            "模型生成",
+        ], ensure_ascii=False), encoding="utf-8")
+        requirements = http_json(f"{base}/api/artifacts/888002?stage=requirements")["data"]
+        self.assertIsInstance(requirements, list)
+        self.assertEqual(requirements[0]["code"], "R1")
+        self.assertIsInstance(requirements[0], dict)
+        testcases = http_json(f"{base}/api/artifacts/888002?stage=testcases")["data"]
+        self.assertIsInstance(testcases, list)
+        self.assertEqual(testcases[0]["gherkin"]["given"], ["已安装"])
+
 
 if __name__ == "__main__":
     unittest.main()
