@@ -1,0 +1,34 @@
+name: Collect App Store reviews
+
+on:
+  schedule:
+    # 每周一 03:00 UTC（美国 runner，可正常访问 US 区评论 RSS）
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Collect reviews for sample app
+        run: python scripts/fetch_reviews.py 839285684 --delay 1.0
+        env:
+          PYTHONPATH: src
+      - name: Commit cached data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet; then
+            echo "no data changes"
+          else
+            git commit -m "chore(data): refresh cached App Store reviews"
+            git push
+          fi

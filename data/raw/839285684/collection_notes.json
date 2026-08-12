@@ -1,0 +1,34 @@
+{
+  "app_id": "839285684",
+  "url": "",
+  "fetched_at": "2026-08-12T07:34:44+00:00",
+  "data": {
+    "app_id": "839285684",
+    "country": "us",
+    "fetched_at": "2026-08-12T07:34:44+00:00",
+    "pages_fetched": 2,
+    "pages_skipped": 0,
+    "reviews_total": 0,
+    "reviews_by_sort": {
+      "mostRecent": 0,
+      "mostHelpful": 0
+    },
+    "empty_pages": [
+      {
+        "sort_by": "mostRecent",
+        "page": 1,
+        "url": "https://itunes.apple.com/us/rss/customerreviews/id=839285684/page=1/sortBy=mostRecent/json"
+      },
+      {
+        "sort_by": "mostHelpful",
+        "page": 1,
+        "url": "https://itunes.apple.com/us/rss/customerreviews/id=839285684/page=1/sortBy=mostHelpful/json"
+      }
+    ],
+    "errors": [],
+    "notes": [
+      "数据来源：Apple iTunes Customer Reviews RSS（官方公共接口）。",
+      "注意：美国区评论 RSS 在部分地区网络下可能返回空 feed（例如中国大陆直连）。此情况下请使用 GitHub Actions 采集工作流或导入 JSON/CSV 数据集。"
+    ]
+  }
+}

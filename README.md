@@ -1,0 +1,103 @@
+# App Review Insights
+
+把真实的 App Store 用户评论，自动变成**可追溯的产品需求（PRD）、版本规划和测试用例**。
+
+> 目标与评估标准见 [PLAN.md](PLAN.md)，其源头是
+> [retro-labs/app-review-insights](https://github.com/retro-labs/app-review-insights/blob/main/README.md)。
+
+## 当前进度（M1：数据层）
+
+- [x] M0 项目骨架：git 仓库、目录结构、`.env.example`、CI 占位
+- [x] M1 数据采集：Apple Lookup（元数据）+ Customer Reviews RSS（美国区评论），限速、缓存、断点续采
+- [x] M1 数据导入：支持 JSON / CSV 评论数据集导入（README 硬性要求）
+- [x] M1 清洗去重：字段规范化、去重、垃圾过滤、PII 脱敏、语言启发式识别
+- [ ] M2 分析层（动态主题发现 / LLM 命名归并 / 证据评估）
+- [ ] M3 规划层（PRD / 版本拆分 / 测试用例 / 追溯校验）
+- [ ] M4 应用层（FastAPI + 前端 UI，进度与交付物展示）
+- [ ] M5 交付加固（E2E、文档、GitHub 推送）
+
+## 快速开始
+
+需要 Python 3.10+，M1 阶段**零第三方依赖**（纯标准库）。
+
+```bash
+# 1) 采集元数据 + 评论（US 区），结果缓存到 data/raw/<app_id>/
+PYTHONPATH=src python scripts/fetch_reviews.py 839285684
+
+# 2) 或者导入已有 JSON/CSV 数据集
+PYTHONPATH=src python scripts/import_reviews.py path/to/reviews.csv --app-id 839285684
+
+# 3) 清洗去重，输出 data/processed/<app_id>/
+PYTHONPATH=src python scripts/clean_reviews.py 839285684
+
+# 4) 运行测试（M1 用标准库 unittest，pytest 也能收集）
+PYTHONPATH=src python -m unittest discover -s tests -v
+```
+
+示例应用（评估用主样例）：`Workout for Women: Home & Gym`
+`https://apps.apple.com/us/app/workout-for-women-home-gym/id839285684`
+
+## 数据来源与限制（重要）
+
+### 数据来源
+
+- **应用元数据**：Apple iTunes Search API（Lookup），`https://itunes.apple.com/lookup?id=<id>&country=us`
+- **评论数据**：Apple iTunes Customer Reviews RSS（美国区 storefront），
+  `https://itunes.apple.com/us/rss/customerreviews/id=<id>/page=<n>/sortBy=<sort>/json`
+  - `sortBy` 支持 `mostRecent` / `mostHelpful`，每页最多 50 条、最多 10 页，合计约 1000 条
+  - 请求间隔默认 ≥ 1 秒，原始响应按页缓存（`data/raw/<app_id>/reviews-<sort>-p<n>.json`），可断点续采
+
+### 已知限制（实测）
+
+在部分网络环境（如中国大陆直连）下，美国区评论 RSS 对任意应用都返回**空 feed**（元数据接口正常）。
+这不是应用问题，而是苹果的地区/网络策略。对策：
+
+1. 使用仓库内 [.github/workflows/collect-reviews.yml](.github/workflows/collect-reviews.yml)
+   的定时采集（GitHub Actions 的 US runner 可正常取数），结果自动提交到 `data/raw/`；
+2. 使用导入功能（JSON/CSV）喂入合规数据集；
+3. 在可直连的网络环境本地直接运行 `fetch_reviews.py`。
+
+缓存文件统一使用信封结构记录来源：
+
+```json
+{ "app_id": "...", "url": "https://...", "fetched_at": "...", "data": { ... } }
+```
+
+**缓存数据仅用于离线评审与复现，绝不冒充实时采集，也绝不编造评论。**
+
+## 导入格式
+
+JSON（数组，或带 `feed.entry` 的 RSS 结构，或 `{data: [...]}` 信封）与 CSV 均可。
+字段名支持常见别名，最小要求有正文或标题：
+
+```text
+id / review_id / reviewId      评论 ID（用于去重，缺省时按 作者+日期+内容 哈希去重）
+author / author_name / name    作者
+rating / stars / im:rating     1-5 星
+title / title.label            标题
+content / body / text          正文
+version / appVersion           版本
+updated / date / created_at    时间
+votes / helpful_votes          有用票数（可选）
+country / storefront           地区（默认 us）
+```
+
+## 目录结构
+
+```text
+src/app_review_insights/   核心代码（collector / importer / cleaner / models / storage）
+scripts/                   命令行入口（fetch / import / clean）
+tests/                     单元测试
+data/raw/<app_id>/         原始缓存（可复现数据）
+data/processed/<app_id>/   清洗后结构化结果
+docs/                      架构与决策文档（后续里程碑补充）
+.github/workflows/         CI 与定时采集
+```
+
+## 密钥与配置
+
+复制 `.env.example` 为 `.env` 并填写（M2 起需要 LLM 配置）。真实密钥绝不提交到仓库。
+
+## Roadmap
+
+详见 [PLAN.md](PLAN.md) 第 10 节：M0 基建 → M1 数据层 → M2 分析层 → M3 规划层 → M4 应用层 → M5 交付加固。
