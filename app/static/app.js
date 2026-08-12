@@ -130,10 +130,60 @@ function renderSummary(s) {
   const trace = s.traceability;
   return `
     <div class="summary-grid">${cards}</div>
-    <h3>范围</h3><p>${esc(JSON.stringify(s.scope || {}))}</p>
-    <h3>说明</h3><ul>${(s.notes || []).map((n) => `<li>${esc(n)}</li>`).join("")}</ul>
-    <h3>追溯校验</h3>
-    <p>${trace.passed_checks}/${trace.total_checks} 通过 · 模型驱动：${s.model_driven}</p>
+    ${renderScope(s.scope)}
+    <div class="meta-row">
+      <div class="meta-chip"><span class="meta-label">说明</span>
+        <ul class="note-list">${(s.notes || []).map((n) => `<li>${esc(n)}</li>`).join("")}</ul>
+      </div>
+      <div class="meta-chip">
+        <span class="meta-label">追溯校验</span>
+        <span class="trace-big">${trace.passed_checks}/${trace.total_checks} <small>通过</small></span>
+        <span class="trace-tag ${s.model_driven ? "model" : ""}">${s.model_driven ? "模型驱动" : "确定性模式"}</span>
+      </div>
+    </div>
+  `;
+}
+
+const FOCUS_LABELS = {
+  pricing: "定价",
+  subscription_conversion: "订阅转化",
+  usability: "可用性",
+  performance: "性能",
+  features: "功能",
+  other: "其他",
+};
+
+function renderScope(scope) {
+  if (!scope) return "";
+  const areas = (scope.focus_areas || []).map((a) =>
+    `<span class="focus-tag">${esc(FOCUS_LABELS[a] || a)}</span>`
+  ).join("");
+  const star = scope.star_filter || {};
+  const starText = (star.min == null && star.max == null)
+    ? "不限"
+    : `最低 ${star.min ?? "—"} 星 ～ 最高 ${star.max ?? "—"} 星`;
+  const versionText = scope.version_filter ? `版本 ${esc(scope.version_filter)}` : "不限版本";
+  return `
+    <div class="scope-card">
+      <div class="scope-head">
+        <span class="scope-title">▣ 分析范围</span>
+        <span class="scope-mode">${(scope.note || "").includes("全量") ? "全量分析" : "定向分析"}</span>
+      </div>
+      <div class="scope-body">
+        <div class="scope-row">
+          <span class="meta-label">关注维度</span>
+          <div class="focus-tags">${areas || '<span class="muted">未指定（全量）</span>'}</div>
+        </div>
+        <div class="scope-row">
+          <span class="meta-label">评分筛选</span><span class="scope-val">${esc(starText)}</span>
+          <span class="meta-label">版本筛选</span><span class="scope-val">${versionText}</span>
+        </div>
+        <div class="scope-row">
+          <span class="meta-label">范围说明</span>
+          <span class="scope-note">${esc(scope.note || "—")}</span>
+        </div>
+      </div>
+    </div>
   `;
 }
 
