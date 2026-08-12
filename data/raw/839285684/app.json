@@ -1,7 +1,7 @@
 {
   "app_id": "839285684",
   "url": "https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684?uo=4",
-  "fetched_at": "2026-08-12T09:17:51+00:00",
+  "fetched_at": "2026-08-12T09:57:06+00:00",
   "data": {
     "app_id": "839285684",
     "track_name": "Workout for Women -Lose Weight",
@@ -13,8 +13,9 @@
     "minimum_os_version": "15.0",
     "url": "https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684?uo=4",
     "storefront": "cn",
-    "fetched_at": "2026-08-12T09:17:51+00:00",
+    "fetched_at": "2026-08-12T09:57:06+00:00",
     "raw": {
+      "isGameCenterEnabled": false,
       "screenshotUrls": [
         "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/6f/47/49/6f474929-21ea-a1a0-97ff-345d08572e8a/839285684_7.7.0_zh-Hans_APP_IPHONE_55_5.5_01.jpg/392x696bb.jpg",
         "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/44/ec/82/44ec8223-4bc5-e669-f95f-5f898f0145a0/839285684_7.7.0_zh-Hans_APP_IPHONE_55_5.5_02.jpg/392x696bb.jpg",
@@ -39,10 +40,9 @@
       ],
       "appletvScreenshotUrls": [],
       "artworkUrl512": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1c/0e/a9/1c0ea9e4-fd19-95c0-8e38-c49f000cf5de/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
-      "artistViewUrl": "https://apps.apple.com/cn/developer/fast-builder-limited/id596300475?uo=4",
-      "artworkUrl60": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1c/0e/a9/1c0ea9e4-fd19-95c0-8e38-c49f000cf5de/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/60x60bb.jpg",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1c/0e/a9/1c0ea9e4-fd19-95c0-8e38-c49f000cf5de/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg",
-      "isGameCenterEnabled": false,
+      "features": [
+        "iosUniversal"
+      ],
       "supportedDevices": [
         "iPhone5s-iPhone5s",
         "iPadAir-iPadAir",
@@ -174,10 +174,12 @@
       ],
       "advisories": [],
       "kind": "software",
-      "features": [
-        "iosUniversal"
-      ],
+      "artistViewUrl": "https://apps.apple.com/cn/developer/fast-builder-limited/id596300475?uo=4",
+      "artworkUrl60": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1c/0e/a9/1c0ea9e4-fd19-95c0-8e38-c49f000cf5de/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/60x60bb.jpg",
+      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/1c/0e/a9/1c0ea9e4-fd19-95c0-8e38-c49f000cf5de/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg",
+      "minimumOsVersion": "15.0",
       "averageUserRatingForCurrentVersion": 4.76604,
+      "sellerUrl": "https://7mfitness.com",
       "languageCodesISO2A": [
         "AR",
         "HR",
@@ -205,14 +207,8 @@
       ],
       "fileSizeBytes": "923653120",
       "formattedPrice": "免费",
-      "sellerUrl": "https://7mfitness.com",
       "userRatingCountForCurrentVersion": 530,
       "trackContentRating": "4+",
-      "trackCensoredName": "Workout for Women -Lose Weight",
-      "trackViewUrl": "https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684?uo=4",
-      "contentAdvisoryRating": "4+",
-      "averageUserRating": 4.76604,
-      "minimumOsVersion": "15.0",
       "artistId": 596300475,
       "artistName": "Fast Builder Limited",
       "genres": [
@@ -220,24 +216,28 @@
         "生活"
       ],
       "price": 0.0,
-      "sellerName": "Fast Builder Limited",
       "bundleId": "com.oneothergame.7min-fitness",
-      "primaryGenreName": "Health & Fitness",
-      "primaryGenreId": 6013,
-      "trackId": 839285684,
-      "trackName": "Workout for Women -Lose Weight",
       "genreIds": [
         "6013",
         "6012"
       ],
-      "releaseDate": "2014-03-21T16:41:53Z",
-      "isVppDeviceBasedLicensingEnabled": true,
       "currentVersionReleaseDate": "2026-08-10T18:15:25Z",
+      "releaseDate": "2014-03-21T16:41:53Z",
+      "trackId": 839285684,
+      "trackName": "Workout for Women -Lose Weight",
+      "primaryGenreName": "Health & Fitness",
+      "primaryGenreId": 6013,
+      "sellerName": "Fast Builder Limited",
+      "isVppDeviceBasedLicensingEnabled": true,
       "releaseNotes": "Bug fixes and optimizations. \n\nWe're always hard at work on our next update. Make sure to leave us a review and let us know what you would like to see next!\n\nHappy sweating~",
       "version": "8.5.0",
       "wrapperType": "software",
       "currency": "CNY",
       "description": "** #1 Rated Female Focused Workout App 2023 **\n\nLooking for a workout app that is tailored specifically to your needs? Short on time but still want to get healthier? Workout for Women is the app for you. \n\nWorkout anywhere, anytime. A personal trainer right in your pocket.\n\nTop 10 features of our app:\n\nCustomized workouts - Our app allows you to create your own personalized workout plan based on your fitness goals and preferences.\n\nVariety - We offer a wide range of workouts including yoga, strength training, cardio, and flexibility exercises to keep things interesting and challenging.\n\nEasy to follow - Our app provides step-by-step instructions and video demos to ensure that you are performing each exercise correctly and safely.\n\nConvenience - You can access our workouts anytime, anywhere, so you can fit in a workout whenever it's convenient for you.\n\nMotivation - Our app includes tips and tricks to keep you motivated and on track to achieve your fitness goals.\n\nProgress tracking - You can track your progress and see how far you have come, which can help keep you motivated and on track.\n\nSafety - Our app provides safety guidelines and tips to prevent injury and ensure that you are working out safely and effectively.\n\nExpert guidance - Our app is developed by experienced fitness professionals who are committed to providing you with the highest quality workouts and advice.\n\nBeginner friendly - Whether you are a beginner or an advanced fitness enthusiast, our app has something for everyone.\n\nFun - Our workouts are designed to be enjoyable and fun, so you can look forward to your workouts and stay motivated to achieve your fitness goals.\n\nFree, quick and effective. What are you waiting for? Take control of your health and fitness and sweat with us!\n\nLet 7M help you get healthier today!\n\n\nSUBSCRIPTION INFORMATION\nGet a 7M Supporter subscription and enjoy full access to all features and content. The subscription will automatically renew unless turned off in your iTunes Account Settings at least 24 hours before current period ends. You can go to your iTunes Account settings to manage your subscription and turn off auto-renew. Your iTunes Account will be charged when the purchase is confirmed. If you subscribe before your free trial ends, the rest of your free trial period will be forfeited as soon as your purchase is confirmed.\n\nNote: This app is developed for informational purposes only. You should always consult your physician or doctor before starting any new fitness program.\n\nThis app integrates with the Apple Health app.\n\nTerms of use: https://7mfitness.com/terms-of-use\nPrivacy policy: https://7mfitness.com/privacy-policy",
+      "trackCensoredName": "Workout for Women -Lose Weight",
+      "trackViewUrl": "https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684?uo=4",
+      "contentAdvisoryRating": "4+",
+      "averageUserRating": 4.76604,
       "userRatingCount": 530
     }
   }

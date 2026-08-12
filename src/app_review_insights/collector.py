@@ -26,6 +26,8 @@ AMP_REVIEWS_URL = "https://amp-api.apps.apple.com/v1/catalog/{country}/apps/{app
 ITML_REVIEWS_URL = "https://itunes.apple.com/WebObjects/MZStore.woa/wa/userReviewsRow"
 SORT_ORDERS = ("mostRecent", "mostHelpful")
 MAX_PAGES = 10
+RSS_RETRIES = 6
+RSS_RETRY_DELAY = 1.0
 BROWSER_UA = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
     "(KHTML, like Gecko) Chrome/126.0 Safari/537.36"
@@ -577,14 +579,27 @@ def _fetch_rss_reviews(
                 payload = json.loads(cache_file.read_text(encoding="utf-8"))
                 stats["pages_skipped"] += 1
             else:
-                try:
-                    payload = http_get_json(url, timeout=timeout)
-                    write_json(cache_file, envelope(app_id, url, payload, fetched_at))
-                    stats["pages_fetched"] += 1
-                    time.sleep(delay)
-                except Exception as exc:  # noqa: BLE001
-                    stats["errors"].append({"url": url, "error": str(exc)})
+                payload = None
+                for attempt in range(1, RSS_RETRIES + 1):
+                    try:
+                        candidate = http_get_json(url, timeout=timeout)
+                        candidate_entries = (
+                            candidate.get("feed", {}).get("entry") or []
+                        )
+                        if isinstance(candidate_entries, dict):
+                            candidate_entries = [candidate_entries]
+                        if candidate_entries or attempt == RSS_RETRIES:
+                            payload = candidate
+                            break
+                    except Exception as exc:  # noqa: BLE001
+                        stats["errors"].append({"url": url, "attempt": attempt, "error": str(exc)})
+                    time.sleep(RSS_RETRY_DELAY)
+                if payload is None:
+                    stats["errors"].append({"url": url, "error": "RSS 多次重试仍失败"})
                     break
+                write_json(cache_file, envelope(app_id, url, payload, fetched_at))
+                stats["pages_fetched"] += 1
+                time.sleep(delay)
             reviews = parse_review_feed(
                 payload, source="rss", app_id=app_id, country=country,
                 page_url=url, sort_by=sort_by, fetched_at=fetched_at,
@@ -598,6 +613,99 @@ def _fetch_rss_reviews(
 
     write_json(cache_dir / "collection_notes.json", envelope(app_id, "", stats, fetched_at))
     return stats
+
+
+def _merge_cached_reviews(
+    app_id: str,
+    *,
+    cache_dir: pathlib.Path,
+    rss_stats: dict,
+    page_stats: dict,
+    us_stats: dict,
+) -> dict:
+    """统计缓存目录中多来源评论的合并唯一数（RSS + 产品页 + 美国区 itml）。"""
+    fetched_at = utcnow_iso()
+    seen: set[str] = set()
+    by_source: dict[str, int] = {}
+    notes = list(rss_stats.get("notes", []))
+    notes.append(
+        "中国区采集为多源合并：cn RSS（重试）+ 产品页内嵌评论 + 美国区 itml，"
+        "去重后为分析输入。"
+    )
+    errors = list(rss_stats.get("errors", []))
+    for stats, tag in ((rss_stats, "rss"), (page_stats, "amp-page"), (us_stats, "itml")):
+        if stats.get("errors"):
+            errors.extend(stats["errors"])
+    for file in sorted(cache_dir.glob("reviews-*.json")):
+        if file.name == "collection_notes.json":
+            continue
+        try:
+            payload = json.loads(file.read_text(encoding="utf-8"))
+            data = payload.get("data") or payload
+            source = "rss"
+            if "amp-page" in file.name:
+                source = "amp-page"
+            elif "itml" in file.name:
+                source = "itml"
+            entries = []
+            if isinstance(data, dict):
+                if "amp-page" in file.name:
+                    shelf = data.get("shelfMapping") or {}
+                    items = (shelf.get("allProductReviews") or {}).get("items") or []
+                    entries = [((it or {}).get("review") or {}) for it in items]
+                    for entry in entries:
+                        rid = str(entry.get("id") or "")
+                        if rid and rid not in seen:
+                            seen.add(rid)
+                            by_source[source] = by_source.get(source, 0) + 1
+                    continue
+                feed = data.get("feed") or {}
+                entries = feed.get("entry") or []
+                if isinstance(entries, dict):
+                    entries = [entries]
+                if isinstance(data.get("userReviewList"), list):
+                    entries = data["userReviewList"]
+            for entry in entries:
+                rid = ""
+                if isinstance(entry, dict):
+                    review = entry.get("review")
+                    if isinstance(review, dict):
+                        rid = str(review.get("id") or "")
+                    rid = str(
+                        rid
+                        or entry.get("userReviewId")
+                        or (entry.get("id") or {}).get("label", "")
+                        or entry.get("id", "")
+                    )
+                if rid and rid not in seen:
+                    seen.add(rid)
+                    by_source[source] = by_source.get(source, 0) + 1
+        except Exception:  # noqa: BLE001
+            continue
+    write_json(cache_dir / "collection_notes.json", envelope(app_id, "", {
+        "app_id": app_id,
+        "country": "cn",
+        "method": "merged",
+        "fetched_at": fetched_at,
+        "reviews_total": len(seen),
+        "reviews_unique": len(seen),
+        "reviews_by_source": by_source,
+        "errors": errors,
+        "notes": notes,
+    }, fetched_at))
+    return {
+        "app_id": app_id,
+        "country": "cn",
+        "method": "merged",
+        "fetched_at": fetched_at,
+        "pages_fetched": 0,
+        "pages_skipped": 0,
+        "reviews_total": len(seen),
+        "reviews_by_source": by_source,
+        "empty_pages": [],
+        "errors": errors,
+        "notes": notes,
+    }
 
 
 def fetch_reviews(
@@ -614,8 +722,8 @@ def fetch_reviews(
 ) -> dict:
     """Collect reviews by storefront country.
 
-    中国区（默认，用户只提供 cn 链接）：rss（cn RSS 仍可用）→ amp → itml 兜底；
-    美国区：itml（WebObjects 官方接口）→ amp → rss 兜底。
+    中国区（默认）：rss（cn RSS 间歇可用，自动重试）→ 产品页内嵌评论 → 美国区 itml
+    多源合并，最大化真实评论数量（通常 35+）；美国区：itml → amp → rss 兜底。
     """
     if country == "cn":
         if method == "itml":
@@ -629,27 +737,26 @@ def fetch_reviews(
             app_id, country=country, sort_orders=sort_orders, max_pages=max_pages,
             delay=delay, cache_dir=cache_dir, timeout=timeout, refresh=refresh,
         )
-        if rss_stats["reviews_total"] > 0:
-            return rss_stats
         page_stats = fetch_amp_page_reviews(
             app_id, country=country, cache_dir=cache_dir, timeout=90, refresh=refresh,
         )
-        if page_stats["reviews_total"] > 0:
-            rss_stats["notes"].append("cn RSS empty; product page embedded reviews succeeded.")
-            return page_stats
-        amp_stats = fetch_amp_reviews(
-            app_id, country=country, delay=delay, cache_dir=cache_dir,
-            timeout=timeout, refresh=refresh,
+        us_stats = {}
+        try:
+            us_stats = fetch_itml_reviews(
+                app_id, country="us", cache_dir=cache_dir,
+                timeout=timeout, refresh=refresh,
+            )
+        except Exception as exc:  # noqa: BLE001
+            us_stats = {"reviews_total": 0, "errors": [{"stage": "itml-us", "error": str(exc)}]}
+        merged = _merge_cached_reviews(
+            app_id, cache_dir=cache_dir, rss_stats=rss_stats,
+            page_stats=page_stats, us_stats=us_stats,
         )
-        if amp_stats["reviews_total"] > 0:
-            rss_stats["notes"].append("cn RSS empty; AMP fallback succeeded.")
-            return amp_stats
-        rss_stats["notes"].append(
-            "cn RSS / product page / AMP 均为空；请导入 JSON/CSV 数据集。"
-        )
-        rss_stats["errors"].extend(page_stats["errors"])
-        rss_stats["errors"].extend(amp_stats["errors"])
-        return rss_stats
+        if merged["reviews_total"] == 0:
+            merged["notes"].append(
+                "cn RSS / 产品页 / 美国区 itml 均为空；请导入 JSON/CSV 数据集。"
+            )
+        return merged
     if method == "itml":
         return fetch_itml_reviews(
             app_id, country=country, cache_dir=cache_dir,

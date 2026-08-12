@@ -1,35 +1,23 @@
 {
   "app_id": "839285684",
   "url": "",
-  "fetched_at": "2026-08-12T09:17:51+00:00",
+  "fetched_at": "2026-08-12T09:57:29+00:00",
   "data": {
     "app_id": "839285684",
     "country": "cn",
-    "method": "rss",
-    "fetched_at": "2026-08-12T09:17:51+00:00",
-    "pages_fetched": 3,
-    "pages_skipped": 0,
-    "reviews_total": 35,
-    "reviews_by_sort": {
-      "mostRecent": 0,
-      "mostHelpful": 35
+    "method": "merged",
+    "fetched_at": "2026-08-12T09:57:29+00:00",
+    "reviews_total": 45,
+    "reviews_unique": 45,
+    "reviews_by_source": {
+      "itml": 10,
+      "rss": 35
     },
-    "empty_pages": [
-      {
-        "sort_by": "mostRecent",
-        "page": 1,
-        "url": "https://itunes.apple.com/cn/rss/customerreviews/id=839285684/page=1/sortBy=mostRecent/json"
-      },
-      {
-        "sort_by": "mostHelpful",
-        "page": 2,
-        "url": "https://itunes.apple.com/cn/rss/customerreviews/id=839285684/page=2/sortBy=mostHelpful/json"
-      }
-    ],
     "errors": [],
     "notes": [
       "数据来源：Apple iTunes Customer Reviews RSS（cn 区）。",
-      "注意：美国区 RSS 已被苹果停用（返回空 feed）；中国区 cn RSS 实测仍可用（每页约 35 条，仅第一页有数据）。"
+      "注意：美国区 RSS 已被苹果停用（返回空 feed）；中国区 cn RSS 实测仍可用（每页约 35 条，仅第一页有数据）。",
+      "中国区采集为多源合并：cn RSS（重试）+ 产品页内嵌评论 + 美国区 itml，去重后为分析输入。"
     ]
   }
 }

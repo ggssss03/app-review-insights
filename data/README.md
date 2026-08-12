@@ -7,9 +7,9 @@
 ```text
 data/raw/<app_id>/
     app.json                     应用元数据（Lookup，带来源信封）
-    reviews-mostRecent-p1.json   中国区 RSS 原始响应（cn RSS 仍可用，每页约 35 条）
+    reviews-mostRecent-p1.json   中国区 RSS 原始响应（间歇可用，采集器自动重试，每页约 35 条）
     reviews-amp-page-cn.json     App Store 产品页内嵌评论（中国区页面，8 条）
-    reviews-itml-*.json          WebObjects userReviewsRow 响应（美国区，默认停用，仅显式 us 链接使用）
+    reviews-itml-*.json          WebObjects userReviewsRow 响应（美国区批次，用于多源合并）
     collection_notes.json        每次采集的统计与注意事项
     imported-reviews.json        导入的外部数据集（source=import）
 data/processed/<app_id>/
@@ -30,5 +30,5 @@ data/processed/<app_id>/
 ## 诚实声明
 
 如果某次采集因网络/地区限制返回空数据，`collection_notes.json` 会如实记录空页与原因，
-不会用编造数据填充。采集按链接国家取数（默认中国区）：cn 走 RSS，us 走 itml；
-批量数据请通过 GitHub Actions 定时采集或 JSON/CSV 导入。
+不会用编造数据填充。中国区采集为多源合并：cn RSS（自动重试）→ 产品页内嵌评论 → 美国区 itml，
+去重后通常 35+ 条；批量数据请通过 GitHub Actions 定时采集或 JSON/CSV 导入。

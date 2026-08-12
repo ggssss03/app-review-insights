@@ -203,19 +203,40 @@ class CountryAwareCollectTest(unittest.TestCase):
         ]}}
         empty_feed = {"feed": {}}
 
-        def fake_get(url, timeout=30):
+        def fake_json(url, timeout=30):
+            if "/lookup?" in url:
+                return {"results": [{"trackId": "839285684"}]}
             if "page=1" in url:
                 return payload
             return empty_feed
 
+        def fake_text(url, timeout=60):
+            if "userReviewsRow" in url:
+                return json.dumps({"userReviewList": []})
+            page_html = {
+                "data": [{"data": {"shelfMapping": {"allProductReviews": {"items": [
+                    {"review": {"id": "e1", "title": "好玩", "contents": "派对模式很棒",
+                                "date": "2026-01-01T00:00:00.000Z", "rating": 5,
+                                "reviewerName": "玩家甲"}},
+                    {"review": {"id": "e2", "title": "卡顿", "contents": "经常闪退",
+                                "date": "2026-01-02T00:00:00.000Z", "rating": 2,
+                                "reviewerName": "玩家乙"}},
+                ]}}}}]}
+            return (
+                '<script type="application/json" id="serialized-server-data">'
+                + json.dumps(page_html, ensure_ascii=False)
+                + "</script>"
+            )
+
         with tempfile.TemporaryDirectory() as tmp:
             cache_dir = pathlib.Path(tmp) / "839285684"
-            with mock.patch("app_review_insights.collector.http_get_json", side_effect=fake_get) as get:
+            with mock.patch("app_review_insights.collector.http_get_json", side_effect=fake_json) as get, \
+                 mock.patch("app_review_insights.collector.http_get_text", side_effect=fake_text):
                 stats = fetch_reviews("839285684", country="cn", cache_dir=cache_dir, refresh=True)
         self.assertEqual(stats["reviews_total"], 4)
-        self.assertEqual(stats["method"], "rss")
+        self.assertEqual(stats["method"], "merged")
         self.assertEqual(stats["country"], "cn")
-        url = get.call_args_list[0].args[0]
+        url = next(c.args[0] for c in get.call_args_list if "page=1" in c.args[0])
         self.assertIn("/cn/rss/customerreviews/id=839285684", url)
 
     def test_itml_rejects_cn(self):
