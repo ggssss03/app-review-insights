@@ -11,8 +11,8 @@
   },
   {
     "stage": "clean",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   },
   {
     "stage": "clean",
@@ -21,27 +21,27 @@
   },
   {
     "stage": "topics",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   },
   {
     "stage": "findings",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   },
   {
     "stage": "requirements",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   },
   {
     "stage": "testcases",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   },
   {
     "stage": "traceability",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   }
 ]

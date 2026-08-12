@@ -1,17 +1,21 @@
 {
   "app_id": "839285684",
-  "goal_text": "订阅转化与付费墙体验",
+  "goal_text": "",
   "scope": {
     "focus_areas": [
+      "features",
+      "other",
+      "performance",
       "pricing",
-      "subscription_conversion"
+      "subscription_conversion",
+      "usability"
     ],
     "star_filter": {
       "min": null,
       "max": null
     },
     "version_filter": null,
-    "note": "模型解析（分析目标聚焦于订阅转化与付费墙体验，因此关注订阅转化和定价相关评论。）"
+    "note": "模型解析（无明确分析目标，默认全量分析所有方面。）"
   },
   "clean_stats": {
     "input_count": 88,
