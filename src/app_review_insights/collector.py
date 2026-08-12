@@ -32,6 +32,7 @@ BROWSER_UA = (
 )
 USER_AGENT = "app-review-insights/0.1 (local demo collector)"
 US_STORE_FRONT = "143441-1,29"
+CN_STORE_FRONT = "143465-1,29"
 ITML_SORT_IDS = {"mostHelpful": 1, "mostRecent": 4}
 
 REVIEW_ID_PATTERN = re.compile(r"(?:[?&]id=|/id)(\d+)")
@@ -63,6 +64,19 @@ def extract_app_id(url_or_id: str) -> str:
     raise ValueError(f"无法从输入中解析 App Store 应用 id: {url_or_id!r}")
 
 
+def extract_country(url_or_id: str, default: str = "cn") -> str:
+    """从 App Store 链接中识别 storefront 国家；无法识别时返回默认值。
+
+    用户只提供中国区链接（如 https://apps.apple.com/cn/...），按链接国家取数；
+    裸 ID 默认走中国区。美国区逻辑仍保留，可通过显式 us 链接或 --country us 使用。
+    """
+    text = url_or_id.strip().lower()
+    m = re.search(r"apps\.apple\.com/([a-z]{2})/", text)
+    if m and m.group(1) in {"us", "cn"}:
+        return m.group(1)
+    return default
+
+
 def lookup_app(app_id: str, country: str = "us", timeout: int = 30) -> AppInfo:
     url = f"{ITUNES_LOOKUP_URL}?id={urllib.parse.quote(app_id)}&country={urllib.parse.quote(country)}"
     payload = http_get_json(url, timeout=timeout)
@@ -77,6 +91,11 @@ def build_rss_url(app_id: str, sort_by: str, page: int, country: str = "us") -> 
         return (f"https://itunes.apple.com/{urllib.parse.quote(country)}/rss/customerreviews"
                 f"/id={urllib.parse.quote(app_id)}/page={page}/sortBy={urllib.parse.quote(sort_by)}/json")
     return f"{RSS_BASE_URL}/id={app_id}/page={page}/sortBy={sort_by}/json"
+
+
+def storefront_for(country: str) -> str:
+    """返回指定国家对应的 X-Apple-Store-Front 值。"""
+    return CN_STORE_FRONT if country == "cn" else US_STORE_FRONT
 
 
 def _label(entry: dict, *keys: str) -> str:
@@ -287,6 +306,11 @@ def fetch_itml_reviews(
     """
     ensure_dir(cache_dir)
     fetched_at = utcnow_iso()
+    if country == "cn":
+        raise ValueError(
+            "itml (userReviewsRow) 接口仅对美国区 storefront 有效；"
+            "中国区请使用 rss 方法（cn RSS 仍可用）。"
+        )
     sort_id = ITML_SORT_IDS.get(sort_by, 4)
     url = (
         f"{ITML_REVIEWS_URL}?id={urllib.parse.quote(app_id)}"
@@ -339,7 +363,7 @@ def fetch_itml_reviews(
         try:
             text = http_get_text(url, headers={
                 "Accept": "application/json",
-                "X-Apple-Store-Front": US_STORE_FRONT,
+                "X-Apple-Store-Front": storefront_for(country),
             }, timeout=timeout)
             payload = json.loads(text)
             write_json(cache_file, envelope(app_id, url, payload, fetched_at))
@@ -442,7 +466,7 @@ def fetch_amp_reviews(
 def _fetch_rss_reviews(
     app_id: str,
     *,
-    country: str = "us",
+    country: str = "cn",
     sort_orders: tuple[str, ...] = SORT_ORDERS,
     max_pages: int = MAX_PAGES,
     delay: float = 1.0,
@@ -450,7 +474,7 @@ def _fetch_rss_reviews(
     timeout: int = 30,
     refresh: bool = False,
 ) -> dict:
-    """旧版 Customer Reviews RSS 采集（苹果已停用该接口，作为兜底保留）。"""
+    """Customer Reviews RSS 采集：中国区 cn RSS 仍可用（每页约 35 条），美国区已停用。"""
     ensure_dir(cache_dir)
     fetched_at = utcnow_iso()
     stats = {
@@ -465,8 +489,9 @@ def _fetch_rss_reviews(
         "empty_pages": [],
         "errors": [],
         "notes": [
-            "数据来源：Apple iTunes Customer Reviews RSS（旧接口）。",
-            "注意：该接口已被苹果停用（多地实测返回空 feed），通常无法获取评论。",
+            f"数据来源：Apple iTunes Customer Reviews RSS（{country} 区）。",
+            "注意：美国区 RSS 已被苹果停用（返回空 feed）；"
+            "中国区 cn RSS 实测仍可用（每页约 35 条，仅第一页有数据）。",
         ],
     }
     for sort_by in sort_orders:
@@ -504,7 +529,7 @@ def _fetch_rss_reviews(
 def fetch_reviews(
     app_id: str,
     *,
-    country: str = "us",
+    country: str = "cn",
     sort_orders: tuple[str, ...] = SORT_ORDERS,
     max_pages: int = MAX_PAGES,
     delay: float = 1.0,
@@ -513,7 +538,35 @@ def fetch_reviews(
     refresh: bool = False,
     method: str = "auto",
 ) -> dict:
-    """Collect reviews. method=itml (WebObjects official) / amp / rss / auto (itml then amp then rss)."""
+    """Collect reviews by storefront country.
+
+    中国区（默认，用户只提供 cn 链接）：rss（cn RSS 仍可用）→ amp → itml 兜底；
+    美国区：itml（WebObjects 官方接口）→ amp → rss 兜底。
+    """
+    if country == "cn":
+        if method == "itml":
+            raise ValueError("itml 接口仅支持美国区；中国区请使用 rss 方法。")
+        if method == "rss":
+            return _fetch_rss_reviews(
+                app_id, country=country, sort_orders=sort_orders, max_pages=max_pages,
+                delay=delay, cache_dir=cache_dir, timeout=timeout, refresh=refresh,
+            )
+        rss_stats = _fetch_rss_reviews(
+            app_id, country=country, sort_orders=sort_orders, max_pages=max_pages,
+            delay=delay, cache_dir=cache_dir, timeout=timeout, refresh=refresh,
+        )
+        if rss_stats["reviews_total"] > 0:
+            return rss_stats
+        amp_stats = fetch_amp_reviews(
+            app_id, country=country, delay=delay, cache_dir=cache_dir,
+            timeout=timeout, refresh=refresh,
+        )
+        if amp_stats["reviews_total"] > 0:
+            rss_stats["notes"].append("cn RSS empty; AMP fallback succeeded.")
+            return amp_stats
+        rss_stats["notes"].append("cn RSS and AMP both empty; review data unavailable.")
+        rss_stats["errors"].extend(amp_stats["errors"])
+        return rss_stats
     if method == "itml":
         return fetch_itml_reviews(
             app_id, country=country, cache_dir=cache_dir,

@@ -2,11 +2,16 @@ import json
 import pathlib
 import tempfile
 import unittest
+from unittest import mock
 
 from app_review_insights.collector import (
     build_rss_url,
+    extract_country,
     extract_app_id,
     extract_amp_token,
+    fetch_itml_reviews,
+    fetch_reviews,
+    storefront_for,
     parse_amp_payload,
     parse_itml_payload,
     parse_review_entry,
@@ -42,6 +47,16 @@ class ExtractAppIdTest(unittest.TestCase):
     def test_invalid_raises(self):
         with self.assertRaises(ValueError):
             extract_app_id("not-a-link")
+
+    def test_extract_country(self):
+        self.assertEqual(extract_country("https://apps.apple.com/cn/app/id839285684"), "cn")
+        self.assertEqual(extract_country("https://apps.apple.com/us/app/id839285684"), "us")
+        self.assertEqual(extract_country("839285684"), "cn")
+        self.assertEqual(extract_country("https://apps.apple.com/jp/app/id839285684"), "cn")
+
+    def test_storefront_for(self):
+        self.assertEqual(storefront_for("cn"), "143465-1,29")
+        self.assertEqual(storefront_for("us"), "143441-1,29")
 
 
 class ParseReviewTest(unittest.TestCase):
@@ -169,6 +184,43 @@ class ItmlParseTest(unittest.TestCase):
             page_url="u", sort_by="s", fetched_at="t",
         )
         self.assertEqual(len(reviews), 1)
+
+
+class CountryAwareCollectTest(unittest.TestCase):
+    def test_cn_fetch_uses_rss_and_parses_entries(self):
+        payload = {"feed": {"entry": [
+            {"id": {"label": "c1"}, "author": {"name": {"label": "甲"}},
+             "im:rating": {"label": "1"}, "title": {"label": "都要开通会员"},
+             "content": {"label": "所有项目都要开通会员，都要钱的"},
+             "im:version": {"label": "8.5.0"}, "updated": {"label": "2026-01-01"},
+             "im:voteSum": {"label": "2"}},
+            {"id": {"label": "c2"}, "author": {"name": {"label": "乙"}},
+             "im:rating": {"label": "5"}, "title": {"label": "非常好"},
+             "content": {"label": "这个app非常好"},
+             "im:version": {"label": "8.5.0"}, "updated": {"label": "2026-01-02"},
+             "im:voteSum": {"label": "0"}},
+        ]}}
+        empty_feed = {"feed": {}}
+
+        def fake_get(url, timeout=30):
+            if "page=1" in url:
+                return payload
+            return empty_feed
+
+        with tempfile.TemporaryDirectory() as tmp:
+            cache_dir = pathlib.Path(tmp) / "839285684"
+            with mock.patch("app_review_insights.collector.http_get_json", side_effect=fake_get) as get:
+                stats = fetch_reviews("839285684", country="cn", cache_dir=cache_dir, refresh=True)
+        self.assertEqual(stats["reviews_total"], 4)
+        self.assertEqual(stats["method"], "rss")
+        self.assertEqual(stats["country"], "cn")
+        url = get.call_args_list[0].args[0]
+        self.assertIn("/cn/rss/customerreviews/id=839285684", url)
+
+    def test_itml_rejects_cn(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            with self.assertRaises(ValueError):
+                fetch_itml_reviews("839285684", country="cn", cache_dir=pathlib.Path(tmp))
 
 
 if __name__ == "__main__":

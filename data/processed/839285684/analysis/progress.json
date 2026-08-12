@@ -1,47 +1,47 @@
 [
   {
     "stage": "scope",
-    "status": "cached",
-    "detail": "使用缓存结果"
+    "status": "ok",
+    "detail": "完成"
   },
   {
     "stage": "load",
     "status": "ok",
-    "detail": "18 条原始评论"
-  },
-  {
-    "stage": "clean",
-    "status": "cached",
-    "detail": "使用缓存结果"
+    "detail": "43 条原始评论"
   },
   {
     "stage": "clean",
     "status": "ok",
-    "detail": "18 条（去重 0，垃圾 0）"
+    "detail": "完成"
+  },
+  {
+    "stage": "clean",
+    "status": "ok",
+    "detail": "35 条（去重 8，垃圾 0）"
   },
   {
     "stage": "topics",
-    "status": "cached",
-    "detail": "使用缓存结果"
+    "status": "ok",
+    "detail": "完成"
   },
   {
     "stage": "findings",
-    "status": "cached",
-    "detail": "使用缓存结果"
+    "status": "ok",
+    "detail": "完成"
   },
   {
     "stage": "requirements",
-    "status": "cached",
-    "detail": "使用缓存结果"
+    "status": "ok",
+    "detail": "完成"
   },
   {
     "stage": "testcases",
-    "status": "cached",
-    "detail": "使用缓存结果"
+    "status": "ok",
+    "detail": "完成"
   },
   {
     "stage": "traceability",
-    "status": "cached",
-    "detail": "使用缓存结果"
+    "status": "ok",
+    "detail": "完成"
   }
 ]

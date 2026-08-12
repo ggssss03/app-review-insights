@@ -74,25 +74,23 @@ python app/server.py --port 8765
 
 ### 数据来源
 
-- **应用元数据**：Apple iTunes Search API（Lookup），`https://itunes.apple.com/lookup?id=<id>&country=us`
-- **评论数据**：优先使用 Apple iTunes WebObjects 官方接口（`userReviewsRow`，美国区 storefront），
-  `https://itunes.apple.com/WebObjects/MZStore.woa/wa/userReviewsRow?id=<id>&displayable-kind=11&sortId=4&pageNumber=0`
-  - 该接口无需 token、不受地理重定向影响，2026 年实测可用，返回真实评论（正文/评分/日期/投票数）
-  - 旧版 Customer Reviews RSS 与 AMP Reviews API 已被苹果停用（RSS 对任意应用返回空 feed），仅作兜底保留
-  - 部分 storefront（如中国区产品页）会内嵌 8 条真实评论，采集器也会读取（`reviews-amp-page-cn.json`）
+- **应用元数据**：Apple iTunes Search API（Lookup），按链接国家取数，`https://itunes.apple.com/lookup?id=<id>&country=cn`
+- **评论数据**（默认中国区）：Apple iTunes Customer Reviews RSS（cn 区仍可用，每页约 35 条），
+  `https://itunes.apple.com/cn/rss/customerreviews/id=<id>/page=1/sortBy=mostRecent/json`
+  - 中国区产品页内嵌的 8 条真实评论也会读取（`reviews-amp-page-cn.json`）
+  - 美国区通道（WebObjects `userReviewsRow`）保留但默认停用，仅在显式传入 `us` 链接或 `--country us` 时启用
 
-输入链接可以是美区或中国区页面（如 `https://apps.apple.com/cn/app/.../id839285684`），
-链接只用于识别应用 ID；**评论数据始终从美国区商店（`country=us`）采集**，符合 README 要求。
+输入链接按国家识别 storefront（默认中国区，如 `https://apps.apple.com/cn/app/.../id839285684`），
+**评论数据从链接对应的商店采集**；纯数字 ID 默认走中国区，美国区逻辑保留但默认停用。
 
 ### 已知限制（实测）
 
-在部分网络环境（如中国大陆直连）下，旧版 RSS/AMP 接口不可用；采集器会自动回退到
-WebObjects `userReviewsRow` 接口（本仓库 2026-08 实测可直接取数）。补充对策：
+在美国区，旧版 RSS/AMP 接口已失效；中国区 cn RSS 仍可用。补充对策：
 
 1. 使用仓库内 [.github/workflows/collect-reviews.yml](.github/workflows/collect-reviews.yml)
-   的定时采集（`--method itml`），结果自动提交到 `data/raw/`；
+   的定时采集（中国区 `--method rss`），结果自动提交到 `data/raw/`；
 2. 使用导入功能（JSON/CSV）喂入合规数据集；
-3. 在可直连的网络环境本地直接运行 `fetch_reviews.py --method itml`。
+3. 在可直连的网络环境本地直接运行 `fetch_reviews.py --country cn`。
 
 缓存文件统一使用信封结构记录来源：
 

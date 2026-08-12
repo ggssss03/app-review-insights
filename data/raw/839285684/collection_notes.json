@@ -1,23 +1,35 @@
 {
   "app_id": "839285684",
   "url": "",
-  "fetched_at": "2026-08-12T08:43:26+00:00",
+  "fetched_at": "2026-08-12T09:13:26+00:00",
   "data": {
     "app_id": "839285684",
-    "country": "us",
-    "method": "itml",
-    "fetched_at": "2026-08-12T08:43:26+00:00",
-    "pages_fetched": 1,
+    "country": "cn",
+    "method": "rss",
+    "fetched_at": "2026-08-12T09:13:26+00:00",
+    "pages_fetched": 3,
     "pages_skipped": 0,
-    "reviews_total": 10,
+    "reviews_total": 35,
     "reviews_by_sort": {
-      "mostRecent": 10
+      "mostRecent": 35,
+      "mostHelpful": 0
     },
-    "empty_pages": [],
+    "empty_pages": [
+      {
+        "sort_by": "mostRecent",
+        "page": 2,
+        "url": "https://itunes.apple.com/cn/rss/customerreviews/id=839285684/page=2/sortBy=mostRecent/json"
+      },
+      {
+        "sort_by": "mostHelpful",
+        "page": 1,
+        "url": "https://itunes.apple.com/cn/rss/customerreviews/id=839285684/page=1/sortBy=mostHelpful/json"
+      }
+    ],
     "errors": [],
     "notes": [
-      "数据来源：Apple iTunes WebObjects userReviewsRow 官方接口（2026 年实测仍可用）。",
-      "注意：该接口当前只返回同一批热门评论（分页参数已被苹果忽略），批量数据请使用 GitHub Actions 定时刷新或导入 JSON/CSV。"
+      "数据来源：Apple iTunes Customer Reviews RSS（cn 区）。",
+      "注意：美国区 RSS 已被苹果停用（返回空 feed）；中国区 cn RSS 实测仍可用（每页约 35 条，仅第一页有数据）。"
     ]
   }
 }

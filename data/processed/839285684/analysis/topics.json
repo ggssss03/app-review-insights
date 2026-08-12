@@ -2,103 +2,75 @@
   "topics": [
     {
       "topic_id": 0,
-      "count": 2,
+      "count": 23,
       "samples": [
         {
-          "review_id": "2210969485",
-          "text": "每天打卡收获多多 简单好用好评"
+          "review_id": "10162333986",
+          "text": "Good exercise for woman I have tried many apps, and this one is the best"
         },
         {
-          "review_id": "8536674076",
-          "text": "简单粗暴好用 新手进去很简单，动作容易模仿，一组30秒，容易上手，音乐也好听。8岁儿子强烈要求购买"
+          "review_id": "1020864871",
+          "text": "💪💪💪 方便实用"
+        },
+        {
+          "review_id": "1081072507",
+          "text": "易坚持 冬天做做还能保暖"
+        },
+        {
+          "review_id": "1124547437",
+          "text": "七分钟真不短 很累呀 很适合平时不运动的人"
         }
       ],
-      "label": "简单易上手",
-      "description": "用户认为应用简单直接，容易上手，适合新手，动作易模仿，音乐好听，适合儿童使用。",
+      "label": "适合女性的高效锻炼",
+      "description": "用户认为该应用对女性特别有效，方便实用，易于坚持，适合平时不运动的人，七分钟锻炼虽短但强度足够。",
       "keywords": [
-        "简单",
-        "好用",
-        "容易上手",
-        "新手",
-        "音乐"
+        "女性",
+        "方便",
+        "实用",
+        "坚持",
+        "保暖",
+        "七分钟",
+        "累",
+        "适合"
       ]
     },
     {
       "topic_id": 1,
-      "count": 2,
+      "count": 5,
       "samples": [
+        {
+          "review_id": "1048345005",
+          "text": "Amazing This is an amazing lovely app !!\nHelp me to get back in shape and to get a good habit nice routine , nice design, nice idea , nice size , I need it n I love it so much !! \nAnd the movements he"
+        },
         {
           "review_id": "3028449825",
           "text": "Good free app I really enjoy doing workouts with this free app. The range of different workouts and goals is pretty cool!"
         },
         {
-          "review_id": "3492973040",
-          "text": "Convenient I found this app is very convenient. If I miss my workout at gym, I just can choose 2-3 sets from app, that will be good. It has different workouts for different levels."
+          "review_id": "4192535329",
+          "text": "Excellent app Clear instructions. Good for meeting workout targets. Fierce exercises."
+        },
+        {
+          "review_id": "5125126227",
+          "text": "perfect app My favorite app for morning exercises!"
         }
       ],
-      "label": "灵活便捷的锻炼选择",
-      "description": "用户赞赏应用提供的多样化锻炼和不同级别，方便在错过健身房锻炼时进行补充，灵活性强。",
+      "label": "全面好评的健身应用",
+      "description": "用户称赞应用设计精美、功能全面，帮助恢复体型和养成好习惯，提供多种锻炼目标和清晰指导，适合早晨锻炼。",
       "keywords": [
-        "方便",
-        "灵活",
-        "多样化",
-        "不同级别",
-        "补充锻炼"
-      ]
-    },
-    {
-      "topic_id": 4,
-      "count": 11,
-      "samples": [
-        {
-          "review_id": "5684535804",
-          "text": "CONVENIENT I love this workout app! It’s the only one that I’ve actually been consistent with because it’s been consistent with me. I utilize the reminder feature as an extra push and motivation for m"
-        },
-        {
-          "review_id": "9220792708",
-          "text": "Exercise that doesn’t judge me Before the shelter-in-pace, I was going to gentle exercise classes for seniors at the Y. Most of the exercise apps I looked at seemed geared towards people without any o"
-        },
-        {
-          "review_id": "5786142670",
-          "text": "No time? This is the app for you! For the longest time, I had trouble getting a consistent workout in. I work 60 to 80 hours in any given week, so working out became on the back burner of my prioritie"
-        },
-        {
-          "review_id": "8320450139",
-          "text": "Awesome workouts I really love this work out app!! I had not used it in a long time, when I opened it again they had completely updated and redid the app. And I love the new updates. There is a little"
-        }
-      ],
-      "label": "坚持锻炼的得力助手",
-      "description": "用户认为该应用是唯一能让他们坚持锻炼的应用，提醒功能有激励作用，适合忙碌或身体条件有限的人群，更新后体验更佳。",
-      "keywords": [
-        "坚持",
-        "提醒",
-        "激励",
-        "适合忙碌",
-        "更新"
+        "惊人",
+        "恢复体型",
+        "习惯",
+        "设计",
+        "免费",
+        "多样",
+        "清晰",
+        "早晨"
       ]
     },
     {
       "topic_id": 3,
-      "count": 1,
-      "samples": [
-        {
-          "review_id": "6400700303",
-          "text": "I really enjoyed my first day doing exercises. It was my first day doing this in this app and I really enjoyed it.. I never do exercises but today I enjoyed doing it.."
-        }
-      ],
-      "label": "初次体验愉快",
-      "description": "用户第一次使用应用就感到愉快，即使平时不锻炼也享受其中，说明应用对新手友好且有趣。",
-      "keywords": [
-        "第一次",
-        "愉快",
-        "享受",
-        "新手",
-        "有趣"
-      ]
-    },
-    {
-      "topic_id": 2,
-      "count": 2,
+      "count": 3,
       "samples": [
         {
           "review_id": "10176154885",
@@ -107,15 +79,61 @@
         {
           "review_id": "5097045343",
           "text": "great app User friendly"
+        },
+        {
+          "review_id": "6201096293",
+          "text": "A Great app! Excellent !!!"
         }
       ],
-      "label": "日常活动好帮手",
-      "description": "用户认为应用是保持活跃的好方法，界面友好，操作便捷。",
+      "label": "日常活跃的绝佳应用",
+      "description": "用户认为应用是保持日常活跃的好方法，界面友好，整体优秀。",
       "keywords": [
         "日常",
         "活跃",
-        "用户友好",
-        "便捷"
+        "友好",
+        "优秀"
+      ]
+    },
+    {
+      "topic_id": 2,
+      "count": 2,
+      "samples": [
+        {
+          "review_id": "3019148775",
+          "text": "It rocks Amazing app,love it"
+        },
+        {
+          "review_id": "9913567756",
+          "text": "Awesome thanks It’s amazing APP"
+        }
+      ],
+      "label": "令人惊叹的喜爱应用",
+      "description": "用户表达了对应用的强烈喜爱，认为它令人惊叹、很棒。",
+      "keywords": [
+        "惊叹",
+        "爱",
+        "棒"
+      ]
+    },
+    {
+      "topic_id": 4,
+      "count": 2,
+      "samples": [
+        {
+          "review_id": "1117921137",
+          "text": "useful interesting and useful for me"
+        },
+        {
+          "review_id": "4028340302",
+          "text": "Lovely Awesome and useful"
+        }
+      ],
+      "label": "实用且有趣的应用",
+      "description": "用户认为应用既实用又有趣，非常可爱。",
+      "keywords": [
+        "实用",
+        "有趣",
+        "可爱"
       ]
     }
   ],
@@ -132,22 +150,22 @@
     },
     {
       "review_key": "3492973040",
-      "topic_id": 1,
+      "topic_id": 0,
       "method": "embedding+cluster"
     },
     {
       "review_key": "6052795032",
-      "topic_id": 4,
+      "topic_id": 0,
       "method": "embedding+cluster"
     },
     {
       "review_key": "6400700303",
-      "topic_id": 3,
+      "topic_id": 1,
       "method": "embedding+cluster"
     },
     {
       "review_key": "10176154885",
-      "topic_id": 2,
+      "topic_id": 3,
       "method": "embedding+cluster"
     },
     {
@@ -157,57 +175,142 @@
     },
     {
       "review_key": "5097045343",
+      "topic_id": 3,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "12284709263",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "11862897909",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "11843515227",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "11747896360",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "10162333986",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "9913567756",
       "topic_id": 2,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "11593815773",
+      "review_key": "9875453632",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "7636123842",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "6635843584",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "6201096293",
+      "topic_id": 3,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "6041883396",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "5861603040",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "5125126227",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "4871268841",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "4192535329",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "4028340302",
       "topic_id": 4,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "9220792708",
+      "review_key": "3019148775",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "1354309664",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "1333334752",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "1171657357",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "1124547437",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "1117921137",
       "topic_id": 4,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "5786142670",
-      "topic_id": 4,
+      "review_key": "1081072507",
+      "topic_id": 0,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "8320450139",
-      "topic_id": 4,
+      "review_key": "1048345005",
+      "topic_id": 1,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "5377927335",
-      "topic_id": 4,
+      "review_key": "1020864871",
+      "topic_id": 0,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "10175260415",
-      "topic_id": 4,
+      "review_key": "988105732",
+      "topic_id": 0,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "6138213011",
-      "topic_id": 4,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "12150581992",
-      "topic_id": 4,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "7911742368",
-      "topic_id": 4,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "5684535804",
-      "topic_id": 4,
+      "review_key": "966180840",
+      "topic_id": 0,
       "method": "embedding+cluster"
     }
   ],

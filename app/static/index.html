@@ -17,10 +17,10 @@
 
   <main>
     <section class="card form-card">
-      <label for="url">App Store 链接（美区 / 中国区均可）或应用 ID</label>
-      <input id="url" type="text" value="https://apps.apple.com/us/app/workout-for-women-home-gym/id839285684"
+      <label for="url">App Store 链接（中国区）或应用 ID</label>
+      <input id="url" type="text" value="https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684"
              placeholder="https://apps.apple.com/cn/app/... 或纯数字 ID">
-      <p class="hint">链接仅用于识别应用；评论数据始终从美国区商店采集（README 要求）。</p>
+      <p class="hint">按链接识别国家（默认中国区）并从对应商店采集评论；美国区逻辑保留但默认停用。</p>
       <label for="goal">分析目标 / 约束（可留空）</label>
       <input id="goal" type="text" value="订阅转化与付费墙体验" placeholder="例如：订阅转化、可用性、低分评论、指定版本">
       <div class="row">
@@ -58,7 +58,7 @@
   </main>
 
   <footer class="footer">
-    数据来源：Apple iTunes Customer Reviews RSS（美国区）。离线缓存与限制见 <code>data/README.md</code>；
+    数据来源：Apple iTunes Customer Reviews RSS（中国区可用）。离线缓存与限制见 <code>data/README.md</code>；
     模型设计见 <code>docs/AI.md</code>。
   </footer>
 

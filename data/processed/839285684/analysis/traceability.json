@@ -13,12 +13,32 @@
     },
     {
       "check": "finding_evidence",
+      "id": "F-model-0-2",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
+      "id": "F-model-0-3",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
       "id": "F-stat-1",
       "passed": true
     },
     {
       "check": "finding_evidence",
       "id": "F-model-1-1",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
+      "id": "F-model-1-2",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
+      "id": "F-model-1-3",
       "passed": true
     },
     {
@@ -38,22 +58,17 @@
     },
     {
       "check": "finding_evidence",
+      "id": "F-model-3-1",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
       "id": "F-stat-4",
       "passed": true
     },
     {
       "check": "finding_evidence",
       "id": "F-model-4-1",
-      "passed": true
-    },
-    {
-      "check": "finding_evidence",
-      "id": "F-model-4-2",
-      "passed": true
-    },
-    {
-      "check": "finding_evidence",
-      "id": "F-model-4-3",
       "passed": true
     },
     {
@@ -69,11 +84,6 @@
     {
       "check": "requirement_support",
       "id": "R3",
-      "passed": true
-    },
-    {
-      "check": "requirement_support",
-      "id": "R4",
       "passed": true
     },
     {
@@ -116,28 +126,44 @@
       "passed": true,
       "detail": "链路完整",
       "missing": []
-    },
-    {
-      "check": "requirement_review_chain",
-      "id": "R4",
-      "passed": true,
-      "detail": "链路完整",
-      "missing": []
     }
   ],
   "findings": [
     {
       "id": "F-stat-0",
       "topic_id": 0,
-      "statement": "主题「简单易上手」共出现 2 条相关评论，平均评分 5.0。",
+      "statement": "主题「适合女性的高效锻炼」共出现 23 条相关评论，平均评分 4.43。",
       "evidence_review_ids": [
         "2210969485",
-        "8536674076"
+        "8536674076",
+        "3492973040",
+        "6052795032",
+        "12284709263",
+        "11862897909",
+        "11843515227",
+        "11747896360",
+        "10162333986",
+        "9875453632",
+        "7636123842",
+        "6635843584",
+        "6041883396",
+        "5861603040",
+        "4871268841",
+        "1354309664",
+        "1333334752",
+        "1171657357",
+        "1124547437",
+        "1081072507",
+        "1020864871",
+        "988105732",
+        "966180840"
       ],
-      "sample_count": 2,
-      "confidence": 0.2,
-      "uncertainty": "样本量有限，结论强度受限",
-      "conflicts": [],
+      "sample_count": 23,
+      "confidence": 1.0,
+      "uncertainty": "无",
+      "conflicts": [
+        "3 条低分与 20 条高分反馈并存，观点存在分歧"
+      ],
       "provenance": "stat",
       "status": "kept",
       "rationale": "确定性统计：样本数、评分分布。"
@@ -145,14 +171,44 @@
     {
       "id": "F-model-0-1",
       "topic_id": 0,
-      "statement": "用户普遍认为应用简单易上手，适合新手使用。",
+      "statement": "用户普遍认为该应用适合女性锻炼，且效果显著，能带来出汗等锻炼体验。",
       "evidence_review_ids": [
-        "2210969485",
-        "8536674076"
+        "10162333986",
+        "1171657357"
       ],
       "sample_count": 2,
-      "confidence": 0.6,
-      "uncertainty": "样本量仅2条，且版本未知，可能无法代表所有用户。",
+      "confidence": 0.8,
+      "uncertainty": "样本量较小，且部分评论未明确提及性别，但正面评价占多数。",
+      "conflicts": [],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    },
+    {
+      "id": "F-model-0-2",
+      "topic_id": 0,
+      "statement": "部分用户反馈应用存在语言障碍，界面全英文，影响使用。",
+      "evidence_review_ids": [
+        "11747896360"
+      ],
+      "sample_count": 1,
+      "confidence": 0.5,
+      "uncertainty": "仅一条评论提及，样本不足，无法确认普遍性。",
+      "conflicts": [],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    },
+    {
+      "id": "F-model-0-3",
+      "topic_id": 0,
+      "statement": "部分用户抱怨需要付费开通会员才能使用所有功能，存在付费墙。",
+      "evidence_review_ids": [
+        "11843515227"
+      ],
+      "sample_count": 1,
+      "confidence": 0.5,
+      "uncertainty": "仅一条评论提及，样本不足，无法确认普遍性。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -161,13 +217,16 @@
     {
       "id": "F-stat-1",
       "topic_id": 1,
-      "statement": "主题「灵活便捷的锻炼选择」共出现 2 条相关评论，平均评分 5.0。",
+      "statement": "主题「全面好评的健身应用」共出现 5 条相关评论，平均评分 5.0。",
       "evidence_review_ids": [
-        "3492973040",
-        "3028449825"
+        "6400700303",
+        "3028449825",
+        "5125126227",
+        "4192535329",
+        "1048345005"
       ],
-      "sample_count": 2,
-      "confidence": 0.2,
+      "sample_count": 5,
+      "confidence": 0.5,
       "uncertainty": "样本量有限，结论强度受限",
       "conflicts": [],
       "provenance": "stat",
@@ -177,14 +236,47 @@
     {
       "id": "F-model-1-1",
       "topic_id": 1,
-      "statement": "用户认为该应用提供多种锻炼选择和目标，且使用方便，适合灵活安排锻炼。",
+      "statement": "用户普遍认为该健身应用设计出色、功能实用，能有效帮助锻炼并培养习惯。",
       "evidence_review_ids": [
+        "1048345005",
         "3028449825",
-        "3492973040"
+        "4192535329",
+        "5125126227",
+        "6400700303"
       ],
-      "sample_count": 2,
-      "confidence": 0.8,
-      "uncertainty": "样本仅两条，且均为正面评价，未提及具体功能细节，可能无法全面代表所有用户观点。",
+      "sample_count": 5,
+      "confidence": 0.9,
+      "uncertainty": "样本均为5星好评，可能偏向正面，未包含负面反馈。",
+      "conflicts": [],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    },
+    {
+      "id": "F-model-1-2",
+      "topic_id": 1,
+      "statement": "应用提供多样化的锻炼目标和课程，满足不同用户需求。",
+      "evidence_review_ids": [
+        "3028449825"
+      ],
+      "sample_count": 1,
+      "confidence": 0.4,
+      "uncertainty": "仅一条评论提及多样性，证据不足。",
+      "conflicts": [],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    },
+    {
+      "id": "F-model-1-3",
+      "topic_id": 1,
+      "statement": "锻炼动作具有挑战性，需要时间练习。",
+      "evidence_review_ids": [
+        "1048345005"
+      ],
+      "sample_count": 1,
+      "confidence": 0.3,
+      "uncertainty": "仅一条评论提及动作难度，样本有限。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -193,10 +285,10 @@
     {
       "id": "F-stat-2",
       "topic_id": 2,
-      "statement": "主题「日常活动好帮手」共出现 2 条相关评论，平均评分 5.0。",
+      "statement": "主题「令人惊叹的喜爱应用」共出现 2 条相关评论，平均评分 5.0。",
       "evidence_review_ids": [
-        "10176154885",
-        "5097045343"
+        "9913567756",
+        "3019148775"
       ],
       "sample_count": 2,
       "confidence": 0.2,
@@ -209,14 +301,14 @@
     {
       "id": "F-model-2-1",
       "topic_id": 2,
-      "statement": "用户认为该应用有助于保持日常活跃，且界面友好易用。",
+      "statement": "用户对应用表示高度喜爱和赞赏",
       "evidence_review_ids": [
-        "10176154885",
-        "5097045343"
+        "3019148775",
+        "9913567756"
       ],
       "sample_count": 2,
       "confidence": 0.5,
-      "uncertainty": "仅两条评论，样本量小，且未提供具体功能细节，无法深入验证。",
+      "uncertainty": "样本量仅2条，且评论简短，缺乏具体功能或体验细节，无法深入分析用户喜爱的具体原因。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -225,12 +317,14 @@
     {
       "id": "F-stat-3",
       "topic_id": 3,
-      "statement": "主题「初次体验愉快」共出现 1 条相关评论，平均评分 5.0。",
+      "statement": "主题「日常活跃的绝佳应用」共出现 3 条相关评论，平均评分 5.0。",
       "evidence_review_ids": [
-        "6400700303"
+        "10176154885",
+        "5097045343",
+        "6201096293"
       ],
-      "sample_count": 1,
-      "confidence": 0.1,
+      "sample_count": 3,
+      "confidence": 0.3,
       "uncertainty": "样本量有限，结论强度受限",
       "conflicts": [],
       "provenance": "stat",
@@ -238,25 +332,33 @@
       "rationale": "确定性统计：样本数、评分分布。"
     },
     {
+      "id": "F-model-3-1",
+      "topic_id": 3,
+      "statement": "用户普遍认为该应用是日常活跃的绝佳选择，评价积极。",
+      "evidence_review_ids": [
+        "10176154885",
+        "5097045343",
+        "6201096293"
+      ],
+      "sample_count": 3,
+      "confidence": 0.6,
+      "uncertainty": "样本量小，且版本信息不完整，可能无法代表所有用户。",
+      "conflicts": [],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    },
+    {
       "id": "F-stat-4",
       "topic_id": 4,
-      "statement": "主题「坚持锻炼的得力助手」共出现 11 条相关评论，平均评分 5.0。",
+      "statement": "主题「实用且有趣的应用」共出现 2 条相关评论，平均评分 5.0。",
       "evidence_review_ids": [
-        "6052795032",
-        "11593815773",
-        "9220792708",
-        "5786142670",
-        "8320450139",
-        "5377927335",
-        "10175260415",
-        "6138213011",
-        "12150581992",
-        "7911742368",
-        "5684535804"
+        "4028340302",
+        "1117921137"
       ],
-      "sample_count": 11,
-      "confidence": 1.0,
-      "uncertainty": "无",
+      "sample_count": 2,
+      "confidence": 0.2,
+      "uncertainty": "样本量有限，结论强度受限",
       "conflicts": [],
       "provenance": "stat",
       "status": "kept",
@@ -265,46 +367,14 @@
     {
       "id": "F-model-4-1",
       "topic_id": 4,
-      "statement": "用户认为该应用通过提醒功能帮助保持锻炼一致性，适合忙碌人群。",
+      "statement": "用户认为该应用实用且有趣",
       "evidence_review_ids": [
-        "5684535804",
-        "5786142670"
+        "1117921137",
+        "4028340302"
       ],
       "sample_count": 2,
-      "confidence": 0.8,
-      "uncertainty": "评论中未提供具体版本信息，且样本量有限。",
-      "conflicts": [],
-      "provenance": "model",
-      "status": "kept",
-      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-    },
-    {
-      "id": "F-model-4-2",
-      "topic_id": 4,
-      "statement": "应用提供多种锻炼类型，包括针对老年人、产后等特定人群的选项，适合不同需求用户。",
-      "evidence_review_ids": [
-        "9220792708",
-        "11593815773"
-      ],
-      "sample_count": 2,
-      "confidence": 0.7,
-      "uncertainty": "评论中未提供具体版本信息，且样本量有限。",
-      "conflicts": [],
-      "provenance": "model",
-      "status": "kept",
-      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-    },
-    {
-      "id": "F-model-4-3",
-      "topic_id": 4,
-      "statement": "应用更新后获得用户好评，界面和功能有所改进。",
-      "evidence_review_ids": [
-        "8320450139",
-        "5377927335"
-      ],
-      "sample_count": 2,
-      "confidence": 0.6,
-      "uncertainty": "评论中未提供具体版本信息，且样本量有限。",
+      "confidence": 0.5,
+      "uncertainty": "仅两条评论，样本量小，且评论内容简短，未提供具体细节",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -314,73 +384,57 @@
   "requirements": [
     {
       "code": "R1",
-      "title": "强化新手引导与易用性",
-      "description": "基于用户对应用简单易上手的正面反馈，进一步优化新手引导流程，确保新用户能快速上手。",
+      "title": "优化女性锻炼体验",
+      "description": "根据用户反馈，应用在女性高效锻炼方面表现突出，但存在语言障碍和付费墙问题。建议优化界面多语言支持，并考虑提供更多免费功能或试用期，以提升女性用户满意度。",
       "priority": "P1",
       "planned_version": "V1",
       "finding_ids": [
         "F-stat-0",
-        "F-model-0-1"
+        "F-model-0-1",
+        "F-model-0-2",
+        "F-model-0-3"
       ],
       "review_ids": [],
       "acceptance_criteria": [
-        "新用户首次启动时能完成引导流程",
-        "引导流程步骤不超过5步",
-        "用户完成引导后能独立完成核心操作"
+        "增加中文等多语言支持，覆盖主要界面和锻炼指导",
+        "提供至少3个免费锻炼课程或7天会员试用，降低付费墙影响",
+        "女性用户满意度评分提升至4.5以上"
       ],
       "status": "kept"
     },
     {
       "code": "R2",
-      "title": "扩展锻炼类型与个性化选项",
-      "description": "用户认可应用提供多种锻炼选择和目标，且适合不同人群（如老年人、产后）。应继续扩展锻炼类型，并增加个性化推荐。",
-      "priority": "P1",
+      "title": "强化全面好评功能",
+      "description": "用户普遍认为应用设计出色、功能实用，能有效帮助锻炼和培养习惯。建议继续强化这些优势，并增加多样化锻炼目标和课程，满足不同用户需求。",
+      "priority": "P0",
       "planned_version": "V1",
       "finding_ids": [
         "F-stat-1",
         "F-model-1-1",
-        "F-model-4-2"
+        "F-model-1-2"
       ],
       "review_ids": [],
       "acceptance_criteria": [
-        "新增至少3种锻炼类型",
-        "支持用户设置锻炼目标并推荐相应计划",
-        "提供针对特定人群（如老年人、产后）的锻炼分类"
+        "保持现有核心功能稳定，不引入明显回归",
+        "新增至少2种锻炼目标（如减脂、增肌）和5个新课程",
+        "用户对功能实用性的好评率维持在90%以上"
       ],
       "status": "kept"
     },
     {
       "code": "R3",
-      "title": "优化提醒功能以提升坚持率",
-      "description": "用户认为提醒功能有助于保持锻炼一致性，适合忙碌人群。应优化提醒设置，增加灵活性和智能提醒。",
-      "priority": "P0",
-      "planned_version": "V1",
-      "finding_ids": [
-        "F-stat-4",
-        "F-model-4-1"
-      ],
-      "review_ids": [],
-      "acceptance_criteria": [
-        "用户可自定义提醒时间与频率",
-        "支持智能提醒（如根据用户日程调整）",
-        "提醒功能在后台稳定运行，不遗漏"
-      ],
-      "status": "kept"
-    },
-    {
-      "code": "R4",
-      "title": "持续改进界面与功能更新",
-      "description": "应用更新后获得用户好评，界面和功能有所改进。应保持迭代节奏，定期收集反馈并优化。",
+      "title": "提升锻炼动作可接受性",
+      "description": "部分用户反馈锻炼动作具有挑战性，需要时间练习。建议增加动作难度分级和指导，帮助用户逐步适应。",
       "priority": "P2",
       "planned_version": "V2",
       "finding_ids": [
-        "F-model-4-3"
+        "F-model-1-3"
       ],
       "review_ids": [],
       "acceptance_criteria": [
-        "每季度至少发布一次功能更新",
-        "更新后用户满意度评分不低于4.5",
-        "更新日志清晰说明改进点"
+        "为每个锻炼动作提供难度等级标识（初级、中级、高级）",
+        "提供动作演示视频和文字说明，降低学习门槛",
+        "用户对动作难度的满意度提升至4.0以上"
       ],
       "status": "kept"
     }
@@ -388,92 +442,84 @@
   "test_cases": [
     {
       "code": "TC1",
-      "title": "验证新手引导流程的完整性与易用性",
+      "title": "验证多语言支持功能",
       "requirement_ids": [
         "R1"
       ],
       "review_ids": [],
       "gherkin": {
         "given": [
-          "用户首次启动应用",
-          "用户处于新手引导页面"
+          "用户已安装应用并打开设置界面",
+          "应用当前语言为英文"
         ],
         "when": [
-          "用户按照引导步骤完成所有操作"
+          "用户选择中文作为界面语言"
         ],
         "then": [
-          "用户能够成功进入主界面",
-          "用户能够理解主要功能的位置",
-          "系统记录用户已完成引导"
+          "应用界面文字应显示为中文",
+          "所有菜单和提示信息应正确翻译"
         ]
       }
     },
     {
       "code": "TC2",
-      "title": "验证锻炼类型扩展与个性化推荐",
+      "title": "验证免费试用期功能",
+      "requirement_ids": [
+        "R1"
+      ],
+      "review_ids": [],
+      "gherkin": {
+        "given": [
+          "用户已注册账号",
+          "应用提供免费试用期选项"
+        ],
+        "when": [
+          "用户点击开始免费试用"
+        ],
+        "then": [
+          "用户应能访问所有高级功能",
+          "试用期结束后应提示用户订阅"
+        ]
+      }
+    },
+    {
+      "code": "TC3",
+      "title": "验证多样化锻炼目标设置",
       "requirement_ids": [
         "R2"
       ],
       "review_ids": [],
       "gherkin": {
         "given": [
-          "用户已登录应用",
-          "用户已选择个人偏好（如年龄、目标）"
+          "用户已登录并进入锻炼目标设置页面"
         ],
         "when": [
-          "用户浏览锻炼类型列表",
-          "用户查看个性化推荐"
+          "用户选择'增肌'作为锻炼目标"
         ],
         "then": [
-          "系统展示多种锻炼类型",
-          "推荐内容与用户偏好匹配",
-          "用户能够选择并开始锻炼"
+          "系统应推荐相应的锻炼计划",
+          "计划应包含适合增肌的课程"
         ]
       }
     },
     {
-      "code": "TC3",
-      "title": "验证提醒功能的灵活性与智能性",
+      "code": "TC4",
+      "title": "验证动作难度分级功能",
       "requirement_ids": [
         "R3"
       ],
       "review_ids": [],
       "gherkin": {
         "given": [
-          "用户已设置提醒",
-          "用户处于提醒设置页面"
+          "用户已选择一项锻炼课程",
+          "课程包含多个动作"
         ],
         "when": [
-          "用户修改提醒时间",
-          "用户启用智能提醒"
+          "用户查看动作详情"
         ],
         "then": [
-          "系统保存新的提醒设置",
-          "系统根据用户习惯智能调整提醒时间",
-          "用户收到提醒通知"
-        ]
-      }
-    },
-    {
-      "code": "TC4",
-      "title": "验证界面更新与功能改进",
-      "requirement_ids": [
-        "R4"
-      ],
-      "review_ids": [],
-      "gherkin": {
-        "given": [
-          "用户已更新到最新版本",
-          "用户打开应用"
-        ],
-        "when": [
-          "用户浏览主要界面",
-          "用户使用新功能"
-        ],
-        "then": [
-          "界面显示符合最新设计",
-          "新功能正常工作",
-          "用户能够顺利操作"
+          "每个动作应显示难度等级",
+          "系统应提供动作的详细指导"
         ]
       }
     }
@@ -482,8 +528,8 @@
   "removed_test_cases": [],
   "assumption_requirements": [],
   "summary": {
-    "total_checks": 23,
-    "passed_checks": 23,
+    "total_checks": 24,
+    "passed_checks": 24,
     "failed_checks": 0
   }
 }

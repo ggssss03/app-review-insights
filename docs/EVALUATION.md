@@ -26,10 +26,9 @@ python app/server.py --port 8765                         # 启动 UI
 
 ## 已知限制（如实声明）
 
-1. 旧版 Customer Reviews RSS 与 AMP Reviews API 已被苹果停用（任意应用返回空 feed）；
-   采集器已改用 WebObjects `userReviewsRow` 官方接口（实测可用，无需 token），
-   详见 `data/README.md`。
-2. `userReviewsRow` 接口当前只返回同一批热门评论（分页参数已被苹果忽略），
+1. 采集按链接国家取数（默认中国区）：中国区 cn RSS 仍可用（每页约 35 条，仅第一页有数据）；
+   美国区旧版 RSS 与 AMP API 已停用，`userReviewsRow` 接口仅作显式 us 链接时的兜底。
+2. cn RSS 单页约 35 条、不提供分页/排序翻页，样本覆盖有限；
    批量数据依赖 GitHub Actions 定时采集 + JSON/CSV 导入，报告中会说明样本边界。
 3. 未配置 `LLM_API_KEY` 时运行确定性模式：主题占位命名、仅统计发现、
    需求/测试明确标注未生成；配置后自动启用模型驱动（本仓库已用 DeepSeek 端到端验证）。

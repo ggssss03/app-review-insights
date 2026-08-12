@@ -15,7 +15,7 @@
       "max": null
     },
     "version_filter": null,
-    "note": "模型解析（无明确分析目标，默认全量分析所有评论。）"
+    "note": "模型解析（未提供具体分析目标，默认进行全量分析。）"
   },
   "clean_stats": {
     "input_count": 10,
@@ -38,8 +38,8 @@
     "reviews": 10,
     "topics": 2,
     "findings": 5,
-    "requirements": 3,
-    "test_cases": 3
+    "requirements": 2,
+    "test_cases": 4
   },
   "model_driven": true,
   "notes": [
@@ -49,8 +49,8 @@
     "数据来源与限制见 data/README.md；空数据/网络限制如实标注，不编造。"
   ],
   "traceability": {
-    "total_checks": 14,
-    "passed_checks": 14,
+    "total_checks": 13,
+    "passed_checks": 13,
     "failed_checks": 0
   }
 }

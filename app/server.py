@@ -22,7 +22,12 @@ sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
 from app_review_insights import __version__  # noqa: E402
 from app_review_insights.analysis.pipeline import run_pipeline  # noqa: E402
-from app_review_insights.collector import extract_app_id, fetch_reviews, lookup_app  # noqa: E402
+from app_review_insights.collector import (  # noqa: E402
+    extract_app_id,
+    extract_country,
+    fetch_reviews,
+    lookup_app,
+)
 from app_review_insights.config import llm_available, llm_settings, load_dotenv  # noqa: E402
 from app_review_insights.importer import import_reviews  # noqa: E402
 from app_review_insights.llm import LLMClient  # noqa: E402
@@ -69,21 +74,30 @@ class ServerApp:
         if not raw_value:
             raise ValueError("需要提供 App Store 链接或 app id")
         app_id = extract_app_id(raw_value)
+        country = extract_country(raw_value)
         run_id = f"{app_id}-{int(time.time() * 1000)}"
         with self._lock:
-            self.state[run_id] = {"run_id": run_id, "app_id": app_id, "status": "pending", "progress": [], "error": None}
+            self.state[run_id] = {
+                "run_id": run_id,
+                "app_id": app_id,
+                "country": country,
+                "status": "pending",
+                "progress": [],
+                "error": None,
+            }
         goal = str(payload.get("goal") or "").strip()
         use_llm = bool(payload.get("llm", True))
         embed_backend = str(payload.get("embed_backend") or "auto")
         thread = threading.Thread(
             target=self._run,
-            args=(run_id, app_id, goal, use_llm, embed_backend),
+            args=(run_id, app_id, country, goal, use_llm, embed_backend),
             daemon=True,
         )
         thread.start()
-        return {"run_id": run_id, "app_id": app_id, "status": "pending"}
+        return {"run_id": run_id, "app_id": app_id, "country": country, "status": "pending"}
 
-    def _run(self, run_id: str, app_id: str, goal: str, use_llm: bool, embed_backend: str) -> None:
+    def _run(self, run_id: str, app_id: str, country: str, goal: str,
+             use_llm: bool, embed_backend: str) -> None:
         entry = self.state[run_id]
         entry["status"] = "running"
         try:
@@ -92,10 +106,15 @@ class ServerApp:
                 entry["progress"].append({"stage": "fetch", "status": "running", "detail": "尝试在线采集评论"})
                 fetch_reviews(
                     app_id,
+                    country=country,
                     delay=1.0,
                     cache_dir=self.raw_dir(app_id),
                 )
-                entry["progress"].append({"stage": "fetch", "status": "ok", "detail": "在线采集完成"})
+                entry["progress"].append({
+                    "stage": "fetch",
+                    "status": "ok",
+                    "detail": f"在线采集完成（{country} 区）",
+                })
             llm = build_llm() if use_llm else None
             result = run_pipeline(
                 app_id=app_id,

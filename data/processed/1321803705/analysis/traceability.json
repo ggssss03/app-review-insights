@@ -37,11 +37,6 @@
       "passed": true
     },
     {
-      "check": "requirement_support",
-      "id": "R3",
-      "passed": true
-    },
-    {
       "check": "testcase_link",
       "id": "TC1",
       "passed": true
@@ -57,6 +52,11 @@
       "passed": true
     },
     {
+      "check": "testcase_link",
+      "id": "TC4",
+      "passed": true
+    },
+    {
       "check": "requirement_review_chain",
       "id": "R1",
       "passed": true,
@@ -69,20 +69,13 @@
       "passed": true,
       "detail": "链路完整",
       "missing": []
-    },
-    {
-      "check": "requirement_review_chain",
-      "id": "R3",
-      "passed": true,
-      "detail": "链路完整",
-      "missing": []
     }
   ],
   "findings": [
     {
       "id": "F-stat-0",
       "topic_id": 0,
-      "statement": "主题「游戏体验与语言问题」共出现 9 条相关评论，平均评分 2.67。",
+      "statement": "主题「Mixed feedback on Chinese version」共出现 9 条相关评论，平均评分 2.67。",
       "evidence_review_ids": [
         "5902219913",
         "6530244192",
@@ -107,13 +100,13 @@
     {
       "id": "F-model-0-1",
       "topic_id": 0,
-      "statement": "部分用户反映游戏存在语言切换问题，无法从中文切换为英文。",
+      "statement": "部分用户对中文版游戏给予高度评价，认为其内容更丰富、更有趣。",
       "evidence_review_ids": [
-        "6530244192"
+        "5902219913"
       ],
       "sample_count": 1,
       "confidence": 0.4,
-      "uncertainty": "仅有一条评论提及语言问题，样本量不足，且未提供更多细节。",
+      "uncertainty": "仅有一条正面评价，样本不足，无法确认普遍性。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -122,13 +115,13 @@
     {
       "id": "F-model-0-2",
       "topic_id": 0,
-      "statement": "部分用户对游戏优化和性能表示不满，如落地卡死、马赛克等问题。",
+      "statement": "存在语言问题，用户希望将中文界面切换为英文。",
       "evidence_review_ids": [
-        "12534458524"
+        "6530244192"
       ],
       "sample_count": 1,
       "confidence": 0.4,
-      "uncertainty": "仅有一条评论提及具体性能问题，样本量不足，且未提供更多细节。",
+      "uncertainty": "仅一条评论提及，可能为个别需求。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -137,13 +130,17 @@
     {
       "id": "F-model-0-3",
       "topic_id": 0,
-      "statement": "部分用户对游戏内容更新和玩法创新提出批评，认为缺乏新玩法。",
+      "statement": "部分用户对游戏内容或运营表达不满，包括负面评价和批评。",
       "evidence_review_ids": [
-        "12534458524"
+        "10906860990",
+        "12252574032",
+        "12534458524",
+        "6293765545",
+        "7779191657"
       ],
-      "sample_count": 1,
-      "confidence": 0.4,
-      "uncertainty": "仅有一条评论提及内容更新问题，样本量不足，且未提供更多细节。",
+      "sample_count": 5,
+      "confidence": 0.6,
+      "uncertainty": "负面评论数量较多，但具体原因各异，需进一步分类。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -152,7 +149,7 @@
     {
       "id": "F-stat-1",
       "topic_id": 1,
-      "statement": "主题「正面评价」共出现 1 条相关评论，平均评分 5.0。",
+      "statement": "主题「Positive overall」共出现 1 条相关评论，平均评分 5.0。",
       "evidence_review_ids": [
         "7614650741"
       ],
@@ -168,44 +165,25 @@
   "requirements": [
     {
       "code": "R1",
-      "title": "优化游戏性能与稳定性",
-      "description": "针对用户反馈的落地卡死、马赛克等性能问题，进行技术优化，提升游戏流畅度和稳定性。",
-      "priority": "P0",
+      "title": "提供语言切换选项",
+      "description": "针对用户反馈希望将中文界面切换为英文的问题，建议在设置中增加语言切换功能，支持中文和英文界面。",
+      "priority": "P1",
       "planned_version": "V1",
       "finding_ids": [
-        "F-model-0-2",
-        "F-stat-0"
+        "F-model-0-2"
       ],
       "review_ids": [],
       "acceptance_criteria": [
-        "修复落地卡死问题，确保在主流设备上无卡死现象",
-        "优化图像渲染，消除马赛克现象",
-        "性能测试通过，帧率稳定在30fps以上"
+        "用户在设置中可选择中文或英文界面",
+        "切换后界面语言立即生效",
+        "所有主要界面文本均正确显示所选语言"
       ],
       "status": "kept"
     },
     {
       "code": "R2",
-      "title": "增加多语言切换功能",
-      "description": "支持用户在游戏内自由切换语言，特别是从中文切换为英文，以满足不同用户的语言需求。",
-      "priority": "P1",
-      "planned_version": "V2",
-      "finding_ids": [
-        "F-model-0-1",
-        "F-stat-0"
-      ],
-      "review_ids": [],
-      "acceptance_criteria": [
-        "在设置界面提供语言选项，支持中文和英文切换",
-        "切换语言后游戏内所有文本立即更新",
-        "语言设置持久化保存，下次启动保持上次选择"
-      ],
-      "status": "kept"
-    },
-    {
-      "code": "R3",
-      "title": "丰富游戏内容与玩法创新",
-      "description": "根据用户对缺乏新玩法的批评，规划新内容更新，增加游戏可玩性和创新性。",
+      "title": "改进中文版游戏内容与运营",
+      "description": "针对中文版游戏存在的负面反馈和批评，需优化游戏内容与运营策略，提升用户满意度。",
       "priority": "P1",
       "planned_version": "V2",
       "finding_ids": [
@@ -214,9 +192,9 @@
       ],
       "review_ids": [],
       "acceptance_criteria": [
-        "在V2版本中推出至少一种新玩法模式",
-        "新玩法需通过内部测试，确保无重大bug",
-        "更新后用户活跃度提升10%以上"
+        "针对负面反馈的具体问题制定改进方案",
+        "在下一个版本中实施至少一项内容或运营改进",
+        "改进后相关评论的平均评分有所提升"
       ],
       "status": "kept"
     }
@@ -224,66 +202,83 @@
   "test_cases": [
     {
       "code": "TC1",
-      "title": "验证游戏性能优化后无卡死现象",
+      "title": "验证设置中提供语言切换选项",
       "requirement_ids": [
         "R1"
       ],
       "review_ids": [],
       "gherkin": {
         "given": [
-          "用户设备满足最低配置要求",
-          "游戏版本为优化后的最新版本"
+          "用户已登录并进入设置页面",
+          "当前界面语言为中文"
         ],
         "when": [
-          "用户启动游戏并进入高负载场景",
-          "用户连续游戏30分钟"
+          "用户点击语言切换选项",
+          "选择英文"
         ],
         "then": [
-          "游戏画面保持流畅，无卡死现象",
-          "游戏无马赛克或渲染错误"
+          "界面语言切换为英文",
+          "所有界面文本显示为英文"
         ]
       }
     },
     {
       "code": "TC2",
-      "title": "验证多语言切换功能",
+      "title": "验证语言切换选项支持中文和英文",
+      "requirement_ids": [
+        "R1"
+      ],
+      "review_ids": [],
+      "gherkin": {
+        "given": [
+          "用户已登录并进入设置页面"
+        ],
+        "when": [
+          "用户查看语言切换选项"
+        ],
+        "then": [
+          "选项包含中文和英文两种语言",
+          "当前语言被正确标记"
+        ]
+      }
+    },
+    {
+      "code": "TC3",
+      "title": "验证中文版游戏内容优化",
       "requirement_ids": [
         "R2"
       ],
       "review_ids": [],
       "gherkin": {
         "given": [
-          "用户已登录游戏",
-          "游戏当前语言为中文"
+          "用户已登录并进入中文版游戏"
         ],
         "when": [
-          "用户在设置中选择英文并确认"
+          "用户浏览游戏内容"
         ],
         "then": [
-          "游戏界面语言切换为英文",
-          "所有文本正确显示英文"
+          "游戏内容无明显负面反馈提及的问题",
+          "运营活动符合用户期望"
         ]
       }
     },
     {
-      "code": "TC3",
-      "title": "验证新玩法内容可正常体验",
+      "code": "TC4",
+      "title": "验证运营策略改进提升用户满意度",
       "requirement_ids": [
-        "R3"
+        "R2"
       ],
       "review_ids": [],
       "gherkin": {
         "given": [
-          "用户已更新至包含新玩法的版本",
-          "用户完成新手引导"
+          "用户已登录并进入中文版游戏"
         ],
         "when": [
-          "用户进入新玩法入口",
-          "用户完成一局新玩法"
+          "用户参与运营活动"
         ],
         "then": [
-          "新玩法可正常加载",
-          "用户获得相应奖励"
+          "用户满意度评分高于改进前",
+          "用户反馈中负面评论减少"
         ]
       }
     }
@@ -292,8 +287,8 @@
   "removed_test_cases": [],
   "assumption_requirements": [],
   "summary": {
-    "total_checks": 14,
-    "passed_checks": 14,
+    "total_checks": 13,
+    "passed_checks": 13,
     "failed_checks": 0
   }
 }

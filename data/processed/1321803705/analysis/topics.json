@@ -21,14 +21,13 @@
           "text": "🔥🔥🔥🔥🔥 🔥🔥🔥🔥🔥🔥"
         }
       ],
-      "label": "游戏体验与语言问题",
-      "description": "用户讨论游戏体验，包括对中文版的喜爱以及语言切换问题，也有负面评价和表情符号表达情绪。",
+      "label": "Mixed feedback on Chinese version",
+      "description": "Comments about the Chinese version of PUBG, including praise for its quality and interest, but also issues with language and negative remarks.",
       "keywords": [
         "Chinese PUBG",
         "language",
-        "change to English",
-        "la ji",
-        "🔥"
+        "good",
+        "bad"
       ]
     },
     {
@@ -40,8 +39,8 @@
           "text": ". Is very good"
         }
       ],
-      "label": "正面评价",
-      "description": "简短正面评价，认为游戏很好。",
+      "label": "Positive overall",
+      "description": "A brief comment stating the game is very good.",
       "keywords": [
         "very good"
       ]
