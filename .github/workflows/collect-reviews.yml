@@ -2,7 +2,7 @@ name: Collect App Store reviews
 
 on:
   schedule:
-    # 每周一 03:00 UTC（美国 runner，可正常访问 US 区评论 RSS）
+    # 每周一 03:00 UTC（GitHub 美国 runner，可正常访问 US 区评论接口）
     - cron: "0 3 * * 1"
   workflow_dispatch:
 
@@ -18,10 +18,9 @@ jobs:
         with:
           python-version: "3.12"
       - name: Collect reviews for sample app
-        run: python scripts/fetch_reviews.py 839285684 --delay 0.5 --refresh --method amp
+        run: python scripts/fetch_reviews.py 839285684 --delay 0.5 --refresh --method itml
         env:
           PYTHONPATH: src
-          AMP_DEBUG: "1"
       - name: Commit cached data
         run: |
           git config user.name "github-actions[bot]"

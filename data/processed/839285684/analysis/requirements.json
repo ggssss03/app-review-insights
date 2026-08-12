@@ -1,0 +1,77 @@
+[
+  [
+    {
+      "code": "R1",
+      "title": "强化新手引导与易用性",
+      "description": "基于用户对应用简单易上手的正面反馈，进一步优化新手引导流程，确保新用户能快速上手。",
+      "priority": "P1",
+      "planned_version": "V1",
+      "finding_ids": [
+        "F-stat-0",
+        "F-model-0-1"
+      ],
+      "review_ids": [],
+      "acceptance_criteria": [
+        "新用户首次启动时能完成引导流程",
+        "引导流程步骤不超过5步",
+        "用户完成引导后能独立完成核心操作"
+      ],
+      "status": "kept"
+    },
+    {
+      "code": "R2",
+      "title": "扩展锻炼类型与个性化选项",
+      "description": "用户认可应用提供多种锻炼选择和目标，且适合不同人群（如老年人、产后）。应继续扩展锻炼类型，并增加个性化推荐。",
+      "priority": "P1",
+      "planned_version": "V1",
+      "finding_ids": [
+        "F-stat-1",
+        "F-model-1-1",
+        "F-model-4-2"
+      ],
+      "review_ids": [],
+      "acceptance_criteria": [
+        "新增至少3种锻炼类型",
+        "支持用户设置锻炼目标并推荐相应计划",
+        "提供针对特定人群（如老年人、产后）的锻炼分类"
+      ],
+      "status": "kept"
+    },
+    {
+      "code": "R3",
+      "title": "优化提醒功能以提升坚持率",
+      "description": "用户认为提醒功能有助于保持锻炼一致性，适合忙碌人群。应优化提醒设置，增加灵活性和智能提醒。",
+      "priority": "P0",
+      "planned_version": "V1",
+      "finding_ids": [
+        "F-stat-4",
+        "F-model-4-1"
+      ],
+      "review_ids": [],
+      "acceptance_criteria": [
+        "用户可自定义提醒时间与频率",
+        "支持智能提醒（如根据用户日程调整）",
+        "提醒功能在后台稳定运行，不遗漏"
+      ],
+      "status": "kept"
+    },
+    {
+      "code": "R4",
+      "title": "持续改进界面与功能更新",
+      "description": "应用更新后获得用户好评，界面和功能有所改进。应保持迭代节奏，定期收集反馈并优化。",
+      "priority": "P2",
+      "planned_version": "V2",
+      "finding_ids": [
+        "F-model-4-3"
+      ],
+      "review_ids": [],
+      "acceptance_criteria": [
+        "每季度至少发布一次功能更新",
+        "更新后用户满意度评分不低于4.5",
+        "更新日志清晰说明改进点"
+      ],
+      "status": "kept"
+    }
+  ],
+  "模型生成"
+]

@@ -5,7 +5,8 @@ from __future__ import annotations
 import json
 import pathlib
 
-from .models import ReviewRaw
+from .collector import parse_amp_page_shelf_reviews, parse_itml_payload
+from .models import ReviewRaw, utcnow_iso
 
 
 def load_raw_reviews(raw_dir: pathlib.Path, app_id: str) -> list[ReviewRaw]:
@@ -31,6 +32,20 @@ def load_raw_reviews(raw_dir: pathlib.Path, app_id: str) -> list[ReviewRaw]:
                 ))
             continue
         payload = json.loads(file.read_text(encoding="utf-8"))
+        data = payload.get("data")
+        if isinstance(data, dict) and isinstance(data.get("userReviewList"), list):
+            reviews.extend(parse_itml_payload(
+                data, source="itml", app_id=app_id, country="us",
+                page_url=payload.get("url", ""), sort_by="mostRecent",
+                fetched_at=payload.get("fetched_at", utcnow_iso()),
+            ))
+            continue
+        if isinstance(data, dict) and isinstance(data.get("shelfMapping"), dict):
+            reviews.extend(parse_amp_page_shelf_reviews(
+                {"data": [{"data": data}]}, source="amp-page", app_id=app_id,
+                country="cn", page_url=payload.get("url", ""),
+            ))
+            continue
         feed = payload.get("data", {}).get("feed", payload.get("feed", {}))
         entry = feed.get("entry", []) if isinstance(feed, dict) else []
         if isinstance(entry, dict):

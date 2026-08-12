@@ -1,0 +1,47 @@
+[
+  {
+    "stage": "scope",
+    "status": "ok",
+    "detail": "完成"
+  },
+  {
+    "stage": "load",
+    "status": "ok",
+    "detail": "18 条原始评论"
+  },
+  {
+    "stage": "clean",
+    "status": "ok",
+    "detail": "完成"
+  },
+  {
+    "stage": "clean",
+    "status": "ok",
+    "detail": "18 条（去重 0，垃圾 0）"
+  },
+  {
+    "stage": "topics",
+    "status": "ok",
+    "detail": "完成"
+  },
+  {
+    "stage": "findings",
+    "status": "ok",
+    "detail": "完成"
+  },
+  {
+    "stage": "requirements",
+    "status": "ok",
+    "detail": "完成"
+  },
+  {
+    "stage": "testcases",
+    "status": "ok",
+    "detail": "完成"
+  },
+  {
+    "stage": "traceability",
+    "status": "ok",
+    "detail": "完成"
+  }
+]

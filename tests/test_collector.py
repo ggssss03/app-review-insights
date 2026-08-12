@@ -8,6 +8,7 @@ from app_review_insights.collector import (
     extract_app_id,
     extract_amp_token,
     parse_amp_payload,
+    parse_itml_payload,
     parse_review_entry,
     parse_review_feed,
 )
@@ -114,6 +115,60 @@ class AmpParseTest(unittest.TestCase):
         self.assertEqual(reviews[0].rating, 5)
         self.assertEqual(reviews[0].body, "Love it")
         self.assertEqual(reviews[1].rating, 1)
+
+
+class ItmlParseTest(unittest.TestCase):
+    def test_parse_itml_payload(self):
+        payload = {
+            "userReviewList": [
+                {
+                    "userReviewId": "11593815773",
+                    "body": "I love the layout and approach of this app.",
+                    "date": "2024-08-10T13:23:49Z",
+                    "name": "Kstu SLP mama",
+                    "rating": 5,
+                    "title": "Love it!",
+                    "voteCount": 3,
+                    "voteSum": 1,
+                },
+                {
+                    "userReviewId": "5786142670",
+                    "body": "No time? This is the app for you!",
+                    "date": "2020-04-09T14:01:44Z",
+                    "name": "Redhead4peace",
+                    "rating": 4,
+                    "title": "Great",
+                    "voteCount": 25,
+                    "voteSum": 20,
+                },
+            ]
+        }
+        reviews = parse_itml_payload(
+            payload, source="itml", app_id="839285684", country="us",
+            page_url="http://example/userReviewsRow", sort_by="mostRecent",
+            fetched_at="2026-08-12T00:00:00+00:00",
+        )
+        self.assertEqual(len(reviews), 2)
+        self.assertEqual(reviews[0].review_id, "11593815773")
+        self.assertEqual(reviews[0].rating, 5)
+        self.assertEqual(reviews[0].author, "Kstu SLP mama")
+        self.assertEqual(reviews[0].body, "I love the layout and approach of this app.")
+        self.assertEqual(reviews[0].helpful_votes, 1)
+        self.assertEqual(reviews[1].rating, 4)
+        self.assertEqual(reviews[1].helpful_votes, 20)
+
+    def test_parse_itml_payload_empty_and_bad_rows(self):
+        reviews = parse_itml_payload(
+            {"userReviewList": []}, source="itml", app_id="1", country="us",
+            page_url="u", sort_by="s", fetched_at="t",
+        )
+        self.assertEqual(reviews, [])
+        reviews = parse_itml_payload(
+            {"userReviewList": [None, {"userReviewId": "x", "rating": "5"}]},
+            source="itml", app_id="1", country="us",
+            page_url="u", sort_by="s", fetched_at="t",
+        )
+        self.assertEqual(len(reviews), 1)
 
 
 if __name__ == "__main__":

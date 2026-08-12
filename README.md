@@ -19,7 +19,7 @@
   支持进度流展示、交付物 Tab、JSON/CSV 导入；FastAPI/React 为可选升级
 - [x] M5 部分：E2E 场景测试（混合语言/证据不足/模型失败/重复冲突）、
   [docs/EVALUATION.md](docs/EVALUATION.md) 评估自检、`scripts/self_check.py` 一键自检
-- [ ] M5 剩余：真实模型运行验证（需 .env 的 LLM_API_KEY）、GitHub 推送与定时采集（需连接 GitHub）
+- [x] M5 收尾：真实模型（DeepSeek）端到端验证、GitHub 推送与定时采集、Web UI 演示
 
 ## 快速开始
 
@@ -75,23 +75,24 @@ python app/server.py --port 8765
 ### 数据来源
 
 - **应用元数据**：Apple iTunes Search API（Lookup），`https://itunes.apple.com/lookup?id=<id>&country=us`
-- **评论数据**：Apple iTunes Customer Reviews RSS（美国区 storefront），
-  `https://itunes.apple.com/us/rss/customerreviews/id=<id>/page=<n>/sortBy=<sort>/json`
-  - `sortBy` 支持 `mostRecent` / `mostHelpful`，每页最多 50 条、最多 10 页，合计约 1000 条
-  - 请求间隔默认 ≥ 1 秒，原始响应按页缓存（`data/raw/<app_id>/reviews-<sort>-p<n>.json`），可断点续采
+- **评论数据**：优先使用 Apple iTunes WebObjects 官方接口（`userReviewsRow`，美国区 storefront），
+  `https://itunes.apple.com/WebObjects/MZStore.woa/wa/userReviewsRow?id=<id>&displayable-kind=11&sortId=4&pageNumber=0`
+  - 该接口无需 token、不受地理重定向影响，2026 年实测可用，返回真实评论（正文/评分/日期/投票数）
+  - 旧版 Customer Reviews RSS 与 AMP Reviews API 已被苹果停用（RSS 对任意应用返回空 feed），仅作兜底保留
+  - 部分 storefront（如中国区产品页）会内嵌 8 条真实评论，采集器也会读取（`reviews-amp-page-cn.json`）
 
 输入链接可以是美区或中国区页面（如 `https://apps.apple.com/cn/app/.../id839285684`），
 链接只用于识别应用 ID；**评论数据始终从美国区商店（`country=us`）采集**，符合 README 要求。
 
 ### 已知限制（实测）
 
-在部分网络环境（如中国大陆直连）下，美国区评论 RSS 对任意应用都返回**空 feed**（元数据接口正常）。
-这不是应用问题，而是苹果的地区/网络策略。对策：
+在部分网络环境（如中国大陆直连）下，旧版 RSS/AMP 接口不可用；采集器会自动回退到
+WebObjects `userReviewsRow` 接口（本仓库 2026-08 实测可直接取数）。补充对策：
 
 1. 使用仓库内 [.github/workflows/collect-reviews.yml](.github/workflows/collect-reviews.yml)
-   的定时采集（GitHub Actions 的 US runner 可正常取数），结果自动提交到 `data/raw/`；
+   的定时采集（`--method itml`），结果自动提交到 `data/raw/`；
 2. 使用导入功能（JSON/CSV）喂入合规数据集；
-3. 在可直连的网络环境本地直接运行 `fetch_reviews.py`。
+3. 在可直连的网络环境本地直接运行 `fetch_reviews.py --method itml`。
 
 缓存文件统一使用信封结构记录来源：
 

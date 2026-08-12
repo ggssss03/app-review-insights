@@ -1,0 +1,2291 @@
+{
+  "app_id": "839285684",
+  "url": "https://apps.apple.com/cn/app/id839285684",
+  "fetched_at": "2026-08-12T08:41:03+00:00",
+  "data": {
+    "shelfMapping": {
+      "productRatings": {
+        "$kind": "Shelf",
+        "impressionMetrics": {
+          "fields": {
+            "id": "20",
+            "name": "评分及评论",
+            "impressionType": "ratingsOverview",
+            "idType": "sequential",
+            "impressionIndex": 2
+          }
+        },
+        "contentType": "productRatings",
+        "marker": null,
+        "items": [
+          {
+            "$kind": "Ratings",
+            "productId": "839285684",
+            "ratingAverage": 4.8,
+            "totalNumberOfRatings": 530,
+            "context": "productPage",
+            "ratingCounts": [
+              465,
+              33,
+              15,
+              7,
+              10
+            ]
+          }
+        ],
+        "url": null,
+        "mergeWhenFetched": false,
+        "fetchStrategy": "onPageLoad",
+        "batchGroup": null,
+        "seeAllAction": {
+          "title": "查看全部",
+          "presentationStyle": [],
+          "actionMetrics": {
+            "$kind": "ActionMetrics",
+            "data": [
+              {
+                "fields": {
+                  "actionType": "navigate",
+                  "actionUrl": "https://apps.apple.com/cn/app/839285684?see-all=reviews&platform=iphone",
+                  "location": [
+                    {
+                      "locationPosition": 2,
+                      "locationType": "lockup",
+                      "name": "查看全部",
+                      "idType": "its_id",
+                      "id": "SeeAllReviews"
+                    }
+                  ],
+                  "eventType": "click",
+                  "targetType": "button",
+                  "targetId": "SeeAllReviews",
+                  "platformContext": "iphone",
+                  "alt_ab2_data": "[]"
+                },
+                "includingFields": [
+                  "impressionsSnapshot",
+                  "pageFields",
+                  "contentRestrictionReasons"
+                ],
+                "excludingFields": [
+                  "amsMetricsID"
+                ],
+                "topic": "xp_amp_appstore_unidentified",
+                "shouldFlush": false
+              }
+            ],
+            "custom": {}
+          },
+          "$kind": "flowAction",
+          "actionClass": "FlowAction",
+          "page": "reviews",
+          "pageUrl": "https://apps.apple.com/cn/app/839285684?see-all=reviews&platform=iphone",
+          "pageData": {
+            "shelves": [
+              {
+                "$kind": "Shelf",
+                "impressionMetrics": {
+                  "fields": {
+                    "id": "22",
+                    "name": "评分及评论",
+                    "impressionType": "ratingsDetails",
+                    "idType": "sequential",
+                    "impressionIndex": 2
+                  }
+                },
+                "contentType": "reviewsContainer",
+                "marker": null,
+                "items": [
+                  {
+                    "$kind": "ReviewsContainer",
+                    "adamId": "839285684",
+                    "ratings": {
+                      "$kind": "Ratings",
+                      "productId": "839285684",
+                      "ratingAverage": 4.8,
+                      "totalNumberOfRatings": 530,
+                      "context": "details",
+                      "ratingCounts": [
+                        465,
+                        33,
+                        15,
+                        7,
+                        10
+                      ]
+                    },
+                    "tapToRate": {
+                      "$kind": "TapToRate",
+                      "componentType": "tapToRate",
+                      "title": "轻点评分：",
+                      "rating": null,
+                      "rateAction": {
+                        "presentationStyle": [],
+                        "actionMetrics": {
+                          "$kind": "ActionMetrics",
+                          "data": [],
+                          "custom": {}
+                        },
+                        "$kind": "HttpTemplateAction",
+                        "actionClass": "HttpTemplateAction",
+                        "message": null,
+                        "url": "?id=839285684",
+                        "method": "POST",
+                        "headers": {},
+                        "body": null,
+                        "bodyDictionary": {},
+                        "parameters": [
+                          {
+                            "key": "rating",
+                            "target": "urlQuery",
+                            "inputType": "decimalPad",
+                            "isRequired": true,
+                            "maximumLength": null
+                          },
+                          {
+                            "key": "versionToReview",
+                            "target": "urlQuery",
+                            "inputType": "decimalPad",
+                            "isRequired": true,
+                            "maximumLength": null
+                          }
+                        ],
+                        "isStoreRequest": true,
+                        "needsAuthentication": false,
+                        "needsMediaToken": false,
+                        "retryCount": 0,
+                        "disableCache": true,
+                        "successAction": {
+                          "title": "已提交",
+                          "artwork": {
+                            "$kind": "Artwork",
+                            "backgroundColor": null,
+                            "textColor": null,
+                            "style": null,
+                            "crop": "bb",
+                            "contentMode": null,
+                            "imageScale": null,
+                            "template": "resource://ToastStar.png",
+                            "width": 95,
+                            "height": 90,
+                            "variants": [
+                              {
+                                "$kind": "ArtworkVariant",
+                                "format": "jpeg",
+                                "quality": 70,
+                                "supportsWideGamut": false
+                              }
+                            ]
+                          },
+                          "presentationStyle": [],
+                          "actionMetrics": {
+                            "$kind": "ActionMetrics",
+                            "data": [],
+                            "custom": {}
+                          },
+                          "$kind": "AlertAction",
+                          "actionClass": "AlertAction",
+                          "style": "toast",
+                          "message": "感谢你的反馈。",
+                          "isCancelable": false,
+                          "cancelTitle": null,
+                          "cancelAction": null,
+                          "buttonActions": [],
+                          "buttonTitles": [],
+                          "destructiveActionIndex": null,
+                          "imageName": null
+                        },
+                        "failureAction": null,
+                        "useModernRatingsAPI": false,
+                        "adamId": "839285684"
+                      }
+                    },
+                    "productAction": {
+                      "title": "Workout for Women -Lose Weight",
+                      "presentationStyle": [],
+                      "actionMetrics": {
+                        "$kind": "ActionMetrics",
+                        "data": [],
+                        "custom": {}
+                      },
+                      "$kind": "flowAction",
+                      "actionClass": "FlowAction",
+                      "page": "product",
+                      "pageUrl": "https://apps.apple.com/cn/app/839285684?platform=iphone",
+                      "pageData": null,
+                      "presentationContext": "infer",
+                      "animationBehavior": "infer",
+                      "origin": "inapp",
+                      "destination": {
+                        "storefront": "cn",
+                        "language": "zh-Hans-CN",
+                        "$kind": "ProductPageIntent",
+                        "id": "839285684",
+                        "platform": "iphone"
+                      }
+                    },
+                    "writeReviewAction": {
+                      "title": "撰写评论",
+                      "artwork": {
+                        "$kind": "Artwork",
+                        "backgroundColor": null,
+                        "textColor": null,
+                        "style": null,
+                        "crop": "bb",
+                        "contentMode": null,
+                        "imageScale": null,
+                        "template": "systemimage://square.and.pencil",
+                        "width": 0,
+                        "height": 0,
+                        "variants": [
+                          {
+                            "$kind": "ArtworkVariant",
+                            "format": "jpeg",
+                            "quality": 70,
+                            "supportsWideGamut": false
+                          }
+                        ]
+                      },
+                      "presentationStyle": [],
+                      "actionMetrics": {
+                        "$kind": "ActionMetrics",
+                        "data": [],
+                        "custom": {}
+                      },
+                      "$kind": "WriteReviewAction",
+                      "actionClass": "WriteReviewAction",
+                      "adamId": "839285684",
+                      "url": "?id=839285684",
+                      "appName": "Workout for Women -Lose Weight",
+                      "itemDescription": "Exercise Training & Diet Plan",
+                      "appIcon": {
+                        "$kind": "Artwork",
+                        "backgroundColor": {
+                          "red": 0.9176470588235294,
+                          "green": 0.2196078431372549,
+                          "blue": 0.4235294117647059,
+                          "type": "rgb"
+                        },
+                        "textColor": {
+                          "red": 0.08627450980392157,
+                          "green": 0.07058823529411765,
+                          "blue": 0.07450980392156863,
+                          "type": "rgb"
+                        },
+                        "style": "roundedRectPrerendered",
+                        "crop": "bb",
+                        "contentMode": null,
+                        "imageScale": null,
+                        "template": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/b1/6a/95/b16a959a-d5b5-5408-47bc-bd0c4e1a1d9b/Placeholder.mill/{w}x{h}bb-70.png",
+                        "width": 1024,
+                        "height": 1024,
+                        "variants": [
+                          {
+                            "$kind": "ArtworkVariant",
+                            "format": "jpeg",
+                            "quality": 70,
+                            "supportsWideGamut": false
+                          }
+                        ]
+                      }
+                    },
+                    "supportAction": {
+                      "title": "App支持",
+                      "presentationStyle": [],
+                      "actionMetrics": {
+                        "$kind": "ActionMetrics",
+                        "data": [],
+                        "custom": {}
+                      },
+                      "$kind": "ExternalUrlAction",
+                      "actionClass": "ExternalUrlAction",
+                      "url": "https://7mfitness.com",
+                      "isSensitive": false
+                    },
+                    "alwaysAllowReviews": false
+                  }
+                ],
+                "url": null,
+                "mergeWhenFetched": false,
+                "fetchStrategy": "onPageLoad",
+                "batchGroup": null,
+                "seeAllAction": null,
+                "footerTitle": null,
+                "footerAction": null,
+                "eyebrow": null,
+                "eyebrowArtwork": null,
+                "footerStyle": null,
+                "title": "评分及评论",
+                "titleArtwork": null,
+                "subtitle": null,
+                "isHorizontal": false,
+                "isHidden": false,
+                "rowsPerColumn": null,
+                "background": {
+                  "type": "none"
+                },
+                "contentsMetadata": {
+                  "type": "none"
+                },
+                "isPersonalized": false,
+                "shouldFilterApps": false
+              },
+              {
+                "$kind": "Shelf",
+                "impressionMetrics": {
+                  "fields": {
+                    "id": "23",
+                    "name": "",
+                    "impressionType": "ratingsDetails",
+                    "idType": "sequential",
+                    "impressionIndex": 2
+                  }
+                },
+                "contentType": "reviews",
+                "marker": null,
+                "items": [
+                  {
+                    "$kind": "Review",
+                    "id": "2210969485",
+                    "title": "每天打卡收获多多",
+                    "date": "2018-02-15T14:20:16.000Z",
+                    "dateText": "* null *",
+                    "contents": "简单好用好评",
+                    "rating": 5,
+                    "reviewerName": "大佳佳佳",
+                    "dateAuthorText": "* null * · 大佳佳佳"
+                  },
+                  {
+                    "$kind": "Review",
+                    "id": "8536674076",
+                    "title": "简单粗暴好用",
+                    "date": "2022-04-06T04:03:00.000Z",
+                    "dateText": "* null *",
+                    "contents": "新手进去很简单，动作容易模仿，一组30秒，容易上手，音乐也好听。8岁儿子强烈要求购买",
+                    "rating": 5,
+                    "reviewerName": "学号1953760",
+                    "dateAuthorText": "* null * · 学号1953760"
+                  },
+                  {
+                    "$kind": "Review",
+                    "id": "3492973040",
+                    "title": "Convenient",
+                    "date": "2018-12-04T16:29:19.000Z",
+                    "dateText": "* null *",
+                    "contents": "I found this app is very convenient. If I miss my workout at gym, I just can choose 2-3 sets from app, that will be good. It has different workouts for different levels.",
+                    "rating": 5,
+                    "reviewerName": "Yayulia",
+                    "dateAuthorText": "* null * · Yayulia"
+                  },
+                  {
+                    "$kind": "Review",
+                    "id": "6052795032",
+                    "title": "Thank you",
+                    "date": "2020-06-09T01:22:59.000Z",
+                    "dateText": "* null *",
+                    "contents": "Omg 😮 amazing result.... I didn’t believe it. But now I lost almost 11kg with this app app and keto... I just wanna say thank you guys. I hope everyone download this app u want losse weight.",
+                    "rating": 5,
+                    "reviewerName": "Nandia from China",
+                    "dateAuthorText": "* null * · Nandia from China"
+                  },
+                  {
+                    "$kind": "Review",
+                    "id": "6400700303",
+                    "title": "I really enjoyed my first day doing exercises.",
+                    "date": "2020-09-06T09:49:56.000Z",
+                    "dateText": "* null *",
+                    "contents": "It was my first day doing this in this app and I really enjoyed it.. I never do exercises but today I enjoyed doing it..",
+                    "rating": 5,
+                    "reviewerName": "jelly2102",
+                    "dateAuthorText": "* null * · jelly2102"
+                  },
+                  {
+                    "$kind": "Review",
+                    "id": "10176154885",
+                    "title": "Daily 7",
+                    "date": "2023-07-24T11:36:03.000Z",
+                    "dateText": "* null *",
+                    "contents": "Great nice way to keep active",
+                    "rating": 5,
+                    "reviewerName": "jybvy",
+                    "dateAuthorText": "* null * · jybvy"
+                  },
+                  {
+                    "$kind": "Review",
+                    "id": "3028449825",
+                    "title": "Good free app",
+                    "date": "2018-08-07T03:45:48.000Z",
+                    "dateText": "* null *",
+                    "contents": "I really enjoy doing workouts with this free app. The range of different workouts and goals is pretty cool!",
+                    "rating": 5,
+                    "reviewerName": "Emilius33",
+                    "dateAuthorText": "* null * · Emilius33"
+                  },
+                  {
+                    "$kind": "Review",
+                    "id": "5097045343",
+                    "title": "great app",
+                    "date": "2019-11-07T06:03:30.000Z",
+                    "dateText": "* null *",
+                    "contents": "User friendly",
+                    "rating": 5,
+                    "reviewerName": "000虫儿飞",
+                    "dateAuthorText": "* null * · 000虫儿飞"
+                  }
+                ],
+                "url": null,
+                "mergeWhenFetched": false,
+                "fetchStrategy": "onPageLoad",
+                "batchGroup": null,
+                "seeAllAction": null,
+                "footerTitle": null,
+                "footerAction": null,
+                "eyebrow": null,
+                "eyebrowArtwork": null,
+                "footerStyle": null,
+                "titleArtwork": null,
+                "subtitle": null,
+                "isHorizontal": false,
+                "isHidden": false,
+                "rowsPerColumn": null,
+                "background": {
+                  "type": "none"
+                },
+                "contentsMetadata": {
+                  "type": "none"
+                },
+                "isPersonalized": false,
+                "shouldFilterApps": false,
+                "id": "ReviewsPage.ShelfId.helpful",
+                "presentationHints": {
+                  "isSortable": true,
+                  "isSeeAllContext": true
+                }
+              }
+            ],
+            "title": null,
+            "presentationOptions": [],
+            "isIncomplete": false,
+            "pageMetrics": {
+              "$kind": "PageMetrics",
+              "instructions": [],
+              "custom": {}
+            },
+            "$kind": "ReviewsPage",
+            "trailingNavBarAction": null,
+            "adamId": "839285684",
+            "nextPage": {
+              "url": "x-as3-internal:/reviews/shelf/839285684/helpful",
+              "remainingContent": [],
+              "nextHref": "/v1/catalog/cn/apps/839285684/reviews?l=zh-Hans-CN&offset=8",
+              "profile": "lockup",
+              "maxPerPage": 20,
+              "highestOrdinal": 0,
+              "metricsPageInformation": null,
+              "metricsLocationTracker": null
+            },
+            "initialSortOptionIdentifier": "helpful",
+            "sortActionSheetTitle": "排序方式",
+            "sortOptions": [
+              {
+                "$kind": "ReviewsPageSortOption",
+                "id": "helpful",
+                "title": "最有帮助",
+                "selectedActionTitle": "**ASE.Web.AppStoreClient.Reviews.Sort.By.Most.Helpful**",
+                "url": "x-as3-internal:/reviews/839285684/helpful"
+              },
+              {
+                "$kind": "ReviewsPageSortOption",
+                "id": "favorable",
+                "title": "最高评价",
+                "selectedActionTitle": "**ASE.Web.AppStoreClient.Reviews.Sort.By.Most.Favorable**",
+                "url": "x-as3-internal:/reviews/839285684/favorable"
+              },
+              {
+                "$kind": "ReviewsPageSortOption",
+                "id": "critical",
+                "title": "最低评价",
+                "selectedActionTitle": "**ASE.Web.AppStoreClient.Reviews.Sort.By.Most.Critical**",
+                "url": "x-as3-internal:/reviews/839285684/critical"
+              },
+              {
+                "$kind": "ReviewsPageSortOption",
+                "id": "recent",
+                "title": "最新评价",
+                "selectedActionTitle": "**ASE.Web.AppStoreClient.Reviews.Sort.By.Most.Recent**",
+                "url": "x-as3-internal:/reviews/839285684/recent"
+              }
+            ],
+            "alwaysAllowReviews": false
+          },
+          "presentationContext": "infer",
+          "animationBehavior": "infer",
+          "origin": "inapp",
+          "destination": {
+            "storefront": "cn",
+            "language": "zh-Hans-CN",
+            "platform": "iphone",
+            "id": "839285684",
+            "see-all": "reviews",
+            "$kind": "SeeAllPageIntent"
+          }
+        },
+        "footerTitle": null,
+        "footerAction": null,
+        "eyebrow": null,
+        "eyebrowArtwork": null,
+        "footerStyle": null,
+        "title": "评分及评论",
+        "titleArtwork": null,
+        "subtitle": null,
+        "isHorizontal": false,
+        "isHidden": false,
+        "rowsPerColumn": null,
+        "background": {
+          "type": "none"
+        },
+        "contentsMetadata": {
+          "type": "none"
+        },
+        "isPersonalized": false,
+        "shouldFilterApps": false,
+        "id": "productRatings"
+      },
+      "allProductReviews": {
+        "$kind": "Shelf",
+        "impressionMetrics": null,
+        "contentType": "productReview",
+        "marker": null,
+        "items": [
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "2210969485",
+              "title": "每天打卡收获多多",
+              "date": "2018-02-15T14:20:16.000Z",
+              "dateText": "* null *",
+              "contents": "简单好用好评",
+              "rating": 5,
+              "reviewerName": "大佳佳佳",
+              "dateAuthorText": "* null * · 大佳佳佳",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "2",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 0
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "2210969485",
+                          "title": "每天打卡收获多多",
+                          "date": "2018-02-15T14:20:16.000Z",
+                          "dateText": "* null *",
+                          "contents": "简单好用好评",
+                          "rating": 5,
+                          "reviewerName": "大佳佳佳",
+                          "dateAuthorText": "* null * · 大佳佳佳"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "2210969485"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "0",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 0
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "8536674076",
+              "title": "简单粗暴好用",
+              "date": "2022-04-06T04:03:00.000Z",
+              "dateText": "* null *",
+              "contents": "新手进去很简单，动作容易模仿，一组30秒，容易上手，音乐也好听。8岁儿子强烈要求购买",
+              "rating": 5,
+              "reviewerName": "学号1953760",
+              "dateAuthorText": "* null * · 学号1953760",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "3",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 0
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "8536674076",
+                          "title": "简单粗暴好用",
+                          "date": "2022-04-06T04:03:00.000Z",
+                          "dateText": "* null *",
+                          "contents": "新手进去很简单，动作容易模仿，一组30秒，容易上手，音乐也好听。8岁儿子强烈要求购买",
+                          "rating": 5,
+                          "reviewerName": "学号1953760",
+                          "dateAuthorText": "* null * · 学号1953760"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "8536674076"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "1",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 1
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "3492973040",
+              "title": "Convenient",
+              "date": "2018-12-04T16:29:19.000Z",
+              "dateText": "* null *",
+              "contents": "I found this app is very convenient. If I miss my workout at gym, I just can choose 2-3 sets from app, that will be good. It has different workouts for different levels.",
+              "rating": 5,
+              "reviewerName": "Yayulia",
+              "dateAuthorText": "* null * · Yayulia",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "4",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 0
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "3492973040",
+                          "title": "Convenient",
+                          "date": "2018-12-04T16:29:19.000Z",
+                          "dateText": "* null *",
+                          "contents": "I found this app is very convenient. If I miss my workout at gym, I just can choose 2-3 sets from app, that will be good. It has different workouts for different levels.",
+                          "rating": 5,
+                          "reviewerName": "Yayulia",
+                          "dateAuthorText": "* null * · Yayulia"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "3492973040"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "2",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 2
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "6052795032",
+              "title": "Thank you",
+              "date": "2020-06-09T01:22:59.000Z",
+              "dateText": "* null *",
+              "contents": "Omg 😮 amazing result.... I didn’t believe it. But now I lost almost 11kg with this app app and keto... I just wanna say thank you guys. I hope everyone download this app u want losse weight.",
+              "rating": 5,
+              "reviewerName": "Nandia from China",
+              "dateAuthorText": "* null * · Nandia from China",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "5",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 0
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "6052795032",
+                          "title": "Thank you",
+                          "date": "2020-06-09T01:22:59.000Z",
+                          "dateText": "* null *",
+                          "contents": "Omg 😮 amazing result.... I didn’t believe it. But now I lost almost 11kg with this app app and keto... I just wanna say thank you guys. I hope everyone download this app u want losse weight.",
+                          "rating": 5,
+                          "reviewerName": "Nandia from China",
+                          "dateAuthorText": "* null * · Nandia from China"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "6052795032"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "3",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 3
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "6400700303",
+              "title": "I really enjoyed my first day doing exercises.",
+              "date": "2020-09-06T09:49:56.000Z",
+              "dateText": "* null *",
+              "contents": "It was my first day doing this in this app and I really enjoyed it.. I never do exercises but today I enjoyed doing it..",
+              "rating": 5,
+              "reviewerName": "jelly2102",
+              "dateAuthorText": "* null * · jelly2102",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "6",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 0
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "6400700303",
+                          "title": "I really enjoyed my first day doing exercises.",
+                          "date": "2020-09-06T09:49:56.000Z",
+                          "dateText": "* null *",
+                          "contents": "It was my first day doing this in this app and I really enjoyed it.. I never do exercises but today I enjoyed doing it..",
+                          "rating": 5,
+                          "reviewerName": "jelly2102",
+                          "dateAuthorText": "* null * · jelly2102"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "6400700303"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "4",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 4
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "10176154885",
+              "title": "Daily 7",
+              "date": "2023-07-24T11:36:03.000Z",
+              "dateText": "* null *",
+              "contents": "Great nice way to keep active",
+              "rating": 5,
+              "reviewerName": "jybvy",
+              "dateAuthorText": "* null * · jybvy",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "7",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 0
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "10176154885",
+                          "title": "Daily 7",
+                          "date": "2023-07-24T11:36:03.000Z",
+                          "dateText": "* null *",
+                          "contents": "Great nice way to keep active",
+                          "rating": 5,
+                          "reviewerName": "jybvy",
+                          "dateAuthorText": "* null * · jybvy"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "10176154885"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "5",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 5
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "3028449825",
+              "title": "Good free app",
+              "date": "2018-08-07T03:45:48.000Z",
+              "dateText": "* null *",
+              "contents": "I really enjoy doing workouts with this free app. The range of different workouts and goals is pretty cool!",
+              "rating": 5,
+              "reviewerName": "Emilius33",
+              "dateAuthorText": "* null * · Emilius33",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "8",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 0
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "3028449825",
+                          "title": "Good free app",
+                          "date": "2018-08-07T03:45:48.000Z",
+                          "dateText": "* null *",
+                          "contents": "I really enjoy doing workouts with this free app. The range of different workouts and goals is pretty cool!",
+                          "rating": 5,
+                          "reviewerName": "Emilius33",
+                          "dateAuthorText": "* null * · Emilius33"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "3028449825"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "6",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 6
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "5097045343",
+              "title": "great app",
+              "date": "2019-11-07T06:03:30.000Z",
+              "dateText": "* null *",
+              "contents": "User friendly",
+              "rating": 5,
+              "reviewerName": "000虫儿飞",
+              "dateAuthorText": "* null * · 000虫儿飞",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "9",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 0
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "5097045343",
+                          "title": "great app",
+                          "date": "2019-11-07T06:03:30.000Z",
+                          "dateText": "* null *",
+                          "contents": "User friendly",
+                          "rating": 5,
+                          "reviewerName": "000虫儿飞",
+                          "dateAuthorText": "* null * · 000虫儿飞"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "5097045343"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "7",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 7
+              }
+            }
+          }
+        ],
+        "url": null,
+        "mergeWhenFetched": false,
+        "fetchStrategy": "onPageLoad",
+        "batchGroup": null,
+        "seeAllAction": null,
+        "footerTitle": null,
+        "footerAction": null,
+        "eyebrow": null,
+        "eyebrowArtwork": null,
+        "footerStyle": null,
+        "titleArtwork": null,
+        "subtitle": null,
+        "isHorizontal": true,
+        "isHidden": false,
+        "rowsPerColumn": null,
+        "background": {
+          "type": "none"
+        },
+        "contentsMetadata": {
+          "type": "none"
+        },
+        "isPersonalized": false,
+        "shouldFilterApps": false,
+        "id": "allProductReviews"
+      },
+      "userProductReviews": {
+        "$kind": "Shelf",
+        "impressionMetrics": {
+          "fields": {
+            "id": "21",
+            "name": "最有帮助的评论",
+            "impressionType": "mostHelpfulReviews",
+            "idType": "sequential",
+            "impressionIndex": 2
+          }
+        },
+        "contentType": "productReview",
+        "marker": null,
+        "items": [
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "2210969485",
+              "title": "每天打卡收获多多",
+              "date": "2018-02-15T14:20:16.000Z",
+              "dateText": "* null *",
+              "contents": "简单好用好评",
+              "rating": 5,
+              "reviewerName": "大佳佳佳",
+              "dateAuthorText": "* null * · 大佳佳佳",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "10",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 1
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "2210969485",
+                          "title": "每天打卡收获多多",
+                          "date": "2018-02-15T14:20:16.000Z",
+                          "dateText": "* null *",
+                          "contents": "简单好用好评",
+                          "rating": 5,
+                          "reviewerName": "大佳佳佳",
+                          "dateAuthorText": "* null * · 大佳佳佳"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "2210969485"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "0",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 0
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "8536674076",
+              "title": "简单粗暴好用",
+              "date": "2022-04-06T04:03:00.000Z",
+              "dateText": "* null *",
+              "contents": "新手进去很简单，动作容易模仿，一组30秒，容易上手，音乐也好听。8岁儿子强烈要求购买",
+              "rating": 5,
+              "reviewerName": "学号1953760",
+              "dateAuthorText": "* null * · 学号1953760",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "11",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 1
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "8536674076",
+                          "title": "简单粗暴好用",
+                          "date": "2022-04-06T04:03:00.000Z",
+                          "dateText": "* null *",
+                          "contents": "新手进去很简单，动作容易模仿，一组30秒，容易上手，音乐也好听。8岁儿子强烈要求购买",
+                          "rating": 5,
+                          "reviewerName": "学号1953760",
+                          "dateAuthorText": "* null * · 学号1953760"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "8536674076"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "1",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 1
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "3492973040",
+              "title": "Convenient",
+              "date": "2018-12-04T16:29:19.000Z",
+              "dateText": "* null *",
+              "contents": "I found this app is very convenient. If I miss my workout at gym, I just can choose 2-3 sets from app, that will be good. It has different workouts for different levels.",
+              "rating": 5,
+              "reviewerName": "Yayulia",
+              "dateAuthorText": "* null * · Yayulia",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "12",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 1
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "3492973040",
+                          "title": "Convenient",
+                          "date": "2018-12-04T16:29:19.000Z",
+                          "dateText": "* null *",
+                          "contents": "I found this app is very convenient. If I miss my workout at gym, I just can choose 2-3 sets from app, that will be good. It has different workouts for different levels.",
+                          "rating": 5,
+                          "reviewerName": "Yayulia",
+                          "dateAuthorText": "* null * · Yayulia"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "3492973040"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "2",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 2
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "6052795032",
+              "title": "Thank you",
+              "date": "2020-06-09T01:22:59.000Z",
+              "dateText": "* null *",
+              "contents": "Omg 😮 amazing result.... I didn’t believe it. But now I lost almost 11kg with this app app and keto... I just wanna say thank you guys. I hope everyone download this app u want losse weight.",
+              "rating": 5,
+              "reviewerName": "Nandia from China",
+              "dateAuthorText": "* null * · Nandia from China",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "13",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 1
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "6052795032",
+                          "title": "Thank you",
+                          "date": "2020-06-09T01:22:59.000Z",
+                          "dateText": "* null *",
+                          "contents": "Omg 😮 amazing result.... I didn’t believe it. But now I lost almost 11kg with this app app and keto... I just wanna say thank you guys. I hope everyone download this app u want losse weight.",
+                          "rating": 5,
+                          "reviewerName": "Nandia from China",
+                          "dateAuthorText": "* null * · Nandia from China"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "6052795032"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "3",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 3
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "6400700303",
+              "title": "I really enjoyed my first day doing exercises.",
+              "date": "2020-09-06T09:49:56.000Z",
+              "dateText": "* null *",
+              "contents": "It was my first day doing this in this app and I really enjoyed it.. I never do exercises but today I enjoyed doing it..",
+              "rating": 5,
+              "reviewerName": "jelly2102",
+              "dateAuthorText": "* null * · jelly2102",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "14",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 1
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "6400700303",
+                          "title": "I really enjoyed my first day doing exercises.",
+                          "date": "2020-09-06T09:49:56.000Z",
+                          "dateText": "* null *",
+                          "contents": "It was my first day doing this in this app and I really enjoyed it.. I never do exercises but today I enjoyed doing it..",
+                          "rating": 5,
+                          "reviewerName": "jelly2102",
+                          "dateAuthorText": "* null * · jelly2102"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "6400700303"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "4",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 4
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "10176154885",
+              "title": "Daily 7",
+              "date": "2023-07-24T11:36:03.000Z",
+              "dateText": "* null *",
+              "contents": "Great nice way to keep active",
+              "rating": 5,
+              "reviewerName": "jybvy",
+              "dateAuthorText": "* null * · jybvy",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "15",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 1
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "10176154885",
+                          "title": "Daily 7",
+                          "date": "2023-07-24T11:36:03.000Z",
+                          "dateText": "* null *",
+                          "contents": "Great nice way to keep active",
+                          "rating": 5,
+                          "reviewerName": "jybvy",
+                          "dateAuthorText": "* null * · jybvy"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "10176154885"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "5",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 5
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "3028449825",
+              "title": "Good free app",
+              "date": "2018-08-07T03:45:48.000Z",
+              "dateText": "* null *",
+              "contents": "I really enjoy doing workouts with this free app. The range of different workouts and goals is pretty cool!",
+              "rating": 5,
+              "reviewerName": "Emilius33",
+              "dateAuthorText": "* null * · Emilius33",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "16",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 1
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "3028449825",
+                          "title": "Good free app",
+                          "date": "2018-08-07T03:45:48.000Z",
+                          "dateText": "* null *",
+                          "contents": "I really enjoy doing workouts with this free app. The range of different workouts and goals is pretty cool!",
+                          "rating": 5,
+                          "reviewerName": "Emilius33",
+                          "dateAuthorText": "* null * · Emilius33"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "3028449825"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "6",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 6
+              }
+            }
+          },
+          {
+            "$kind": "ProductReview",
+            "componentType": "productReview",
+            "sourceType": "user",
+            "review": {
+              "$kind": "Review",
+              "id": "5097045343",
+              "title": "great app",
+              "date": "2019-11-07T06:03:30.000Z",
+              "dateText": "* null *",
+              "contents": "User friendly",
+              "rating": 5,
+              "reviewerName": "000虫儿飞",
+              "dateAuthorText": "* null * · 000虫儿飞",
+              "moreAction": {
+                "title": "评分及评论",
+                "presentationStyle": [],
+                "actionMetrics": {
+                  "$kind": "ActionMetrics",
+                  "data": [],
+                  "custom": {}
+                },
+                "$kind": "flowAction",
+                "actionClass": "FlowAction",
+                "page": "reviews",
+                "pageData": {
+                  "shelves": [
+                    {
+                      "$kind": "Shelf",
+                      "impressionMetrics": {
+                        "fields": {
+                          "id": "17",
+                          "name": "",
+                          "impressionType": "ratingsDetails",
+                          "idType": "sequential",
+                          "impressionIndex": 1
+                        }
+                      },
+                      "contentType": "reviews",
+                      "marker": null,
+                      "items": [
+                        {
+                          "$kind": "Review",
+                          "id": "5097045343",
+                          "title": "great app",
+                          "date": "2019-11-07T06:03:30.000Z",
+                          "dateText": "* null *",
+                          "contents": "User friendly",
+                          "rating": 5,
+                          "reviewerName": "000虫儿飞",
+                          "dateAuthorText": "* null * · 000虫儿飞"
+                        }
+                      ],
+                      "url": null,
+                      "mergeWhenFetched": false,
+                      "fetchStrategy": "onPageLoad",
+                      "batchGroup": null,
+                      "seeAllAction": null,
+                      "footerTitle": null,
+                      "footerAction": null,
+                      "eyebrow": null,
+                      "eyebrowArtwork": null,
+                      "footerStyle": null,
+                      "titleArtwork": null,
+                      "subtitle": null,
+                      "isHorizontal": false,
+                      "isHidden": false,
+                      "rowsPerColumn": null,
+                      "background": {
+                        "type": "none"
+                      },
+                      "contentsMetadata": {
+                        "type": "none"
+                      },
+                      "isPersonalized": false,
+                      "shouldFilterApps": false
+                    }
+                  ],
+                  "presentationOptions": [],
+                  "isIncomplete": false,
+                  "pageMetrics": {
+                    "$kind": "PageMetrics",
+                    "instructions": [],
+                    "custom": {}
+                  },
+                  "$kind": "ReviewsPage",
+                  "adamId": "839285684",
+                  "targetReviewId": "5097045343"
+                },
+                "presentationContext": "infer",
+                "animationBehavior": "infer",
+                "origin": "inapp"
+              }
+            },
+            "impressionMetrics": {
+              "fields": {
+                "id": "7",
+                "name": "",
+                "impressionType": "helpfulReview",
+                "idType": "sequential",
+                "impressionIndex": 7
+              }
+            }
+          }
+        ],
+        "url": null,
+        "mergeWhenFetched": false,
+        "fetchStrategy": "onPageLoad",
+        "batchGroup": null,
+        "seeAllAction": null,
+        "footerTitle": null,
+        "footerAction": null,
+        "eyebrow": null,
+        "eyebrowArtwork": null,
+        "footerStyle": null,
+        "titleArtwork": null,
+        "subtitle": null,
+        "isHorizontal": true,
+        "isHidden": false,
+        "rowsPerColumn": null,
+        "background": {
+          "type": "none"
+        },
+        "contentsMetadata": {
+          "type": "none"
+        },
+        "isPersonalized": false,
+        "shouldFilterApps": false,
+        "id": "userProductReviews"
+      }
+    }
+  }
+}

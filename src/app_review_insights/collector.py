@@ -23,6 +23,7 @@ ITUNES_LOOKUP_URL = "https://itunes.apple.com/lookup"
 RSS_BASE_URL = "https://itunes.apple.com/us/rss/customerreviews"
 AMP_PAGE_URL = "https://apps.apple.com/{country}/app/id{app_id}"
 AMP_REVIEWS_URL = "https://amp-api.apps.apple.com/v1/catalog/{country}/apps/{app_id}/reviews"
+ITML_REVIEWS_URL = "https://itunes.apple.com/WebObjects/MZStore.woa/wa/userReviewsRow"
 SORT_ORDERS = ("mostRecent", "mostHelpful")
 MAX_PAGES = 10
 BROWSER_UA = (
@@ -31,6 +32,7 @@ BROWSER_UA = (
 )
 USER_AGENT = "app-review-insights/0.1 (local demo collector)"
 US_STORE_FRONT = "143441-1,29"
+ITML_SORT_IDS = {"mostHelpful": 1, "mostRecent": 4}
 
 REVIEW_ID_PATTERN = re.compile(r"(?:[?&]id=|/id)(\d+)")
 
@@ -195,6 +197,153 @@ def parse_amp_payload(payload: dict, *, source: str, app_id: str, country: str,
     return reviews
 
 
+def parse_itml_payload(payload: dict, *, source: str, app_id: str, country: str,
+                       page_url: str, sort_by: str, fetched_at: str) -> list[ReviewRaw]:
+    """解析 WebObjects userReviewsRow 接口返回的评论列表（官方接口，无需 AMP token）。"""
+    reviews = []
+    for item in payload.get("userReviewList") or []:
+        if not isinstance(item, dict):
+            continue
+        try:
+            rating = int(float(item.get("rating") or 0))
+        except (TypeError, ValueError):
+            rating = 0
+        try:
+            votes = int(float(item.get("voteSum") or 0))
+        except (TypeError, ValueError):
+            votes = 0
+        reviews.append(ReviewRaw.create(
+            source=source,
+            app_id=app_id,
+            review_id=str(item.get("userReviewId") or ""),
+            author=str(item.get("name") or ""),
+            rating=rating,
+            title=str(item.get("title") or ""),
+            body=str(item.get("body") or ""),
+            country=country,
+            updated=str(item.get("date") or ""),
+            helpful_votes=votes,
+            page_url=page_url,
+            sort_by=sort_by,
+            raw=item,
+        ))
+    return reviews
+
+
+def parse_amp_page_shelf_reviews(payload: dict, *, source: str, app_id: str, country: str,
+                                 page_url: str = "", sort_by: str = "page") -> list[ReviewRaw]:
+    """从 App Store 产品页 serialized-server-data 的 allProductReviews shelf 中解析评论。
+
+    苹果在部分 storefront 的产品页中内嵌 8 条真实用户评论（如中国区页面），
+    结构为 shelfMapping.allProductReviews.items[].review{id,title,contents,date,rating,reviewerName}。
+    """
+    reviews = []
+    try:
+        data = payload["data"][0]["data"]
+        shelf = data.get("shelfMapping", {}).get("allProductReviews", {})
+        items = shelf.get("items") or []
+    except (KeyError, IndexError, TypeError, AttributeError):
+        items = []
+    for item in items:
+        review = (item or {}).get("review") or {}
+        if not isinstance(review, dict):
+            continue
+        try:
+            rating = int(float(review.get("rating") or 0))
+        except (TypeError, ValueError):
+            rating = 0
+        reviews.append(ReviewRaw.create(
+            source=source,
+            app_id=app_id,
+            review_id=str(review.get("id") or ""),
+            author=str(review.get("reviewerName") or ""),
+            rating=rating,
+            title=str(review.get("title") or ""),
+            body=str(review.get("contents") or ""),
+            country=country,
+            updated=str(review.get("date") or ""),
+            page_url=page_url,
+            sort_by=sort_by,
+            raw=review,
+        ))
+    return reviews
+
+
+def fetch_itml_reviews(
+    app_id: str,
+    *,
+    country: str = "us",
+    sort_by: str = "mostRecent",
+    cache_dir: pathlib.Path,
+    timeout: int = 30,
+    refresh: bool = False,
+) -> dict:
+    """通过 iTunes WebObjects userReviewsRow 接口采集评论。
+
+    这是当前仍然可用的 Apple 官方端点：无需 AMP token、不会被地理重定向，
+    返回的评论包含正文/评分/日期/投票数。苹果对该接口的分页参数已不敏感
+    （多次实测始终返回同一批热门评论），因此本采集器取一页即可，其余数据
+    依赖 GitHub Actions 定时刷新与 JSON/CSV 导入兜底。
+    """
+    ensure_dir(cache_dir)
+    fetched_at = utcnow_iso()
+    sort_id = ITML_SORT_IDS.get(sort_by, 4)
+    url = (
+        f"{ITML_REVIEWS_URL}?id={urllib.parse.quote(app_id)}"
+        f"&displayable-kind=11&sortId={sort_id}&pageNumber=0"
+    )
+    stats = {
+        "app_id": app_id,
+        "country": country,
+        "method": "itml",
+        "fetched_at": fetched_at,
+        "pages_fetched": 0,
+        "pages_skipped": 0,
+        "reviews_total": 0,
+        "reviews_by_sort": {},
+        "empty_pages": [],
+        "errors": [],
+        "notes": [
+            "数据来源：Apple iTunes WebObjects userReviewsRow 官方接口（2026 年实测仍可用）。",
+            "注意：该接口当前只返回同一批热门评论（分页参数已被苹果忽略），"
+            "批量数据请使用 GitHub Actions 定时刷新或导入 JSON/CSV。",
+        ],
+    }
+    cache_file = cache_dir / f"reviews-itml-{sort_by}-p0.json"
+    if cache_file.exists() and not refresh:
+        try:
+            payload = json.loads(cache_file.read_text(encoding="utf-8"))
+            stats["pages_skipped"] = 1
+        except Exception as exc:  # noqa: BLE001
+            stats["errors"].append({"stage": "cache", "error": str(exc)})
+            payload = None
+    else:
+        payload = None
+    if payload is None:
+        try:
+            text = http_get_text(url, headers={
+                "Accept": "application/json",
+                "X-Apple-Store-Front": US_STORE_FRONT,
+            }, timeout=timeout)
+            payload = json.loads(text)
+            write_json(cache_file, envelope(app_id, url, payload, fetched_at))
+            stats["pages_fetched"] = 1
+        except Exception as exc:  # noqa: BLE001
+            stats["errors"].append({"url": url, "error": str(exc)})
+            write_json(cache_dir / "collection_notes.json", envelope(app_id, "", stats, fetched_at))
+            return stats
+    reviews = parse_itml_payload(
+        payload, source="itml", app_id=app_id, country=country,
+        page_url=url, sort_by=sort_by, fetched_at=fetched_at,
+    )
+    stats["reviews_by_sort"][sort_by] = len(reviews)
+    stats["reviews_total"] = len(reviews)
+    if not reviews:
+        stats["empty_pages"].append({"sort_by": sort_by, "page": 0, "url": url})
+    write_json(cache_dir / "collection_notes.json", envelope(app_id, "", stats, fetched_at))
+    return stats
+
+
 def fetch_amp_reviews(
     app_id: str,
     *,
@@ -348,7 +497,12 @@ def fetch_reviews(
     refresh: bool = False,
     method: str = "auto",
 ) -> dict:
-    """采集评论：method=amp（现代接口）/ rss（旧接口）/ auto（先 amp 后 rss）。"""
+    """Collect reviews. method=itml (WebObjects official) / amp / rss / auto (itml then amp then rss)."""
+    if method == "itml":
+        return fetch_itml_reviews(
+            app_id, country=country, cache_dir=cache_dir,
+            timeout=timeout, refresh=refresh,
+        )
     if method == "amp":
         return fetch_amp_reviews(
             app_id, country=country, delay=delay, cache_dir=cache_dir,
@@ -359,16 +513,24 @@ def fetch_reviews(
             app_id, country=country, sort_orders=sort_orders, max_pages=max_pages,
             delay=delay, cache_dir=cache_dir, timeout=timeout, refresh=refresh,
         )
+    itml_stats = fetch_itml_reviews(
+        app_id, country=country, cache_dir=cache_dir,
+        timeout=timeout, refresh=refresh,
+    )
+    if itml_stats["reviews_total"] > 0:
+        return itml_stats
     amp_stats = fetch_amp_reviews(
         app_id, country=country, delay=delay, cache_dir=cache_dir,
         timeout=timeout, refresh=refresh,
     )
     if amp_stats["reviews_total"] > 0:
+        itml_stats["notes"].append("ITML empty; AMP fallback succeeded.")
         return amp_stats
     rss_stats = _fetch_rss_reviews(
         app_id, country=country, sort_orders=sort_orders, max_pages=1,
         delay=delay, cache_dir=cache_dir, timeout=timeout, refresh=refresh,
     )
-    amp_stats["notes"].append("AMP 无结果，已尝试旧 RSS 接口（通常同样为空）。")
-    amp_stats["errors"].extend(rss_stats["errors"])
-    return amp_stats
+    itml_stats["notes"].append("ITML and AMP both empty; tried legacy RSS.")
+    itml_stats["errors"].extend(amp_stats["errors"])
+    itml_stats["errors"].extend(rss_stats["errors"])
+    return itml_stats
