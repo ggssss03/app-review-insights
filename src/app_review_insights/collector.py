@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import json
+import os
 import pathlib
 import re
 import time
@@ -159,6 +160,14 @@ def extract_amp_token(html: str) -> str:
 def fetch_amp_token(app_id: str, country: str = "us", timeout: int = 60) -> str:
     url = AMP_PAGE_URL.format(country=country, app_id=app_id)
     html = http_get_text(url, timeout=timeout)
+    if os.environ.get("AMP_DEBUG"):
+        print(f"[amp-debug] url={url} html_len={len(html)}", flush=True)
+        print(f"[amp-debug] amp-api_present={'amp-api.apps.apple.com' in html}", flush=True)
+        tokens = re.findall(r'"token":"[^"]{8,}"', html)
+        print(f"[amp-debug] token_matches={len(tokens)}", flush=True)
+        for t in tokens[:5]:
+            idx = html.find(t)
+            print(f"[amp-debug] token_ctx={html[max(0, idx - 80):idx + 90]!r}", flush=True)
     return extract_amp_token(html)
 
 

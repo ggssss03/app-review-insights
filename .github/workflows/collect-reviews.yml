@@ -21,6 +21,7 @@ jobs:
         run: python scripts/fetch_reviews.py 839285684 --delay 0.5 --refresh --method amp
         env:
           PYTHONPATH: src
+          AMP_DEBUG: "1"
       - name: Commit cached data
         run: |
           git config user.name "github-actions[bot]"
