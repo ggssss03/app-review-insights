@@ -48,8 +48,12 @@ python app/server.py --port 8765
 # 打开 http://127.0.0.1:8765
 ```
 
-示例应用（评估用主样例）：`Workout for Women: Home & Gym`
-`https://apps.apple.com/us/app/workout-for-women-home-gym/id839285684`
+示例应用（评估用主样例）：`Workout for Women -Lose Weight`
+`https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684`
+
+> **固定测试数据集**：为保持每次分析输入一致，该应用使用冻结的 **38 条真实评论**
+> （`data/raw/839285684/imported-reviews.json`，35 条中国区 + 3 条美国区），
+> 不随实时 feed 波动；其余示例应用仍从实时接口采集。
 
 分析结果输出到 `data/processed/<app_id>/analysis/`，包含：范围、清洗统计、
 动态主题、带证据的发现、需求（PRD）、测试用例、追溯校验报告、进度事件。

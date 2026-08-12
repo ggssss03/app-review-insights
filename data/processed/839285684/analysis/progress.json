@@ -7,7 +7,7 @@
   {
     "stage": "load",
     "status": "ok",
-    "detail": "43 条原始评论"
+    "detail": "38 条原始评论"
   },
   {
     "stage": "clean",
@@ -17,7 +17,7 @@
   {
     "stage": "clean",
     "status": "ok",
-    "detail": "35 条（去重 8，垃圾 0）"
+    "detail": "38 条（去重 0，垃圾 0）"
   },
   {
     "stage": "topics",

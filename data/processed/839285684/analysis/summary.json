@@ -11,30 +11,30 @@
       "max": null
     },
     "version_filter": null,
-    "note": "模型解析（分析目标聚焦订阅转化与付费墙体验，涉及订阅流程、付费墙设计及价格感知。）"
+    "note": "模型解析（分析目标聚焦订阅转化与付费墙体验，涉及订阅流程、付费墙设计及定价相关反馈。）"
   },
   "clean_stats": {
-    "input_count": 43,
-    "unique_count": 35,
-    "removed_duplicates": 8,
+    "input_count": 38,
+    "unique_count": 38,
+    "removed_duplicates": 0,
     "junk_count": 0,
     "rating_distribution": {
       "1": 3,
       "4": 1,
-      "5": 31
+      "5": 34
     },
     "language_distribution": {
       "zh": 16,
-      "en": 19
+      "en": 22
     },
     "rules_note": "清洗/去重/语言识别使用确定性规则（详见 PLAN.md 第 7 节）。"
   },
   "counts": {
-    "reviews": 35,
-    "topics": 5,
-    "findings": 14,
-    "requirements": 3,
-    "test_cases": 4
+    "reviews": 38,
+    "topics": 8,
+    "findings": 20,
+    "requirements": 5,
+    "test_cases": 5
   },
   "model_driven": true,
   "notes": [
@@ -44,8 +44,8 @@
     "数据来源与限制见 data/README.md；空数据/网络限制如实标注，不编造。"
   ],
   "traceability": {
-    "total_checks": 24,
-    "passed_checks": 24,
+    "total_checks": 35,
+    "passed_checks": 35,
     "failed_checks": 0
   }
 }

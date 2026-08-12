@@ -17,11 +17,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Collect reviews for sample apps
+      - name: Refresh live review caches (skips apps with frozen datasets)
         run: |
-          for app in 839285684 1544884479; do
-            python scripts/fetch_reviews.py "$app" --country cn --delay 0.5 --refresh --method auto
-          done
+          # 839285684 使用固定 38 条数据集（imported-reviews.json），
+          # 不再用实时 feed 覆盖；蛋仔派对等示例应用保留实时采集作参考。
+          python scripts/fetch_reviews.py 1544884479 --country cn --delay 0.5 --refresh --method auto
+          python scripts/fetch_reviews.py 1321803705 --country cn --delay 0.5 --refresh --method auto
         env:
           PYTHONPATH: src
       - name: Commit cached data
