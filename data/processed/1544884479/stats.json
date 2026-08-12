@@ -1,0 +1,14 @@
+{
+  "input_count": 8,
+  "unique_count": 8,
+  "removed_duplicates": 0,
+  "junk_count": 0,
+  "rating_distribution": {
+    "3": 4,
+    "5": 4
+  },
+  "language_distribution": {
+    "zh": 8
+  },
+  "rules_note": "清洗/去重/语言识别使用确定性规则（详见 PLAN.md 第 7 节）。"
+}
