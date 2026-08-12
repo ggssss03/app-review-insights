@@ -240,3 +240,88 @@ function showMsg(text, isError = false) {
 }
 
 init();
+
+/* ============ 科幻粒子网络背景 ============ */
+(function initParticles() {
+  const canvas = document.getElementById("bg-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  let width, height, particles = [];
+  const COUNT = 70;
+  const COLORS = ["0,229,255", "168,85,247", "255,45,149"];
+
+  function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+  }
+
+  function spawn() {
+    particles = Array.from({ length: COUNT }, () => ({
+      x: Math.random() * width,
+      y: Math.random() * height,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      r: Math.random() * 1.8 + 0.6,
+      c: COLORS[Math.floor(Math.random() * COLORS.length)],
+      tw: Math.random() * Math.PI * 2,
+    }));
+  }
+
+  function frame() {
+    ctx.clearRect(0, 0, width, height);
+    const LINK = 130;
+    for (const p of particles) {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.tw += 0.02;
+      if (p.x < -20) p.x = width + 20;
+      if (p.x > width + 20) p.x = -20;
+      if (p.y < -20) p.y = height + 20;
+      if (p.y > height + 20) p.y = -20;
+      const alpha = 0.35 + 0.3 * Math.sin(p.tw);
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.c},${alpha})`;
+      ctx.fill();
+    }
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i], b = particles[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d2 = dx * dx + dy * dy;
+        if (d2 < LINK * LINK) {
+          const alpha = (1 - Math.sqrt(d2) / LINK) * 0.16;
+          ctx.strokeStyle = `rgba(0,229,255,${alpha})`;
+          ctx.lineWidth = 0.7;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  resize();
+  spawn();
+  window.addEventListener("resize", () => { resize(); spawn(); });
+  frame();
+})();
+
+/* ============ 标题打字机效果 ============ */
+(function initTypewriter() {
+  const el = document.querySelector(".subtitle");
+  if (!el) return;
+  const full = el.textContent;
+  el.textContent = "";
+  let i = 0;
+  const timer = setInterval(() => {
+    i += 2;
+    el.textContent = full.slice(0, i);
+    if (i >= full.length) {
+      clearInterval(timer);
+      el.style.borderRight = "none";
+    }
+  }, 28);
+})();

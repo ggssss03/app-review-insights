@@ -3,20 +3,28 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>App Review Insights</title>
+  <title>App Review Insights · 星际分析终端</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="vignette" aria-hidden="true"></div>
+
   <header class="topbar">
-    <div>
-      <h1>App Review Insights</h1>
-      <p class="subtitle">把 App Store 用户评论变成可追溯的产品需求、版本规划与测试用例</p>
+    <div class="brand">
+      <div class="brand-mark">◈</div>
+      <div>
+        <h1>APP REVIEW INSIGHTS</h1>
+        <p class="subtitle">把 App Store 用户评论变成可追溯的产品需求 · 版本规划与测试用例</p>
+      </div>
     </div>
-    <div id="health" class="health">检测中…</div>
+    <div id="health" class="health">系统自检中…</div>
   </header>
 
   <main>
     <section class="card form-card">
+      <div class="card-glow"></div>
       <label for="url">App Store 链接（中国区）或应用 ID</label>
       <input id="url" type="text" value="https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684"
              placeholder="https://apps.apple.com/cn/app/... 或纯数字 ID">
@@ -25,7 +33,7 @@
       <input id="goal" type="text" value="订阅转化与付费墙体验" placeholder="例如：订阅转化、可用性、低分评论、指定版本">
       <div class="row">
         <label class="check"><input id="use-llm" type="checkbox" checked> 使用 LLM（模型驱动）</label>
-        <button id="start-btn" class="primary">开始分析</button>
+        <button id="start-btn" class="primary">▶ 开始分析</button>
       </div>
       <div class="row">
         <label class="file-label">
@@ -39,7 +47,7 @@
     </section>
 
     <section id="progress-card" class="card hidden">
-      <h2>执行进度</h2>
+      <h2 class="section-title">▣ 执行进度</h2>
       <ol id="progress-list" class="progress-list"></ol>
     </section>
 
@@ -48,7 +56,7 @@
         <button class="tab active" data-tab="summary">摘要</button>
         <button class="tab" data-tab="topics">主题</button>
         <button class="tab" data-tab="findings">发现</button>
-        <button class="tab" data-tab="requirements">需求(PRD)</button>
+        <button class="tab" data-tab="requirements">需求 (PRD)</button>
         <button class="tab" data-tab="testcases">测试用例</button>
         <button class="tab" data-tab="traceability">追溯校验</button>
         <button class="tab" data-tab="clean">清洗数据</button>
@@ -58,8 +66,8 @@
   </main>
 
   <footer class="footer">
-    数据来源：Apple iTunes Customer Reviews RSS（中国区可用）。离线缓存与限制见 <code>data/README.md</code>；
-    模型设计见 <code>docs/AI.md</code>。
+    数据来源：Apple iTunes Customer Reviews RSS（中国区可用）· 离线缓存与限制见 <code>data/README.md</code> ·
+    模型设计见 <code>docs/AI.md</code>
   </footer>
 
   <script src="/app.js"></script>
