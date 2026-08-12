@@ -1,29 +1,29 @@
 {
   "app_id": "839285684",
   "url": "",
-  "fetched_at": "2026-08-12T09:13:26+00:00",
+  "fetched_at": "2026-08-12T09:17:51+00:00",
   "data": {
     "app_id": "839285684",
     "country": "cn",
     "method": "rss",
-    "fetched_at": "2026-08-12T09:13:26+00:00",
+    "fetched_at": "2026-08-12T09:17:51+00:00",
     "pages_fetched": 3,
     "pages_skipped": 0,
     "reviews_total": 35,
     "reviews_by_sort": {
-      "mostRecent": 35,
-      "mostHelpful": 0
+      "mostRecent": 0,
+      "mostHelpful": 35
     },
     "empty_pages": [
       {
         "sort_by": "mostRecent",
-        "page": 2,
-        "url": "https://itunes.apple.com/cn/rss/customerreviews/id=839285684/page=2/sortBy=mostRecent/json"
+        "page": 1,
+        "url": "https://itunes.apple.com/cn/rss/customerreviews/id=839285684/page=1/sortBy=mostRecent/json"
       },
       {
         "sort_by": "mostHelpful",
-        "page": 1,
-        "url": "https://itunes.apple.com/cn/rss/customerreviews/id=839285684/page=1/sortBy=mostHelpful/json"
+        "page": 2,
+        "url": "https://itunes.apple.com/cn/rss/customerreviews/id=839285684/page=2/sortBy=mostHelpful/json"
       }
     ],
     "errors": [],
