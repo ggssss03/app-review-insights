@@ -64,7 +64,10 @@ def main() -> int:
         print(f"      [注意] {len(stats['empty_pages'])} 页返回空 feed（地区/网络限制时正常）"
               f"，请使用 GitHub Actions 采集或导入 JSON/CSV。", file=sys.stderr)
     for err in stats["errors"]:
-        print(f"      [错误] {err['url']}: {err['error']}", file=sys.stderr)
+        where = err.get("url") or err.get("stage", "?")
+        print(f"      [错误] {where}: {err['error']}", file=sys.stderr)
+    for note in stats.get("notes", []):
+        print(f"      [提示] {note}", file=sys.stderr)
     return 0
 
 
