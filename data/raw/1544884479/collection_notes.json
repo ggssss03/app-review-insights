@@ -1,0 +1,19 @@
+{
+  "app_id": "1544884479",
+  "url": "",
+  "fetched_at": "2026-08-12T09:27:17+00:00",
+  "data": {
+    "app_id": "1544884479",
+    "country": "cn",
+    "method": "amp-page",
+    "fetched_at": "2026-08-12T09:27:17+00:00",
+    "pages_fetched": 1,
+    "pages_skipped": 0,
+    "reviews_total": 8,
+    "empty_pages": [],
+    "errors": [],
+    "notes": [
+      "数据来源：App Store 中国区产品页内嵌评论（serialized-server-data），cn RSS 为空时的兜底通道。"
+    ]
+  }
+}

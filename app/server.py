@@ -104,12 +104,21 @@ class ServerApp:
             if not self.has_reviews(app_id):
                 # 没有缓存评论时尝试在线采集（需要可访问 Apple 接口的网络）
                 entry["progress"].append({"stage": "fetch", "status": "running", "detail": "尝试在线采集评论"})
-                fetch_reviews(
+                stats = fetch_reviews(
                     app_id,
                     country=country,
                     delay=1.0,
                     cache_dir=self.raw_dir(app_id),
                 )
+                if stats.get("reviews_total", 0) == 0:
+                    entry["progress"].append({
+                        "stage": "fetch",
+                        "status": "error",
+                        "detail": "在线采集完成但未获取到评论（cn RSS/产品页/AMP 均为空），请稍后重试或导入 JSON/CSV",
+                    })
+                    entry["status"] = "error"
+                    entry["error"] = "未获取到评论：请稍后重试（采集源可能临时不可用）或导入 JSON/CSV 数据集"
+                    return
                 entry["progress"].append({
                     "stage": "fetch",
                     "status": "ok",

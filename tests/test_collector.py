@@ -9,6 +9,7 @@ from app_review_insights.collector import (
     extract_country,
     extract_app_id,
     extract_amp_token,
+    fetch_amp_page_reviews,
     fetch_itml_reviews,
     fetch_reviews,
     storefront_for,
@@ -221,6 +222,29 @@ class CountryAwareCollectTest(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             with self.assertRaises(ValueError):
                 fetch_itml_reviews("839285684", country="cn", cache_dir=pathlib.Path(tmp))
+
+    def test_amp_page_fetch_parses_embedded_reviews(self):
+        html = (
+            "<html><script type=\"application/json\" id=\"serialized-server-data\">"
+            + json.dumps({"data": [{"data": {"shelfMapping": {"allProductReviews": {"items": [
+                {"review": {"id": "e1", "title": "好玩", "contents": "派对模式很棒",
+                            "date": "2026-01-01T00:00:00.000Z", "rating": 5,
+                            "reviewerName": "玩家甲"}},
+                {"review": {"id": "e2", "title": "卡顿", "contents": "经常闪退",
+                            "date": "2026-01-02T00:00:00.000Z", "rating": 2,
+                            "reviewerName": "玩家乙"}},
+            ]}}}}]}, ensure_ascii=False)
+            + "</script></html>"
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            cache_dir = pathlib.Path(tmp) / "1544884479"
+            with mock.patch("app_review_insights.collector.http_get_text", return_value=html):
+                stats = fetch_amp_page_reviews(
+                    "1544884479", country="cn", cache_dir=cache_dir, refresh=True,
+                )
+            self.assertTrue((cache_dir / "reviews-amp-page-cn.json").exists())
+        self.assertEqual(stats["reviews_total"], 2)
+        self.assertEqual(stats["method"], "amp-page")
 
 
 if __name__ == "__main__":

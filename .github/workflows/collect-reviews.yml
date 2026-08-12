@@ -17,8 +17,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Collect reviews for sample app
-        run: python scripts/fetch_reviews.py 839285684 --country cn --delay 0.5 --refresh --method rss
+      - name: Collect reviews for sample apps
+        run: |
+          for app in 839285684 1544884479; do
+            python scripts/fetch_reviews.py "$app" --country cn --delay 0.5 --refresh --method auto
+          done
         env:
           PYTHONPATH: src
       - name: Commit cached data

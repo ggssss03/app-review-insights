@@ -463,6 +463,80 @@ def fetch_amp_reviews(
     return stats
 
 
+def fetch_amp_page_reviews(
+    app_id: str,
+    *,
+    country: str = "cn",
+    cache_dir: pathlib.Path,
+    timeout: int = 90,
+    refresh: bool = False,
+) -> dict:
+    """从 App Store 产品页内嵌的 serialized-server-data 中采集评论（约 8 条）。
+
+    cn RSS 对部分应用（如高评分量级应用）返回空 feed 时使用此兜底：
+    苹果在中国区产品页中内嵌真实用户评论，结构为
+    shelfMapping.allProductReviews.items[].review。
+    """
+    ensure_dir(cache_dir)
+    fetched_at = utcnow_iso()
+    url = AMP_PAGE_URL.format(country=country, app_id=app_id)
+    cache_file = cache_dir / "reviews-amp-page-cn.json"
+    stats = {
+        "app_id": app_id,
+        "country": country,
+        "method": "amp-page",
+        "fetched_at": fetched_at,
+        "pages_fetched": 0,
+        "pages_skipped": 0,
+        "reviews_total": 0,
+        "empty_pages": [],
+        "errors": [],
+        "notes": [
+            "数据来源：App Store 中国区产品页内嵌评论（serialized-server-data），"
+            "cn RSS 为空时的兜底通道。",
+        ],
+    }
+    if cache_file.exists() and not refresh:
+        stats["pages_skipped"] = 1
+    else:
+        try:
+            html = http_get_text(url, timeout=timeout)
+            m = re.search(
+                r'<script type="application/json" id="serialized-server-data">(.*?)</script>',
+                html,
+                re.S,
+            )
+            if not m:
+                raise ValueError("产品页中未找到 serialized-server-data")
+            payload = json.loads(m.group(1))
+            data = payload["data"][0]["data"]
+            shelf = (data.get("shelfMapping") or {}).get("allProductReviews") or {}
+            items = shelf.get("items") or []
+            if not items:
+                raise ValueError("产品页内嵌评论为空")
+            write_json(cache_file, envelope(app_id, url, {"shelfMapping": data["shelfMapping"]}, fetched_at))
+            stats["pages_fetched"] = 1
+        except Exception as exc:  # noqa: BLE001
+            stats["errors"].append({"url": url, "error": str(exc)})
+            write_json(cache_dir / "collection_notes.json", envelope(app_id, "", stats, fetched_at))
+            return stats
+    try:
+        payload = json.loads(cache_file.read_text(encoding="utf-8"))
+        reviews = parse_amp_page_shelf_reviews(
+            {"data": [{"data": payload["data"]}]}, source="amp-page",
+            app_id=app_id, country=country,
+            page_url=url, sort_by="page",
+        )
+    except Exception as exc:  # noqa: BLE001
+        stats["errors"].append({"stage": "parse", "error": str(exc)})
+        reviews = []
+    stats["reviews_total"] = len(reviews)
+    if not reviews:
+        stats["empty_pages"].append({"url": url})
+    write_json(cache_dir / "collection_notes.json", envelope(app_id, "", stats, fetched_at))
+    return stats
+
+
 def _fetch_rss_reviews(
     app_id: str,
     *,
@@ -557,6 +631,12 @@ def fetch_reviews(
         )
         if rss_stats["reviews_total"] > 0:
             return rss_stats
+        page_stats = fetch_amp_page_reviews(
+            app_id, country=country, cache_dir=cache_dir, timeout=90, refresh=refresh,
+        )
+        if page_stats["reviews_total"] > 0:
+            rss_stats["notes"].append("cn RSS empty; product page embedded reviews succeeded.")
+            return page_stats
         amp_stats = fetch_amp_reviews(
             app_id, country=country, delay=delay, cache_dir=cache_dir,
             timeout=timeout, refresh=refresh,
@@ -564,7 +644,10 @@ def fetch_reviews(
         if amp_stats["reviews_total"] > 0:
             rss_stats["notes"].append("cn RSS empty; AMP fallback succeeded.")
             return amp_stats
-        rss_stats["notes"].append("cn RSS and AMP both empty; review data unavailable.")
+        rss_stats["notes"].append(
+            "cn RSS / product page / AMP 均为空；请导入 JSON/CSV 数据集。"
+        )
+        rss_stats["errors"].extend(page_stats["errors"])
         rss_stats["errors"].extend(amp_stats["errors"])
         return rss_stats
     if method == "itml":
