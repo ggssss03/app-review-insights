@@ -82,6 +82,19 @@ FastAPI 后端（REST + SSE + Pydantic）
 - **发现生成 / PRD / 版本拆分 / 测试生成**用 LLM：这些是语义综合任务，规则做不了。
 - **证据充分性、冲突检测、追溯校验**用统计 + 确定性图遍历为主，LLM 辅助判断语义冲突。
 
+### 实际落地对照（2026-08 已实现）
+
+上表为完整推荐选型；本项目实际落地采用了**更轻的可运行方案**，理由如下：
+
+| 层 | 推荐 | 实际落地 | 原因 |
+| --- | --- | --- | --- |
+| 后端 | FastAPI + uvicorn | 纯标准库 `http.server` | 零依赖、评审环境直接 `python app/server.py` 可跑 |
+| 前端 | React + Vite | 原生 HTML/JS/CSS | 无需 npm install，交付即用 |
+| 存储 | SQLite + SQLAlchemy | JSON 信封文件 | 可复现、可审计、断点续跑，数据量（百条级）足够 |
+| 嵌入 | sentence-transformers | TF-IDF（可选切换） | 离线可用、无模型下载，支持中英混合 |
+| 采集 | httpx + US RSS | 标准库 urllib + 多源合并（cn RSS 重试/产品页/US itml） | 官方接口稳定通道，无需第三方依赖 |
+| 测试 | pytest + Playwright | 标准库 unittest | 零依赖，71 个用例全过 |
+
 ---
 
 ## 4. 数据采集与数据源
