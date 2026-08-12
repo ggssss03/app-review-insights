@@ -1,34 +1,27 @@
 {
   "app_id": "839285684",
   "url": "",
-  "fetched_at": "2026-08-12T08:24:05+00:00",
+  "fetched_at": "2026-08-12T08:27:24+00:00",
   "data": {
     "app_id": "839285684",
     "country": "us",
-    "fetched_at": "2026-08-12T08:24:05+00:00",
-    "pages_fetched": 2,
+    "method": "amp",
+    "fetched_at": "2026-08-12T08:27:24+00:00",
+    "pages_fetched": 0,
     "pages_skipped": 0,
     "reviews_total": 0,
-    "reviews_by_sort": {
-      "mostRecent": 0,
-      "mostHelpful": 0
-    },
-    "empty_pages": [
+    "reviews_by_offset": {},
+    "empty_pages": [],
+    "errors": [
       {
-        "sort_by": "mostRecent",
-        "page": 1,
-        "url": "https://itunes.apple.com/us/rss/customerreviews/id=839285684/page=1/sortBy=mostRecent/json"
-      },
-      {
-        "sort_by": "mostHelpful",
-        "page": 1,
-        "url": "https://itunes.apple.com/us/rss/customerreviews/id=839285684/page=1/sortBy=mostHelpful/json"
+        "stage": "token",
+        "error": "未能在应用页面中找到 AMP API token（可能被地理重定向或接口变更）"
       }
     ],
-    "errors": [],
     "notes": [
-      "数据来源：Apple iTunes Customer Reviews RSS（官方公共接口）。",
-      "注意：美国区评论 RSS 在部分地区网络下可能返回空 feed（例如中国大陆直连）。此情况下请使用 GitHub Actions 采集工作流或导入 JSON/CSV 数据集。"
-    ]
+      "数据来源：Apple AMP Reviews API（App Store 页面使用的官方接口）。",
+      "获取 AMP token 失败（页面被地理重定向或接口变更），请使用 GitHub Actions（US runner）或导入 JSON/CSV。"
+    ],
+    "token_ok": false
   }
 }
