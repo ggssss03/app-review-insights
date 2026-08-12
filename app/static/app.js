@@ -129,8 +129,8 @@ function renderSummary(s) {
   if (!s) return "<p>暂无结果。</p>";
   const c = s.counts || {};
   const cards = [
-    ["评论", c.reviews || 0], ["主题", c.topics || 0], ["发现", c.findings || 0],
-    ["需求", c.requirements || 0], ["测试用例", c.test_cases || 0],
+    ["评论", c.reviews || 0], ["主题聚类", c.topics || 0], ["关键发现", c.findings || 0],
+    ["需求规约", c.requirements || 0], ["验收用例", c.test_cases || 0],
   ].map(([lbl, num]) =>
     `<div class="kpi-card"><div class="num" data-count="${Number(num) || 0}">0</div><div class="lbl">${lbl}</div></div>`
   ).join("");
@@ -145,7 +145,7 @@ function renderSummary(s) {
         <ul class="note-list">${(s.notes || []).map((n) => `<li>${esc(n)}</li>`).join("")}</ul>
       </div>
       <div class="meta-chip">
-        <span class="meta-label">追溯校验</span>
+        <span class="meta-label">溯源校验</span>
         <span class="trace-big">${trace.passed_checks || 0}/${trace.total_checks || 0} <small>通过</small></span>
         <span class="trace-tag ${s.model_driven ? "model" : ""}">${s.model_driven ? "模型驱动" : "确定性模式"}</span>
       </div>
@@ -197,14 +197,36 @@ function renderScope(scope) {
 }
 
 function renderTopics(t) {
-  if (!t || !t.topics) return "<p>暂无主题数据。</p>";
-  return t.topics.map((topic) => `
+  if (!t || !t.topics) return `<div class="page-head"><h2>◉ 主题聚类</h2></div><p>暂无主题数据。</p>`;
+  const total = t.topics.reduce((a, b) => a + (b.count || 0), 0) || 1;
+  const max = Math.max(...t.topics.map((x) => x.count || 0));
+  const cards = t.topics.map((topic, i) => {
+    const pct = Math.round(((topic.count || 0) / max) * 100);
+    const share = Math.round(((topic.count || 0) / total) * 100);
+    return `
     <div class="topic-card">
-      <h3>${esc(topic.label)} ${badge(`样本 ${topic.count}`, "stat")}</h3>
-      <p>${esc(topic.description || "无描述")}</p>
-      ${topic.keywords?.length ? `<p>关键词：${topic.keywords.map(esc).join("、")}</p>` : ""}
-      ${(topic.samples || []).map((s) => `<div class="sample">[${esc(s.review_id)}] ${esc(s.text)}</div>`).join("")}
-    </div>`).join("");
+      <div class="topic-head">
+        <span class="topic-idx">C${String(topic.topic_id ?? i + 1).padStart(2, "0")}</span>
+        <h3>${esc(topic.label)}</h3>
+        <span class="badge stat">样本 ${topic.count || 0}</span>
+        <span class="topic-share">占比 ${share}%</span>
+      </div>
+      <div class="topic-bar"><div class="topic-bar-fill" style="width:${pct}%"></div></div>
+      <p class="topic-desc">${esc(topic.description || "无描述")}</p>
+      ${topic.keywords?.length ? `<div class="kw-row">${topic.keywords.map((k) => `<span class="kw-chip">#${esc(k)}</span>`).join("")}</div>` : ""}
+      ${(topic.samples || []).length ? `<div class="sample-list">${topic.samples.slice(0, 4).map((s) => `<div class="sample"><span class="sample-id">${esc(s.review_id)}</span>${esc(s.text)}</div>`).join("")}</div>` : ""}
+    </div>`;
+  }).join("");
+  const modelTag = t.model_driven ? badge("模型驱动", "model") : badge("确定性模式", "stat");
+  return `
+    <div class="page-head">
+      <div>
+        <h2>◉ 主题聚类</h2>
+        <p class="page-sub">${t.topics.length} 个聚类 · 覆盖 ${total} 条评论 · ${t.embed_backend === "tfidf" ? "TF-IDF 嵌入" : esc(t.embed_backend || "—")}</p>
+      </div>
+      ${modelTag}
+    </div>
+    ${cards}`;
 }
 
 function renderFindings(f) {
@@ -461,3 +483,185 @@ function tickerPush(msg) {
   ];
   boot.forEach((m, i) => setTimeout(() => tickerPush(m), 600 + i * 700));
 })();
+
+/* ============ 子页面渲染升级（卡片化） ============ */
+const PROVENANCE_LABELS = { stat: "统计", model: "模型", rule: "规则" };
+const STATUS_LABELS = { kept: "保留", removed: "移除", assumption: "假设" };
+const PRIO_LABELS = { P0: "P0 紧急", P1: "P1 高", P2: "P2 中", P3: "P3 低" };
+const CHECK_LABELS = {
+  finding_evidence: "发现证据校验",
+  requirement_support: "需求支撑校验",
+  testcase_link: "用例关联校验",
+  requirement_review_chain: "需求评论链校验",
+};
+
+renderFindings = function (f) {
+  if (!f || !f.length) return `<div class="page-head"><h2>◆ 关键发现</h2></div><p>暂无发现。</p>`;
+  const cards = f.map((x) => {
+    const conf = Math.round((Number(x.confidence) || 0) * 100);
+    const evidence = x.evidence_review_ids || [];
+    const conflicts = x.conflicts || [];
+    const prov = PROVENANCE_LABELS[x.provenance] || esc(x.provenance || "未知");
+    const status = STATUS_LABELS[x.status] || esc(x.status || "");
+    return `
+    <div class="finding-card">
+      <div class="finding-head">
+        <span class="code-chip">${esc(x.id)}</span>
+        <span class="chip prov-${esc(x.provenance)}">${esc(prov)}</span>
+        ${x.status ? `<span class="chip status-${esc(x.status)}">${esc(status)}</span>` : ""}
+        <div class="conf-meter">
+          <span class="conf-label">置信 ${conf}%</span>
+          <div class="conf-track"><div class="conf-fill" style="width:${conf}%"></div></div>
+        </div>
+      </div>
+      <p class="finding-statement">${esc(x.statement)}</p>
+      <div class="finding-meta">
+        <span class="meta-item">◈ 样本 <b>${x.sample_count ?? 0}</b> 条</span>
+        <span class="meta-item">◈ 证据 <b>${evidence.length}</b> 条</span>
+        ${x.uncertainty && x.uncertainty !== "无" ? `<span class="meta-item warn">⚠ ${esc(x.uncertainty)}</span>` : ""}
+      </div>
+      ${conflicts.length ? `<div class="conflict-list">${conflicts.map((c) => `<div class="conflict-line">✕ ${esc(c)}</div>`).join("")}</div>` : ""}
+      ${evidence.length ? `<div class="evidence-row">证据：${evidence.slice(0, 8).map((id) => `<span class="chip mini">${esc(id)}</span>`).join("")}${evidence.length > 8 ? `<span class="chip mini dim">+${evidence.length - 8}</span>` : ""}</div>` : ""}
+      ${x.rationale ? `<div class="rationale">${esc(x.rationale)}</div>` : ""}
+    </div>`;
+  }).join("");
+  return `
+    <div class="page-head">
+      <div>
+        <h2>◆ 关键发现</h2>
+        <p class="page-sub">${f.length} 项发现 · 统计 + 模型双重证据评估</p>
+      </div>
+    </div>
+    ${cards}`;
+};
+
+renderRequirements = function (r) {
+  if (!r || !r.length) return `<div class="page-head"><h2>▣ 需求规约 (PRD)</h2></div><p>暂无需求（需要 LLM 配置生成 PRD）。</p>`;
+  const cards = r.map((x) => {
+    const prio = String(x.priority || "").toUpperCase();
+    const prioCls = prio.startsWith("P0") ? "p0" : prio.startsWith("P1") ? "p1" : prio.startsWith("P2") ? "p2" : "p3";
+    return `
+    <div class="req-card">
+      <div class="req-head">
+        <span class="code-chip">${esc(x.code)}</span>
+        <h3>${esc(x.title)}</h3>
+        <span class="prio ${prioCls}">${esc(PRIO_LABELS[prio] || x.priority || "—")}</span>
+        <span class="version-tag">版本 ${esc(x.planned_version || "—")}</span>
+      </div>
+      ${x.description ? `<p class="req-desc">${esc(x.description)}</p>` : ""}
+      <div class="req-meta">
+        ${(x.finding_ids || []).length ? `<div class="link-row"><span class="link-label">来源发现</span>${x.finding_ids.map((id) => `<span class="chip mini">${esc(id)}</span>`).join("")}</div>` : ""}
+        ${(x.review_ids || []).length ? `<div class="link-row"><span class="link-label">来源评论</span>${x.review_ids.slice(0, 6).map((id) => `<span class="chip mini">${esc(id)}</span>`).join("")}</div>` : ""}
+      </div>
+      ${(x.acceptance_criteria || []).length ? `<ul class="ac-list">${x.acceptance_criteria.map((c) => `<li><span class="ac-mark">✓</span>${esc(c)}</li>`).join("")}</ul>` : ""}
+    </div>`;
+  }).join("");
+  return `
+    <div class="page-head">
+      <div>
+        <h2>▣ 需求规约 (PRD)</h2>
+        <p class="page-sub">${r.length} 项需求 · 版本规划与验收标准</p>
+      </div>
+    </div>
+    ${cards}`;
+};
+
+renderTestCases = function (t) {
+  if (!t || !t.length) return `<div class="page-head"><h2>▤ 验收用例</h2></div><p>暂无测试用例（需要 LLM 配置生成）。</p>`;
+  const cards = t.map((x) => {
+    const g = x.gherkin || {};
+    const steps = [
+      ...(g.given || []).map((s) => `<div class="gstep given"><span class="gword">Given</span><span class="gtext">${esc(s)}</span></div>`),
+      ...(g.when || []).map((s) => `<div class="gstep when"><span class="gword">When</span><span class="gtext">${esc(s)}</span></div>`),
+      ...(g.then || []).map((s) => `<div class="gstep then"><span class="gword">Then</span><span class="gtext">${esc(s)}</span></div>`),
+    ].join("");
+    return `
+    <div class="tc-card">
+      <div class="tc-head">
+        <span class="code-chip">${esc(x.code)}</span>
+        <h3>${esc(x.title)}</h3>
+        <span class="chip mini model">验收</span>
+      </div>
+      <div class="req-link">需求：${(x.requirement_ids || []).map((id) => `<span class="chip mini">${esc(id)}</span>`).join("") || "—"}</div>
+      ${x.review_ids && x.review_ids.length ? `<div class="req-link">评论：${x.review_ids.slice(0, 6).map((id) => `<span class="chip mini">${esc(id)}</span>`).join("")}</div>` : ""}
+      <div class="gherkin">${steps}</div>
+    </div>`;
+  }).join("");
+  return `
+    <div class="page-head">
+      <div>
+        <h2>▤ 验收用例</h2>
+        <p class="page-sub">${t.length} 个 Gherkin 场景 · 覆盖需求验收</p>
+      </div>
+    </div>
+    ${cards}`;
+};
+
+renderTraceability = function (t) {
+  if (!t) return `<div class="page-head"><h2>⌁ 溯源校验</h2></div><p>暂无校验数据。</p>`;
+  const sum = t.summary || {};
+  const total = sum.total_checks || 0;
+  const passed = sum.passed_checks || 0;
+  const pct = total ? Math.round((passed / total) * 100) : 0;
+  const checks = t.checks || [];
+  const rows = checks.map((c) => `
+    <div class="check-row ${c.passed ? "pass" : "fail"}">
+      <span class="check-icon">${c.passed ? "✓" : "✕"}</span>
+      <span class="check-type">${esc(CHECK_LABELS[c.check] || c.check)}</span>
+      <span class="chip mini">${esc(c.id)}</span>
+      <span class="check-detail">${esc(c.detail || "")}</span>
+      ${c.missing && c.missing.length ? `<span class="missing">缺失：${c.missing.map(esc).join(", ")}</span>` : ""}
+    </div>`).join("");
+  return `
+    <div class="page-head">
+      <div>
+        <h2>⌁ 溯源校验</h2>
+        <p class="page-sub">需求 ← 发现 ← 评论 全链路一致性检查</p>
+      </div>
+    </div>
+    <div class="trace-overview">
+      <div class="trace-score">
+        <span class="trace-big">${passed}/${total}</span>
+        <span class="trace-rate">通过率 ${pct}%</span>
+        <div class="conf-track"><div class="conf-fill ok-fill" style="width:${pct}%"></div></div>
+      </div>
+      <div class="trace-chips">
+        <div class="trace-chip"><b>${t.removed_findings ? t.removed_findings.length : 0}</b><span>移除发现</span></div>
+        <div class="trace-chip"><b>${t.removed_test_cases ? t.removed_test_cases.length : 0}</b><span>移除用例</span></div>
+        <div class="trace-chip"><b>${t.assumption_requirements ? t.assumption_requirements.length : 0}</b><span>假设需求</span></div>
+        <div class="trace-chip"><b>${checks.length}</b><span>总检查项</span></div>
+      </div>
+    </div>
+    <div class="check-list">${rows}</div>`;
+};
+
+renderClean = function (c) {
+  if (!c) return `<div class="page-head"><h2>✧ 数据清洗</h2></div><p>暂无清洗数据。</p>`;
+  const s = c.stats || {};
+  const langName = (l) => (l === "zh" ? "中文" : l === "en" ? "英文" : String(l || "?").toUpperCase());
+  const rows = (c.reviews || []).slice(0, 50).map((r) => `
+    <tr>
+      <td class="cell-id">${esc(r.review_id || r.dedup_key || "—")}</td>
+      <td><span class="stars s${r.rating}">${"★".repeat(r.rating || 0)}<span class="stars-ghost">${"★".repeat(5 - (r.rating || 0))}</span></span></td>
+      <td><span class="lang-chip ${esc(r.lang)}">${langName(r.lang)}</span></td>
+      <td class="cell-body"><span class="cell-title">${esc(r.title || "")}</span>${r.body ? ` ${esc(String(r.body).slice(0, 100))}` : ""}</td>
+      <td>${r.is_junk ? badge("垃圾", "removed") : badge("正常", "kept")}</td>
+    </tr>`).join("");
+  const chips = [
+    ["输入", s.input_count || 0],
+    ["唯一", s.unique_count || 0],
+    ["去重", s.removed_duplicates || 0],
+    ["垃圾", s.junk_count || 0],
+  ].map(([lbl, n]) => `<div class="clean-chip"><b>${n}</b><span>${lbl}</span></div>`).join("");
+  return `
+    <div class="page-head">
+      <div>
+        <h2>✧ 数据清洗</h2>
+        <p class="page-sub">${s.rules_note ? esc(s.rules_note) : "确定性清洗规则"}</p>
+      </div>
+    </div>
+    <div class="clean-stats">${chips}</div>
+    <div class="table-wrap">
+      <table class="clean-table"><thead><tr><th>ID</th><th>评分</th><th>语言</th><th>内容</th><th>状态</th></tr></thead><tbody>${rows}</tbody></table>
+    </div>`;
+};
