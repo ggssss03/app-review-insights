@@ -2,7 +2,7 @@
   {
     "id": "F-stat-0",
     "topic_id": 0,
-    "statement": "主题「Mixed feedback on Chinese version」共出现 9 条相关评论，平均评分 2.67。",
+    "statement": "主题「游戏体验与语言问题」共出现 9 条相关评论，平均评分 2.67。",
     "evidence_review_ids": [
       "5902219913",
       "6530244192",
@@ -27,16 +27,14 @@
   {
     "id": "F-model-0-1",
     "topic_id": 0,
-    "statement": "部分用户对中文版游戏内容表示高度认可，认为其优于其他版本。",
+    "statement": "部分用户反映游戏存在语言切换问题，无法从中文切换为英文。",
     "evidence_review_ids": [
-      "5902219913"
+      "6530244192"
     ],
     "sample_count": 1,
-    "confidence": 0.6,
-    "uncertainty": "仅一条正面评论，样本不足。",
-    "conflicts": [
-      "其他负面评论可能反映不同体验"
-    ],
+    "confidence": 0.4,
+    "uncertainty": "仅有一条评论提及语言问题，样本量不足，且未提供更多细节。",
+    "conflicts": [],
     "provenance": "model",
     "status": "kept",
     "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
@@ -44,13 +42,13 @@
   {
     "id": "F-model-0-2",
     "topic_id": 0,
-    "statement": "存在语言切换问题，用户无法将中文切换为英文。",
+    "statement": "部分用户对游戏优化和性能表示不满，如落地卡死、马赛克等问题。",
     "evidence_review_ids": [
-      "6530244192"
+      "12534458524"
     ],
     "sample_count": 1,
-    "confidence": 0.7,
-    "uncertainty": "仅一条评论提及，但问题明确。",
+    "confidence": 0.4,
+    "uncertainty": "仅有一条评论提及具体性能问题，样本量不足，且未提供更多细节。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -59,20 +57,14 @@
   {
     "id": "F-model-0-3",
     "topic_id": 0,
-    "statement": "部分用户对游戏内容或运营表达强烈不满，使用负面词汇。",
+    "statement": "部分用户对游戏内容更新和玩法创新提出批评，认为缺乏新玩法。",
     "evidence_review_ids": [
-      "10906860990",
-      "12252574032",
-      "12534458524",
-      "6293765545",
-      "7779191657"
+      "12534458524"
     ],
-    "sample_count": 5,
-    "confidence": 0.8,
-    "uncertainty": "多条负面评论，但具体原因各异。",
-    "conflicts": [
-      "正面评论显示部分用户满意"
-    ],
+    "sample_count": 1,
+    "confidence": 0.4,
+    "uncertainty": "仅有一条评论提及内容更新问题，样本量不足，且未提供更多细节。",
+    "conflicts": [],
     "provenance": "model",
     "status": "kept",
     "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
@@ -80,7 +72,7 @@
   {
     "id": "F-stat-1",
     "topic_id": 1,
-    "statement": "主题「Positive short review」共出现 1 条相关评论，平均评分 5.0。",
+    "statement": "主题「正面评价」共出现 1 条相关评论，平均评分 5.0。",
     "evidence_review_ids": [
       "7614650741"
     ],

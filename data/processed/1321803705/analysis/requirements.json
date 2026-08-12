@@ -2,50 +2,55 @@
   [
     {
       "code": "R1",
-      "title": "优化中文版游戏体验",
-      "description": "根据用户反馈，中文版存在内容与运营问题，需优化游戏内容与运营策略，提升用户满意度。",
-      "priority": "P1",
+      "title": "优化游戏性能与稳定性",
+      "description": "针对用户反馈的落地卡死、马赛克等性能问题，进行技术优化，提升游戏流畅度和稳定性。",
+      "priority": "P0",
       "planned_version": "V1",
       "finding_ids": [
-        "F-stat-0",
-        "F-model-0-3"
+        "F-model-0-2",
+        "F-stat-0"
       ],
       "review_ids": [],
       "acceptance_criteria": [
-        "中文版用户评分提升至4.0以上",
-        "负面评论比例降低至20%以下"
+        "修复落地卡死问题，确保在主流设备上无卡死现象",
+        "优化图像渲染，消除马赛克现象",
+        "性能测试通过，帧率稳定在30fps以上"
       ],
       "status": "kept"
     },
     {
       "code": "R2",
-      "title": "增加语言切换功能",
-      "description": "用户反馈无法将中文切换为英文，需提供语言切换选项，满足不同用户需求。",
+      "title": "增加多语言切换功能",
+      "description": "支持用户在游戏内自由切换语言，特别是从中文切换为英文，以满足不同用户的语言需求。",
       "priority": "P1",
-      "planned_version": "V1",
+      "planned_version": "V2",
       "finding_ids": [
-        "F-model-0-2"
+        "F-model-0-1",
+        "F-stat-0"
       ],
       "review_ids": [],
       "acceptance_criteria": [
-        "在设置中提供语言切换选项",
-        "切换后游戏界面与内容正确显示"
+        "在设置界面提供语言选项，支持中文和英文切换",
+        "切换语言后游戏内所有文本立即更新",
+        "语言设置持久化保存，下次启动保持上次选择"
       ],
       "status": "kept"
     },
     {
       "code": "R3",
-      "title": "保持并强化中文版优势",
-      "description": "部分用户高度认可中文版内容，认为优于其他版本，需保持并强化这些优势，作为宣传亮点。",
-      "priority": "P2",
+      "title": "丰富游戏内容与玩法创新",
+      "description": "根据用户对缺乏新玩法的批评，规划新内容更新，增加游戏可玩性和创新性。",
+      "priority": "P1",
       "planned_version": "V2",
       "finding_ids": [
-        "F-model-0-1"
+        "F-model-0-3",
+        "F-stat-0"
       ],
       "review_ids": [],
       "acceptance_criteria": [
-        "在更新中保留并突出中文版特色内容",
-        "用户对中文版内容的好评率提升"
+        "在V2版本中推出至少一种新玩法模式",
+        "新玩法需通过内部测试，确保无重大bug",
+        "更新后用户活跃度提升10%以上"
       ],
       "status": "kept"
     }

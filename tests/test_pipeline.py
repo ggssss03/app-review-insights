@@ -6,7 +6,7 @@ import unittest
 
 from app_review_insights.analysis.pipeline import run_pipeline
 from app_review_insights.llm import MockLLM
-from app_review_insights.storage import write_json
+from app_review_insights.storage import envelope, write_json
 
 
 def responder(messages):
@@ -87,6 +87,47 @@ class PipelineTest(unittest.TestCase):
             self.assertTrue(summary["traceability"]["passed_checks"] >= 1)
             self.assertTrue((out_dir / "analysis" / "summary.json").exists())
             self.assertTrue((out_dir / "analysis" / "traceability.json").exists())
+
+    def test_scope_cache_invalidated_when_goal_changes(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            base = pathlib.Path(tmp)
+            raw_dir = base / "raw" / "999998"
+            raw_dir.mkdir(parents=True)
+            write_json(raw_dir / "reviews.json", envelope(
+                "999998", "file://imported",
+                {"feed": {"entry": [{
+                    "id": {"label": "r1"}, "author": {"name": {"label": "u1"}},
+                    "im:rating": {"label": "1"}, "title": {"label": ""},
+                    "content": {"label": "too many ads and crashes"},
+                    "im:version": {"label": "1.0"}, "updated": {"label": "2026-08-01"},
+                    "im:voteSum": {"label": "0"},
+                }]}},
+                "2026-08-01T00:00:00+00:00",
+            ))
+            out_dir = base / "processed" / "999998"
+            llm = MockLLM(responder)
+
+            r1 = run_pipeline(
+                app_id="999998", raw_dir=raw_dir, out_dir=out_dir,
+                goal_text="订阅转化", llm=llm, force=True,
+            )
+            self.assertIn("subscription_conversion", r1["summary"]["scope"]["focus_areas"])
+
+            r2 = run_pipeline(
+                app_id="999998", raw_dir=raw_dir, out_dir=out_dir,
+                goal_text="订阅转化", llm=llm,
+            )
+            scope_events = [e for e in r2["events"] if e["stage"] == "scope"]
+            self.assertEqual(scope_events[0]["status"], "cached")
+            self.assertIn("subscription_conversion", r2["summary"]["scope"]["focus_areas"])
+
+            r3 = run_pipeline(
+                app_id="999998", raw_dir=raw_dir, out_dir=out_dir,
+                goal_text="性能与崩溃", llm=llm,
+            )
+            scope_events = [e for e in r3["events"] if e["stage"] == "scope"]
+            self.assertEqual(scope_events[0]["status"], "ok")
+            self.assertNotIn("_goal_fp", r3["summary"]["scope"])
 
 
 if __name__ == "__main__":

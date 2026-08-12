@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import pathlib
-from typing import Optional
+from typing import Any, Callable, Optional
 
 from ..cleaner import clean_reviews
 from ..loader import load_raw_reviews
@@ -26,6 +27,25 @@ def _prepare(reviews_clean: list[dict]) -> list[dict]:
     return prepared
 
 
+def _goal_fingerprint(goal_text: str) -> str:
+    """目标文本指纹：scope 缓存只在目标一致时可复用，避免串用上一次分析的范围。"""
+    normalized = " ".join(goal_text.strip().lower().split())
+    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()[:12]
+
+
+def _read_cached(path: pathlib.Path, *, goal_fp: Optional[str] = None) -> Any:
+    """读取阶段缓存；scope 额外校验 goal 指纹，不匹配视为未缓存。"""
+    if not path.exists():
+        return None
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+    if goal_fp is not None and payload.get("_goal_fp") != goal_fp:
+        return None
+    return payload
+
+
 def run_pipeline(
     *,
     app_id: str,
@@ -41,14 +61,17 @@ def run_pipeline(
     analysis_dir = out_dir / "analysis"
     events: list[dict] = progress if progress is not None else []
 
-    def stage(name: str, fn, *args, **kwargs):
+    def stage(name: str, fn: Callable, *args: Any, **kwargs: Any) -> Any:
         cache = analysis_dir / f"{name}.json"
-        if cache.exists() and not force:
-            with cache.open(encoding="utf-8") as f:
-                result = json.load(f)
+        goal_fp = _goal_fingerprint(goal_text) if name == "scope" else None
+        result = None if force else _read_cached(cache, goal_fp=goal_fp)
+        if result is not None:
             events.append({"stage": name, "status": "cached", "detail": "使用缓存结果"})
             return result
         result = fn(*args, **kwargs)
+        if name == "scope" and isinstance(result, dict):
+            result = dict(result)
+            result["_goal_fp"] = goal_fp
         write_json(cache, result)
         events.append({"stage": name, "status": "ok", "detail": "完成"})
         return result
@@ -75,10 +98,12 @@ def run_pipeline(
     test_cases, tc_note = stage("testcases", generate_test_cases, requirements, llm)
     trace = stage("traceability", validate_traceability, reviews, findings, requirements, test_cases)
 
+    summary_scope = dict(scope)
+    summary_scope.pop("_goal_fp", None)
     summary = {
         "app_id": app_id,
         "goal_text": goal_text,
-        "scope": scope,
+        "scope": summary_scope,
         "clean_stats": clean["stats"],
         "counts": {
             "reviews": len(reviews),

@@ -309,6 +309,22 @@ def fetch_itml_reviews(
             "批量数据请使用 GitHub Actions 定时刷新或导入 JSON/CSV。",
         ],
     }
+    try:
+        info = lookup_app(app_id, country=country, timeout=timeout)
+        stats["storefront_ok"] = True
+        stats["storefront_app"] = info.track_name
+    except Exception as exc:  # noqa: BLE001
+        stats["storefront_ok"] = False
+        stats["errors"].append({
+            "stage": "lookup",
+            "error": str(exc),
+            "note": f"该应用 ID 在 {country} 区商店不可用或查询失败；"
+                    "评论接口仍返回了数据，请人工确认归属后再使用。",
+        })
+        stats["notes"].append(
+            f"注意：该应用 ID 在 {country} 区商店不可用（Lookup 无结果），"
+            "返回的评论可能来自其他商店/应用，请核对归属。"
+        )
     cache_file = cache_dir / f"reviews-itml-{sort_by}-p0.json"
     if cache_file.exists() and not refresh:
         try:
