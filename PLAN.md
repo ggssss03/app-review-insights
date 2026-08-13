@@ -93,7 +93,7 @@ FastAPI 后端（REST + SSE + Pydantic）
 | 存储 | SQLite + SQLAlchemy | JSON 信封文件 | 可复现、可审计、断点续跑，数据量（百条级）足够 |
 | 嵌入 | sentence-transformers | TF-IDF（可选切换） | 离线可用、无模型下载，支持中英混合 |
 | 采集 | httpx + US RSS | 标准库 urllib + 多源合并（cn RSS 重试/产品页/US itml） | 官方接口稳定通道，无需第三方依赖 |
-| 测试 | pytest + Playwright | 标准库 unittest | 零依赖，71 个用例全过 |
+ | 测试 | pytest + Playwright | 标准库 unittest | 零依赖，75 个用例全过 |
 
 ---
 

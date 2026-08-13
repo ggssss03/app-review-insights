@@ -1,16 +1,13 @@
 {
-  "input_count": 43,
-  "unique_count": 35,
-  "removed_duplicates": 8,
+  "input_count": 10,
+  "unique_count": 10,
+  "removed_duplicates": 0,
   "junk_count": 0,
   "rating_distribution": {
-    "1": 3,
-    "4": 1,
-    "5": 31
+    "5": 10
   },
   "language_distribution": {
-    "zh": 16,
-    "en": 19
+    "en": 10
   },
   "rules_note": "清洗/去重/语言识别使用确定性规则（详见 PLAN.md 第 7 节）。"
 }

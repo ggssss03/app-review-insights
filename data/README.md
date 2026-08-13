@@ -18,6 +18,10 @@ data/processed/<app_id>/
     stats.json                   清洗统计（去重率、垃圾数、语言分布等）
 ```
 
+> 主评估样例 `839285684`（Workout for Women: Home & Gym）只使用美国区 `itml` 评论
+> （Apple WebObjects userReviewsRow 官方接口，当前仅返回 10 条热门评论），不混入中国区评论；
+> 该接口的分页参数已被苹果忽略，更多美区评论请通过 GitHub Actions（US runner）或导入合规数据集。
+
 ## 标签约定
 
 - `source=rss`：Apple iTunes Customer Reviews RSS（中国区 cn 可用，每页约 35 条；美国区已停用）。

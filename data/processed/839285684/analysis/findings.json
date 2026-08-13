@@ -2,13 +2,17 @@
   {
     "id": "F-stat-0",
     "topic_id": 0,
-    "statement": "主题「简单易用，适合新手」共出现 2 条相关评论，平均评分 5.0。",
+    "statement": "主题「便捷高效的锻炼体验」共出现 6 条相关评论，平均评分 5.0。",
     "evidence_review_ids": [
-      "2210969485",
-      "8536674076"
+      "11593815773",
+      "5786142670",
+      "6138213011",
+      "12150581992",
+      "7911742368",
+      "5684535804"
     ],
-    "sample_count": 2,
-    "confidence": 0.2,
+    "sample_count": 6,
+    "confidence": 0.6,
     "uncertainty": "样本量有限，结论强度受限",
     "conflicts": [],
     "provenance": "stat",
@@ -18,14 +22,45 @@
   {
     "id": "F-model-0-1",
     "topic_id": 0,
-    "statement": "用户认为产品简单易用，适合新手，操作直观，容易上手。",
+    "statement": "用户普遍认为该应用便捷高效，能适应忙碌日程，帮助建立锻炼习惯。",
     "evidence_review_ids": [
-      "2210969485",
-      "8536674076"
+      "5684535804",
+      "5786142670",
+      "7911742368"
     ],
-    "sample_count": 2,
-    "confidence": 0.8,
-    "uncertainty": "样本量小，且未提及具体功能细节。",
+    "sample_count": 3,
+    "confidence": 0.9,
+    "uncertainty": "评论均来自高评分用户，可能偏向正面，但样本量小。",
+    "conflicts": [],
+    "provenance": "model",
+    "status": "kept",
+    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+  },
+  {
+    "id": "F-model-0-2",
+    "topic_id": 0,
+    "statement": "应用提供多种锻炼类型和选项，适合不同用户需求（如产后、初学者等）。",
+    "evidence_review_ids": [
+      "11593815773"
+    ],
+    "sample_count": 1,
+    "confidence": 0.6,
+    "uncertainty": "仅一条评论提及，样本不足。",
+    "conflicts": [],
+    "provenance": "model",
+    "status": "kept",
+    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+  },
+  {
+    "id": "F-model-0-3",
+    "topic_id": 0,
+    "statement": "应用价格实惠，性价比高。",
+    "evidence_review_ids": [
+      "12150581992"
+    ],
+    "sample_count": 1,
+    "confidence": 0.5,
+    "uncertainty": "仅一条评论提及价格，且未明确具体价格，样本不足。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -34,87 +69,9 @@
   {
     "id": "F-stat-1",
     "topic_id": 1,
-    "statement": "主题「免费且灵活的训练选择」共出现 2 条相关评论，平均评分 5.0。",
+    "statement": "主题「适合老年人的温和锻炼」共出现 1 条相关评论，平均评分 5.0。",
     "evidence_review_ids": [
-      "3492973040",
-      "3028449825"
-    ],
-    "sample_count": 2,
-    "confidence": 0.2,
-    "uncertainty": "样本量有限，结论强度受限",
-    "conflicts": [],
-    "provenance": "stat",
-    "status": "kept",
-    "rationale": "确定性统计：样本数、评分分布。"
-  },
-  {
-    "id": "F-model-1-1",
-    "topic_id": 1,
-    "statement": "用户认可该应用提供免费且灵活的训练选择，包括多种锻炼和不同目标。",
-    "evidence_review_ids": [
-      "3028449825"
-    ],
-    "sample_count": 1,
-    "confidence": 0.6,
-    "uncertainty": "仅基于一条评论，样本量小，且未明确提及具体功能细节。",
-    "conflicts": [],
-    "provenance": "model",
-    "status": "kept",
-    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-  },
-  {
-    "id": "F-model-1-2",
-    "topic_id": 1,
-    "statement": "用户认为应用方便灵活，可根据需要选择2-3组训练，适合错过健身房锻炼时使用。",
-    "evidence_review_ids": [
-      "3492973040"
-    ],
-    "sample_count": 1,
-    "confidence": 0.6,
-    "uncertainty": "仅基于一条评论，样本量小，且未明确说明具体操作方式。",
-    "conflicts": [],
-    "provenance": "model",
-    "status": "kept",
-    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-  },
-  {
-    "id": "F-stat-2",
-    "topic_id": 2,
-    "statement": "主题「日常活动好帮手」共出现 2 条相关评论，平均评分 5.0。",
-    "evidence_review_ids": [
-      "10176154885",
-      "5097045343"
-    ],
-    "sample_count": 2,
-    "confidence": 0.2,
-    "uncertainty": "样本量有限，结论强度受限",
-    "conflicts": [],
-    "provenance": "stat",
-    "status": "kept",
-    "rationale": "确定性统计：样本数、评分分布。"
-  },
-  {
-    "id": "F-model-2-1",
-    "topic_id": 2,
-    "statement": "用户认为该应用有助于保持日常活跃，且界面友好易用。",
-    "evidence_review_ids": [
-      "10176154885",
-      "5097045343"
-    ],
-    "sample_count": 2,
-    "confidence": 0.4,
-    "uncertainty": "仅两条评论，且未涉及具体功能细节，样本量不足。",
-    "conflicts": [],
-    "provenance": "model",
-    "status": "kept",
-    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-  },
-  {
-    "id": "F-stat-3",
-    "topic_id": 3,
-    "statement": "主题「初次体验愉悦」共出现 1 条相关评论，平均评分 5.0。",
-    "evidence_review_ids": [
-      "6400700303"
+      "9220792708"
     ],
     "sample_count": 1,
     "confidence": 0.1,
@@ -125,73 +82,48 @@
     "rationale": "确定性统计：样本数、评分分布。"
   },
   {
-    "id": "F-stat-4",
-    "topic_id": 4,
-    "statement": "主题「坚持锻炼的得力助手」共出现 11 条相关评论，平均评分 5.0。",
+    "id": "F-stat-2",
+    "topic_id": 2,
+    "statement": "主题「更新后更佳的应用体验」共出现 3 条相关评论，平均评分 5.0。",
     "evidence_review_ids": [
-      "6052795032",
-      "11593815773",
-      "9220792708",
-      "5786142670",
       "8320450139",
       "5377927335",
-      "10175260415",
-      "6138213011",
-      "12150581992",
-      "7911742368",
-      "5684535804"
+      "10175260415"
     ],
-    "sample_count": 11,
-    "confidence": 1.0,
-    "uncertainty": "无",
+    "sample_count": 3,
+    "confidence": 0.3,
+    "uncertainty": "样本量有限，结论强度受限",
     "conflicts": [],
     "provenance": "stat",
     "status": "kept",
     "rationale": "确定性统计：样本数、评分分布。"
   },
   {
-    "id": "F-model-4-1",
-    "topic_id": 4,
-    "statement": "用户称赞该应用通过提醒功能帮助坚持锻炼，适合忙碌人群。",
-    "evidence_review_ids": [
-      "5684535804",
-      "5786142670"
-    ],
-    "sample_count": 2,
-    "confidence": 0.8,
-    "uncertainty": "样本量有限，但两个评论均明确提及坚持锻炼和提醒功能。",
-    "conflicts": [],
-    "provenance": "model",
-    "status": "kept",
-    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-  },
-  {
-    "id": "F-model-4-2",
-    "topic_id": 4,
-    "statement": "应用提供针对不同人群（如老年人、产后、初学者）的多样化锻炼选项，受到用户好评。",
-    "evidence_review_ids": [
-      "9220792708",
-      "11593815773"
-    ],
-    "sample_count": 2,
-    "confidence": 0.8,
-    "uncertainty": "评论来自不同用户，但均提及特定人群的锻炼选项。",
-    "conflicts": [],
-    "provenance": "model",
-    "status": "kept",
-    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-  },
-  {
-    "id": "F-model-4-3",
-    "topic_id": 4,
-    "statement": "应用更新后获得正面评价，用户对新的布局和功能表示满意。",
+    "id": "F-model-2-1",
+    "topic_id": 2,
+    "statement": "用户对应用更新后的体验给予正面评价，认为更新带来了改进。",
     "evidence_review_ids": [
       "8320450139",
       "5377927335"
     ],
     "sample_count": 2,
-    "confidence": 0.7,
-    "uncertainty": "两个评论均提及更新，但具体更新内容未详细说明。",
+    "confidence": 0.8,
+    "uncertainty": "仅基于两条评论，且未提供具体更新内容细节。",
+    "conflicts": [],
+    "provenance": "model",
+    "status": "kept",
+    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+  },
+  {
+    "id": "F-model-2-2",
+    "topic_id": 2,
+    "statement": "应用在用户完成初始问卷后提供高级版订阅选项，但评论未明确提及订阅转化率或价格问题。",
+    "evidence_review_ids": [
+      "10175260415"
+    ],
+    "sample_count": 1,
+    "confidence": 0.3,
+    "uncertainty": "仅一条评论提及订阅选项，且未涉及价格或转化细节，样本不足。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",

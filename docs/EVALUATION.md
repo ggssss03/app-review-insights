@@ -19,7 +19,7 @@
 ## 本地自检命令
 
 ```bash
-PYTHONPATH=src python -m unittest discover -s tests -v   # 50+ 用例
+ PYTHONPATH=src python -m unittest discover -s tests -v   # 75 个用例
 python scripts/self_check.py                              # 一键自检 + 离线演示
 python app/server.py --port 8765                         # 启动 UI
 ```

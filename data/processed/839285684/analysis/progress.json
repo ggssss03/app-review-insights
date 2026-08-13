@@ -7,7 +7,7 @@
   {
     "stage": "fetch",
     "status": "ok",
-    "detail": "重新采集完成（cn 区），新数据已覆盖旧缓存"
+    "detail": "重新采集完成（us 区），新数据已覆盖旧缓存"
   },
   {
     "stage": "scope",
@@ -17,7 +17,7 @@
   {
     "stage": "load",
     "status": "ok",
-    "detail": "18 条原始评论"
+    "detail": "10 条原始评论"
   },
   {
     "stage": "clean",
@@ -27,7 +27,7 @@
   {
     "stage": "clean",
     "status": "ok",
-    "detail": "18 条（去重 0，垃圾 0）"
+    "detail": "10 条（去重 0，垃圾 0）"
   },
   {
     "stage": "topics",

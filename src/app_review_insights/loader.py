@@ -50,6 +50,8 @@ def load_raw_reviews(raw_dir: pathlib.Path, app_id: str) -> list[ReviewRaw]:
         entry = feed.get("entry", []) if isinstance(feed, dict) else []
         if isinstance(entry, dict):
             entry = [entry]
+        source_url = payload.get("url", "")
+        storefront = "cn" if "/cn/" in source_url else "us"
         for item in entry:
             reviews.append(ReviewRaw.create(
                 source="rss",
@@ -60,6 +62,7 @@ def load_raw_reviews(raw_dir: pathlib.Path, app_id: str) -> list[ReviewRaw]:
                 title=str(item.get("title", {}).get("label", "")),
                 body=str(item.get("content", {}).get("label", "")),
                 version=str(item.get("im:version", {}).get("label", "")),
+                country=storefront,
                 updated=str(item.get("updated", {}).get("label", "")),
                 raw=item,
             ))

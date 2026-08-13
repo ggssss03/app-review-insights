@@ -1,16 +1,12 @@
 {
   "focus_areas": [
-    "features",
-    "other",
-    "performance",
     "pricing",
-    "subscription_conversion",
-    "usability"
+    "subscription_conversion"
   ],
   "star_filter": {
     "min": null,
     "max": null
   },
   "version_filter": null,
-  "note": "模型解析（无明确分析目标，默认全量分析。）"
+  "note": "模型解析（分析目标聚焦于订阅转化与付费墙体验，涉及订阅流程、付费墙设计、价格感知等，因此关注订阅转化和定价相关方面。）"
 }

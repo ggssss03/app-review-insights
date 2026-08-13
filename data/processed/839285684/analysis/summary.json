@@ -1,41 +1,36 @@
 {
   "app_id": "839285684",
-  "goal_text": "",
+  "goal_text": "订阅转化与付费墙体验",
   "scope": {
     "focus_areas": [
-      "features",
-      "other",
-      "performance",
       "pricing",
-      "subscription_conversion",
-      "usability"
+      "subscription_conversion"
     ],
     "star_filter": {
       "min": null,
       "max": null
     },
     "version_filter": null,
-    "note": "模型解析（无明确分析目标，默认全量分析。）"
+    "note": "模型解析（分析目标聚焦于订阅转化与付费墙体验，涉及订阅流程、付费墙设计、价格感知等，因此关注订阅转化和定价相关方面。）"
   },
   "clean_stats": {
-    "input_count": 18,
-    "unique_count": 18,
+    "input_count": 10,
+    "unique_count": 10,
     "removed_duplicates": 0,
     "junk_count": 0,
     "rating_distribution": {
-      "5": 18
+      "5": 10
     },
     "language_distribution": {
-      "zh": 2,
-      "en": 16
+      "en": 10
     },
     "rules_note": "清洗/去重/语言识别使用确定性规则（详见 PLAN.md 第 7 节）。"
   },
   "counts": {
-    "reviews": 18,
-    "topics": 5,
-    "findings": 12,
-    "requirements": 6,
+    "reviews": 10,
+    "topics": 3,
+    "findings": 8,
+    "requirements": 3,
     "test_cases": 6
   },
   "model_driven": true,
@@ -46,8 +41,8 @@
     "数据来源与限制见 data/README.md；空数据/网络限制如实标注，不编造。"
   ],
   "traceability": {
-    "total_checks": 30,
-    "passed_checks": 30,
+    "total_checks": 20,
+    "passed_checks": 20,
     "failed_checks": 0
   }
 }
