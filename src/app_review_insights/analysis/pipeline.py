@@ -105,10 +105,16 @@ def run_pipeline(
     scope = stage("scope", parse_scope, goal_text, llm)
 
     raw_reviews = load_raw_reviews(raw_dir, app_id)
+    truncated = len(raw_reviews) > 200
+    if truncated:
+        raw_reviews = raw_reviews[:200]
     if not raw_reviews:
         events.append({"stage": "load", "status": "error", "detail": "没有原始评论，请先采集或导入"})
         raise RuntimeError("没有原始评论数据")
-    events.append({"stage": "load", "status": "ok", "detail": f"{len(raw_reviews)} 条原始评论"})
+    load_detail = f"{len(raw_reviews)} 条原始评论"
+    if truncated:
+        load_detail += "（超过 200 条，仅保留前 200 条）"
+    events.append({"stage": "load", "status": "ok", "detail": load_detail})
 
     clean = stage("clean", clean_reviews, raw_reviews)
     reviews = _prepare(clean["reviews"])
