@@ -1,7 +1,7 @@
 {
   "app_id": "1321803705",
   "url": "https://itunes.apple.com/WebObjects/MZStore.woa/wa/userReviewsRow?id=1321803705&displayable-kind=11&sortId=4&pageNumber=0",
-  "fetched_at": "2026-08-12T10:05:19+00:00",
+  "fetched_at": "2026-08-13T09:11:34+00:00",
   "data": {
     "userReviewList": [
       {
@@ -92,6 +92,44 @@
         "isEdited": false,
         "viewUsersUserReviewsUrl": "https://itunes.apple.com/us/reviews?userProfileId=990075535",
         "voteUrl": "https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/rateUserReview?userReviewId=6530244192",
+        "reportConcernUrl": "https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/reportAConcernSubmit?cc=us",
+        "reportConcernExplanation": "Tell us a little more (Optional)",
+        "customerType": "Customers",
+        "reportConcernReasons": [
+          {
+            "reasonId": "1",
+            "name": "It contains offensive material",
+            "upperCaseName": "IT CONTAINS OFFENSIVE MATERIAL"
+          },
+          {
+            "reasonId": "8",
+            "name": "It’s off-topic",
+            "upperCaseName": "IT’S OFF-TOPIC"
+          },
+          {
+            "reasonId": "111003",
+            "name": "It looks like spam",
+            "upperCaseName": "IT LOOKS LIKE SPAM"
+          },
+          {
+            "reasonId": "7",
+            "name": "Something else",
+            "upperCaseName": "SOMETHING ELSE"
+          }
+        ]
+      },
+      {
+        "userReviewId": "6944303005",
+        "body": "I am unable to login",
+        "date": "2021-02-02T12:07:47Z",
+        "name": "dark knight 041",
+        "rating": 1,
+        "title": "Login issues",
+        "voteCount": 0,
+        "voteSum": 0,
+        "isEdited": false,
+        "viewUsersUserReviewsUrl": "https://itunes.apple.com/us/reviews?userProfileId=896835343",
+        "voteUrl": "https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/rateUserReview?userReviewId=6944303005",
         "reportConcernUrl": "https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/reportAConcernSubmit?cc=us",
         "reportConcernExplanation": "Tell us a little more (Optional)",
         "customerType": "Customers",
@@ -320,44 +358,6 @@
         "isEdited": false,
         "viewUsersUserReviewsUrl": "https://itunes.apple.com/us/reviews?userProfileId=1526222124",
         "voteUrl": "https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/rateUserReview?userReviewId=10906860990",
-        "reportConcernUrl": "https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/reportAConcernSubmit?cc=us",
-        "reportConcernExplanation": "Tell us a little more (Optional)",
-        "customerType": "Customers",
-        "reportConcernReasons": [
-          {
-            "reasonId": "1",
-            "name": "It contains offensive material",
-            "upperCaseName": "IT CONTAINS OFFENSIVE MATERIAL"
-          },
-          {
-            "reasonId": "8",
-            "name": "It’s off-topic",
-            "upperCaseName": "IT’S OFF-TOPIC"
-          },
-          {
-            "reasonId": "111003",
-            "name": "It looks like spam",
-            "upperCaseName": "IT LOOKS LIKE SPAM"
-          },
-          {
-            "reasonId": "7",
-            "name": "Something else",
-            "upperCaseName": "SOMETHING ELSE"
-          }
-        ]
-      },
-      {
-        "userReviewId": "7779191657",
-        "body": "验证了十次都通过了还让我验证\n你们这是人干的事吗？\n就知道挣钱 做个人吧。",
-        "date": "2021-09-07T01:05:56Z",
-        "name": "中国牛掰",
-        "rating": 1,
-        "title": "游戏 一群sb设计的好像",
-        "voteCount": 0,
-        "voteSum": 0,
-        "isEdited": false,
-        "viewUsersUserReviewsUrl": "https://itunes.apple.com/us/reviews?userProfileId=262614630",
-        "voteUrl": "https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/rateUserReview?userReviewId=7779191657",
         "reportConcernUrl": "https://userpub.itunes.apple.com/WebObjects/MZUserPublishing.woa/wa/reportAConcernSubmit?cc=us",
         "reportConcernExplanation": "Tell us a little more (Optional)",
         "customerType": "Customers",
