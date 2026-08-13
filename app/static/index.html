@@ -3,78 +3,189 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>App Review Insights · 星际分析终端</title>
+  <title>App Review Insights · 全息 AI 分析台</title>
   <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">跳到主内容</a>
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
-  <div class="scanlines" aria-hidden="true"></div>
-  <div class="vignette" aria-hidden="true"></div>
-  <div class="hud-corner tl" aria-hidden="true"></div>
-  <div class="hud-corner tr" aria-hidden="true"></div>
-  <div class="hud-corner bl" aria-hidden="true"></div>
-  <div class="hud-corner br" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <div class="noise" aria-hidden="true"></div>
+  <div id="cursor-glow" class="cursor-glow" aria-hidden="true"></div>
 
   <header class="topbar">
     <div class="brand">
-      <div class="brand-mark">◈</div>
-      <div>
-        <h1>APP REVIEW INSIGHTS</h1>
-        <p class="subtitle">把 App Store 用户评论变成可追溯的产品需求 · 版本规划与测试用例</p>
+      <span class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3v16a2 2 0 0 0 2 2h16"/>
+          <path d="M7 14l3-3 3 3 5-6"/>
+          <circle cx="18" cy="8" r="1.6" fill="currentColor" stroke="none"/>
+        </svg>
+      </span>
+      <div class="brand-text">
+        <h1>App Review Insights</h1>
+        <span class="brand-tag">AI REVIEW ENGINE</span>
       </div>
     </div>
     <div class="topbar-right">
-      <div class="radar" aria-hidden="true">
-        <span class="radar-ring r1"></span>
-        <span class="radar-ring r2"></span>
-        <span class="radar-ring r3"></span>
-        <span class="radar-sweep"></span>
-        <span class="radar-blip"></span>
-      </div>
-      <div id="health" class="health">系统自检中…</div>
+      <span class="status-pill">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <span id="health" class="health" role="status">系统自检中…</span>
+      </span>
     </div>
   </header>
 
-  <main>
-    <section class="card form-card">
-      <div class="card-glow"></div>
-      <label for="url">App Store 链接（中国区）或应用 ID</label>
-      <input id="url" type="text" value="https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684"
-             placeholder="https://apps.apple.com/cn/app/... 或纯数字 ID">
-      <p class="hint">按链接识别国家（默认中国区）并从对应商店采集评论；美国区逻辑保留但默认停用。</p>
-      <label for="goal">分析目标 / 约束（可留空）</label>
-      <input id="goal" type="text" value="订阅转化与付费墙体验" placeholder="例如：订阅转化、可用性、低分评论、指定版本">
-      <div class="row">
-        <label class="check"><input id="use-llm" type="checkbox" checked> 使用 LLM（模型驱动）</label>
-        <button id="start-btn" class="primary">▶ 开始分析</button>
+  <main id="main">
+    <section class="hero" aria-label="产品介绍">
+      <p class="hero-eyebrow"><span class="hero-line" aria-hidden="true"></span>AI-POWERED REVIEW INTELLIGENCE</p>
+      <h2 class="hero-title">把 App Store 评论，<br><em>翻译成产品决策</em></h2>
+      <p class="subtitle">采集 → 清洗 → 主题 → 发现 → PRD → 用例 → 全链路可追溯 · LLM 模型驱动，绝不伪装成功</p>
+      <div class="pipeline" aria-label="S0 到 S8 九阶段流水线">
+        <span class="pipe-chip"><i>1</i>S0 范围</span>
+        <span class="pipe-link" aria-hidden="true"></span>
+        <span class="pipe-chip"><i>2</i>S1 采集</span>
+        <span class="pipe-link" aria-hidden="true"></span>
+        <span class="pipe-chip"><i>3</i>S2 清洗</span>
+        <span class="pipe-link" aria-hidden="true"></span>
+        <span class="pipe-chip"><i>4</i>S3 主题</span>
+        <span class="pipe-link" aria-hidden="true"></span>
+        <span class="pipe-chip"><i>5</i>S4 发现</span>
+        <span class="pipe-link" aria-hidden="true"></span>
+        <span class="pipe-chip"><i>6</i>S5 需求</span>
+        <span class="pipe-link" aria-hidden="true"></span>
+        <span class="pipe-chip"><i>7</i>S6 用例</span>
+        <span class="pipe-link" aria-hidden="true"></span>
+        <span class="pipe-chip"><i>8</i>S7 溯源</span>
+        <span class="pipe-link" aria-hidden="true"></span>
+        <span class="pipe-chip"><i>9</i>S8 汇总</span>
       </div>
-      <div class="row">
-        <label class="file-label">
-          或导入评论数据文件（JSON / CSV）
-          <input id="import-file" type="file" accept=".json,.csv">
-        </label>
-        <input id="import-app-id" type="text" placeholder="导入目标 app id（纯数字）" style="width:180px">
-        <button id="import-btn">导入</button>
-      </div>
-      <div id="form-msg" class="msg"></div>
     </section>
 
-    <section id="progress-card" class="card hidden">
-      <h2 class="section-title">▣ 执行进度</h2>
+    <section class="card form-card" aria-labelledby="form-title">
+      <div class="form-glow" aria-hidden="true"></div>
+      <div class="deck">
+        <div class="form-head">
+          <div>
+            <span class="eyebrow-mini">COMMAND DECK</span>
+            <h2 id="form-title">新建分析任务</h2>
+          </div>
+          <span class="form-badge">S0 → S8 全链路流水线</span>
+        </div>
+        <div class="form-grid">
+          <div class="field field-wide">
+            <label for="url">App Store 链接（中国区）或应用 ID</label>
+            <input id="url" type="text" value="https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684"
+                   placeholder="https://apps.apple.com/cn/app/... 或纯数字 ID" spellcheck="false">
+            <p class="hint">按链接识别国家（默认中国区）并从对应商店采集评论；美国区逻辑保留但默认停用。</p>
+          </div>
+          <div class="field field-wide">
+            <label for="goal">分析目标 / 约束（可留空）</label>
+            <input id="goal" type="text" value="订阅转化与付费墙体验" placeholder="例如：订阅转化、可用性、低分评论、指定版本" spellcheck="false">
+          </div>
+        </div>
+        <div class="form-actions">
+        <label class="check">
+          <input id="use-llm" type="checkbox" checked>
+          <span class="check-box" aria-hidden="true"></span>
+          <span>使用 LLM（模型驱动）</span>
+        </label>
+        <label class="check">
+          <input id="fresh" type="checkbox">
+          <span class="check-box" aria-hidden="true"></span>
+          <span>重新采集数据（不采用缓存）</span>
+        </label>
+        <button id="start-btn" class="btn primary" type="button">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M8 5.14v13.72a1 1 0 0 0 1.5.86l11-6.86a1 1 0 0 0 0-1.72l-11-6.86a1 1 0 0 0-1.5.86Z"/>
+            </svg>
+            开始分析
+          </button>
+        </div>
+        <div class="import-row">
+          <label class="file-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+              <path d="M14 2v6h6"/>
+              <path d="M12 18v-6M9 15h6"/>
+            </svg>
+            导入评论数据文件（JSON / CSV）
+            <input id="import-file" type="file" accept=".json,.csv">
+          </label>
+          <input id="import-app-id" type="text" placeholder="导入目标 app id（纯数字）" inputmode="numeric" spellcheck="false">
+          <button id="import-btn" class="btn secondary" type="button">导入</button>
+        </div>
+        <div id="form-msg" class="msg" role="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section id="progress-card" class="card hidden" aria-labelledby="progress-title">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow-mini">PIPELINE MONITOR</span>
+          <h2 id="progress-title">执行进度</h2>
+        </div>
+        <span class="live-chip"><span class="pulse-dot"></span> LIVE</span>
+      </div>
       <ol id="progress-list" class="progress-list"></ol>
     </section>
 
-    <section id="result-card" class="card hidden">
-      <div class="tabs">
-        <button class="tab active" data-tab="summary">◈ 摘要</button>
-        <button class="tab" data-tab="topics">◉ 主题聚类</button>
-        <button class="tab" data-tab="findings">◆ 关键发现</button>
-        <button class="tab" data-tab="requirements">▣ 需求规约 (PRD)</button>
-        <button class="tab" data-tab="testcases">▤ 验收用例</button>
-        <button class="tab" data-tab="traceability">⌁ 溯源校验</button>
-        <button class="tab" data-tab="clean">✧ 数据清洗</button>
+    <section id="result-card" class="card hidden" aria-label="分析结果">
+      <div class="tabs" role="tablist">
+        <button class="tab active" data-tab="summary" role="tab" aria-selected="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 3v16a2 2 0 0 0 2 2h16"/><path d="M7 14l3-3 3 3 5-6"/>
+          </svg>
+          摘要
+        </button>
+        <button class="tab" data-tab="raw" role="tab" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 4h16v4H4z"/><path d="M4 8v9a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V8"/>
+            <path d="M9 13h6"/>
+          </svg>
+          原始评论
+        </button>
+        <button class="tab" data-tab="topics" role="tab" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/>
+          </svg>
+          主题聚类
+        </button>
+        <button class="tab" data-tab="findings" role="tab" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3l1.9 5.7L20 10l-5.7 1.9L12 18l-1.9-5.9L4 10l6.1-1.3L12 3Z"/>
+            <path d="M19 17l.7 2.2 2.3.8-2.3.8L19 23l-.7-2.2-2.3-.8 2.3-.8L19 17Z"/>
+          </svg>
+          关键发现
+        </button>
+        <button class="tab" data-tab="requirements" role="tab" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+            <path d="M14 2v6h6"/><path d="M9 15h6M9 11h2"/>
+          </svg>
+          需求规约 (PRD)
+        </button>
+        <button class="tab" data-tab="testcases" role="tab" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="3"/><path d="m8 12 3 3 5-6"/>
+          </svg>
+          验收用例
+        </button>
+        <button class="tab" data-tab="traceability" role="tab" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="12" r="3"/>
+            <path d="M6 9v6M8.5 6.5 15 10M8.5 17.5 15 14"/>
+          </svg>
+          溯源校验
+        </button>
+        <button class="tab" data-tab="clean" role="tab" aria-selected="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 3H2l8 9.5V19l4 2v-8.5L22 3Z"/>
+          </svg>
+          数据清洗
+        </button>
       </div>
-      <div id="tab-content"></div>
+      <div id="tab-content" role="tabpanel"></div>
     </section>
   </main>
 

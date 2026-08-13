@@ -6,6 +6,7 @@ import time
 import unittest
 import urllib.request
 
+import app.server as server
 from app.server import AppServer, ServerApp
 
 
@@ -80,6 +81,7 @@ class ServerIntegrationTest(unittest.TestCase):
         self.assertEqual(summary["counts"]["reviews"], 4)
         self.assertFalse(summary["model_driven"])
 
+
     def test_artifacts_normalizes_list_note_format(self):
         base = f"http://127.0.0.1:{self.port}"
         raw = pathlib.Path(self.tmp.name) / "raw" / "888002"
@@ -106,6 +108,53 @@ class ServerIntegrationTest(unittest.TestCase):
         testcases = http_json(f"{base}/api/artifacts/888002?stage=testcases")["data"]
         self.assertIsInstance(testcases, list)
         self.assertEqual(testcases[0]["gherkin"]["given"], ["已安装"])
+
+
+class FreshCollectTest(unittest.TestCase):
+    """重新采集（不采用缓存）逻辑：成功覆盖旧数据，失败保留旧数据。"""
+
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.app = ServerApp(pathlib.Path(self.tmp.name))
+        self._orig_fetch = server.fetch_reviews
+
+    def tearDown(self):
+        server.fetch_reviews = self._orig_fetch
+        self.tmp.cleanup()
+
+    def test_fresh_replaces_old_raw_and_failure_keeps_old(self):
+        raw = self.app.raw_dir("123456")
+        raw.mkdir(parents=True, exist_ok=True)
+        old = raw / "reviews-mostRecent-p1.json"
+        old.write_text(json.dumps({"old": True}), encoding="utf-8")
+
+        def fake_ok(app_id, **kw):
+            cache_dir = pathlib.Path(kw["cache_dir"])
+            cache_dir.mkdir(parents=True, exist_ok=True)
+            (cache_dir / "reviews-mostRecent-p1.json").write_text(
+                json.dumps({"fresh": True}), encoding="utf-8")
+            (cache_dir / "collection_notes.json").write_text(
+                json.dumps({"reviews_total": 1}), encoding="utf-8")
+            return {"reviews_total": 1}
+
+        server.fetch_reviews = fake_ok
+        entry = {"status": "pending", "progress": []}
+        self.assertTrue(self.app._collect("123456", "cn", entry, fresh=True))
+        fresh = raw / "reviews-mostRecent-p1.json"
+        self.assertTrue(fresh.exists())
+        self.assertEqual(json.loads(fresh.read_text(encoding="utf-8")), {"fresh": True})
+        self.assertTrue((raw / "collection_notes.json").exists())
+        self.assertEqual(entry["progress"][-1]["status"], "ok")
+
+        # 采集失败：不得删除旧数据，状态置为 error
+        old2 = raw / "reviews-mostRecent-p2.json"
+        old2.write_text(json.dumps({"old2": True}), encoding="utf-8")
+        server.fetch_reviews = lambda app_id, **kw: {"reviews_total": 0}
+        entry2 = {"status": "running", "progress": []}
+        self.assertFalse(self.app._collect("123456", "cn", entry2, fresh=True))
+        self.assertEqual(entry2["status"], "error")
+        self.assertTrue(old2.exists())
+        self.assertTrue(fresh.exists())
 
 
 if __name__ == "__main__":

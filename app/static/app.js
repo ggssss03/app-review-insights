@@ -4,6 +4,18 @@ const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;",
 }[c]));
 
+/* 份额百分比：最大余数法，保证各项之和恒为 100 */
+function pctShares(values) {
+  const nums = values.map((v) => Number(v) || 0);
+  const total = nums.reduce((a, b) => a + b, 0) || 1;
+  const exact = nums.map((v) => (v / total) * 100);
+  const base = exact.map(Math.floor);
+  let rem = 100 - base.reduce((a, b) => a + b, 0);
+  const order = exact.map((v, i) => [v - Math.floor(v), i]).sort((a, b) => b[0] - a[0]);
+  for (let k = 0; k < rem && k < order.length; k++) base[order[k][1]] += 1;
+  return base;
+}
+
 function badge(label, cls) {
   return `<span class="badge ${esc(cls)}">${esc(label)}</span>`;
 }
@@ -50,7 +62,12 @@ async function start() {
     const run = await api("/api/analyze", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ url, goal, llm: $("use-llm").checked }),
+      body: JSON.stringify({
+        url,
+        goal,
+        llm: $("use-llm").checked,
+        fresh: $("fresh").checked,
+      }),
     });
     currentAppId = run.app_id;
     currentRunId = run.run_id;
@@ -114,6 +131,7 @@ async function renderTab(tab) {
   const el = $("tab-content");
   try {
     if (tab === "summary") el.innerHTML = renderSummary(window.__summary);
+    else if (tab === "raw") el.innerHTML = renderRaw(await fetchStage("raw"));
     else if (tab === "topics") el.innerHTML = renderTopics(await fetchStage("topics"));
     else if (tab === "findings") el.innerHTML = renderFindings(await fetchStage("findings"));
     else if (tab === "requirements") el.innerHTML = renderRequirements(await fetchStage("requirements"));
@@ -123,6 +141,10 @@ async function renderTab(tab) {
   } catch (e) {
     el.innerHTML = `<div class="msg error">加载失败：${esc(e.message)}</div>`;
   }
+  el.querySelectorAll(":scope > *").forEach((node, i) => {
+    node.classList.add("anim-in");
+    node.style.setProperty("--i", i);
+  });
 }
 
 function renderSummary(s) {
@@ -199,10 +221,9 @@ function renderScope(scope) {
 function renderTopics(t) {
   if (!t || !t.topics) return `<div class="page-head"><h2>◉ 主题聚类</h2></div><p>暂无主题数据。</p>`;
   const total = t.topics.reduce((a, b) => a + (b.count || 0), 0) || 1;
-  const max = Math.max(...t.topics.map((x) => x.count || 0));
+  const shares = pctShares(t.topics.map((x) => x.count || 0));
   const cards = t.topics.map((topic, i) => {
-    const pct = Math.round(((topic.count || 0) / max) * 100);
-    const share = Math.round(((topic.count || 0) / total) * 100);
+    const share = shares[i];
     return `
     <div class="topic-card">
       <div class="topic-head">
@@ -211,7 +232,7 @@ function renderTopics(t) {
         <span class="badge stat">样本 ${topic.count || 0}</span>
         <span class="topic-share">占比 ${share}%</span>
       </div>
-      <div class="topic-bar"><div class="topic-bar-fill" style="width:${pct}%"></div></div>
+      <div class="topic-bar"><div class="topic-bar-fill" style="width:${share}%"></div></div>
       <p class="topic-desc">${esc(topic.description || "无描述")}</p>
       ${topic.keywords?.length ? `<div class="kw-row">${topic.keywords.map((k) => `<span class="kw-chip">#${esc(k)}</span>`).join("")}</div>` : ""}
       ${(topic.samples || []).length ? `<div class="sample-list">${topic.samples.slice(0, 4).map((s) => `<div class="sample"><span class="sample-id">${esc(s.review_id)}</span>${esc(s.text)}</div>`).join("")}</div>` : ""}
@@ -227,6 +248,47 @@ function renderTopics(t) {
       ${modelTag}
     </div>
     ${cards}`;
+}
+
+/* ============ 原始评论 ============ */
+const RAW_SOURCE_LABELS = {
+  rss: "RSS 采集",
+  "amp-page": "产品页内嵌",
+  amp: "AMP 接口",
+  itml: "美区 itml",
+  import: "导入数据",
+};
+
+function renderRaw(reviews) {
+  if (!reviews || !reviews.length) {
+    return `<div class="page-head"><div><h2>原始评论</h2></div></div><p>暂无原始评论数据（请先采集或导入）。</p>`;
+  }
+  const rows = reviews
+    .slice()
+    .sort((a, b) => String(b.updated || "").localeCompare(String(a.updated || "")))
+    .slice(0, 100)
+    .map((r) => `
+      <tr>
+        <td><span class="badge stat">${esc(RAW_SOURCE_LABELS[r.source] || r.source || "?")}</span><br>
+            <span class="cell-id">${esc(r.review_id || "—")}</span></td>
+        <td><span class="stars s${r.rating || 0}">${"★".repeat(r.rating || 0)}<span class="stars-ghost">${"★".repeat(5 - (r.rating || 0))}</span></span></td>
+        <td><span class="version-tag">${esc(r.version || "—")}</span></td>
+        <td class="cell-id">${esc(r.updated || "—")}</td>
+        <td>${r.helpful_votes || 0}</td>
+        <td class="cell-body"><span class="cell-title">${esc(r.title || "")}</span>${r.body ? ` ${esc(r.body)}` : ""}</td>
+      </tr>`).join("");
+  return `
+    <div class="page-head">
+      <div>
+        <h2>原始评论</h2>
+        <p class="page-sub">共 ${reviews.length} 条原始评论（按日期倒序，最多展示 100 条）· 来源与采集时间见原始缓存</p>
+      </div>
+    </div>
+    <div class="table-wrap">
+      <table class="clean-table"><thead><tr>
+        <th>来源 / ID</th><th>评分</th><th>版本</th><th>日期</th><th>有用</th><th>内容</th>
+      </tr></thead><tbody>${rows}</tbody></table>
+    </div>`;
 }
 
 function renderFindings(f) {
@@ -328,9 +390,10 @@ init();
   const canvas = document.getElementById("bg-canvas");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
-  let width, height, particles = [];
-  const COUNT = 70;
-  const COLORS = ["0,229,255", "168,85,247", "255,45,149"];
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let width, height, particles = [], comets = [];
+  const COUNT = 54;
+  const COLORS = ["34,211,238", "167,139,250", "244,114,182", "52,211,153"];
 
   function resize() {
     width = canvas.width = window.innerWidth;
@@ -341,17 +404,30 @@ init();
     particles = Array.from({ length: COUNT }, () => ({
       x: Math.random() * width,
       y: Math.random() * height,
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: (Math.random() - 0.5) * 0.35,
-      r: Math.random() * 1.8 + 0.6,
+      vx: (Math.random() - 0.5) * 0.28,
+      vy: (Math.random() - 0.5) * 0.28,
+      r: Math.random() * 2.2 + 0.7,
       c: COLORS[Math.floor(Math.random() * COLORS.length)],
       tw: Math.random() * Math.PI * 2,
     }));
+    comets = Array.from({ length: 3 }, () => spawnComet());
+  }
+
+  function spawnComet() {
+    const fromLeft = Math.random() > 0.5;
+    return {
+      x: fromLeft ? -40 : width + 40,
+      y: Math.random() * height * 0.55,
+      vx: (fromLeft ? 1 : -1) * (2.4 + Math.random() * 1.6),
+      vy: 0.9 + Math.random() * 0.8,
+      life: 0,
+      max: 260 + Math.random() * 180,
+    };
   }
 
   function frame() {
     ctx.clearRect(0, 0, width, height);
-    const LINK = 130;
+    const LINK = 150;
     for (const p of particles) {
       p.x += p.vx;
       p.y += p.vy;
@@ -361,10 +437,14 @@ init();
       if (p.y < -20) p.y = height + 20;
       if (p.y > height + 20) p.y = -20;
       const alpha = 0.35 + 0.3 * Math.sin(p.tw);
+      ctx.save();
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = `rgba(${p.c},0.85)`;
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = `rgba(${p.c},${alpha})`;
       ctx.fill();
+      ctx.restore();
     }
     for (let i = 0; i < particles.length; i++) {
       for (let j = i + 1; j < particles.length; j++) {
@@ -372,9 +452,9 @@ init();
         const dx = a.x - b.x, dy = a.y - b.y;
         const d2 = dx * dx + dy * dy;
         if (d2 < LINK * LINK) {
-          const alpha = (1 - Math.sqrt(d2) / LINK) * 0.16;
-          ctx.strokeStyle = `rgba(0,229,255,${alpha})`;
-          ctx.lineWidth = 0.7;
+          const alpha = (1 - Math.sqrt(d2) / LINK) * 0.15;
+          ctx.strokeStyle = `rgba(${a.c},${alpha})`;
+          ctx.lineWidth = 0.6;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
@@ -382,19 +462,104 @@ init();
         }
       }
     }
-    requestAnimationFrame(frame);
+    for (const c of comets) {
+      c.x += c.vx;
+      c.y += c.vy;
+      c.life += 1;
+      if (c.life > c.max || c.x > width + 60 || c.x < -60 || c.y > height + 60) {
+        Object.assign(c, spawnComet());
+      }
+      const t = Math.min(1, c.life / 60);
+      const tail = 26 * (0.4 + t);
+      const grad = ctx.createLinearGradient(c.x, c.y, c.x - c.vx * tail, c.y - c.vy * tail);
+      grad.addColorStop(0, "rgba(165,243,252,0.9)");
+      grad.addColorStop(1, "rgba(167,139,250,0)");
+      ctx.strokeStyle = grad;
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      ctx.moveTo(c.x, c.y);
+      ctx.lineTo(c.x - c.vx * tail, c.y - c.vy * tail);
+      ctx.stroke();
+    }
+    if (!reduceMotion) requestAnimationFrame(frame);
   }
 
   resize();
   spawn();
-  window.addEventListener("resize", () => { resize(); spawn(); });
   frame();
+  window.addEventListener("resize", () => { resize(); spawn(); });
+})();
+
+/* ============ 光标全息光晕 ============ */
+(function initCursorGlow() {
+  const el = document.getElementById("cursor-glow");
+  if (!el) return;
+  if (window.matchMedia("(pointer: coarse)").matches) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  let raf = null;
+  let tx = window.innerWidth / 2, ty = window.innerHeight / 2;
+  let x = tx, y = ty;
+  function loop() {
+    raf = requestAnimationFrame(loop);
+    x += (tx - x) * 0.12;
+    y += (ty - y) * 0.12;
+    el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -50%)`;
+  }
+  window.addEventListener("pointermove", (e) => {
+    tx = e.clientX;
+    ty = e.clientY;
+    el.classList.add("on");
+    if (!raf) loop();
+  }, { passive: true });
+  document.addEventListener("mouseleave", () => el.classList.remove("on"));
+})();
+
+/* ============ 结果卡片 3D 倾斜 ============ */
+(function initTilt() {
+  if (window.matchMedia("(pointer: coarse)").matches) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const SEL = ".kpi-card, .topic-card, .finding-card, .req-card, .tc-card";
+  let current = null;
+  document.addEventListener("pointermove", (e) => {
+    const card = e.target.closest(SEL);
+    if (!card) return;
+    if (card !== current) current = card;
+    const r = card.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - 0.5;
+    const py = (e.clientY - r.top) / r.height - 0.5;
+    card.style.transform =
+      `perspective(900px) rotateX(${(-py * 5).toFixed(2)}deg) rotateY(${(px * 5).toFixed(2)}deg) translateY(-2px)`;
+  }, { passive: true });
+  document.addEventListener("pointerout", (e) => {
+    const card = e.target.closest(SEL);
+    if (!card) return;
+    if (!e.relatedTarget || !card.contains(e.relatedTarget)) {
+      card.style.transform = "";
+      current = null;
+    }
+  });
+})();
+
+/* ============ 主按钮磁吸 ============ */
+(function initMagnetic() {
+  const btn = document.querySelector(".btn.primary");
+  if (!btn) return;
+  if (window.matchMedia("(pointer: coarse)").matches) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  btn.addEventListener("pointermove", (e) => {
+    const r = btn.getBoundingClientRect();
+    const dx = e.clientX - (r.left + r.width / 2);
+    const dy = e.clientY - (r.top + r.height / 2);
+    btn.style.transform = `translate(${(dx * 0.16).toFixed(1)}px, ${(dy * 0.22).toFixed(1)}px)`;
+  }, { passive: true });
+  btn.addEventListener("pointerleave", () => { btn.style.transform = ""; });
 })();
 
 /* ============ 标题打字机效果 ============ */
 (function initTypewriter() {
   const el = document.querySelector(".subtitle");
   if (!el) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const full = el.textContent;
   el.textContent = "";
   let i = 0;
@@ -417,20 +582,23 @@ function renderDist(cs) {
   const hasLang = Object.keys(ld).length > 0;
   if (!hasRating && !hasLang) return "";
 
+  const ratingKeys = ["5", "4", "3", "2", "1"];
+  const ratingVals = ratingKeys.map((k) => Number(rd[k] || 0));
+  const ratingShares = pctShares(ratingVals);
   const ratingRows = hasRating
-    ? [5, 4, 3, 2, 1].map((star) => {
-        const n = Number(rd[String(star)] || 0);
-        const max = Math.max(1, ...Object.values(rd).map(Number));
-        const pct = Math.round((n / max) * 100);
-        return `<div class="dist-row"><span class="dist-label">${star}★</span><div class="dist-track"><div class="dist-fill f${star}" style="width:${pct}%"></div></div><span class="dist-val">${n}</span></div>`;
+    ? ratingKeys.map((k, i) => {
+        const n = ratingVals[i];
+        const pct = ratingShares[i];
+        return `<div class="dist-row"><span class="dist-label">${k}★</span><div class="dist-track"><div class="dist-fill f${k}" style="width:${pct}%"></div></div><span class="dist-val">${n} · ${pct}%</span></div>`;
       }).join("")
     : "";
 
-  const langTotal = Object.values(ld).reduce((a, b) => a + Number(b || 0), 0) || 1;
-  const langRows = Object.entries(ld)
-    .map(([k, v]) => {
+  const langEntries = Object.entries(ld);
+  const langShares = pctShares(langEntries.map(([, v]) => v));
+  const langRows = langEntries
+    .map(([k, v], i) => {
       const n = Number(v || 0);
-      const pct = Math.round((n / langTotal) * 100);
+      const pct = langShares[i];
       const name = k === "zh" ? "中文" : k === "en" ? "英文" : k.toUpperCase();
       return `<div class="dist-row"><span class="dist-label">${name}</span><div class="dist-track"><div class="dist-fill lang-fill" style="width:${pct}%"></div></div><span class="dist-val">${n} · ${pct}%</span></div>`;
     })

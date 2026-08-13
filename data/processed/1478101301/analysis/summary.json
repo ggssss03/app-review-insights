@@ -1,0 +1,57 @@
+{
+  "app_id": "1478101301",
+  "goal_text": "",
+  "scope": {
+    "focus_areas": [
+      "features",
+      "other",
+      "performance",
+      "pricing",
+      "subscription_conversion",
+      "usability"
+    ],
+    "star_filter": {
+      "min": null,
+      "max": null
+    },
+    "version_filter": null,
+    "note": "模型解析（无明确分析目标，默认全量分析所有维度。）"
+  },
+  "clean_stats": {
+    "input_count": 161,
+    "unique_count": 160,
+    "removed_duplicates": 1,
+    "junk_count": 0,
+    "rating_distribution": {
+      "1": 137,
+      "2": 4,
+      "3": 3,
+      "4": 2,
+      "5": 14
+    },
+    "language_distribution": {
+      "zh": 159,
+      "en": 1
+    },
+    "rules_note": "清洗/去重/语言识别使用确定性规则（详见 PLAN.md 第 7 节）。"
+  },
+  "counts": {
+    "reviews": 160,
+    "topics": 4,
+    "findings": 14,
+    "requirements": 4,
+    "test_cases": 5
+  },
+  "model_driven": true,
+  "notes": [
+    "模型生成",
+    "模型生成",
+    "主题发现使用 tfidf 嵌入；模型驱动主题命名：True。",
+    "数据来源与限制见 data/README.md；空数据/网络限制如实标注，不编造。"
+  ],
+  "traceability": {
+    "total_checks": 27,
+    "passed_checks": 27,
+    "failed_checks": 0
+  }
+}

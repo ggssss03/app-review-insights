@@ -1,39 +1,54 @@
 {
   "topics": [
     {
-      "topic_id": 1,
-      "count": 12,
+      "topic_id": 0,
+      "count": 2,
       "samples": [
         {
-          "review_id": "1081072507",
-          "text": "易坚持 冬天做做还能保暖"
+          "review_id": "2210969485",
+          "text": "每天打卡收获多多 简单好用好评"
         },
         {
-          "review_id": "1124547437",
-          "text": "七分钟真不短 很累呀 很适合平时不运动的人"
-        },
-        {
-          "review_id": "1171657357",
-          "text": "很不错 不会有视频指导，每次都出好多汗"
-        },
-        {
-          "review_id": "11843515227",
-          "text": "都要开通会员 所有项目都是要开通会员，都要钱的"
+          "review_id": "8536674076",
+          "text": "简单粗暴好用 新手进去很简单，动作容易模仿，一组30秒，容易上手，音乐也好听。8岁儿子强烈要求购买"
         }
       ],
-      "label": "短时高效锻炼",
-      "description": "用户认为该应用提供短时（如7分钟）但强度足够的锻炼，适合平时不运动的人，且容易坚持，冬天锻炼还能保暖。",
+      "label": "简单易用，适合新手",
+      "description": "用户称赞应用简单直接，容易上手，动作易模仿，适合新手和儿童，音乐好听，打卡功能带来收获感。",
       "keywords": [
-        "易坚持",
-        "七分钟",
-        "很累",
-        "适合",
-        "保暖"
+        "简单",
+        "好用",
+        "新手",
+        "容易",
+        "打卡"
       ]
     },
     {
-      "topic_id": 0,
-      "count": 33,
+      "topic_id": 1,
+      "count": 2,
+      "samples": [
+        {
+          "review_id": "3028449825",
+          "text": "Good free app I really enjoy doing workouts with this free app. The range of different workouts and goals is pretty cool!"
+        },
+        {
+          "review_id": "3492973040",
+          "text": "Convenient I found this app is very convenient. If I miss my workout at gym, I just can choose 2-3 sets from app, that will be good. It has different workouts for different levels."
+        }
+      ],
+      "label": "免费且灵活的训练选择",
+      "description": "用户认为应用免费且方便，提供多种训练和不同难度级别，可灵活补充健身房训练。",
+      "keywords": [
+        "free",
+        "convenient",
+        "range",
+        "workouts",
+        "levels"
+      ]
+    },
+    {
+      "topic_id": 4,
+      "count": 11,
       "samples": [
         {
           "review_id": "5684535804",
@@ -52,242 +67,144 @@
           "text": "Awesome workouts I really love this work out app!! I had not used it in a long time, when I opened it again they had completely updated and redid the app. And I love the new updates. There is a little"
         }
       ],
-      "label": "便捷实用且激励性强",
-      "description": "用户称赞该应用便捷、一致性好，提醒功能有激励作用，适合忙碌或身体条件有限的人群，且更新后体验更佳。",
+      "label": "坚持锻炼的得力助手",
+      "description": "用户强调应用帮助保持锻炼习惯，提醒功能有效，适合忙碌或需要温和锻炼的人群，更新后体验更佳。",
       "keywords": [
-        "convenient",
         "consistent",
         "reminder",
         "motivation",
         "no time",
-        "updated"
+        "updates"
+      ]
+    },
+    {
+      "topic_id": 3,
+      "count": 1,
+      "samples": [
+        {
+          "review_id": "6400700303",
+          "text": "I really enjoyed my first day doing exercises. It was my first day doing this in this app and I really enjoyed it.. I never do exercises but today I enjoyed doing it.."
+        }
+      ],
+      "label": "初次体验愉悦",
+      "description": "用户首次使用应用即感到享受，即使平时不锻炼也乐在其中，表明应用对新手友好且有趣。",
+      "keywords": [
+        "first day",
+        "enjoyed",
+        "never do exercises"
+      ]
+    },
+    {
+      "topic_id": 2,
+      "count": 2,
+      "samples": [
+        {
+          "review_id": "10176154885",
+          "text": "Daily 7 Great nice way to keep active"
+        },
+        {
+          "review_id": "5097045343",
+          "text": "great app User friendly"
+        }
+      ],
+      "label": "日常活动好帮手",
+      "description": "用户认为应用是保持活跃的好方式，界面友好，适合日常使用。",
+      "keywords": [
+        "daily",
+        "active",
+        "user friendly"
       ]
     }
   ],
   "memberships": [
     {
       "review_key": "2210969485",
-      "topic_id": 1,
+      "topic_id": 0,
       "method": "embedding+cluster"
     },
     {
       "review_key": "8536674076",
-      "topic_id": 1,
+      "topic_id": 0,
       "method": "embedding+cluster"
     },
     {
       "review_key": "3492973040",
-      "topic_id": 0,
+      "topic_id": 1,
       "method": "embedding+cluster"
     },
     {
       "review_key": "6052795032",
-      "topic_id": 0,
+      "topic_id": 4,
       "method": "embedding+cluster"
     },
     {
       "review_key": "6400700303",
-      "topic_id": 0,
+      "topic_id": 3,
       "method": "embedding+cluster"
     },
     {
       "review_key": "10176154885",
-      "topic_id": 0,
+      "topic_id": 2,
       "method": "embedding+cluster"
     },
     {
       "review_key": "3028449825",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "5861603040",
       "topic_id": 1,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "11593815773",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "9220792708",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "5786142670",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "8320450139",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "5377927335",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "10175260415",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "6138213011",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "12150581992",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "7911742368",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "5684535804",
-      "topic_id": 0,
       "method": "embedding+cluster"
     },
     {
       "review_key": "5097045343",
-      "topic_id": 0,
+      "topic_id": 2,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "6635843584",
-      "topic_id": 0,
+      "review_key": "11593815773",
+      "topic_id": 4,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "5125126227",
-      "topic_id": 0,
+      "review_key": "9220792708",
+      "topic_id": 4,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "4192535329",
-      "topic_id": 0,
+      "review_key": "5786142670",
+      "topic_id": 4,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "3019148775",
-      "topic_id": 0,
+      "review_key": "8320450139",
+      "topic_id": 4,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "4871268841",
-      "topic_id": 1,
+      "review_key": "5377927335",
+      "topic_id": 4,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "4028340302",
-      "topic_id": 0,
+      "review_key": "10175260415",
+      "topic_id": 4,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "9875453632",
-      "topic_id": 1,
+      "review_key": "6138213011",
+      "topic_id": 4,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "1333334752",
-      "topic_id": 1,
+      "review_key": "12150581992",
+      "topic_id": 4,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "1354309664",
-      "topic_id": 1,
+      "review_key": "7911742368",
+      "topic_id": 4,
       "method": "embedding+cluster"
     },
     {
-      "review_key": "1171657357",
-      "topic_id": 1,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "1124547437",
-      "topic_id": 1,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "1048345005",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "966180840",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "1117921137",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "988105732",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "1020864871",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "10162333986",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "7636123842",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "9913567756",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "11862897909",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "12284709263",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "11843515227",
-      "topic_id": 1,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "11747896360",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "6201096293",
-      "topic_id": 0,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "6041883396",
-      "topic_id": 1,
-      "method": "embedding+cluster"
-    },
-    {
-      "review_key": "1081072507",
-      "topic_id": 1,
+      "review_key": "5684535804",
+      "topic_id": 4,
       "method": "embedding+cluster"
     }
   ],

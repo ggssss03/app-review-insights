@@ -1,0 +1,57 @@
+[
+  {
+    "stage": "fetch",
+    "status": "running",
+    "detail": "尝试在线采集评论"
+  },
+  {
+    "stage": "fetch",
+    "status": "ok",
+    "detail": "在线采集完成（cn 区）"
+  },
+  {
+    "stage": "scope",
+    "status": "ok",
+    "detail": "完成"
+  },
+  {
+    "stage": "load",
+    "status": "ok",
+    "detail": "161 条原始评论"
+  },
+  {
+    "stage": "clean",
+    "status": "ok",
+    "detail": "完成"
+  },
+  {
+    "stage": "clean",
+    "status": "ok",
+    "detail": "160 条（去重 1，垃圾 0）"
+  },
+  {
+    "stage": "topics",
+    "status": "ok",
+    "detail": "完成"
+  },
+  {
+    "stage": "findings",
+    "status": "ok",
+    "detail": "完成"
+  },
+  {
+    "stage": "requirements",
+    "status": "ok",
+    "detail": "完成"
+  },
+  {
+    "stage": "testcases",
+    "status": "ok",
+    "detail": "完成"
+  },
+  {
+    "stage": "traceability",
+    "status": "ok",
+    "detail": "完成"
+  }
+]

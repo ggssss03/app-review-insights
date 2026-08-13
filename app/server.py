@@ -10,7 +10,9 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
+import shutil
 import sys
+import tempfile
 import threading
 import time
 import urllib.parse
@@ -31,11 +33,12 @@ from app_review_insights.collector import (  # noqa: E402
 from app_review_insights.config import llm_available, llm_settings, load_dotenv  # noqa: E402
 from app_review_insights.importer import import_reviews  # noqa: E402
 from app_review_insights.llm import LLMClient  # noqa: E402
+from app_review_insights.loader import load_raw_reviews  # noqa: E402
 from app_review_insights.storage import write_json  # noqa: E402
 
 STATIC_DIR = pathlib.Path(__file__).resolve().parent / "static"
 STATIC_FILES = {"index.html", "app.js", "style.css"}
-ANALYSIS_STAGES = {"scope", "clean", "topics", "findings", "requirements", "testcases", "traceability", "summary", "progress"}
+ANALYSIS_STAGES = {"raw", "scope", "clean", "topics", "findings", "requirements", "testcases", "traceability", "summary", "progress"}
 
 
 def build_llm() -> Optional[LLMClient]:
@@ -87,43 +90,23 @@ class ServerApp:
             }
         goal = str(payload.get("goal") or "").strip()
         use_llm = bool(payload.get("llm", True))
+        fresh = bool(payload.get("fresh", False))
         embed_backend = str(payload.get("embed_backend") or "auto")
         thread = threading.Thread(
             target=self._run,
-            args=(run_id, app_id, country, goal, use_llm, embed_backend),
+            args=(run_id, app_id, country, goal, use_llm, embed_backend, fresh),
             daemon=True,
         )
         thread.start()
         return {"run_id": run_id, "app_id": app_id, "country": country, "status": "pending"}
 
     def _run(self, run_id: str, app_id: str, country: str, goal: str,
-             use_llm: bool, embed_backend: str) -> None:
+             use_llm: bool, embed_backend: str, fresh: bool = False) -> None:
         entry = self.state[run_id]
         entry["status"] = "running"
         try:
-            if not self.has_reviews(app_id):
-                # 没有缓存评论时尝试在线采集（需要可访问 Apple 接口的网络）
-                entry["progress"].append({"stage": "fetch", "status": "running", "detail": "尝试在线采集评论"})
-                stats = fetch_reviews(
-                    app_id,
-                    country=country,
-                    delay=1.0,
-                    cache_dir=self.raw_dir(app_id),
-                )
-                if stats.get("reviews_total", 0) == 0:
-                    entry["progress"].append({
-                        "stage": "fetch",
-                        "status": "error",
-                        "detail": "在线采集完成但未获取到评论（cn RSS/产品页/AMP 均为空），请稍后重试或导入 JSON/CSV",
-                    })
-                    entry["status"] = "error"
-                    entry["error"] = "未获取到评论：请稍后重试（采集源可能临时不可用）或导入 JSON/CSV 数据集"
-                    return
-                entry["progress"].append({
-                    "stage": "fetch",
-                    "status": "ok",
-                    "detail": f"在线采集完成（{country} 区）",
-                })
+            if not self._collect(app_id, country, entry, fresh=fresh):
+                return
             llm = build_llm() if use_llm else None
             result = run_pipeline(
                 app_id=app_id,
@@ -132,6 +115,7 @@ class ServerApp:
                 goal_text=goal,
                 llm=llm,
                 embed_backend=embed_backend,
+                force=fresh,
                 progress=entry["progress"],
             )
             entry["status"] = "done"
@@ -140,6 +124,71 @@ class ServerApp:
             entry["status"] = "error"
             entry["error"] = str(exc)
             entry["progress"].append({"stage": "pipeline", "status": "error", "detail": str(exc)})
+
+    def _collect(self, app_id: str, country: str, entry: dict, *, fresh: bool) -> bool:
+        """确保有可用评论；fresh=True 时强制重新采集，成功后覆盖旧原始数据。"""
+        if not fresh and self.has_reviews(app_id):
+            return True
+        raw = self.raw_dir(app_id)
+        if fresh:
+            entry["progress"].append({
+                "stage": "fetch", "status": "running", "detail": "正在重新采集评论（将覆盖旧缓存）",
+            })
+            # 先写入临时目录：成功才替换旧数据；失败则旧数据原样保留
+            with tempfile.TemporaryDirectory() as td:
+                stats = fetch_reviews(
+                    app_id,
+                    country=country,
+                    delay=1.0,
+                    cache_dir=pathlib.Path(td),
+                    refresh=True,
+                )
+                if stats.get("reviews_total", 0) == 0:
+                    entry["progress"].append({
+                        "stage": "fetch",
+                        "status": "error",
+                        "detail": "重新采集未获取到评论（cn RSS/产品页/AMP 均为空），已保留原缓存",
+                    })
+                    entry["status"] = "error"
+                    entry["error"] = "未获取到新评论：请稍后重试或导入 JSON/CSV 数据集（原数据未改动）"
+                    return False
+                raw.mkdir(parents=True, exist_ok=True)
+                for old in list(raw.glob("reviews-*.json")) + [raw / "collection_notes.json"]:
+                    if old.exists():
+                        old.unlink()
+                for new in pathlib.Path(td).glob("reviews-*.json"):
+                    shutil.move(str(new), raw / new.name)
+                shutil.move(str(pathlib.Path(td) / "collection_notes.json"), raw / "collection_notes.json")
+            entry["progress"].append({
+                "stage": "fetch",
+                "status": "ok",
+                "detail": f"重新采集完成（{country} 区），新数据已覆盖旧缓存",
+            })
+            return True
+
+        # 没有缓存评论时尝试在线采集（需要可访问 Apple 接口的网络）
+        entry["progress"].append({"stage": "fetch", "status": "running", "detail": "尝试在线采集评论"})
+        stats = fetch_reviews(
+            app_id,
+            country=country,
+            delay=1.0,
+            cache_dir=raw,
+        )
+        if stats.get("reviews_total", 0) == 0:
+            entry["progress"].append({
+                "stage": "fetch",
+                "status": "error",
+                "detail": "在线采集完成但未获取到评论（cn RSS/产品页/AMP 均为空），请稍后重试或导入 JSON/CSV",
+            })
+            entry["status"] = "error"
+            entry["error"] = "未获取到评论：请稍后重试（采集源可能临时不可用）或导入 JSON/CSV 数据集"
+            return False
+        entry["progress"].append({
+            "stage": "fetch",
+            "status": "ok",
+            "detail": f"在线采集完成（{country} 区）",
+        })
+        return True
 
     def import_content(self, app_id: str, content: str, fmt: str) -> dict:
         if not app_id.isdigit():
@@ -162,6 +211,13 @@ class ServerApp:
     def artifacts(self, app_id: str, stage: str) -> dict:
         if stage not in ANALYSIS_STAGES:
             raise ValueError(f"未知阶段：{stage}")
+        if stage == "raw":
+            reviews = load_raw_reviews(self.raw_dir(app_id), app_id)
+            return {
+                "app_id": app_id,
+                "stage": stage,
+                "data": [r.to_dict() for r in reviews],
+            }
         path = self.out_dir(app_id) / "analysis" / f"{stage}.json"
         if not path.exists():
             return {"app_id": app_id, "stage": stage, "error": "该阶段产物不存在", "data": None}

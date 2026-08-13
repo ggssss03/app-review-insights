@@ -129,6 +129,51 @@ class PipelineTest(unittest.TestCase):
             self.assertEqual(scope_events[0]["status"], "ok")
             self.assertNotIn("_goal_fp", r3["summary"]["scope"])
 
+    def test_goal_change_invalidates_downstream_stages(self):
+        """换分析目标后，topics/findings 等下游阶段必须重跑，不能串用旧缓存。"""
+        with tempfile.TemporaryDirectory() as tmp:
+            base = pathlib.Path(tmp)
+            raw_dir = base / "raw" / "999997"
+            raw_dir.mkdir(parents=True)
+            write_json(raw_dir / "reviews.json", envelope(
+                "999997", "file://imported",
+                {"feed": {"entry": [{
+                    "id": {"label": f"r{i}"}, "author": {"name": {"label": f"u{i}"}},
+                    "im:rating": {"label": "2" if i < 3 else "1"},
+                    "title": {"label": ""},
+                    "content": {"label": (
+                        "ads popup subscription" if i < 3
+                        else "app crashes and lags"
+                    )},
+                    "im:version": {"label": "1.0"},
+                    "updated": {"label": "2026-08-01"},
+                    "im:voteSum": {"label": "0"},
+                } for i in range(6)]}},
+                "2026-08-01T00:00:00+00:00",
+            ))
+            out_dir = base / "processed" / "999997"
+            llm = MockLLM(responder)
+
+            r1 = run_pipeline(
+                app_id="999997", raw_dir=raw_dir, out_dir=out_dir,
+                goal_text="订阅转化", llm=llm, force=True, embed_backend="tfidf",
+            )
+            r2 = run_pipeline(
+                app_id="999997", raw_dir=raw_dir, out_dir=out_dir,
+                goal_text="订阅转化", llm=llm, embed_backend="tfidf",
+            )
+            topics2 = [e for e in r2["events"] if e["stage"] == "topics"]
+            self.assertEqual(topics2[0]["status"], "cached")
+
+            r3 = run_pipeline(
+                app_id="999997", raw_dir=raw_dir, out_dir=out_dir,
+                goal_text="性能与崩溃", llm=llm, embed_backend="tfidf",
+            )
+            for stage in ("scope", "topics", "findings", "requirements", "testcases", "traceability"):
+                events = [e for e in r3["events"] if e["stage"] == stage]
+                self.assertTrue(events, stage)
+                self.assertEqual(events[0]["status"], "ok", f"{stage} 应重跑而非使用缓存")
+
 
 if __name__ == "__main__":
     unittest.main()

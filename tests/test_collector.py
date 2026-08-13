@@ -1,10 +1,13 @@
 import json
 import pathlib
+import re
 import tempfile
 import unittest
 from unittest import mock
 
 from app_review_insights.collector import (
+    _fetch_rss_reviews,
+    _merge_cached_reviews,
     build_rss_url,
     extract_country,
     extract_app_id,
@@ -266,6 +269,63 @@ class CountryAwareCollectTest(unittest.TestCase):
             self.assertTrue((cache_dir / "reviews-amp-page-cn.json").exists())
         self.assertEqual(stats["reviews_total"], 2)
         self.assertEqual(stats["method"], "amp-page")
+
+
+class MaxTotalCapTest(unittest.TestCase):
+    """评论超过 200 条时只保留最新 200 条；少于上限按真实条数全取。"""
+
+    def test_rss_stops_paginating_at_max_total(self):
+        def fake_json(url, timeout=30):
+            page = int(re.search(r"page=(\d+)", url).group(1))
+            entries = [{
+                "id": {"label": f"r{page}-{i}"},
+                "author": {"name": {"label": f"u{i}"}},
+                "im:rating": {"label": "5"},
+                "title": {"label": "T"},
+                "content": {"label": f"评论 {page}-{i}"},
+                "im:version": {"label": "1.0"},
+                "updated": {"label": f"2026-08-01T00:00:{i:02d}Z"},
+                "im:voteSum": {"label": "0"},
+            } for i in range(50)]
+            return {"feed": {"entry": entries}}
+
+        with tempfile.TemporaryDirectory() as tmp:
+            cache_dir = pathlib.Path(tmp) / "app"
+            with mock.patch(
+                "app_review_insights.collector.http_get_json", side_effect=fake_json
+            ):
+                stats = _fetch_rss_reviews(
+                    "1", country="cn", cache_dir=cache_dir,
+                    sort_orders=("mostRecent",), max_pages=10, max_total=120, refresh=True,
+                )
+        self.assertEqual(stats["pages_fetched"], 3)  # 50+50+50 → 第 3 页截断，不再翻第 4 页
+        self.assertEqual(stats["reviews_total"], 120)
+        self.assertTrue(any("仅保留最新 120" in n for n in stats["notes"]))
+
+    def test_merge_keeps_newest_when_exceeding_max_total(self):
+        def write_page(path, start, count, date_prefix):
+            entries = [{
+                "id": {"label": f"r{start + i}"},
+                "author": {"name": {"label": "u"}},
+                "im:rating": {"label": "5"},
+                "title": {"label": "T"},
+                "content": {"label": "c"},
+                "updated": {"label": f"{date_prefix}T00:00:{i:03d}Z"},
+            } for i in range(count)]
+            path.write_text(json.dumps({"feed": {"entry": entries}}), encoding="utf-8")
+
+        with tempfile.TemporaryDirectory() as tmp:
+            cache_dir = pathlib.Path(tmp)
+            write_page(cache_dir / "reviews-mostRecent-p1.json", 0, 100, "2026-08-01")
+            write_page(cache_dir / "reviews-mostRecent-p2.json", 100, 100, "2026-08-02")
+            stats = _merge_cached_reviews(
+                "1", cache_dir=cache_dir,
+                rss_stats={}, page_stats={}, us_stats={}, max_total=150,
+            )
+        self.assertEqual(stats["reviews_total"], 150)
+        self.assertTrue(any("仅保留最新 150" in n for n in stats["notes"]))
+        # 保留的是日期最新的 150 条：第 2 页 100 条 + 第 1 页最新的 50 条
+        self.assertEqual(stats["reviews_by_source"].get("rss"), 150)
 
 
 if __name__ == "__main__":

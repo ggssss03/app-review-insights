@@ -12,7 +12,12 @@ def _valid_review_ids(findings: list[dict]) -> set[str]:
     return ids
 
 
-def generate_requirements(findings: list[dict], llm: Optional[object] = None) -> tuple[list[dict], str]:
+def generate_requirements(
+    findings: list[dict],
+    llm: Optional[object] = None,
+    *,
+    focus_areas: Optional[list[str]] = None,
+) -> tuple[list[dict], str]:
     """根据发现生成需求与版本规划；LLM 不可用时返回空并说明。"""
     supported = [f for f in findings if f.get("status") == "kept" and f.get("evidence_review_ids")]
     if llm is None or not supported:
@@ -22,7 +27,7 @@ def generate_requirements(findings: list[dict], llm: Optional[object] = None) ->
     try:
         from ..prompts import requirements_messages
 
-        result = llm.chat_json(requirements_messages(supported))
+        result = llm.chat_json(requirements_messages(supported, focus_areas))
         requirements = []
         for item in (result.get("requirements") or []):
             if not isinstance(item, dict):

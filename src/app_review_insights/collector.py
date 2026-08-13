@@ -545,6 +545,7 @@ def _fetch_rss_reviews(
     country: str = "cn",
     sort_orders: tuple[str, ...] = SORT_ORDERS,
     max_pages: int = MAX_PAGES,
+    max_total: int = 200,
     delay: float = 1.0,
     cache_dir: pathlib.Path,
     timeout: int = 30,
@@ -608,6 +609,12 @@ def _fetch_rss_reviews(
             if not reviews:
                 stats["empty_pages"].append({"sort_by": sort_by, "page": page, "url": url})
                 break
+            if len(reviews_for_sort) >= max_total:
+                reviews_for_sort = reviews_for_sort[:max_total]
+                stats["notes"].append(
+                    f"评论超过 {max_total} 条，仅保留最新 {max_total} 条（{sort_by} 排序）。"
+                )
+                break
         stats["reviews_by_sort"][sort_by] = len(reviews_for_sort)
         stats["reviews_total"] += len(reviews_for_sort)
 
@@ -622,11 +629,11 @@ def _merge_cached_reviews(
     rss_stats: dict,
     page_stats: dict,
     us_stats: dict,
+    max_total: int = 200,
 ) -> dict:
     """统计缓存目录中多来源评论的合并唯一数（RSS + 产品页 + 美国区 itml）。"""
     fetched_at = utcnow_iso()
-    seen: set[str] = set()
-    by_source: dict[str, int] = {}
+    rid_meta: dict[str, tuple[str, str]] = {}
     notes = list(rss_stats.get("notes", []))
     notes.append(
         "中国区采集为多源合并：cn RSS（重试）+ 产品页内嵌评论 + 美国区 itml，"
@@ -636,6 +643,16 @@ def _merge_cached_reviews(
     for stats, tag in ((rss_stats, "rss"), (page_stats, "amp-page"), (us_stats, "itml")):
         if stats.get("errors"):
             errors.extend(stats["errors"])
+
+    def _entry_date(entry: dict) -> str:
+        for key in ("updated", "date", "created_at"):
+            val = entry.get(key)
+            if isinstance(val, dict):
+                val = val.get("label")
+            if isinstance(val, str):
+                return val
+        return ""
+
     for file in sorted(cache_dir.glob("reviews-*.json")):
         if file.name == "collection_notes.json":
             continue
@@ -655,9 +672,8 @@ def _merge_cached_reviews(
                     entries = [((it or {}).get("review") or {}) for it in items]
                     for entry in entries:
                         rid = str(entry.get("id") or "")
-                        if rid and rid not in seen:
-                            seen.add(rid)
-                            by_source[source] = by_source.get(source, 0) + 1
+                        if rid:
+                            rid_meta.setdefault(rid, (source, _entry_date(entry)))
                     continue
                 feed = data.get("feed") or {}
                 entries = feed.get("entry") or []
@@ -666,22 +682,31 @@ def _merge_cached_reviews(
                 if isinstance(data.get("userReviewList"), list):
                     entries = data["userReviewList"]
             for entry in entries:
+                if not isinstance(entry, dict):
+                    continue
                 rid = ""
-                if isinstance(entry, dict):
-                    review = entry.get("review")
-                    if isinstance(review, dict):
-                        rid = str(review.get("id") or "")
-                    rid = str(
-                        rid
-                        or entry.get("userReviewId")
-                        or (entry.get("id") or {}).get("label", "")
-                        or entry.get("id", "")
-                    )
-                if rid and rid not in seen:
-                    seen.add(rid)
-                    by_source[source] = by_source.get(source, 0) + 1
+                review = entry.get("review")
+                if isinstance(review, dict):
+                    rid = str(review.get("id") or "")
+                rid = str(
+                    rid
+                    or entry.get("userReviewId")
+                    or (entry.get("id") or {}).get("label", "")
+                    or entry.get("id", "")
+                )
+                if rid:
+                    rid_meta.setdefault(rid, (source, _entry_date(entry)))
         except Exception:  # noqa: BLE001
             continue
+    seen = set(rid_meta)
+    if len(seen) > max_total:
+        ordered = sorted(seen, key=lambda rid: rid_meta[rid][1], reverse=True)
+        seen = set(ordered[:max_total])
+        notes.append(f"评论总数超过 {max_total} 条，仅保留最新 {max_total} 条（按评论日期）。")
+    by_source: dict[str, int] = {}
+    for rid in seen:
+        source = rid_meta[rid][0]
+        by_source[source] = by_source.get(source, 0) + 1
     write_json(cache_dir / "collection_notes.json", envelope(app_id, "", {
         "app_id": app_id,
         "country": "cn",
@@ -714,6 +739,7 @@ def fetch_reviews(
     country: str = "cn",
     sort_orders: tuple[str, ...] = SORT_ORDERS,
     max_pages: int = MAX_PAGES,
+    max_total: int = 200,
     delay: float = 1.0,
     cache_dir: pathlib.Path,
     timeout: int = 30,
@@ -724,6 +750,7 @@ def fetch_reviews(
 
     中国区（默认）：rss（cn RSS 间歇可用，自动重试）→ 产品页内嵌评论 → 美国区 itml
     多源合并，最大化真实评论数量（通常 35+）；美国区：itml → amp → rss 兜底。
+    按真实条数采集：评论少于 max_total（默认 200）时全部取回，超过则只保留最新 200 条。
     """
     if country == "cn":
         if method == "itml":
@@ -731,11 +758,13 @@ def fetch_reviews(
         if method == "rss":
             return _fetch_rss_reviews(
                 app_id, country=country, sort_orders=sort_orders, max_pages=max_pages,
-                delay=delay, cache_dir=cache_dir, timeout=timeout, refresh=refresh,
+                max_total=max_total, delay=delay, cache_dir=cache_dir,
+                timeout=timeout, refresh=refresh,
             )
         rss_stats = _fetch_rss_reviews(
             app_id, country=country, sort_orders=sort_orders, max_pages=max_pages,
-            delay=delay, cache_dir=cache_dir, timeout=timeout, refresh=refresh,
+            max_total=max_total, delay=delay, cache_dir=cache_dir,
+            timeout=timeout, refresh=refresh,
         )
         page_stats = fetch_amp_page_reviews(
             app_id, country=country, cache_dir=cache_dir, timeout=90, refresh=refresh,
@@ -750,7 +779,7 @@ def fetch_reviews(
             us_stats = {"reviews_total": 0, "errors": [{"stage": "itml-us", "error": str(exc)}]}
         merged = _merge_cached_reviews(
             app_id, cache_dir=cache_dir, rss_stats=rss_stats,
-            page_stats=page_stats, us_stats=us_stats,
+            page_stats=page_stats, us_stats=us_stats, max_total=max_total,
         )
         if merged["reviews_total"] == 0:
             merged["notes"].append(
@@ -765,12 +794,13 @@ def fetch_reviews(
     if method == "amp":
         return fetch_amp_reviews(
             app_id, country=country, delay=delay, cache_dir=cache_dir,
-            timeout=timeout, refresh=refresh,
+            timeout=timeout, refresh=refresh, max_reviews=max_total,
         )
     if method == "rss":
         return _fetch_rss_reviews(
             app_id, country=country, sort_orders=sort_orders, max_pages=max_pages,
-            delay=delay, cache_dir=cache_dir, timeout=timeout, refresh=refresh,
+            max_total=max_total, delay=delay, cache_dir=cache_dir,
+            timeout=timeout, refresh=refresh,
         )
     itml_stats = fetch_itml_reviews(
         app_id, country=country, cache_dir=cache_dir,

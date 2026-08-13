@@ -1,7 +1,7 @@
 {
   "app_id": "839285684",
   "url": "https://apps.apple.com/cn/app/id839285684",
-  "fetched_at": "2026-08-12T10:04:50+00:00",
+  "fetched_at": "2026-08-13T05:23:44+00:00",
   "data": {
     "shelfMapping": {
       "topLockup": {
@@ -1097,14 +1097,14 @@
                   },
                   {
                     "$kind": "Review",
-                    "id": "5861603040",
-                    "title": "good",
-                    "date": "2020-04-25T11:16:09.000Z",
+                    "id": "5097045343",
+                    "title": "great app",
+                    "date": "2019-11-07T06:03:30.000Z",
                     "dateText": "* null *",
-                    "contents": "超好用啊，就什么时候能有个横屏呢",
+                    "contents": "User friendly",
                     "rating": 5,
-                    "reviewerName": "qwdvuubibhu",
-                    "dateAuthorText": "* null * · qwdvuubibhu"
+                    "reviewerName": "000虫儿飞",
+                    "dateAuthorText": "* null * · 000虫儿飞"
                   }
                 ],
                 "url": null,
@@ -2193,14 +2193,14 @@
             "sourceType": "user",
             "review": {
               "$kind": "Review",
-              "id": "5861603040",
-              "title": "good",
-              "date": "2020-04-25T11:16:09.000Z",
+              "id": "5097045343",
+              "title": "great app",
+              "date": "2019-11-07T06:03:30.000Z",
               "dateText": "* null *",
-              "contents": "超好用啊，就什么时候能有个横屏呢",
+              "contents": "User friendly",
               "rating": 5,
-              "reviewerName": "qwdvuubibhu",
-              "dateAuthorText": "* null * · qwdvuubibhu",
+              "reviewerName": "000虫儿飞",
+              "dateAuthorText": "* null * · 000虫儿飞",
               "moreAction": {
                 "title": "评分及评论",
                 "presentationStyle": [],
@@ -2230,14 +2230,14 @@
                       "items": [
                         {
                           "$kind": "Review",
-                          "id": "5861603040",
-                          "title": "good",
-                          "date": "2020-04-25T11:16:09.000Z",
+                          "id": "5097045343",
+                          "title": "great app",
+                          "date": "2019-11-07T06:03:30.000Z",
                           "dateText": "* null *",
-                          "contents": "超好用啊，就什么时候能有个横屏呢",
+                          "contents": "User friendly",
                           "rating": 5,
-                          "reviewerName": "qwdvuubibhu",
-                          "dateAuthorText": "* null * · qwdvuubibhu"
+                          "reviewerName": "000虫儿飞",
+                          "dateAuthorText": "* null * · 000虫儿飞"
                         }
                       ],
                       "url": null,
@@ -2274,7 +2274,7 @@
                   },
                   "$kind": "ReviewsPage",
                   "adamId": "839285684",
-                  "targetReviewId": "5861603040"
+                  "targetReviewId": "5097045343"
                 },
                 "presentationContext": "infer",
                 "animationBehavior": "infer",
@@ -3065,14 +3065,14 @@
             "sourceType": "user",
             "review": {
               "$kind": "Review",
-              "id": "5861603040",
-              "title": "good",
-              "date": "2020-04-25T11:16:09.000Z",
+              "id": "5097045343",
+              "title": "great app",
+              "date": "2019-11-07T06:03:30.000Z",
               "dateText": "* null *",
-              "contents": "超好用啊，就什么时候能有个横屏呢",
+              "contents": "User friendly",
               "rating": 5,
-              "reviewerName": "qwdvuubibhu",
-              "dateAuthorText": "* null * · qwdvuubibhu",
+              "reviewerName": "000虫儿飞",
+              "dateAuthorText": "* null * · 000虫儿飞",
               "moreAction": {
                 "title": "评分及评论",
                 "presentationStyle": [],
@@ -3102,14 +3102,14 @@
                       "items": [
                         {
                           "$kind": "Review",
-                          "id": "5861603040",
-                          "title": "good",
-                          "date": "2020-04-25T11:16:09.000Z",
+                          "id": "5097045343",
+                          "title": "great app",
+                          "date": "2019-11-07T06:03:30.000Z",
                           "dateText": "* null *",
-                          "contents": "超好用啊，就什么时候能有个横屏呢",
+                          "contents": "User friendly",
                           "rating": 5,
-                          "reviewerName": "qwdvuubibhu",
-                          "dateAuthorText": "* null * · qwdvuubibhu"
+                          "reviewerName": "000虫儿飞",
+                          "dateAuthorText": "* null * · 000虫儿飞"
                         }
                       ],
                       "url": null,
@@ -3146,7 +3146,7 @@
                   },
                   "$kind": "ReviewsPage",
                   "adamId": "839285684",
-                  "targetReviewId": "5861603040"
+                  "targetReviewId": "5097045343"
                 },
                 "presentationContext": "infer",
                 "animationBehavior": "infer",
@@ -7453,12 +7453,12 @@
                 "$kind": "AnnotationItem",
                 "textPairs": [
                   [
-                    "Female Focused Home Workouts ",
-                    "¥18.00"
-                  ],
-                  [
                     "Get Yearly Premium!",
                     "¥298.00"
+                  ],
+                  [
+                    "Female Focused Home Workouts ",
+                    "¥18.00"
                   ],
                   [
                     "7M Supporter",
@@ -7498,13 +7498,13 @@
             "items_V3": [
               {
                 "$kind": "textPair",
-                "leadingText": "Female Focused Home Workouts ",
-                "trailingText": "¥18.00"
+                "leadingText": "Get Yearly Premium!",
+                "trailingText": "¥298.00"
               },
               {
                 "$kind": "textPair",
-                "leadingText": "Get Yearly Premium!",
-                "trailingText": "¥298.00"
+                "leadingText": "Female Focused Home Workouts ",
+                "trailingText": "¥18.00"
               },
               {
                 "$kind": "textPair",
@@ -8124,7 +8124,7 @@
             "ageRating": "9+",
             "productDescription": "大多数人都缺乏锻炼，而我们的应用为你提供了轻松有趣的入门方式。\n\n科学研究表明，短短7分钟的锻炼就能显著改善健康状况。最棒的是？一旦开始，你将停不下来！\n\n为何选择7M出品的「7分钟健身」应用？\n\n• 专业设计的短时高效课程 - 科学编排，效果立现\n• 随时随地开练 - 无需器械，自由安排\n• 真人教练音视频指导 - 全程陪伴式训练体验\n• 新手友好课程 - 简单易学但爆汗力十足\n• 个性化定制工具 - 三步创建专属训练计划\n• Apple Health数据互通 - 智能追踪活动量/体重/卡路里\n\n掌控健康节奏，加入每日活力挑战！\n\n7M健身 - 让健康触手可及\n\n订阅说明\n\n开通「7M会员」即可享受全部功能与内容。订阅将自动续期，除非在当前周期结束前至少24小时前往iTunes账户设置关闭自动续订。您可随时在iTunes账户管理中修改订阅设置。确认购买后，费用将从iTunes账户扣除。若在免费试用期结束前订阅，确认购买后剩余试用期将立即失效。\n\n重要提示：本应用仅提供健身指导参考，开始新健身计划前请务必咨询专业医师。\n\n本应用支持与Apple Health数据同步。\n\n用户协议：https://7mfitness.com/terms-of-use\n隐私政策：https://7mfitness.com/privacy-policy",
             "rating": 4.8,
-            "ratingCount": "275",
+            "ratingCount": "276",
             "buttonAction": {
               "title": "获取",
               "presentationStyle": [],
@@ -8213,15 +8213,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -8493,15 +8493,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -8773,15 +8773,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -9053,15 +9053,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -9333,15 +9333,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -9613,15 +9613,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -9893,15 +9893,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -10172,15 +10172,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -10452,15 +10452,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -10731,15 +10731,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -11010,15 +11010,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -11290,15 +11290,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -11575,15 +11575,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -11865,15 +11865,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -12144,15 +12144,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -12547,15 +12547,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -12841,15 +12841,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -13138,15 +13138,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -13433,15 +13433,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -13728,15 +13728,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -14022,15 +14022,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -14316,15 +14316,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -14612,15 +14612,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -14908,15 +14908,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -15202,15 +15202,15 @@
                     "storeFrontHeader": "cn",
                     "language": "zh",
                     "storeFront": "cn",
-                    "environmentDataCenter": "PV00-RDC",
+                    "environmentDataCenter": "TY00-RDC",
                     "pageType": "Software",
                     "pageId": "839285684",
                     "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529090926,
-                    "parseEndTime": 1786529090929
+                    "parseStartTime": 1786598224620,
+                    "parseEndTime": 1786598224624
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -15674,15 +15674,15 @@
                             "storeFrontHeader": "cn",
                             "language": "zh",
                             "storeFront": "cn",
-                            "environmentDataCenter": "PV00-RDC",
+                            "environmentDataCenter": "TY00-RDC",
                             "pageType": "Software",
                             "pageId": "839285684",
                             "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                             "platformDisplayStyle": "ios"
                           },
                           "timingMetrics": {
-                            "parseStartTime": 1786529090926,
-                            "parseEndTime": 1786529090929
+                            "parseStartTime": 1786598224620,
+                            "parseEndTime": 1786598224624
                           },
                           "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                           "productVariantData": {
@@ -15874,15 +15874,15 @@
                             "storeFrontHeader": "cn",
                             "language": "zh",
                             "storeFront": "cn",
-                            "environmentDataCenter": "PV00-RDC",
+                            "environmentDataCenter": "TY00-RDC",
                             "pageType": "Software",
                             "pageId": "839285684",
                             "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                             "platformDisplayStyle": "ios"
                           },
                           "timingMetrics": {
-                            "parseStartTime": 1786529090926,
-                            "parseEndTime": 1786529090929
+                            "parseStartTime": 1786598224620,
+                            "parseEndTime": 1786598224624
                           },
                           "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                           "productVariantData": {
@@ -16089,15 +16089,15 @@
                               "storeFrontHeader": "cn",
                               "language": "zh",
                               "storeFront": "cn",
-                              "environmentDataCenter": "PV00-RDC",
+                              "environmentDataCenter": "TY00-RDC",
                               "pageType": "Software",
                               "pageId": "839285684",
                               "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                               "platformDisplayStyle": "ios"
                             },
                             "timingMetrics": {
-                              "parseStartTime": 1786529090926,
-                              "parseEndTime": 1786529090929
+                              "parseStartTime": 1786598224620,
+                              "parseEndTime": 1786598224624
                             },
                             "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                             "productVariantData": {
@@ -16363,15 +16363,15 @@
                       "storeFrontHeader": "cn",
                       "language": "zh",
                       "storeFront": "cn",
-                      "environmentDataCenter": "PV00-RDC",
+                      "environmentDataCenter": "TY00-RDC",
                       "pageType": "Software",
                       "pageId": "839285684",
                       "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                       "platformDisplayStyle": "ios"
                     },
                     "timingMetrics": {
-                      "parseStartTime": 1786529090926,
-                      "parseEndTime": 1786529090929
+                      "parseStartTime": 1786598224620,
+                      "parseEndTime": 1786598224624
                     },
                     "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                     "productVariantData": {
@@ -16690,15 +16690,15 @@
                             "storeFrontHeader": "cn",
                             "language": "zh",
                             "storeFront": "cn",
-                            "environmentDataCenter": "PV00-RDC",
+                            "environmentDataCenter": "TY00-RDC",
                             "pageType": "Software",
                             "pageId": "839285684",
                             "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                             "platformDisplayStyle": "ios"
                           },
                           "timingMetrics": {
-                            "parseStartTime": 1786529090926,
-                            "parseEndTime": 1786529090929
+                            "parseStartTime": 1786598224620,
+                            "parseEndTime": 1786598224624
                           },
                           "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                           "productVariantData": {
@@ -16890,15 +16890,15 @@
                             "storeFrontHeader": "cn",
                             "language": "zh",
                             "storeFront": "cn",
-                            "environmentDataCenter": "PV00-RDC",
+                            "environmentDataCenter": "TY00-RDC",
                             "pageType": "Software",
                             "pageId": "839285684",
                             "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                             "platformDisplayStyle": "ios"
                           },
                           "timingMetrics": {
-                            "parseStartTime": 1786529090926,
-                            "parseEndTime": 1786529090929
+                            "parseStartTime": 1786598224620,
+                            "parseEndTime": 1786598224624
                           },
                           "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                           "productVariantData": {
@@ -17100,15 +17100,15 @@
                               "storeFrontHeader": "cn",
                               "language": "zh",
                               "storeFront": "cn",
-                              "environmentDataCenter": "PV00-RDC",
+                              "environmentDataCenter": "TY00-RDC",
                               "pageType": "Software",
                               "pageId": "839285684",
                               "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                               "platformDisplayStyle": "ios"
                             },
                             "timingMetrics": {
-                              "parseStartTime": 1786529090926,
-                              "parseEndTime": 1786529090929
+                              "parseStartTime": 1786598224620,
+                              "parseEndTime": 1786598224624
                             },
                             "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                             "productVariantData": {
@@ -17369,15 +17369,15 @@
                       "storeFrontHeader": "cn",
                       "language": "zh",
                       "storeFront": "cn",
-                      "environmentDataCenter": "PV00-RDC",
+                      "environmentDataCenter": "TY00-RDC",
                       "pageType": "Software",
                       "pageId": "839285684",
                       "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                       "platformDisplayStyle": "ios"
                     },
                     "timingMetrics": {
-                      "parseStartTime": 1786529090926,
-                      "parseEndTime": 1786529090929
+                      "parseStartTime": 1786598224620,
+                      "parseEndTime": 1786598224624
                     },
                     "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                     "productVariantData": {
@@ -17696,15 +17696,15 @@
                             "storeFrontHeader": "cn",
                             "language": "zh",
                             "storeFront": "cn",
-                            "environmentDataCenter": "PV00-RDC",
+                            "environmentDataCenter": "TY00-RDC",
                             "pageType": "Software",
                             "pageId": "839285684",
                             "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                             "platformDisplayStyle": "ios"
                           },
                           "timingMetrics": {
-                            "parseStartTime": 1786529090926,
-                            "parseEndTime": 1786529090929
+                            "parseStartTime": 1786598224620,
+                            "parseEndTime": 1786598224624
                           },
                           "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                           "productVariantData": {
@@ -17896,15 +17896,15 @@
                             "storeFrontHeader": "cn",
                             "language": "zh",
                             "storeFront": "cn",
-                            "environmentDataCenter": "PV00-RDC",
+                            "environmentDataCenter": "TY00-RDC",
                             "pageType": "Software",
                             "pageId": "839285684",
                             "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                             "platformDisplayStyle": "ios"
                           },
                           "timingMetrics": {
-                            "parseStartTime": 1786529090926,
-                            "parseEndTime": 1786529090929
+                            "parseStartTime": 1786598224620,
+                            "parseEndTime": 1786598224624
                           },
                           "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                           "productVariantData": {
@@ -18106,15 +18106,15 @@
                               "storeFrontHeader": "cn",
                               "language": "zh",
                               "storeFront": "cn",
-                              "environmentDataCenter": "PV00-RDC",
+                              "environmentDataCenter": "TY00-RDC",
                               "pageType": "Software",
                               "pageId": "839285684",
                               "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                               "platformDisplayStyle": "ios"
                             },
                             "timingMetrics": {
-                              "parseStartTime": 1786529090926,
-                              "parseEndTime": 1786529090929
+                              "parseStartTime": 1786598224620,
+                              "parseEndTime": 1786598224624
                             },
                             "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                             "productVariantData": {
@@ -18375,15 +18375,15 @@
                       "storeFrontHeader": "cn",
                       "language": "zh",
                       "storeFront": "cn",
-                      "environmentDataCenter": "PV00-RDC",
+                      "environmentDataCenter": "TY00-RDC",
                       "pageType": "Software",
                       "pageId": "839285684",
                       "pageDetails": "Fast Builder Limited_Workout for Women -Lose Weight",
                       "platformDisplayStyle": "ios"
                     },
                     "timingMetrics": {
-                      "parseStartTime": 1786529090926,
-                      "parseEndTime": 1786529090929
+                      "parseStartTime": 1786598224620,
+                      "parseEndTime": 1786598224624
                     },
                     "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/839285684?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                     "productVariantData": {

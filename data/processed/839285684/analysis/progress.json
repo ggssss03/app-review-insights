@@ -1,5 +1,15 @@
 [
   {
+    "stage": "fetch",
+    "status": "running",
+    "detail": "正在重新采集评论（将覆盖旧缓存）"
+  },
+  {
+    "stage": "fetch",
+    "status": "ok",
+    "detail": "重新采集完成（cn 区），新数据已覆盖旧缓存"
+  },
+  {
     "stage": "scope",
     "status": "ok",
     "detail": "完成"
@@ -7,7 +17,7 @@
   {
     "stage": "load",
     "status": "ok",
-    "detail": "88 条原始评论"
+    "detail": "18 条原始评论"
   },
   {
     "stage": "clean",
@@ -17,7 +27,7 @@
   {
     "stage": "clean",
     "status": "ok",
-    "detail": "45 条（去重 43，垃圾 0）"
+    "detail": "18 条（去重 0，垃圾 0）"
   },
   {
     "stage": "topics",

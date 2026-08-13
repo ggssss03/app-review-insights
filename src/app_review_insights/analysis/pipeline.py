@@ -33,17 +33,43 @@ def _goal_fingerprint(goal_text: str) -> str:
     return hashlib.sha256(normalized.encode("utf-8")).hexdigest()[:12]
 
 
-def _read_cached(path: pathlib.Path, *, goal_fp: Optional[str] = None) -> Any:
-    """读取阶段缓存；scope 额外校验 goal 指纹，不匹配视为未缓存。"""
+# 依赖分析目标的阶段：目标变化时必须重跑，否则会串用上一次分析的结果
+_GOAL_DEPENDENT_STAGES = {"scope", "topics", "findings", "requirements", "testcases", "traceability"}
+
+
+def _read_cached(path: pathlib.Path, *, goal_fp: Optional[str] = None, sidecar: Optional[pathlib.Path] = None) -> Any:
+    """读取阶段缓存；目标相关阶段通过侧车文件校验 goal 指纹，不匹配视为未缓存。"""
     if not path.exists():
         return None
     try:
         payload = json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         return None
-    if goal_fp is not None and payload.get("_goal_fp") != goal_fp:
-        return None
+    if goal_fp is not None:
+        try:
+            meta = json.loads(sidecar.read_text(encoding="utf-8")) if sidecar else None
+        except Exception:
+            meta = None
+        if not isinstance(meta, dict) or meta.get("_goal_fp") != goal_fp:
+            return None
     return payload
+
+
+def _apply_scope(reviews: list[dict], scope: dict) -> list[dict]:
+    """按 S0 解析出的评分/版本筛选收紧进入下游分析的评论集合。"""
+    star = scope.get("star_filter") or {}
+    vmin, vmax = star.get("min"), star.get("max")
+    version = scope.get("version_filter")
+    out = reviews
+    if vmin is not None or vmax is not None:
+        out = [
+            r for r in out
+            if (vmin is None or (r.get("rating") or 0) >= vmin)
+            and (vmax is None or (r.get("rating") or 0) <= vmax)
+        ]
+    if version:
+        out = [r for r in out if str(r.get("version") or "") == str(version)]
+    return out
 
 
 def run_pipeline(
@@ -63,16 +89,16 @@ def run_pipeline(
 
     def stage(name: str, fn: Callable, *args: Any, **kwargs: Any) -> Any:
         cache = analysis_dir / f"{name}.json"
-        goal_fp = _goal_fingerprint(goal_text) if name == "scope" else None
-        result = None if force else _read_cached(cache, goal_fp=goal_fp)
+        goal_fp = _goal_fingerprint(goal_text) if name in _GOAL_DEPENDENT_STAGES else None
+        sidecar = analysis_dir / f"{name}.goal.json" if goal_fp is not None else None
+        result = None if force else _read_cached(cache, goal_fp=goal_fp, sidecar=sidecar)
         if result is not None:
             events.append({"stage": name, "status": "cached", "detail": "使用缓存结果"})
             return result
         result = fn(*args, **kwargs)
-        if name == "scope" and isinstance(result, dict):
-            result = dict(result)
-            result["_goal_fp"] = goal_fp
         write_json(cache, result)
+        if sidecar is not None:
+            write_json(sidecar, {"_goal_fp": goal_fp})
         events.append({"stage": name, "status": "ok", "detail": "完成"})
         return result
 
@@ -92,14 +118,22 @@ def run_pipeline(
         "detail": f"{len(reviews)} 条（去重 {clean['stats']['removed_duplicates']}，垃圾 {clean['stats']['junk_count']}）",
     })
 
-    topics = stage("topics", discover_topics, reviews, embed_backend=embed_backend, llm=llm)
-    findings = stage("findings", build_findings, reviews, topics, llm)
-    requirements, req_note = stage("requirements", generate_requirements, findings, llm)
+    scoped_reviews = _apply_scope(reviews, scope)
+    if not scoped_reviews:
+        events.append({"stage": "scope", "status": "ok", "detail": "范围筛选后无评论，已回退全量分析"})
+        scoped_reviews = reviews
+
+    topics = stage(
+        "topics", discover_topics, scoped_reviews,
+        embed_backend=embed_backend, llm=llm, goal_text=goal_text,
+    )
+    focus_areas = scope.get("focus_areas") or None
+    findings = stage("findings", build_findings, scoped_reviews, topics, llm, focus_areas=focus_areas)
+    requirements, req_note = stage("requirements", generate_requirements, findings, llm, focus_areas=focus_areas)
     test_cases, tc_note = stage("testcases", generate_test_cases, requirements, llm)
     trace = stage("traceability", validate_traceability, reviews, findings, requirements, test_cases)
 
     summary_scope = dict(scope)
-    summary_scope.pop("_goal_fp", None)
     summary = {
         "app_id": app_id,
         "goal_text": goal_text,

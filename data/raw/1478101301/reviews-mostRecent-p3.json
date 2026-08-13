@@ -1,0 +1,2573 @@
+{
+  "app_id": "1478101301",
+  "url": "https://itunes.apple.com/cn/rss/customerreviews/id=1478101301/page=3/sortBy=mostRecent/json",
+  "fetched_at": "2026-08-12T10:19:11+00:00",
+  "data": {
+    "feed": {
+      "author": {
+        "name": {
+          "label": "iTunes Store"
+        },
+        "uri": {
+          "label": "http://www.apple.com/itunes/"
+        }
+      },
+      "entry": [
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1883522582"
+            },
+            "name": {
+              "label": "我的生命是金铲铲，真好玩"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T08:22:34-07:00"
+          },
+          "im:rating": {
+            "label": "5"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14399343422"
+          },
+          "title": {
+            "label": "铲铲真好玩"
+          },
+          "content": {
+            "label": "金铲铲真是太好玩了",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id508259002"
+            },
+            "name": {
+              "label": "山西阿祖"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T08:14:45-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14399316199"
+          },
+          "title": {
+            "label": "辣鸡游戏，气的我媳妇儿一晚上没睡着"
+          },
+          "content": {
+            "label": "破游戏破游戏，不让我媳妇儿赢",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1762664183"
+            },
+            "name": {
+              "label": "废彼此"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T08:07:08-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14399289783"
+          },
+          "title": {
+            "label": "牌库"
+          },
+          "content": {
+            "label": "这个游戏就是真的傻，那么多金币，出不来一张想要的，这个游戏有什么意义，",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1954374462"
+            },
+            "name": {
+              "label": "ZY1  6"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T08:03:39-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14399277897"
+          },
+          "title": {
+            "label": "Bg"
+          },
+          "content": {
+            "label": "刷不出英雄  直接黑屏了",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1368647094"
+            },
+            "name": {
+              "label": "iakwanv"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T07:23:27-07:00"
+          },
+          "im:rating": {
+            "label": "5"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14399138006"
+          },
+          "title": {
+            "label": "初代玩家"
+          },
+          "content": {
+            "label": "好玩的一个游戏，这么多年了，没什么大的毛病，玩就行了",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1644817875"
+            },
+            "name": {
+              "label": "瓶盖子涵涵"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T06:37:06-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14398977690"
+          },
+          "title": {
+            "label": "发牌师给演了"
+          },
+          "content": {
+            "label": "最贱的游戏，差评",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1205299880"
+            },
+            "name": {
+              "label": "音碟"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T06:29:55-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14398953436"
+          },
+          "title": {
+            "label": "……………"
+          },
+          "content": {
+            "label": "无语到家了 要死啊 搞这么laji",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1447009087"
+            },
+            "name": {
+              "label": "不看睡不着，"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T06:28:49-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14398949804"
+          },
+          "title": {
+            "label": "恶心"
+          },
+          "content": {
+            "label": "恶心，三星五费打不过三星三费，玩个蛋",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1136468020"
+            },
+            "name": {
+              "label": "hdheiebsjs"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T05:30:28-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14398758020"
+          },
+          "title": {
+            "label": "卡成你爹了"
+          },
+          "content": {
+            "label": "6",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1254979125"
+            },
+            "name": {
+              "label": "啊啊啊经济建设"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T04:20:33-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14398545669"
+          },
+          "title": {
+            "label": "垃圾"
+          },
+          "content": {
+            "label": "非常垃圾",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id939611053"
+            },
+            "name": {
+              "label": "评分送皮肤"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T02:42:48-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14398285953"
+          },
+          "title": {
+            "label": "不是更新就是在更新的路上"
+          },
+          "content": {
+            "label": "天天要更新，真的辣椒游戏",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1745234637"
+            },
+            "name": {
+              "label": "健身都记不得别人比"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T02:10:01-07:00"
+          },
+          "im:rating": {
+            "label": "5"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14398205415"
+          },
+          "title": {
+            "label": "金铲铲"
+          },
+          "content": {
+            "label": "垃圾游戏",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1909214134"
+            },
+            "name": {
+              "label": "花藤 sb"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T01:49:20-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14398155159"
+          },
+          "title": {
+            "label": "垃圾游戏"
+          },
+          "content": {
+            "label": "狗都不玩",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1341432374"
+            },
+            "name": {
+              "label": "雀食很不错"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T01:46:14-07:00"
+          },
+          "im:rating": {
+            "label": "5"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14398147613"
+          },
+          "title": {
+            "label": "6"
+          },
+          "content": {
+            "label": "sb商店刷新机制",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1954251182"
+            },
+            "name": {
+              "label": "】。【"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-07T01:07:57-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14398056544"
+          },
+          "title": {
+            "label": "屎游"
+          },
+          "content": {
+            "label": "nt游戏，双标发牌员，魔盗团八级人人都能10个纹章，我自己无数次8级给光明装加金币，日活你自己维持吧，垃圾游戏好死",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1684556329"
+            },
+            "name": {
+              "label": "qoxheb"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T21:45:23-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14397595050"
+          },
+          "title": {
+            "label": "卸载卸载"
+          },
+          "content": {
+            "label": "死冯游戏 一堆人卡我牌你不管吗 全球变暖不怪你吗 特朗普都比你强",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1283859718"
+            },
+            "name": {
+              "label": "额eeeek"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T21:06:26-07:00"
+          },
+          "im:rating": {
+            "label": "2"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14397505326"
+          },
+          "title": {
+            "label": "什么东西"
+          },
+          "content": {
+            "label": "一直进不去 显示网络异常 啥意思啊",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1392937172"
+            },
+            "name": {
+              "label": "Ghostv_v"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T19:08:21-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14397209574"
+          },
+          "title": {
+            "label": "金铲铲太好玩啦"
+          },
+          "content": {
+            "label": "醒神这个赛季真的是太好玩啦，来牌来的太好玩啦，之前其他赛季跟这个赛季比简直就是犹如蚍蜉见青天，嘻嘻，不会真的以为好玩吧，我靠喂，发牌给我发好了啊，发牌发的莫名其妙是什么意思？五费卡爆率是暗改了是吧玩的这么ex呢 发牌员真是该死啊！我靠喂！实在太好玩了 给你个六星好评",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1944120945"
+            },
+            "name": {
+              "label": "金铲铲垃色游戏"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T15:50:45-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14396698751"
+          },
+          "title": {
+            "label": "垃圾游戏"
+          },
+          "content": {
+            "label": "纯属垃圾游戏，可玩性太低了，差评，一点平衡性都没有，已经卸载了，账号也注销了，再见吧金铲铲垃圾游戏",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1711429418"
+            },
+            "name": {
+              "label": "訫昕."
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T14:36:09-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14396508319"
+          },
+          "title": {
+            "label": "垃圾"
+          },
+          "content": {
+            "label": "垃圾巨垃圾特别垃圾，明明棋盘上面有三张二星的五费，就是不给我合三星，脑子有",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1284688859"
+            },
+            "name": {
+              "label": "啊啊啊啊啊21"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T14:05:44-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14396427793"
+          },
+          "title": {
+            "label": "唉"
+          },
+          "content": {
+            "label": "哎，机制太不平衡了",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1126972583"
+            },
+            "name": {
+              "label": "siwjjdiskwl"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T12:50:20-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14396218295"
+          },
+          "title": {
+            "label": "故意不给我牌"
+          },
+          "content": {
+            "label": "金铲铲我恨你",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1310290567"
+            },
+            "name": {
+              "label": "嗯呐1车"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T12:44:37-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14396202167"
+          },
+          "title": {
+            "label": "金铲铲"
+          },
+          "content": {
+            "label": "垃圾一直输就没赢过 冲钱还不给我牌把把老五出局 退钱",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1852884252"
+            },
+            "name": {
+              "label": "斯了冯的金铲铲"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T12:01:53-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14396077610"
+          },
+          "title": {
+            "label": "智障游戏"
+          },
+          "content": {
+            "label": "快倒闭吧",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1954063860"
+            },
+            "name": {
+              "label": "狗都在玩铲"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T11:39:51-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14396011707"
+          },
+          "title": {
+            "label": "992游戏"
+          },
+          "content": {
+            "label": "C d游戏",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1887618036"
+            },
+            "name": {
+              "label": "与蛇口港"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T11:08:24-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14395917086"
+          },
+          "title": {
+            "label": "劝退"
+          },
+          "content": {
+            "label": "最容易红温的游戏，差一张 4 费就 3 星，D 了一百金币不出，这还是没有人卡我牌的情况下，每天玩四五个小时，玩的久了就故意让你连跪。装备不出，弈子不出，疯狂搞人心态，垃圾，卸载了",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1954050083"
+            },
+            "name": {
+              "label": "我是闫茗凯"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T10:49:20-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14395858273"
+          },
+          "title": {
+            "label": "屎"
+          },
+          "content": {
+            "label": "一大坨屎",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1529336911"
+            },
+            "name": {
+              "label": "fghjieddbh"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T10:36:52-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14395819429"
+          },
+          "title": {
+            "label": "啥牌都不给我"
+          },
+          "content": {
+            "label": "差劲气死我了",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1699317841"
+            },
+            "name": {
+              "label": "一位想欧出神话的可怜孩子"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T10:03:14-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14395712724"
+          },
+          "title": {
+            "label": "难玩"
+          },
+          "content": {
+            "label": "非常垃圾，黑无语了",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1640260490"
+            },
+            "name": {
+              "label": "zisgy"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T09:47:09-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14395660925"
+          },
+          "title": {
+            "label": "乱改游戏，越来越不好玩了"
+          },
+          "content": {
+            "label": "垃圾",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1322060208"
+            },
+            "name": {
+              "label": "aA......-"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T09:04:40-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14395519951"
+          },
+          "title": {
+            "label": "垃圾"
+          },
+          "content": {
+            "label": "打一晚上魔道团打到7级每次收菜全都是装备   没意思",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1206033247"
+            },
+            "name": {
+              "label": "，哈嘿。"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T09:02:56-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14395514086"
+          },
+          "title": {
+            "label": "垃圾"
+          },
+          "content": {
+            "label": "垃圾就应该放在垃圾桶里不要出来恶心人",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1712284065"
+            },
+            "name": {
+              "label": "。剧可k"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T08:41:53-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14395442386"
+          },
+          "title": {
+            "label": "我要卸载你"
+          },
+          "content": {
+            "label": "什么狗屎发牌员\n凸^-^凸",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1298185984"
+            },
+            "name": {
+              "label": "联盟手游纯垃圾"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T08:27:48-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14395393794"
+          },
+          "title": {
+            "label": "垃圾腾讯"
+          },
+          "content": {
+            "label": "垃圾游戏照顾人机账号几十级的账号来牌太顺，几百级的用户玩什么什么不来。",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1424846146"
+            },
+            "name": {
+              "label": "lonnnnnnnnnnnnnnnnnnnnnnmnnn"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T06:38:36-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14395009621"
+          },
+          "title": {
+            "label": "纯是浪费时间的垃圾游戏"
+          },
+          "content": {
+            "label": "纯是垃圾elo，要让你输太简单了，牌是d不出来的，走位是要恶心你的",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1263764477"
+            },
+            "name": {
+              "label": "上班吧吧吧吧"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T04:37:00-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14394613666"
+          },
+          "title": {
+            "label": "三天两天调整个什么劲？"
+          },
+          "content": {
+            "label": "不知道策划是不会做游戏还是干什么 天天他妈更新 还慢的离谱",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1486301777"
+            },
+            "name": {
+              "label": "自由的人杀疯了"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T04:22:30-07:00"
+          },
+          "im:rating": {
+            "label": "5"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14394570381"
+          },
+          "title": {
+            "label": "q"
+          },
+          "content": {
+            "label": "没事的时候玩玩挺好的",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id630079847"
+            },
+            "name": {
+              "label": "金产产就是垃圾游戏"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T03:47:30-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14394470264"
+          },
+          "title": {
+            "label": "垃圾游戏"
+          },
+          "content": {
+            "label": "垃圾游戏",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1406253955"
+            },
+            "name": {
+              "label": "恶魔小晞"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T03:06:04-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14394360149"
+          },
+          "title": {
+            "label": "滚"
+          },
+          "content": {
+            "label": "啥卵游戏",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1769842875"
+            },
+            "name": {
+              "label": "金铲铲倒闭了吗？"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T02:32:00-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14394273475"
+          },
+          "title": {
+            "label": "老二滚了他弹出来问喜欢金铲铲吗"
+          },
+          "content": {
+            "label": "别玩",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1330591982"
+            },
+            "name": {
+              "label": "垃圾金铲铲滚"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T01:41:35-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14394149468"
+          },
+          "title": {
+            "label": "纯纯运气游戏"
+          },
+          "content": {
+            "label": "谁狗运好谁吃",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1414210410"
+            },
+            "name": {
+              "label": "t l j l"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T01:02:20-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14394055682"
+          },
+          "title": {
+            "label": "差评"
+          },
+          "content": {
+            "label": "lj差劲",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1053585537"
+            },
+            "name": {
+              "label": "奶白的雪子i.."
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T00:15:04-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14393944908"
+          },
+          "title": {
+            "label": "一星都不想给"
+          },
+          "content": {
+            "label": "七级三星露露滴不出来 还是没有同行的情况下\n别家皎月两家都同行都能三星",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id537759146"
+            },
+            "name": {
+              "label": "一件破光阴"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-06T00:13:20-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14393940871"
+          },
+          "title": {
+            "label": "垃圾"
+          },
+          "content": {
+            "label": "策划和发牌员，过年一个人吃年夜饭",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id715467068"
+            },
+            "name": {
+              "label": "什么垃圾游戏......."
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-05T22:32:17-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14393709344"
+          },
+          "title": {
+            "label": "？"
+          },
+          "content": {
+            "label": "天天更新？",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id483508511"
+            },
+            "name": {
+              "label": "nPlusslash"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-05T22:28:04-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14393699780"
+          },
+          "title": {
+            "label": "垃圾游戏还钱"
+          },
+          "content": {
+            "label": "Except for 471，现在小某书全是托，每次新池子一水儿的一发入魂天选之人，限时宝库抽奖小号出白蛇，真正氪金的给大保底，1k下去愣是见不到英雄or竞技场的影子，甚至不是1:1流水不够拿钱买水，让普通人给你补窟窿，牛的不行",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1953811240"
+            },
+            "name": {
+              "label": "入海qaq"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-05T21:01:21-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14393499151"
+          },
+          "title": {
+            "label": "垃圾"
+          },
+          "content": {
+            "label": "垃圾",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1866724464"
+            },
+            "name": {
+              "label": "Aa秋书生"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-05T20:54:02-07:00"
+          },
+          "im:rating": {
+            "label": "5"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14393481695"
+          },
+          "title": {
+            "label": "玩上就得劲"
+          },
+          "content": {
+            "label": "爱玩",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id1733869112"
+            },
+            "name": {
+              "label": "你^_^个"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-05T20:29:51-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14393422075"
+          },
+          "title": {
+            "label": "恶心"
+          },
+          "content": {
+            "label": "3个三星五费打不过一个能被杂鱼杀了",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        },
+        {
+          "author": {
+            "uri": {
+              "label": "https://itunes.apple.com/cn/reviews/id902495305"
+            },
+            "name": {
+              "label": "记录您哦哦辛苦了"
+            },
+            "label": ""
+          },
+          "updated": {
+            "label": "2026-08-05T20:28:22-07:00"
+          },
+          "im:rating": {
+            "label": "1"
+          },
+          "im:version": {
+            "label": "1.13.33 (1168)"
+          },
+          "id": {
+            "label": "14393418240"
+          },
+          "title": {
+            "label": "垃圾游戏，纯恶心人"
+          },
+          "content": {
+            "label": "垃圾游戏",
+            "attributes": {
+              "type": "text"
+            }
+          },
+          "link": {
+            "attributes": {
+              "rel": "related",
+              "href": "https://itunes.apple.com/cn/review?id=1478101301&type=Purple%20Software"
+            }
+          },
+          "im:voteSum": {
+            "label": "0"
+          },
+          "im:contentType": {
+            "attributes": {
+              "term": "Application",
+              "label": "程序"
+            }
+          },
+          "im:voteCount": {
+            "label": "0"
+          }
+        }
+      ],
+      "updated": {
+        "label": "2026-08-12T03:19:13-07:00"
+      },
+      "rights": {
+        "label": "Copyright 2008 Apple Inc."
+      },
+      "title": {
+        "label": "iTunes Store：用户评论"
+      },
+      "icon": {
+        "label": "http://itunes.apple.com/favicon.ico"
+      },
+      "link": [
+        {
+          "attributes": {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://apps.apple.com/WebObjects/MZStore.woa/wa/viewGrouping?cc=cn&id=29099"
+          }
+        },
+        {
+          "attributes": {
+            "rel": "self",
+            "href": "https://itunes.apple.com/cn/rss/customerreviews/id=1478101301/page=3/sortBy=mostRecent/json"
+          }
+        },
+        {
+          "attributes": {
+            "rel": "first",
+            "href": "https://itunes.apple.com/cn/rss/customerreviews/page=1/id=1478101301/sortby=mostrecent/xml?urlDesc=/customerreviews/id=1478101301/page=3/sortBy=mostRecent/json"
+          }
+        },
+        {
+          "attributes": {
+            "rel": "last",
+            "href": "https://itunes.apple.com/cn/rss/customerreviews/page=10/id=1478101301/sortby=mostrecent/xml?urlDesc=/customerreviews/id=1478101301/page=3/sortBy=mostRecent/json"
+          }
+        },
+        {
+          "attributes": {
+            "rel": "previous",
+            "href": "https://itunes.apple.com/cn/rss/customerreviews/page=2/id=1478101301/sortby=mostrecent/xml?urlDesc=/customerreviews/id=1478101301/page=3/sortBy=mostRecent/json"
+          }
+        },
+        {
+          "attributes": {
+            "rel": "next",
+            "href": "https://itunes.apple.com/cn/rss/customerreviews/page=4/id=1478101301/sortby=mostrecent/xml?urlDesc=/customerreviews/id=1478101301/page=3/sortBy=mostRecent/json"
+          }
+        }
+      ],
+      "id": {
+        "label": "https://itunes.apple.com/cn/rss/customerreviews/id=1478101301/page=3/sortBy=mostRecent/json"
+      }
+    }
+  }
+}

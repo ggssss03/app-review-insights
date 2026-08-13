@@ -1,0 +1,928 @@
+{
+  "topics": [
+    {
+      "topic_id": 1,
+      "count": 18,
+      "samples": [
+        {
+          "review_id": "10158752484",
+          "text": "没有5废 九级的五费那么少"
+        },
+        {
+          "review_id": "13994733032",
+          "text": "星神赛季 1. 核心机制畸形，星神系统强行绑定玩法，没得自由发育，全程被神明选项牵着走，选错直接对局崩盘，运营主动权被大幅剥夺\n\n2. 运气权重彻底压过技术，不再靠运营博弈，全看星神刷新、主神契合度，天崩神选再会玩也无解，技术打磨毫无意义\n\n3. 砍掉选秀直接废掉连败、断连胜、抢核心装备等经典博弈玩法，对局套路同质化严重，打法单一无聊\n\n4. 星神强度失衡极其离谱，T0神明无脑碾压，弱势神明纯凑数"
+        },
+        {
+          "review_id": "14393709344",
+          "text": "？ 天天更新？"
+        },
+        {
+          "review_id": "14394149468",
+          "text": "纯纯运气游戏 谁狗运好谁吃"
+        }
+      ],
+      "label": "星神赛季机制失衡与运气主导",
+      "description": "玩家批评星神赛季核心机制畸形，星神系统强制绑定玩法，剥夺运营自由；运气权重过高，技术难以弥补；砍掉选秀导致套路同质化；星神强度失衡，T0神明无脑碾压。",
+      "keywords": [
+        "星神赛季",
+        "机制畸形",
+        "运气游戏",
+        "强度失衡",
+        "选秀"
+      ]
+    },
+    {
+      "topic_id": 2,
+      "count": 44,
+      "samples": [
+        {
+          "review_id": "13514907020",
+          "text": "别再充钱了 1.活动因官方配置错误，出现严重异常：部分玩家仅需约60元即可“百分百”获得原本需648元保底甚至\n2000元左右才能获得的小小英雄。\n2.本人在得知异常后，选择不卡bug，等待官方处理。\n3.官方后续仅直接关闭活动，未回收利用bug低价获得的道具，也未对之前按正常高价、保底付费抽取的玩家给予任何补偿或说明。\n涉嫌问题\n1. 同一虚拟道具获取成本差距极大，严重破坏公平交易，涉嫌违反《消"
+        },
+        {
+          "review_id": "13531845356",
+          "text": "还钱！ 大家别再充钱了\n1.活动因官方配置错误，出现严重异常：部分玩家仅需约60元即可“百分百”获得原本需648元保底甚至2000元左右才能获得的小小英雄。\n2.本人在得知异常后，选择不卡bug，等待官方处理。\n3.官方后续仅直接关闭活动，未回收利用bug低价获得的道具，也未对之前按正常高价、保底付费抽取的玩家给予任何补偿或说明。\n涉嫌问题\n1.同一虚拟道具获取成本差距极大，严重破坏公平交易，涉嫌"
+        },
+        {
+          "review_id": "13794631908",
+          "text": "破游戏退钱 1.2025年12月12日凌晨0点开启的活动因官方配置错误，出现严重异常：部分玩家仅需约60元即可“百分百”获得原本需648元保底甚至2000元左右才能获得的小小英雄。\n2. 本人在得知异常后，选择不卡bug，等待官方处理。\n3.官方后续仅直接关闭活动，未回收利用bug低价获得的道具，也未对之前按正常高价、保底付费抽取的玩家给予任何补偿或说明。\n涉嫌问题\n1. 同一虚拟道具获取成本差距"
+        },
+        {
+          "review_id": "13827097079",
+          "text": "严重的游戏不平衡，不建议下载 1.2025年12月12日凌晨0点开启的活动因官方配置错误，出现严重异常：部分玩家仅需约60元即可“百分百”获得原本需648元保底甚至2000元左右才能获得的小小英雄。\n2.本人在得知异常后，选择不卡bug，等待官方处理。\n3.官方后续仅直接关闭活动，未回收利用bug低价获得的道具，也未对之前按正常高价、保底付费抽取的玩家给予任何补偿或说明。\n涉嫌问题\n1. 同一虚拟"
+        }
+      ],
+      "label": "活动配置错误与补偿缺失",
+      "description": "玩家投诉官方活动配置错误导致部分玩家低价获取稀有道具，官方仅关闭活动未回收或补偿，严重破坏公平，要求退款。",
+      "keywords": [
+        "活动异常",
+        "配置错误",
+        "公平性",
+        "补偿",
+        "退款"
+      ]
+    },
+    {
+      "topic_id": 0,
+      "count": 95,
+      "samples": [
+        {
+          "review_id": "10541222169",
+          "text": "这 这游戏简直就是故意的，就想气死你 让你赢一局输一局就不让你上去，第一次玩 ，可爱在钻一很久了 半个月了吧 ，该让我上去了，我就说别太过分"
+        },
+        {
+          "review_id": "12115588740",
+          "text": "退游了 玩的很难受机制不让赢，万年老二，就是个嫁妆给别人做陪衬的，s9赛季符文大陆入坑的，s9赛季游戏目标就是合成各个3星角色和所有大羁绊，感受努力追出3星弈子的快乐感，基本所有羁绊都追出来了所有3星弈子都合成了，唯一遗憾就是没能3冠冕（有次差点三冠冕就差一个敲敲，结果野怪死活不爆）总体s9赛季还是很不错的，后面更新到s13赛季双城传说感觉就不是非常奇怪，要的牌一张都刷不到一直连胜的局面突然就疯狂"
+        },
+        {
+          "review_id": "14204799053",
+          "text": "运气至上的烂游戏 这款游戏整体体验极差，机制、平衡，运气三重拉胯，完全消磨下棋乐趣。底层发牌机制堪称离谱，控牌、卡牌现象随处可见，升七升八几十块D空，同行轻松两星四费，差一张三星死活不出，系统明显暗中调控牌库，努力运营抵不过发牌员针对。匹配机制恶意控分，连胜必遇天胡对手，连败又排摆烂玩家，段位完全不靠技术，全靠系统安排，毫无竞技公平可言。\n游戏平衡一塌糊涂，版本永远只有一套强势阵容，其余羁绊全是玩"
+        },
+        {
+          "review_id": "14211610724",
+          "text": "运气至上的烂游戏 这款游戏整体体验极差，机制、平衡、运气三重拉胯，完全消磨下棋乐趣。底层发牌机制堪称离谱，控牌、卡牌现象随处可见，升七升八几十块D空，同行轻松两星四费，差一张三星死活不出，系统明显暗中调控牌库，努力运营抵不过发牌员针对。匹配机制恶意控分，连胜必遇天胡对手，连败又排摆烂玩家，段位完全不靠技术，全靠系统安排，毫无竟技公平可言。\n游戏平衡一塌糊涂，版本永远只有一套强势阵容，其余羁绊全是玩"
+        }
+      ],
+      "label": "发牌机制与匹配系统操控对局",
+      "description": "玩家反映发牌机制存在控牌、卡牌现象，系统暗中调控牌库；匹配机制恶意控分，连胜遇天胡，连败遇摆烂，段位不靠技术靠系统安排，游戏体验极差。",
+      "keywords": [
+        "发牌机制",
+        "控牌",
+        "匹配机制",
+        "控分",
+        "运气至上"
+      ]
+    },
+    {
+      "topic_id": 3,
+      "count": 3,
+      "samples": [
+        {
+          "review_id": "11701280813",
+          "text": "腾讯司马 腾讯司马"
+        },
+        {
+          "review_id": "14406745896",
+          "text": "马化腾 马化疼"
+        },
+        {
+          "review_id": "14413111070",
+          "text": "垃圾 一分钱不冲 是不是就不能玩游戏了 马化腾"
+        }
+      ],
+      "label": "对运营方与付费机制的愤怒",
+      "description": "简短评论表达对腾讯和马化腾的不满，认为不充钱无法正常游戏，情绪化指责。",
+      "keywords": [
+        "腾讯",
+        "马化腾",
+        "垃圾",
+        "充钱",
+        "愤怒"
+      ]
+    }
+  ],
+  "memberships": [
+    {
+      "review_key": "13994733032",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "13794631908",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "13827097079",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14204799053",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14211610724",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "13531845356",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "13514907020",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "12115588740",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "10158752484",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "11701280813",
+      "topic_id": 3,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "10541222169",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14413259353",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14413253427",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14413234022",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14413194401",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14413123178",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14413111070",
+      "topic_id": 3,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14413068008",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14412925067",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14412805302",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14412562058",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14412480587",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14412340981",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14412095124",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14411703985",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14411497441",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14411455890",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14411328130",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14411307732",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14411254509",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14411240650",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14410954799",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14410900301",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14410527292",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14410506458",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14410359524",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14410154309",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14409856247",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14409647290",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14409448643",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14408937942",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14408908612",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14408392016",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14407621820",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14407556656",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14407534626",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14407431108",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14407349943",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14407047469",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406959614",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406925718",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406920970",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406886519",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406884458",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406861679",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406765199",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406745896",
+      "topic_id": 3,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406745323",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406555461",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406527669",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406316798",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406213169",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406152710",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14406144027",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14405957257",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14405853599",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14405835079",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14405535145",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14405324149",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14405314856",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14405290601",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14405197598",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14405144792",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14405077886",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14404606526",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14404134441",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14404067284",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14403668666",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14403492102",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14403379225",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14403321042",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14403248490",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14403237486",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14403091784",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14402983779",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14402636346",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14402586179",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14402437752",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14402385031",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14402255522",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14402243255",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14402210007",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14402133580",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14401997419",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14401838839",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14401305358",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14401002203",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14400896940",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14400439114",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399951866",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399851084",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399824821",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399708803",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399676302",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399669058",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399621702",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399586999",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399574079",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399570206",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399353049",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399343422",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399316199",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399289783",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399277897",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14399138006",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14398977690",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14398953436",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14398949804",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14398758020",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14398545669",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14398285953",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14398205415",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14398155159",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14398147613",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14398056544",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14397595050",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14397505326",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14397209574",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14396698751",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14396508319",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14396427793",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14396218295",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14396202167",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14396077610",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14396011707",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14395917086",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14395858273",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14395819429",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14395712724",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14395660925",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14395519951",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14395514086",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14395442386",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14395393794",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14395009621",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14394613666",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14394570381",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14394470264",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14394360149",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14394273475",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14394149468",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14394055682",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14393944908",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14393940871",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14393709344",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14393699780",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14393499151",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14393481695",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14393422075",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14393418240",
+      "topic_id": 2,
+      "method": "embedding+cluster"
+    }
+  ],
+  "embed_backend": "tfidf",
+  "model_driven": true
+}

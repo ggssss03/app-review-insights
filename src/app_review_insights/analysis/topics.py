@@ -144,14 +144,14 @@ def cluster(texts: list[str], embeddings: list[list[float]], k_max: int = 8) -> 
     return [mapping[label] for label in labels]
 
 
-def name_topics(clusters: list[dict], llm: Optional[object] = None) -> list[dict]:
+def name_topics(clusters: list[dict], llm: Optional[object] = None, goal_text: str = "") -> list[dict]:
     """给每个聚类命名；LLM 不可用或输出非法时用「主题 N」占位。"""
     allowed = {c["topic_id"] for c in clusters}
     if llm is not None and clusters:
         try:
             from ..prompts import topic_messages
 
-            result = llm.chat_json(topic_messages(clusters))
+            result = llm.chat_json(topic_messages(clusters, goal_text))
             topics = result.get("topics") or result.get("themes") or []
             named = {}
             for item in topics:
@@ -174,6 +174,7 @@ def discover_topics(
     embed_backend: str = "auto",
     k_max: int = 8,
     llm: Optional[object] = None,
+    goal_text: str = "",
 ) -> dict:
     """输入清洗后的评论（含 review_key/text），输出主题与成员关系。"""
     texts = [r["text"] for r in reviews]
@@ -190,7 +191,7 @@ def discover_topics(
             for r in ordered[:4]
         ]
         clusters.append({"topic_id": topic_id, "count": len(members), "samples": samples})
-    named = name_topics(clusters, llm=llm)
+    named = name_topics(clusters, llm=llm, goal_text=goal_text)
     memberships = []
     for i, review in enumerate(reviews):
         memberships.append({

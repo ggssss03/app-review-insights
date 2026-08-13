@@ -1,5 +1,7 @@
 """各模型任务的主提示词（README R7：主要 prompt 需要文档化，这里集中管理）。"""
 
+from typing import Optional
+
 SYSTEM_CORE = (
     "你是 App Store 评论分析引擎。硬性规则：\n"
     "1. 只能引用输入中提供的 review_id，禁止编造 ID、评论内容或样本数。\n"
@@ -54,38 +56,47 @@ def scope_messages(goal_text: str) -> list[dict]:
     ]
 
 
-def topic_messages(clusters: list[dict]) -> list[dict]:
+def topic_messages(clusters: list[dict], goal_text: str = "") -> list[dict]:
     block = "\n".join(
         f"cluster {c['topic_id']}（{c['count']} 条）：\n"
         + "\n".join(f"- [{e['review_id']}] {e['text']}" for e in c["samples"])
         for c in clusters
     )
+    goal_line = f"\n分析目标/关注维度：{goal_text.strip()}\n" if goal_text.strip() else ""
     return [
         {"role": "system", "content": SYSTEM_CORE},
-        {"role": "user", "content": f"{TOPIC_NAMING_TASK}\n\n{block}"},
+        {"role": "user", "content": f"{TOPIC_NAMING_TASK}{goal_line}\n\n{block}"},
     ]
 
 
-def findings_messages(topic: dict) -> list[dict]:
+def findings_messages(topic: dict, focus_areas: Optional[list[str]] = None) -> list[dict]:
     block = "\n".join(
         f"- [{r['review_id']}] 评分{r['rating']} 版本{r['version'] or '未知'}：{r['text']}"
         for r in topic["samples"]
     )
+    focus_line = ""
+    if focus_areas:
+        labels = "、".join(str(a) for a in focus_areas)
+        focus_line = f"\n本次分析重点关注维度：{labels}，发现应优先覆盖这些维度。"
     return [
         {"role": "system", "content": SYSTEM_CORE},
-        {"role": "user", "content": f"{FINDINGS_TASK}\n\n主题「{topic['label']}」样本评论：\n{block}"},
+        {"role": "user", "content": f"{FINDINGS_TASK}{focus_line}\n\n主题「{topic['label']}」样本评论：\n{block}"},
     ]
 
 
-def requirements_messages(findings: list[dict]) -> list[dict]:
+def requirements_messages(findings: list[dict], focus_areas: Optional[list[str]] = None) -> list[dict]:
     block = "\n".join(
         f"- {f.get('id')}（{f.get('provenance', '?')}，样本 {f.get('sample_count', '?')}，"
         f"置信 {f.get('confidence', '?')}）：{f.get('statement', '')}"
         for f in findings
     )
+    focus_line = ""
+    if focus_areas:
+        labels = "、".join(str(a) for a in focus_areas)
+        focus_line = f"\n本次分析重点关注维度：{labels}，需求应优先回应这些维度下的用户问题。"
     return [
         {"role": "system", "content": SYSTEM_CORE},
-        {"role": "user", "content": f"{REQUIREMENTS_TASK}\n\n带证据的发现：\n{block}"},
+        {"role": "user", "content": f"{REQUIREMENTS_TASK}{focus_line}\n\n带证据的发现：\n{block}"},
     ]
 
 

@@ -54,6 +54,7 @@ def build_findings(
     llm: Optional[object] = None,
     *,
     max_model_findings_per_topic: int = 3,
+    focus_areas: Optional[list[str]] = None,
 ) -> list[dict]:
     """生成发现列表：stat 兜底 + model 增强；模型输出执行引用白名单校验。"""
     findings: list[dict] = []
@@ -85,7 +86,7 @@ def build_findings(
                     }
                     for r in samples
                 ],
-            }))
+            }, focus_areas))
             items = result.get("findings") or []
             model_count = 0
             for item in items[:max_model_findings_per_topic]:

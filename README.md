@@ -8,7 +8,8 @@
 ## 当前进度（M1-M3）
 
 - [x] M0 项目骨架：git 仓库、目录结构、`.env.example`、CI 占位
-- [x] M1 数据采集：Apple Lookup（元数据）+ Customer Reviews RSS（美国区评论），限速、缓存、断点续采
+- [x] M1 数据采集：Apple Lookup（元数据）+ Customer Reviews RSS（按链接国家，默认中区；
+  显式传入 `us` 链接时走美区 itml/AMP 通道），限速、缓存、断点续采、超 200 条只取最新 200
 - [x] M1 数据导入：支持 JSON / CSV 评论数据集导入（README 硬性要求）
 - [x] M1 清洗去重：字段规范化、去重、垃圾过滤、PII 脱敏、语言启发式识别
 - [x] M2 分析层：动态主题发现（TF-IDF/模型嵌入 + 聚类 + LLM 命名）、
@@ -26,7 +27,7 @@
 需要 Python 3.10+，M1 阶段**零第三方依赖**（纯标准库）。
 
 ```bash
-# 1) 采集元数据 + 评论（US 区），结果缓存到 data/raw/<app_id>/
+# 1) 采集元数据 + 评论（按链接国家，默认 cn 区；传 --country us 走美区），结果缓存到 data/raw/<app_id>/
 PYTHONPATH=src python scripts/fetch_reviews.py 839285684
 
 # 2) 或者导入已有 JSON/CSV 数据集
@@ -66,8 +67,8 @@ python app/server.py --port 8765
 
 - 输入美国区 App Store 链接或应用 ID + 分析目标，点击「开始分析」；
 - 页面实时展示 S0-S8 阶段进度（轮询 `/api/status/<run_id>`）；
-- 完成后通过 Tab 查看：摘要 / 动态主题 / 带证据的发现 / 需求 PRD / 测试用例 /
-  追溯校验报告 / 清洗后数据；
+- 完成后通过 Tab 查看：摘要 / 原始评论（按来源与日期展示采集结果）/ 动态主题 /
+  带证据的发现 / 需求 PRD / 测试用例 / 追溯校验报告 / 清洗后数据；
 - 「统计 / 模型 / 假设 / 已移除」用不同徽章区分（README R6）；
 - 支持直接上传 JSON/CSV 评论数据集再分析（README R10）；
 - 未配置 LLM 时自动进入确定性模式，界面明确提示，不伪装成功。
@@ -83,6 +84,8 @@ python app/server.py --port 8765
   `https://itunes.apple.com/cn/rss/customerreviews/id=<id>/page=1/sortBy=mostRecent/json`
   - 中国区产品页内嵌的 8 条真实评论也会读取（`reviews-amp-page-cn.json`）
   - 美国区通道（WebObjects `userReviewsRow`）保留但默认停用，仅在显式传入 `us` 链接或 `--country us` 时启用
+- **采集数量**：按真实评论条数采集，评论少于 200 条时全量取回；超过 200 条只保留**最新 200 条**
+  （RSS 翻页与多源合并两个层面都会截断，`collection_notes.json` 中如实标注）。
 
 输入链接按国家识别 storefront（默认中国区，如 `https://apps.apple.com/cn/app/.../id839285684`），
 **评论数据从链接对应的商店采集**；纯数字 ID 默认走中国区，美国区逻辑保留但默认停用。
