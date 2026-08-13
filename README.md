@@ -66,6 +66,7 @@ python app/server.py --port 8765
 - **礼貌限速**：请求间隔 ≥ 1 秒，原始响应按页缓存，支持断点续采。
 
 缓存数据结构统一为信封格式（`url` / `fetched_at` / `data`），保证来源可溯源。
+更详细的目录与来源标签约定见 [data/README.md](data/README.md)。
 
 ## 导入格式
 

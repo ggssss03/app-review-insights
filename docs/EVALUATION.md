@@ -22,7 +22,7 @@
 | 5 | 评估证据充分性、冲突、不确定性、数据限制 | `analysis/findings.py`：样本数、冲突检测、置信度、uncertainty | `findings.json` 字段齐全 |
 | 6 | 生成更新计划、PRD、必要时拆分版本 | `analysis/planning.py`：优先级 P0–P2、版本 V1/V2、验收标准 | `requirements.json` |
 | 7 | 基于 PRD 生成测试用例，链接需求与来源评论 | `analysis/planning.py`：Gherkin + `requirement_ids`/`review_ids` | `testcases.json` |
-| 8 | 校验评论→发现→需求→用例链路；无支持结论删除/修订/标假设 | `analysis/traceability.py`：确定性图遍历 + 修订 + 校验报告 | `traceability.json` 30 项检查逐条通过 |
+| 8 | 校验评论→发现→需求→用例链路；无支持结论删除/修订/标假设 | `analysis/traceability.py`：确定性图遍历 + 修订 + 校验报告 | `traceability.json` 中检查逐条通过，含移除/假设/拦截记录 |
 | 9 | UI 展示进度、阶段、中间结果、校验结果、错误、修订 | `app/static/app.js` 轮询 `/api/status`，进度列表 + 事件 | `progress.json` / UI 演示 |
 | 10 | 展示中间与最终交付物（原始评论、清洗数据、分类、发现、PRD、用例） | 结果页 8 个 Tab + `/api/artifacts` | UI 各 Tab |
 
