@@ -1,18 +1,18 @@
 {
   "app_id": "1478101301",
   "url": "",
-  "fetched_at": "2026-08-12T10:19:41+00:00",
+  "fetched_at": "2026-08-13T08:59:37+00:00",
   "data": {
     "app_id": "1478101301",
     "country": "cn",
     "method": "merged",
-    "fetched_at": "2026-08-12T10:19:41+00:00",
-    "reviews_total": 160,
-    "reviews_unique": 160,
+    "fetched_at": "2026-08-13T08:59:37+00:00",
+    "reviews_total": 61,
+    "reviews_unique": 61,
     "reviews_by_source": {
+      "rss": 50,
       "amp-page": 8,
-      "itml": 3,
-      "rss": 149
+      "itml": 3
     },
     "errors": [
       {

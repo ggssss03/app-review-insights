@@ -1,7 +1,7 @@
 {
   "app_id": "1478101301",
   "url": "https://apps.apple.com/cn/app/id1478101301",
-  "fetched_at": "2026-08-12T10:19:37+00:00",
+  "fetched_at": "2026-08-13T08:59:34+00:00",
   "data": {
     "shelfMapping": {
       "topLockup": {
@@ -664,14 +664,14 @@
             "$kind": "Ratings",
             "productId": "1478101301",
             "ratingAverage": 4.6,
-            "totalNumberOfRatings": 8490665,
+            "totalNumberOfRatings": 8491893,
             "context": "productPage",
             "ratingCounts": [
-              7378116,
-              334297,
-              133390,
-              66956,
-              577906
+              7379060,
+              334363,
+              133424,
+              66968,
+              578078
             ]
           }
         ],
@@ -745,14 +745,14 @@
                       "$kind": "Ratings",
                       "productId": "1478101301",
                       "ratingAverage": 4.6,
-                      "totalNumberOfRatings": 8490665,
+                      "totalNumberOfRatings": 8491893,
                       "context": "details",
                       "ratingCounts": [
-                        7378116,
-                        334297,
-                        133390,
-                        66956,
-                        577906
+                        7379060,
+                        334363,
+                        133424,
+                        66968,
+                        578078
                       ]
                     },
                     "tapToRate": {
@@ -6314,8 +6314,8 @@
                         "platformDisplayStyle": "ios"
                       },
                       "timingMetrics": {
-                        "parseStartTime": 1786529974522,
-                        "parseEndTime": 1786529974527
+                        "parseStartTime": 1786611571568,
+                        "parseEndTime": 1786611571573
                       },
                       "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                       "productVariantData": {
@@ -7612,8 +7612,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -7892,8 +7892,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -8179,8 +8179,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -8469,8 +8469,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -8748,8 +8748,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -9028,8 +9028,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -9308,8 +9308,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -9588,8 +9588,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -9773,7 +9773,7 @@
             "ageRating": "18+",
             "productDescription": "《三角洲行动》是一款由琳琅天上团队研发运营的新一代战术射击品质标杆游戏。PC及移动端版本在9月正式上线！未来将继续登录主机平台。拥有25年历史的经典射击鼻祖再次回归，这一次行动难度升级。\n\n作为全球反恐特勤组G.T.I.的精英特战干员，你将前往神秘的阿萨拉大陆，调查哈夫克公司的非法活动。在这个充满危机的战场中，运用别具特色的战斗道具与装备，与队友紧密协作，灵活制定战术，完成各种看似不可能完成的极限行动。\n\n中远距离战术战斗、秘密潜入解决目标、驾驶重型载具火力输出、海量随机事件、几十人的大战场对决……在这里，你将获得丰富又刺激的作战体验。\n\n”无所畏惧，绝不言退。”\n\n游戏特色\n\n【鼻祖回归，全新兵种战术射击！】\n在这里你能体验到最经典的特战干员作战风格。\n作为全球精锐小队一员，在各系列的经典地图中，体验中远距离的观测与狙击、充满策略性的战斗方式，让你领略到为何三角洲得到全球如此多玩家的喜爱。\n\n【迎难而上，挑战不可能的任务！】\n延续三角洲历代作品强调的战术性，打造了一个震撼的无缝动态世界——阿萨拉。每片区域都蕴含了不同的危机。选择你自己的作战方式、行动任务，完成挑战。但请记住，随时保持警惕，灵活使用你的战术道具和战术技能，动用脑力战胜对手！\n\n【活用战术，成为全球最佳干员！】\n在这里，你可以自由选择干员，而每一个干员都是绝对的精英。\n精通各干员的特殊技能和战斗方式，你将成为精英中的精英。\n面对看似不可能的任务，拉上同样强大的队友，组建无所不能的小队，让不可能成为可能。\n\n【冷静应对，完成烽火地带撤离！】\n这里的一切危险都是未知。闻声而来的黑潮、随机空降的哈夫克雇佣兵、以及不知在哪里埋伏的真人小队……找到目标，击败对手，完成任务！\n只有最强的干员才能全身而退，看你的了。\n\n【改装搭配，打造顶级枪械作战！】\n在资深军事顾问的协助下，突击步枪、冲锋枪、狙击枪、霰弹枪、轻机枪，数十把枪械、每把武器超10种改装部位，都像真家伙一样呈现在你面前。\n在超千种组合搭配中，挑出你最喜欢的那一个，出发！\n\n【驾驶载具，驰骋拟真全面战场！】\n在广大的地图战场上来一场多人团战！你可以驾驶冲锋艇、主战坦克、武装直升机、装甲车、全地形车等近10款载具驰骋大战场，火力全开！\n是时候放下冷静，放肆一把了！",
             "rating": 4.6,
-            "ratingCount": "338万",
+            "ratingCount": "339万",
             "buttonAction": {
               "title": "获取",
               "presentationStyle": [],
@@ -9869,8 +9869,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -10148,8 +10148,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -10333,7 +10333,7 @@
             "ageRating": "16+",
             "productDescription": "《无畏契约：源能行动》，即“无畏契约手游”，是全球流行的潮流射击竞技网游《无畏契约》的唯一正版移动射击手游。产品还原端游经典英雄技能与射击体验，风格潮流前卫，游戏玩法丰富，射击节奏爽快，同时针对移动端进行适配优化，为玩家带来移动端射击竞技“秀场”。\n\n【游戏介绍】\n火爆全球的“瓦”出手了！《无畏契约：源能行动》是拳头游戏与腾讯光子工作室共同打造的5V5英雄射击手游，新一代战术射击先锋！5V5英雄射击、公平对战，还原无畏契约端游经典体验；排位赛、乱斗模式带来刺激枪战，团队激战、爆能快攻、极速模式等带来花式乐趣。先锋、决斗、控场、哨卫，四种定位18位首发英雄任凭选择；急停、颗秒、大拉、走位、突脸，丰富射击战术搭配硬实力；双架、包夹、快攻、转点，召集瓦搭子默契配合，秀出你我的无畏时刻！\n\n【游戏特色】\n1、全网唯一正版瓦手，5V5英雄射击，指尖五杀还原端游级操作，秀出“不可能”！\n2、轻量对局适合手机开瓦，15分钟排位，8分钟极速战，瞬秒击败爽快体验，速来！\n3、真正公平对战，技能搭配枪法Carry全场，0养成，0数值，享受纯正游戏乐趣！\n4、实时反制外挂，为每一场对决保驾护航，精确识别有效举报，打击作弊义不容辞！\n5、秒找开黑瓦搭子，端内端外一键组队，身边的朋友都在打瓦，如今，就等你了！",
             "rating": 3.2,
-            "ratingCount": "1.8万",
+            "ratingCount": "1.9万",
             "buttonAction": {
               "title": "获取",
               "presentationStyle": [],
@@ -10429,8 +10429,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -10709,8 +10709,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -10990,8 +10990,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -11270,8 +11270,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -11550,8 +11550,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -11849,7 +11849,7 @@
             "ageRating": "16+",
             "productDescription": "你的帝国争霸模拟人生，你的虚拟现实战争体验，《大秦帝国之帝国烽烟》重磅新版，全新单人PVE模式来袭，心倦了且停停，我的世界我做主，此心安处是吾乡。全新的PVE地图模式，专心享受一个人的征服之旅，完全自由的剧本机制，单人、竞技双模式无缝切换，不惧滋扰的资源抢夺玩法，随时随地予取予夺。\n\n\n游戏特色：\n\n【超大地图】以原著小说和史实为蓝本，真实复刻战国数百万平方公里历史地图，囊括秦、魏、赵、韩、楚、燕、齐等战国七雄为主的众多诸侯势力，所有玩家汇聚在同一张大地图上，合纵连横，攻城略地，为最强霸主宝座而战！\n\n【快意争霸】全面还原战国时代气势恢宏的争霸战场，白起、李牧、荆轲、李斯等名将名臣，和步兵、弓兵、骑兵、战车等多兵种配合，开启野战、团战、城战、国战等丰富战争模式。来之即战的即时制SLG玩法，如臂使指的战斗和行军，可随时退出和加入的全自由战场。无需切换场景，随时随地攻城略地，干脆利落，热血爽快。\n\n【华丽战场】庞大的沙盘大地图上，万人自由争霸，海量武将，百万军团，灵动阵型，多兵种联合作战，辅以丰富的武将和兵种战技，精彩攻防，华丽特效，带来热血火爆的电影级战争场面。\n\n【灿烂文化】诸子百家，文化争鸣，法家、墨家、儒家、阴阳家、名家、纵横家、兵家、医家……浩瀚名士，灿烂文化，都将闪亮登场。游戏重磅打造的“名士系统”，玩家可以招募各家各派的名士，在乱世之中为自己效力，成就了一番霸业",
             "rating": 3.5,
-            "ratingCount": "1502",
+            "ratingCount": "1501",
             "buttonAction": {
               "title": "获取",
               "presentationStyle": [],
@@ -11954,8 +11954,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -12144,7 +12144,7 @@
             "ageRating": "16+",
             "productDescription": "可养成的二次元麻将游戏——《雀姬麻将》，好友对战日麻休闲手游! \n《雀姬麻将》——一款融合日式立直麻将规则、角色养成与个性装扮的沉浸式二次元麻将手游！无论你是日麻萌新还是雀坛老手，这里都有属于你的精彩牌局。\n\n【新人体验福利拉满，开局即享豪华礼包】\n登录即送10连抽，轻松获取心仪雀士！\n完成新手任务，海量大米、道具、限定装饰等你领取！\n轻松上手无压力，零基础也能快速掌握日麻精髓！\n\n【众多雀士鲜活登场，人气声优倾情献声】\n日语CV：钉宫理惠、杉田智和、种崎敦美、高尾奏音等顶级声优加盟；\n中文CV：由V圈顶流 兰音Reine、永雏塔菲 领衔配音，双语体验任你切换！ \n\n【呼朋引伴创建社团，升段路上不再孤单】 \n创建或加入专属社团，与志同道合的雀士切磋牌技、分享战绩；\n官方玩家社群活跃开放，交流技巧、组队参赛、结识同好——升段路上，你从不孤单！\n\n【日麻川麻多样玩法,竞技休闲两不误】 \n标准日麻模式：体验原汁原味的立直、振听、役种规则，挑战段位天梯！\n红中血流模式（特色玩法）：加入多张万能牌，胡牌更自由，大牌随手可得，爽快感爆棚！\n支持好友房、社团战、官方赛事，随时随地“面对面”开打！\n\n【潜移默化加深羁绊,缔结契约矢志不渝】\n为雀士送上心意礼物，提升好感度，解锁专属剧情、特殊表情与限定造型！\n契约缔结后，TA将只为你展现最真实的一面——每一次对局，都是心动的邂逅。\n\n【人气赛事接连不断，角逐排名赢取奖励】 \n赛事不断，荣耀加冕；定期举办官方排位赛、主题锦标赛，赢取稀有奖励，还可自建比赛房间，邀请好友来一场私人国士争霸。  \n\n【个性装饰随心搭配，随心打造专属风格】 \n自由搭配桌布、牌背、戒指、美甲等数十种装饰；\n无论输赢，都要打得华丽又自信！你的牌桌，由你定义风格！\n\n【联系我们】\n雀姬麻将官网: https://www.lingshangkaihua.com/\nB站官方账号: https://space.bilibili.com/388569543\n官方微信: 搜索“雀姬麻将”\n雀姬麻将官方2群：377714715\n客服:请在官方群搜索@雀姬小枫私信您的问题",
             "rating": 4,
-            "ratingCount": "9901",
+            "ratingCount": "9903",
             "buttonAction": {
               "title": "获取",
               "presentationStyle": [],
@@ -12249,8 +12249,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -12544,8 +12544,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -12839,8 +12839,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -13134,8 +13134,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -13286,22 +13286,22 @@
             "icon": {
               "$kind": "Artwork",
               "backgroundColor": {
-                "red": 0.8470588235294118,
-                "green": 0.7725490196078432,
-                "blue": 0.6666666666666666,
+                "red": 0.058823529411764705,
+                "green": 0.06274509803921569,
+                "blue": 0.12156862745098039,
                 "type": "rgb"
               },
               "textColor": {
-                "red": 0.0784313725490196,
-                "green": 0.06274509803921569,
-                "blue": 0.054901960784313725,
+                "red": 0.9607843137254902,
+                "green": 0.8274509803921568,
+                "blue": 0.8509803921568627,
                 "type": "rgb"
               },
               "style": "roundedRectPrerendered",
               "crop": "bb",
               "contentMode": null,
               "imageScale": null,
-              "template": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/22/65/04/22650494-4bf6-f3af-abd2-eb2ac2dff8b5/Placeholder.mill/{w}x{h}{c}.{f}",
+              "template": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/7e/32/a0/7e32a091-dacc-0723-6ee8-652e9c2bed33/Placeholder.mill/{w}x{h}{c}.{f}",
               "width": 1024,
               "height": 1024,
               "variants": [
@@ -13313,16 +13313,16 @@
                 }
               ]
             },
-            "title": "少年三国志2",
+            "title": "少年三国志2-快速版",
             "isIOSBinaryMacOSCompatible": true,
             "useAdsLocale": false,
-            "subtitle": "少年节福利拉满，直送T0阵容！",
+            "subtitle": "减负新版本，快速玩一“夏”！",
             "tertiaryTitle": "专为 iPad 设计。\n未针对 macOS 验证。",
             "tertiaryTitleAction": null,
             "tertiaryTitleArtwork": null,
-            "developerTagline": "少年节福利拉满，直送T0阵容！",
+            "developerTagline": "减负新版本，快速玩一“夏”！",
             "ageRating": "16+",
-            "productDescription": "帝驾临三国，一帝定乾坤！\n首位曜金品质神将嬴政震撼降临，输出直接拉满，打破战力天花板，是追求极致强度玩家的必入核心。\n绝地鏖兵重构，告别高压PVP，轻松自由策略闯关，通关就能爽拿海量养成资源，资源获取效率直接翻倍。\n全新专属副将系统同步上线，零负担解锁强力加成，战力低成本实现质的飞跃。\n年中盛典福利拉满，曜金白嫖、虹金史低！上线就能体验版本最强战斗快感。",
+            "productDescription": "大减负现已开启，老旧玩法全回收、养成史诗级加速、小助手一键代玩，快快快速速速的逆天成长路！\n全新第一代曜金武将登场，鬼才郭嘉、卧龙诸葛亮、魅影吴国太、水镜司马徽齐聚战场，智将同台，谋略拉满！\n版本福利同步升级，直送曜金吴国太，核心养成免费领，追赶节奏全面提速。\n\n错错错！是我的错！这次负担真的不会再多！《少年三国志2》快速版重磅上线！大减负现已开启，老旧玩法全回收、养成史诗级加速、小助手一键代玩，快快快速速速的逆天成长路。另外？这次居然还是全谋士阵容？！聪明的少年玩顶级智囊团！快快快速速速回归吧！\n【曜金1武将登场】\n鬼才郭嘉、卧龙诸葛亮、魅影吴国太、水镜司马徽齐聚战场，全新角色阵容上线，带来更丰富的搭配思路与更多样的战场变化。智将同台，谋略拉满，助力少年在三国征途中体验全新的对抗节奏！\n【大减负版本开启】\n减负与提速同步开启，一批老旧玩法正式退场，复杂养成线同步精简，减少繁琐操作与重复培养。多项成长逻辑全面优化，让养成更轻松，阵容成长更高效。\n【小助手一键代玩】\n小助手系统同步升级，养成节奏全面提速。通过更轻量的成长承接与更直接的养成支持，帮助少年更快完成阵容培养，更高效投入核心玩法，降低长期培养压力。\n【核心资源免费送】\n版本福利同步升级，直送曜金吴国太，核心养成免费领，追赶节奏全面提速。无论是持续活跃玩家，还是准备回归的少年，都能更轻松补齐图鉴与成长内容，快速跟上当前版本节奏。",
             "rating": 4.2,
             "ratingCount": "581",
             "buttonAction": {
@@ -13337,7 +13337,7 @@
                       "reco_eligible": "1",
                       "reco_hash": "cab_1",
                       "actionDetails": {
-                        "buyParams": "productType=C&price=0&salableAdamId=1478617483&pricingParameters=STDQ&pg=default&appExtVrsId=887141540"
+                        "buyParams": "productType=C&price=0&salableAdamId=1478617483&pricingParameters=STDQ&pg=default&appExtVrsId=889065378"
                       },
                       "location": [
                         {
@@ -13353,7 +13353,7 @@
                         {
                           "locationPosition": 5,
                           "locationType": "lockup",
-                          "name": "少年三国志2",
+                          "name": "少年三国志2-快速版",
                           "reco_algoId": "cab_1",
                           "reco_eligible": "1",
                           "reco_hash": "cab_1",
@@ -13397,9 +13397,9 @@
               "adamId": "1478617483",
               "purchaseConfiguration": {
                 "$kind": "PurchaseConfiguration",
-                "buyParams": "productType=C&price=0&salableAdamId=1478617483&pricingParameters=STDQ&pg=default&appExtVrsId=887141540",
+                "buyParams": "productType=C&price=0&salableAdamId=1478617483&pricingParameters=STDQ&pg=default&appExtVrsId=889065378",
                 "vendor": "Shanghai Youzu Information Technology Corporation Limited",
-                "appName": "少年三国志2",
+                "appName": "少年三国志2-快速版",
                 "bundleId": "com.youzu.ss2game.ios",
                 "appPlatforms": [
                   "phone",
@@ -13429,8 +13429,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -13492,7 +13492,7 @@
               "bypassOnDeviceCompleteMyBundleCalculation": false
             },
             "clickAction": {
-              "title": "少年三国志2",
+              "title": "少年三国志2-快速版",
               "presentationStyle": [],
               "actionMetrics": {
                 "$kind": "ActionMetrics",
@@ -13500,12 +13500,12 @@
                   {
                     "fields": {
                       "actionType": "navigate",
-                      "actionUrl": "https://apps.apple.com/cn/app/%E5%B0%91%E5%B9%B4%E4%B8%89%E5%9B%BD%E5%BF%972/id1478617483",
+                      "actionUrl": "https://apps.apple.com/cn/app/%E5%B0%91%E5%B9%B4%E4%B8%89%E5%9B%BD%E5%BF%972-%E5%BF%AB%E9%80%9F%E7%89%88/id1478617483",
                       "location": [
                         {
                           "locationPosition": 5,
                           "locationType": "lockup",
-                          "name": "少年三国志2",
+                          "name": "少年三国志2-快速版",
                           "reco_algoId": "cab_1",
                           "reco_eligible": "1",
                           "reco_hash": "cab_1",
@@ -13543,7 +13543,7 @@
               "$kind": "flowAction",
               "actionClass": "FlowAction",
               "page": "product",
-              "pageUrl": "https://apps.apple.com/cn/app/%E5%B0%91%E5%B9%B4%E4%B8%89%E5%9B%BD%E5%BF%972/id1478617483",
+              "pageUrl": "https://apps.apple.com/cn/app/%E5%B0%91%E5%B9%B4%E4%B8%89%E5%9B%BD%E5%BF%972-%E5%BF%AB%E9%80%9F%E7%89%88/id1478617483",
               "pageData": null,
               "presentationContext": "infer",
               "animationBehavior": "infer",
@@ -13560,7 +13560,7 @@
             "impressionMetrics": {
               "fields": {
                 "id": "1478617483",
-                "name": "少年三国志2",
+                "name": "少年三国志2-快速版",
                 "impressionType": "lockup",
                 "idType": "its_id",
                 "reco_algoId": "cab_1",
@@ -13724,8 +13724,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -14019,8 +14019,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -14315,8 +14315,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {
@@ -14610,8 +14610,8 @@
                     "platformDisplayStyle": "ios"
                   },
                   "timingMetrics": {
-                    "parseStartTime": 1786529974522,
-                    "parseEndTime": 1786529974527
+                    "parseStartTime": 1786611571568,
+                    "parseEndTime": 1786611571573
                   },
                   "pageUrl": "https://amp-api-edge.apps.apple.com/v1/catalog/cn/apps/1478101301?platform=web&additionalPlatforms=appletv%2Cipad%2Ciphone%2Cmac%2CrealityDevice%2Cwatch&extend=accessibility%2CaccessibilityDetails%2CageRating%2CbackgroundAssetsInfo%2CbackgroundAssetsInfoWithOptional%2CcustomArtwork%2CcustomDeepLink%2CcustomIconArtwork%2CcustomPromotionalText%2CcustomScreenshotsByType%2CcustomVideoPreviewsByType%2Cdescription%2CexpectedReleaseDateDisplayFormat%2CfileSizeByDevice%2CgameDisplayName%2CiconArtwork%2CinstallSizeByDeviceInBytes%2CmacRequiredCapabilities%2CmedicalDeviceInfo%2CmessagesScreenshots%2CminiGamesDeepLink%2CminimumOSVersion%2Cprivacy%2CprivacyDetails%2CprivacyPolicyUrl%2CremoteControllerRequirement%2CrequirementsByDeviceFamily%2CsellerInfo%2CsupportURLForLanguage%2CsupportedGameCenterFeatures%2CsupportsFunCamera%2CsupportsSharePlay%2CversionHistory%2CwebsiteUrl&extend%5Bapps%5D=distributionKind%2CisVerifiedForAppleSiliconMac&extend%5Bapp-events%5D=description%2CproductArtwork%2CproductVideo&include=alternate-apps%2Capp-bundles%2Ccustomers-also-bought-apps%2Cdeveloper%2Cdeveloper-other-apps%2Cmerchandised-in-apps%2Crelated-editorial-items%2Creviews&include%5Bapps%5D=app-events&views=top-in-app-purchasables&availableIn%5Bapp-events%5D=future&sparseLimit%5Bapps%3Acustomers-also-bought-apps%5D=40&sparseLimit%5Bapps%3Adeveloper-other-apps%5D=40&sparseLimit%5Bapps%3Arelated-editorial-items%5D=40&limit%5Breviews%5D=8&l=zh-Hans-CN",
                   "productVariantData": {

@@ -10,7 +10,7 @@
 | `LLM_PROVIDER` | `deepseek` | 供应商名称（仅用于展示/日志） |
 | `LLM_BASE_URL` | `https://api.deepseek.com` | OpenAI 兼容 base URL |
 | `LLM_API_KEY` | （空） | 密钥，仅从环境变量/.env 读取 |
-| `LLM_MODEL` | `deepseek-chat` | 模型名 |
+| `LLM_MODEL` | `deepseek-v4-flash` | 模型名 |
 | `LLM_TEMPERATURE` | `0.3` | 生成类任务温度（低温度降低幻觉） |
 | `LLM_TIMEOUT` | `60` | 单次请求超时（秒） |
 | `LLM_MAX_RETRIES` | `2` | 失败重试次数 |
@@ -49,7 +49,7 @@
 ## 4. 失败处理策略
 
 - **网络/鉴权/限流**：指数退避重试（429/5xx）；401/403 直接报错提示检查 key。
-- **解析失败**：容忍 markdown 围栏与前后噪声；仍失败则重试。
+- **解析失败/空内容**：容忍 markdown 围栏与前后噪声；空内容或非法 JSON 自动重试（最多 2 次）。
 - **模型不可用**：流水线降级为确定性模式——主题用「主题 N」占位命名，
   发现只保留统计发现，需求/测试明确标注「未生成：需要 LLM 配置」；
   任何模型失败都会写入交付物与进度事件，绝不静默伪装成功。

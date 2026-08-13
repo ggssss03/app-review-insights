@@ -11,7 +11,7 @@
       "max": null
     },
     "version_filter": null,
-    "note": "模型解析（分析目标明确指向订阅转化和付费墙体验，因此聚焦于订阅转化和定价相关领域。）"
+    "note": "模型解析（分析目标明确涉及订阅转化和付费墙体验，因此聚焦于订阅转化及定价相关方面。）"
   },
   "clean_stats": {
     "input_count": 10,
@@ -29,9 +29,9 @@
   "counts": {
     "reviews": 10,
     "topics": 3,
-    "findings": 8,
+    "findings": 5,
     "requirements": 2,
-    "test_cases": 2
+    "test_cases": 5
   },
   "model_driven": true,
   "notes": [

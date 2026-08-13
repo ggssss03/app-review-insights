@@ -13,16 +13,6 @@
     },
     {
       "check": "finding_evidence",
-      "id": "F-model-0-2",
-      "passed": true
-    },
-    {
-      "check": "finding_evidence",
-      "id": "F-model-0-3",
-      "passed": true
-    },
-    {
-      "check": "finding_evidence",
       "id": "F-stat-1",
       "passed": true
     },
@@ -34,11 +24,6 @@
     {
       "check": "finding_evidence",
       "id": "F-model-2-1",
-      "passed": true
-    },
-    {
-      "check": "finding_evidence",
-      "id": "F-model-2-2",
       "passed": true
     },
     {
@@ -62,6 +47,21 @@
       "passed": true
     },
     {
+      "check": "testcase_link",
+      "id": "TC3",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC4",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC5",
+      "passed": true
+    },
+    {
       "check": "requirement_review_chain",
       "id": "R1",
       "passed": true,
@@ -80,7 +80,7 @@
     {
       "id": "F-stat-0",
       "topic_id": 0,
-      "statement": "主题「便捷高效的锻炼体验」共出现 6 条相关评论，平均评分 5.0。",
+      "statement": "主题「Convenient and Affordable Workout App」共出现 6 条相关评论，平均评分 5.0。",
       "evidence_review_ids": [
         "11593815773",
         "5786142670",
@@ -100,46 +100,13 @@
     {
       "id": "F-model-0-1",
       "topic_id": 0,
-      "statement": "用户普遍认可该应用提供的便捷高效锻炼体验，尤其适合时间紧张或难以坚持锻炼的人群。",
-      "evidence_review_ids": [
-        "5684535804",
-        "5786142670",
-        "7911742368"
-      ],
-      "sample_count": 3,
-      "confidence": 0.9,
-      "uncertainty": "样本均来自5星好评，可能缺乏负面反馈，但多个评论一致强调便捷性。",
-      "conflicts": [],
-      "provenance": "model",
-      "status": "kept",
-      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-    },
-    {
-      "id": "F-model-0-2",
-      "topic_id": 0,
-      "statement": "应用提供多样化的锻炼类型和选择，满足不同用户需求（如产后、初学者等）。",
-      "evidence_review_ids": [
-        "11593815773",
-        "7911742368"
-      ],
-      "sample_count": 2,
-      "confidence": 0.8,
-      "uncertainty": "仅两条评论提及多样性，样本量较小。",
-      "conflicts": [],
-      "provenance": "model",
-      "status": "kept",
-      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-    },
-    {
-      "id": "F-model-0-3",
-      "topic_id": 0,
-      "statement": "用户认为应用价格便宜，性价比高。",
+      "statement": "用户认为该应用价格实惠，评价为“awesome cheap price”，这可能对订阅转化有积极影响。",
       "evidence_review_ids": [
         "12150581992"
       ],
       "sample_count": 1,
-      "confidence": 0.4,
-      "uncertainty": "仅一条评论提及价格，样本不足，且未涉及订阅转化细节。",
+      "confidence": 0.5,
+      "uncertainty": "仅一条评论提及价格，且未具体说明订阅价格或付费模式，无法全面评估定价策略对订阅转化的影响。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -148,7 +115,7 @@
     {
       "id": "F-stat-1",
       "topic_id": 1,
-      "statement": "主题「适合老年人的温和锻炼」共出现 1 条相关评论，平均评分 5.0。",
+      "statement": "主题「Non-Intimidating Exercise for Seniors」共出现 1 条相关评论，平均评分 5.0。",
       "evidence_review_ids": [
         "9220792708"
       ],
@@ -163,7 +130,7 @@
     {
       "id": "F-stat-2",
       "topic_id": 2,
-      "statement": "主题「更新后更佳的应用体验」共出现 3 条相关评论，平均评分 5.0。",
+      "statement": "主题「Positive Experience with App Updates and Onboarding」共出现 3 条相关评论，平均评分 5.0。",
       "evidence_review_ids": [
         "8320450139",
         "5377927335",
@@ -180,29 +147,13 @@
     {
       "id": "F-model-2-1",
       "topic_id": 2,
-      "statement": "用户对应用更新后的体验表示满意，认为更新带来了更好的使用感受。",
-      "evidence_review_ids": [
-        "8320450139",
-        "5377927335"
-      ],
-      "sample_count": 2,
-      "confidence": 0.8,
-      "uncertainty": "样本量有限，且未提供具体更新内容，但评论明确提及更新后体验更佳。",
-      "conflicts": [],
-      "provenance": "model",
-      "status": "kept",
-      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-    },
-    {
-      "id": "F-model-2-2",
-      "topic_id": 2,
-      "statement": "应用在注册流程中提供高级版订阅选项，但未发现用户对订阅价格或转化过程的负面反馈。",
+      "statement": "在应用引导流程中，用户完成身高体重等身体数据填写后会看到高级版订阅选项。",
       "evidence_review_ids": [
         "10175260415"
       ],
       "sample_count": 1,
-      "confidence": 0.4,
-      "uncertainty": "仅一条评论提及订阅选项，且未详细说明价格或转化体验，证据不足。",
+      "confidence": 0.3,
+      "uncertainty": "仅一条评论提及此选项，且未说明用户是否购买或对价格的具体看法；评论内容被截断。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -212,37 +163,48 @@
   "requirements": [
     {
       "code": "R1",
-      "title": "强化订阅价值感知与转化引导",
-      "description": "基于用户对应用性价比的认可（F-model-0-3），在订阅流程中突出价格优势与价值对比，优化高级版订阅的呈现方式，提升转化率。",
+      "title": "维持并突出价格优势以促进订阅转化",
+      "description": "用户反馈中对应用价格实惠的正面评价（平均评分5.0）可能对订阅转化有积极影响，但直接提及价格的样本仅1条，置信度较低。在订阅页面和引导流程中突出性价比优势，强化用户对价格的认可，以提升订阅转化率。",
       "priority": "P1",
       "planned_version": "V1",
       "finding_ids": [
-        "F-model-0-3"
+        "F-stat-0",
+        "F-model-0-1"
       ],
       "review_ids": [
-        "12150581992"
+        "11593815773",
+        "12150581992",
+        "5684535804",
+        "5786142670",
+        "6138213011",
+        "7911742368"
       ],
       "acceptance_criteria": [
-        "在订阅页面展示价格对比或价值说明，突出性价比",
-        "A/B测试至少两种订阅引导文案，转化率提升5%"
+        "在订阅页面增加价格对比或价值说明",
+        "引导流程中在订阅展示前强化应用口碑和性价比",
+        "A/B测试显示订阅页面转化率提升5%"
       ],
       "status": "kept"
     },
     {
       "code": "R2",
-      "title": "优化订阅流程的用户体验",
-      "description": "针对注册流程中的高级版订阅选项，确保流程顺畅无负面反馈，并增加用户对订阅价值的理解，减少潜在流失。",
-      "priority": "P2",
+      "title": "优化引导流程中的订阅展示时机与个性化",
+      "description": "当前引导流程在用户填写身体数据后展示高级版订阅选项，虽然整体引导体验正面（样本3，平均评分5.0），但订阅展示存在优化空间。通过优化展示时机和内容，如用户完成设置后以非打扰方式呈现、或根据身体目标定制订阅理由，可提升订阅转化率且不损害引导体验。",
+      "priority": "P1",
       "planned_version": "V2",
       "finding_ids": [
-        "F-model-2-2"
+        "F-stat-2",
+        "F-model-2-1"
       ],
       "review_ids": [
-        "10175260415"
+        "10175260415",
+        "5377927335",
+        "8320450139"
       ],
       "acceptance_criteria": [
-        "订阅流程中无用户负面反馈",
-        "订阅页面加载时间小于2秒"
+        "订阅弹窗在引导流程中的展示次数不超过1次",
+        "提供关闭或稍后选项以保持引导流畅性",
+        "订阅转化率相对基线提升10%"
       ],
       "status": "kept"
     }
@@ -250,47 +212,132 @@
   "test_cases": [
     {
       "code": "TC1",
-      "title": "验证订阅流程中突出价格优势与价值对比",
+      "title": "订阅页面应突出价格优势以促进转化",
       "requirement_ids": [
         "R1"
       ],
       "review_ids": [
-        "12150581992"
+        "11593815773",
+        "12150581992",
+        "5684535804",
+        "5786142670",
+        "6138213011",
+        "7911742368"
       ],
       "gherkin": {
         "given": [
-          "用户已进入订阅流程页面",
-          "订阅流程中显示高级版订阅选项"
+          "用户已进入 App 的订阅页面"
         ],
         "when": [
-          "用户查看高级版订阅的呈现方式"
+          "用户浏览订阅选项"
         ],
         "then": [
-          "系统应突出显示价格优势与价值对比信息",
-          "系统应展示高级版订阅的性价比优势"
+          "页面展示价格对比或优惠信息，突出性价比",
+          "页面文案包含至少一个强调价格实惠的关键词（如“超值”、“实惠”、“低至”）"
         ]
       }
     },
     {
       "code": "TC2",
-      "title": "验证订阅流程顺畅无负面反馈",
+      "title": "引导流程中订阅展示应包含价格优势信息",
+      "requirement_ids": [
+        "R1",
+        "R2"
+      ],
+      "review_ids": [
+        "10175260415",
+        "11593815773",
+        "12150581992",
+        "5377927335",
+        "5684535804",
+        "5786142670",
+        "6138213011",
+        "7911742368",
+        "8320450139"
+      ],
+      "gherkin": {
+        "given": [
+          "用户正在完成引导流程中的身体数据填写"
+        ],
+        "when": [
+          "用户完成填写身体数据并进入下一步"
+        ],
+        "then": [
+          "引导流程中的订阅卡片展示价格优势信息（如月度价格、优惠折扣）",
+          "该展示为非打扰式且可关闭"
+        ]
+      }
+    },
+    {
+      "code": "TC3",
+      "title": "用户完成身体数据设置后才展示订阅选项",
       "requirement_ids": [
         "R2"
       ],
       "review_ids": [
-        "10175260415"
+        "10175260415",
+        "5377927335",
+        "8320450139"
       ],
       "gherkin": {
         "given": [
-          "用户已进入注册流程",
-          "注册流程中包含高级版订阅选项"
+          "用户正在引导流程中"
         ],
         "when": [
-          "用户完成订阅流程"
+          "用户尚未完成身体数据设置"
         ],
         "then": [
-          "系统应确保流程顺畅无负面反馈",
-          "系统应提供订阅价值的相关说明"
+          "不展示任何订阅选项",
+          "仅在用户完成身体数据设置并进入后续步骤时展示订阅选项"
+        ]
+      }
+    },
+    {
+      "code": "TC4",
+      "title": "订阅展示采用非打扰式设计",
+      "requirement_ids": [
+        "R2"
+      ],
+      "review_ids": [
+        "10175260415",
+        "5377927335",
+        "8320450139"
+      ],
+      "gherkin": {
+        "given": [
+          "用户已完成身体数据设置"
+        ],
+        "when": [
+          "订阅选项在引导流程中展示"
+        ],
+        "then": [
+          "展示方式不打断用户主要任务（如不使用全屏强制弹窗）",
+          "用户可选择暂时跳过或永久关闭，且不影响正常使用引导流程"
+        ]
+      }
+    },
+    {
+      "code": "TC5",
+      "title": "订阅理由根据用户身体目标进行个性化",
+      "requirement_ids": [
+        "R2"
+      ],
+      "review_ids": [
+        "10175260415",
+        "5377927335",
+        "8320450139"
+      ],
+      "gherkin": {
+        "given": [
+          "用户已完成身体数据设置并在引导流程中展示订阅选项",
+          "用户设置的身体目标为减脂"
+        ],
+        "when": [
+          "订阅理由区域渲染时"
+        ],
+        "then": [
+          "订阅理由包含与减脂相关的定制内容（如“为您的减脂目标提供专属计划”）",
+          "如果用户目标为增肌，则展示对应增肌相关的订阅理由"
         ]
       }
     }
@@ -298,10 +345,7 @@
   "removed_findings": [],
   "removed_test_cases": [],
   "assumption_requirements": [],
-  "dropped_refs": [
-    "F-model-0-3",
-    "F-model-0-3"
-  ],
+  "dropped_refs": [],
   "summary": {
     "total_checks": 14,
     "passed_checks": 14,

@@ -2,44 +2,35 @@
   "app_id": "1478101301",
   "goal_text": "",
   "scope": {
-    "focus_areas": [
-      "features",
-      "other",
-      "performance",
-      "pricing",
-      "subscription_conversion",
-      "usability"
-    ],
+    "focus_areas": [],
     "star_filter": {
       "min": null,
       "max": null
     },
     "version_filter": null,
-    "note": "模型解析（无明确分析目标，默认全量分析所有维度。）"
+    "note": "模型解析（用户未提供具体分析目标，默认对全部评论进行全量分析。）"
   },
   "clean_stats": {
-    "input_count": 161,
-    "unique_count": 160,
-    "removed_duplicates": 1,
+    "input_count": 61,
+    "unique_count": 61,
+    "removed_duplicates": 0,
     "junk_count": 0,
     "rating_distribution": {
-      "1": 137,
-      "2": 4,
-      "3": 3,
-      "4": 2,
-      "5": 14
+      "1": 51,
+      "2": 1,
+      "4": 1,
+      "5": 8
     },
     "language_distribution": {
-      "zh": 159,
-      "en": 1
+      "zh": 61
     },
     "rules_note": "清洗/去重/语言识别使用确定性规则（详见 PLAN.md 第 7 节）。"
   },
   "counts": {
-    "reviews": 160,
-    "topics": 4,
-    "findings": 14,
-    "requirements": 4,
+    "reviews": 61,
+    "topics": 3,
+    "findings": 12,
+    "requirements": 5,
     "test_cases": 5
   },
   "model_driven": true,

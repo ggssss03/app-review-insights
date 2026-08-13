@@ -134,7 +134,6 @@ async function start() {
     });
     currentAppId = run.app_id;
     currentRunId = run.run_id;
-    tickerPush(`分析任务已提交（${run.app_id}）`);
     showMsg(`运行已启动（${run.app_id}），等待进度…`);
     pollTimer = setInterval(pollStatus, 800);
   } catch (e) {
@@ -171,8 +170,6 @@ function renderProgress(events) {
   list.innerHTML = events
     .map((e) => `<li class="${esc(e.status)}"><strong>${esc(e.stage)}</strong> <span class="term-status">${esc(e.status)}</span>：${esc(e.detail)}</li>`)
     .join("");
-  const last = events[events.length - 1];
-  if (last) tickerPush(`${last.stage} · ${last.status}：${last.detail}`);
 }
 
 async function loadResults(summary) {
@@ -182,7 +179,6 @@ async function loadResults(summary) {
   populateVersionFilter();
   renderTab("summary");
   const cc = (summary && summary.counts) || {};
-  tickerPush(`分析完成：${cc.reviews || 0} 条评论 · ${cc.findings || 0} 项发现 · ${(summary && summary.traceability ? summary.traceability.passed_checks : 0) || 0} 项追溯通过`);
 }
 
 async function fetchStage(stage) {
@@ -470,7 +466,6 @@ async function doImport() {
       body: content,
     });
     showMsg(`导入成功：${result.count} 条评论（${appId}）。`);
-    tickerPush(`导入完成：${result.count} 条评论（${appId}）`);
   } catch (e) {
     showMsg(`导入失败：${e.message}`, true);
   }
@@ -566,32 +561,87 @@ function drawBubbleChart(topics) {
   if (!canvas || !topics || !topics.topics) return;
   const data = topics.topics.slice().sort((a, b) => (b.count || 0) - (a.count || 0));
   const ctx = canvas.getContext("2d");
-  const w = canvas.width = canvas.clientWidth * 2;
-  const h = canvas.height = 720;
-  ctx.clearRect(0, 0, w, h);
+  const cssW = canvas.clientWidth || 800;
+  const cssH = 360;
+  const dpr = Math.max(1, window.devicePixelRatio || 1);
+  canvas.width = Math.round(cssW * dpr);
+  canvas.height = Math.round(cssH * dpr);
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, cssW, cssH);
   const colors = ["#22d3ee", "#a78bfa", "#f472b6", "#34d399", "#fbbf24", "#60a5fa", "#fb923c", "#f87171"];
-  let x = w / 2, y = h / 2;
+
+  const takeChars = (text, maxW) => {
+    let n = 0;
+    while (n < text.length && ctx.measureText(text.slice(0, n + 1)).width <= maxW) n++;
+    return text.slice(0, n);
+  };
+  const wrapLabel = (text, maxW, size, truncate) => {
+    ctx.font = `700 ${size}px 'Microsoft YaHei', sans-serif`;
+    const first = takeChars(text, maxW);
+    const rest = text.slice(first.length);
+    let second = takeChars(rest, maxW);
+    if (truncate && rest.length > second.length) second += "…";
+    return [first, second].filter(Boolean);
+  };
+
+  const radii = data.map((t) => Math.max(52, Math.min(120, 36 + Math.sqrt(Number(t.count) || 1) * 20)));
+  const sumD = radii.reduce((a, r) => a + r * 2, 0);
+  const gapX = Math.max(14, Math.min(52, (cssW - 40 - sumD) / Math.max(1, data.length - 1)));
+  const totalW = sumD + gapX * (data.length - 1);
+  let cursor = cssW / 2 - totalW / 2;
+
   data.forEach((t, i) => {
     const count = Number(t.count) || 1;
-    const radius = Math.max(38, Math.min(120, 34 + Math.sqrt(count) * 22));
-    const angle = i * 2.399963;
-    const dist = 6 + i * 18;
-    const cx = w / 2 + Math.cos(angle) * dist * 6;
-    const cy = h / 2 + Math.sin(angle) * dist * 6;
+    const radius = radii[i];
+    const cx = cursor + radius;
+    const cy = cssH / 2;
+    cursor += radius * 2 + gapX;
     ctx.beginPath();
     ctx.arc(cx, cy, radius, 0, Math.PI * 2);
-    ctx.fillStyle = colors[i % colors.length] + "2e";
+    ctx.fillStyle = colors[i % colors.length] + "33";
     ctx.strokeStyle = colors[i % colors.length];
     ctx.lineWidth = 2;
     ctx.fill();
     ctx.stroke();
-    ctx.fillStyle = "#eef1f8";
-    ctx.font = "700 15px 'Microsoft YaHei', sans-serif";
+
+    const label = t.label || `主题${t.topic_id}`;
+    const countText = `${count} 条`;
+    const maxW = Math.max(64, radius * 2 * 0.86);
+
+    let labelSize = 16;
+    let lines = [label];
+    while (labelSize > 13) {
+      lines = wrapLabel(label, maxW, labelSize, false);
+      if (lines.length <= 2) break;
+      labelSize -= 0.5;
+    }
+    if (lines.length > 2) {
+      lines = wrapLabel(label, maxW, labelSize, true);
+    }
+
+    let countSize = 12;
+    ctx.font = `600 ${countSize}px ui-monospace, Consolas, monospace`;
+    while (ctx.measureText(countText).width > maxW && countSize > 10.5) {
+      countSize -= 0.5;
+    }
+
+    const lineHeight = labelSize * 1.3;
+    const gapY = 5;
+    const blockH = lines.length * lineHeight + gapY + countSize;
+    const topY = Math.max(cy - radius + 10, cy - blockH / 2);
     ctx.textAlign = "center";
-    ctx.fillText(t.label || `主题${t.topic_id}`, cx, cy - 4);
-    ctx.fillStyle = "#9aa5b8";
-    ctx.font = "11px monospace";
-    ctx.fillText(`${count} 条`, cx, cy + 14);
+    ctx.textBaseline = "middle";
+    lines.forEach((line, li) => {
+      ctx.shadowColor = "rgba(255, 255, 255, 0.95)";
+      ctx.shadowBlur = 5;
+      ctx.fillStyle = "#0F172A";
+      ctx.font = `700 ${labelSize}px 'Microsoft YaHei', sans-serif`;
+      ctx.fillText(line, cx, topY + lineHeight * (li + 0.5));
+    });
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = "#475569";
+    ctx.font = `600 ${countSize}px ui-monospace, Consolas, monospace`;
+    ctx.fillText(countText, cx, topY + lines.length * lineHeight + gapY + countSize / 2);
   });
 }
 
@@ -1103,33 +1153,6 @@ function animateCounts() {
     requestAnimationFrame(step);
   });
 }
-
-/* ============ 底部 LIVE 滚动状态条 ============ */
-const tickerMsgs = [];
-
-function tickerRender() {
-  const track = document.getElementById("ticker-track");
-  if (!track) return;
-  const text = tickerMsgs.slice(-18).map((m) => `▸ ${m}`).join("　　");
-  track.innerHTML = `<span>${esc(text)}</span><span>${esc(text)}</span>`;
-}
-
-function tickerPush(msg) {
-  tickerMsgs.push(String(msg));
-  if (tickerMsgs.length > 80) tickerMsgs.shift();
-  tickerRender();
-}
-
-(function initTicker() {
-  const boot = [
-    "系统启动完成",
-    "粒子网络已连接",
-    "评论采集引擎就绪（中国区 RSS）",
-    "LLM 分析核心待命",
-    "等待任务指令…",
-  ];
-  boot.forEach((m, i) => setTimeout(() => tickerPush(m), 600 + i * 700));
-})();
 
 /* ============ 子页面渲染升级（卡片化） ============ */
 const PROVENANCE_LABELS = { stat: "统计", model: "模型", rule: "规则" };

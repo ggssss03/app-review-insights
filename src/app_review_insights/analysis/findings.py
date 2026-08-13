@@ -87,7 +87,7 @@ def build_findings(
                     }
                     for r in samples
                 ],
-            }, focus_areas))
+            }, focus_areas), max_tokens=4000)
             items = result.get("findings") or []
             model_count = 0
             for item in items[:max_model_findings_per_topic]:

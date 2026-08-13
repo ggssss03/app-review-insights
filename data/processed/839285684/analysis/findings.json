@@ -2,7 +2,7 @@
   {
     "id": "F-stat-0",
     "topic_id": 0,
-    "statement": "主题「便捷高效的锻炼体验」共出现 6 条相关评论，平均评分 5.0。",
+    "statement": "主题「Convenient and Affordable Workout App」共出现 6 条相关评论，平均评分 5.0。",
     "evidence_review_ids": [
       "11593815773",
       "5786142670",
@@ -22,46 +22,13 @@
   {
     "id": "F-model-0-1",
     "topic_id": 0,
-    "statement": "用户普遍认可该应用提供的便捷高效锻炼体验，尤其适合时间紧张或难以坚持锻炼的人群。",
-    "evidence_review_ids": [
-      "5684535804",
-      "5786142670",
-      "7911742368"
-    ],
-    "sample_count": 3,
-    "confidence": 0.9,
-    "uncertainty": "样本均来自5星好评，可能缺乏负面反馈，但多个评论一致强调便捷性。",
-    "conflicts": [],
-    "provenance": "model",
-    "status": "kept",
-    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-  },
-  {
-    "id": "F-model-0-2",
-    "topic_id": 0,
-    "statement": "应用提供多样化的锻炼类型和选择，满足不同用户需求（如产后、初学者等）。",
-    "evidence_review_ids": [
-      "11593815773",
-      "7911742368"
-    ],
-    "sample_count": 2,
-    "confidence": 0.8,
-    "uncertainty": "仅两条评论提及多样性，样本量较小。",
-    "conflicts": [],
-    "provenance": "model",
-    "status": "kept",
-    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-  },
-  {
-    "id": "F-model-0-3",
-    "topic_id": 0,
-    "statement": "用户认为应用价格便宜，性价比高。",
+    "statement": "用户认为该应用价格实惠，评价为“awesome cheap price”，这可能对订阅转化有积极影响。",
     "evidence_review_ids": [
       "12150581992"
     ],
     "sample_count": 1,
-    "confidence": 0.4,
-    "uncertainty": "仅一条评论提及价格，样本不足，且未涉及订阅转化细节。",
+    "confidence": 0.5,
+    "uncertainty": "仅一条评论提及价格，且未具体说明订阅价格或付费模式，无法全面评估定价策略对订阅转化的影响。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -70,7 +37,7 @@
   {
     "id": "F-stat-1",
     "topic_id": 1,
-    "statement": "主题「适合老年人的温和锻炼」共出现 1 条相关评论，平均评分 5.0。",
+    "statement": "主题「Non-Intimidating Exercise for Seniors」共出现 1 条相关评论，平均评分 5.0。",
     "evidence_review_ids": [
       "9220792708"
     ],
@@ -85,7 +52,7 @@
   {
     "id": "F-stat-2",
     "topic_id": 2,
-    "statement": "主题「更新后更佳的应用体验」共出现 3 条相关评论，平均评分 5.0。",
+    "statement": "主题「Positive Experience with App Updates and Onboarding」共出现 3 条相关评论，平均评分 5.0。",
     "evidence_review_ids": [
       "8320450139",
       "5377927335",
@@ -102,29 +69,13 @@
   {
     "id": "F-model-2-1",
     "topic_id": 2,
-    "statement": "用户对应用更新后的体验表示满意，认为更新带来了更好的使用感受。",
-    "evidence_review_ids": [
-      "8320450139",
-      "5377927335"
-    ],
-    "sample_count": 2,
-    "confidence": 0.8,
-    "uncertainty": "样本量有限，且未提供具体更新内容，但评论明确提及更新后体验更佳。",
-    "conflicts": [],
-    "provenance": "model",
-    "status": "kept",
-    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
-  },
-  {
-    "id": "F-model-2-2",
-    "topic_id": 2,
-    "statement": "应用在注册流程中提供高级版订阅选项，但未发现用户对订阅价格或转化过程的负面反馈。",
+    "statement": "在应用引导流程中，用户完成身高体重等身体数据填写后会看到高级版订阅选项。",
     "evidence_review_ids": [
       "10175260415"
     ],
     "sample_count": 1,
-    "confidence": 0.4,
-    "uncertainty": "仅一条评论提及订阅选项，且未详细说明价格或转化体验，证据不足。",
+    "confidence": 0.3,
+    "uncertainty": "仅一条评论提及此选项，且未说明用户是否购买或对价格的具体看法；评论内容被截断。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",

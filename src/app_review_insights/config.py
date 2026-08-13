@@ -42,7 +42,7 @@ def llm_settings() -> dict:
         "provider": env_str("LLM_PROVIDER", "deepseek"),
         "base_url": env_str("LLM_BASE_URL", "https://api.deepseek.com"),
         "api_key": env_str("LLM_API_KEY"),
-        "model": env_str("LLM_MODEL", "deepseek-chat"),
+        "model": env_str("LLM_MODEL", "deepseek-v4-flash"),
         "temperature": env_float("LLM_TEMPERATURE", 0.3),
         "timeout": env_int("LLM_TIMEOUT", 60),
         "max_retries": env_int("LLM_MAX_RETRIES", 2),

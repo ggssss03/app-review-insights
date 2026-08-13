@@ -123,7 +123,7 @@ design-system/               亮色全息设计系统（MASTER.md）
 LLM_PROVIDER=deepseek
 LLM_BASE_URL=https://api.deepseek.com
 LLM_API_KEY=
-LLM_MODEL=deepseek-chat
+LLM_MODEL=deepseek-v4-flash
 ```
 
 密钥只走环境变量，真实 key 绝不提交仓库。未配置时系统进入确定性模式。

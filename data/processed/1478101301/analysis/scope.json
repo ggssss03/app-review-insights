@@ -1,17 +1,9 @@
 {
-  "focus_areas": [
-    "features",
-    "other",
-    "performance",
-    "pricing",
-    "subscription_conversion",
-    "usability"
-  ],
+  "focus_areas": [],
   "star_filter": {
     "min": null,
     "max": null
   },
   "version_filter": null,
-  "note": "模型解析（无明确分析目标，默认全量分析所有维度。）",
-  "_goal_fp": "e3b0c44298fc"
+  "note": "模型解析（用户未提供具体分析目标，默认对全部评论进行全量分析。）"
 }

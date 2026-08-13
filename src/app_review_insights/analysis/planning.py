@@ -29,7 +29,7 @@ def generate_requirements(
     try:
         from ..prompts import requirements_messages
 
-        result = llm.chat_json(requirements_messages(supported, focus_areas))
+        result = llm.chat_json(requirements_messages(supported, focus_areas), max_tokens=4000)
         requirements = []
         for item in (result.get("requirements") or []):
             if not isinstance(item, dict):
@@ -81,7 +81,7 @@ def generate_test_cases(
     try:
         from ..prompts import testcase_messages
 
-        result = llm.chat_json(testcase_messages(requirements))
+        result = llm.chat_json(testcase_messages(requirements), max_tokens=4000)
         test_cases = []
         for item in (result.get("test_cases") or []):
             if not isinstance(item, dict):

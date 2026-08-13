@@ -42,7 +42,7 @@ class LLMClient:
         provider: str = "deepseek",
         base_url: str = "https://api.deepseek.com",
         api_key: str = "",
-        model: str = "deepseek-chat",
+        model: str = "deepseek-v4-flash",
         temperature: float = 0.3,
         timeout: int = 60,
         max_retries: int = 2,
@@ -76,6 +76,8 @@ class LLMClient:
                 with urllib.request.urlopen(req, timeout=self.timeout) as resp:
                     data = json.loads(resp.read().decode("utf-8"))
                 content = data["choices"][0]["message"]["content"]
+                if not content or not content.strip():
+                    raise LLMError("模型返回空内容，等待重试")
                 return parse_json_content(content)
             except urllib.error.HTTPError as exc:
                 if exc.code in (401, 403):
@@ -85,7 +87,7 @@ class LLMClient:
                     time.sleep(2**attempt)
                     continue
                 raise LLMError(f"LLM HTTP {exc.code}：{exc.reason}") from exc
-            except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, KeyError) as exc:
+            except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, KeyError, LLMError) as exc:
                 last_error = exc
                 time.sleep(2**attempt)
         raise LLMError(f"LLM 调用失败（已重试 {self.max_retries} 次）：{last_error}")
