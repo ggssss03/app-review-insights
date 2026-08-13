@@ -19,9 +19,12 @@ jobs:
           python-version: "3.12"
       - name: Refresh live review caches (US storefront for assessment sample)
         run: |
-          # 主评估样例 839285684 只采集美区 itml（Apple 官方接口，当前返回 10 条热门评论）；
-          # 其余样例为区域专属应用，仍用 cn 多源合并作为泛化演示。
-          python scripts/fetch_reviews.py 839285684 --country us --delay 0.5 --refresh --method itml
+          # 主评估样例 839285684 用美区 AMP 接口采集（最多 200 条真实评论）；
+          # 若 AMP 在美国区 runner 上不可用，则回退到 itml（固定 10 条热门评论）。
+          python scripts/fetch_reviews.py 839285684 --country us --delay 1 --refresh --method amp || true
+          if ! ls data/raw/839285684/reviews-amp-offset-*.json >/dev/null 2>&1; then
+            python scripts/fetch_reviews.py 839285684 --country us --refresh --method itml || true
+          fi
           python scripts/fetch_reviews.py 1544884479 --country cn --delay 0.5 --refresh --method auto
           python scripts/fetch_reviews.py 1321803705 --country cn --delay 0.5 --refresh --method auto
         env:
