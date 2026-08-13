@@ -144,13 +144,17 @@ class ServerApp:
                     refresh=True,
                 )
                 if stats.get("reviews_total", 0) == 0:
+                    src_desc = "美区 Lookup/WebObjects/RSS" if country == "us" else "cn RSS/产品页/AMP"
                     entry["progress"].append({
                         "stage": "fetch",
                         "status": "error",
-                        "detail": "重新采集未获取到评论（cn RSS/产品页/AMP 均为空），已保留原缓存",
+                        "detail": f"重新采集未获取到评论（{src_desc} 均为空），已保留原缓存",
                     })
                     entry["status"] = "error"
-                    entry["error"] = "未获取到新评论：请稍后重试或导入 JSON/CSV 数据集（原数据未改动）"
+                    entry["error"] = (
+                        "未获取到新评论：该应用在当前商店可能不可用或评论接口受限；"
+                        "请导入 JSON/CSV 数据集（原数据未改动）"
+                    )
                     return False
                 raw.mkdir(parents=True, exist_ok=True)
                 for old in list(raw.glob("reviews-*.json")) + [raw / "collection_notes.json"]:
@@ -175,13 +179,17 @@ class ServerApp:
             cache_dir=raw,
         )
         if stats.get("reviews_total", 0) == 0:
+            src_desc = "美区 Lookup/WebObjects/RSS" if country == "us" else "cn RSS/产品页/AMP"
             entry["progress"].append({
                 "stage": "fetch",
                 "status": "error",
-                "detail": "在线采集完成但未获取到评论（cn RSS/产品页/AMP 均为空），请稍后重试或导入 JSON/CSV",
+                "detail": f"在线采集完成但未获取到评论（{src_desc} 均为空）；该应用可能在 {country} 区商店不可用",
             })
             entry["status"] = "error"
-            entry["error"] = "未获取到评论：请稍后重试（采集源可能临时不可用）或导入 JSON/CSV 数据集"
+            entry["error"] = (
+                f"未获取到评论：该应用在 {country} 区商店可能不可用或采集源受限；"
+                "请导入 JSON/CSV 数据集"
+            )
             return False
         entry["progress"].append({
             "stage": "fetch",
