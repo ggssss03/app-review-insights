@@ -1,145 +1,134 @@
 # App Review Insights
 
-把真实的 App Store 用户评论，自动变成**可追溯的产品需求（PRD）、版本规划和测试用例**。
+把真实的 App Store 用户评论，自动转化为**可追溯的产品需求（PRD）、版本规划和测试用例**，
+并通过一个**零第三方依赖、本地一键运行的 Web UI** 展示完整分析流程。
 
-> 目标与评估标准见 [PLAN.md](PLAN.md)，其源头是
-> [retro-labs/app-review-insights](https://github.com/retro-labs/app-review-insights/blob/main/README.md)。
+评估用主样例：
 
-## 当前进度（M1-M3）
+```text
+https://apps.apple.com/us/app/workout-for-women-home-gym/id839285684
+```
 
-- [x] M0 项目骨架：git 仓库、目录结构、`.env.example`、CI 占位
-- [x] M1 数据采集：Apple Lookup（元数据）+ Customer Reviews RSS（按链接国家，默认中区；
-  显式传入 `us` 链接时走美区 itml/AMP 通道），限速、缓存、断点续采、超 200 条只取最新 200
-- [x] M1 数据导入：支持 JSON / CSV 评论数据集导入（README 硬性要求）
-- [x] M1 清洗去重：字段规范化、去重、垃圾过滤、PII 脱敏、语言启发式识别
-- [x] M2 分析层：动态主题发现（TF-IDF/模型嵌入 + 聚类 + LLM 命名）、
-  证据化发现（引用白名单、置信度、冲突、provenance 区分统计与模型）
-- [x] M3 规划层：需求生成（优先级/版本拆分）、Gherkin 测试用例、
-  追溯校验（孤儿结论删除 / 无支持需求标 assumption / 校验报告）
-- [x] M4 应用层：零依赖 Web UI（纯标准库服务器 + 原生 JS），
-  支持进度流展示、交付物 Tab、JSON/CSV 导入；FastAPI/React 为可选升级
-- [x] M5 部分：E2E 场景测试（混合语言/证据不足/模型失败/重复冲突）、
-  [docs/EVALUATION.md](docs/EVALUATION.md) 评估自检、`scripts/self_check.py` 一键自检
-- [x] M5 收尾：真实模型（DeepSeek）端到端验证、GitHub 推送与定时采集、Web UI 演示
+> 本项目的目标与验收标准来自 LaienTech 评估书。每一项要求如何满足，见
+> [docs/EVALUATION.md](docs/EVALUATION.md)；实施与架构设计见 [PLAN.md](PLAN.md)；
+> 模型与防幻觉设计见 [docs/AI.md](docs/AI.md)。
+
+## 能做什么
+
+1. 在 UI 中输入一个**有效的美国区 App Store 链接**，可选填分析目标/约束
+   （如「订阅转化与付费墙体验」「低分评论」「指定版本」），点击「开始分析」。
+2. 系统自动完成 10 步工作流：
+   **范围解析 → 采集/导入 → 清洗去重 → 动态分类 → 证据评估 → 版本规划/PRD →
+   测试用例 → 追溯校验 → 进度展示 → 交付物展示**。
+3. 所有分类、发现、需求、用例都由当前数据动态生成，**没有任何 app 专属硬编码**。
+4. 每个发现都带证据评论 ID、样本数、置信度、不确定性、冲突，并区分
+   「确定性统计 / 模型生成 / 假设 / 已移除」。
+5. 支持导入合规的 JSON/CSV 评论数据集，换链接、换数据集、换目标都能运行。
+6. 未配置 LLM 时自动降级为确定性模式并明确标注，绝不伪装成功。
 
 ## 快速开始
 
-需要 Python 3.10+，M1 阶段**零第三方依赖**（纯标准库）。
+需要 Python 3.10+，运行阶段**零第三方依赖**（纯标准库 + 原生 HTML/CSS/JS）。
 
 ```bash
-# 1) 采集元数据 + 评论（按链接国家，默认 cn 区；传 --country us 走美区），结果缓存到 data/raw/<app_id>/
-PYTHONPATH=src python scripts/fetch_reviews.py 839285684
+# 1) 采集元数据与评论（美国区官方接口，示例 app）
+PYTHONPATH=src python scripts/fetch_reviews.py 839285684 --country us --method itml
 
-# 2) 或者导入已有 JSON/CSV 数据集
+# 2) 或导入已有 JSON/CSV 评论数据集
 PYTHONPATH=src python scripts/import_reviews.py path/to/reviews.csv --app-id 839285684
 
 # 3) 清洗去重，输出 data/processed/<app_id>/
 PYTHONPATH=src python scripts/clean_reviews.py 839285684
 
-# 4) 运行测试（M1 用标准库 unittest，pytest 也能收集）
-PYTHONPATH=src python -m unittest discover -s tests -v
-
-# 5) 运行完整分析流水线（S0 范围 -> S8 汇总）
-#    未配置 LLM 时自动降级为确定性模式；配置 .env 后自动启用模型驱动
+# 4) 运行完整分析流水线（S0 → S8）
 PYTHONPATH=src python scripts/analyze.py 839285684 --goal "订阅转化与付费墙体验"
-PYTHONPATH=src python scripts/analyze.py 839285684 --no-llm
 
-# 6) 启动 Web UI（纯标准库，零第三方依赖）
+# 5) 运行测试与一键自检
+PYTHONPATH=src python -m unittest discover -s tests -v   # 75 个用例
+python scripts/self_check.py
+
+# 6) 启动 Web UI
 python app/server.py --port 8765
 # 打开 http://127.0.0.1:8765
 ```
 
-示例应用（评估用主样例）：`Workout for Women -Lose Weight`
-`https://apps.apple.com/cn/app/workout-for-women-lose-weight/id839285684`
+离线评审时无需网络：仓库已包含示例 app 的元数据、原始评论缓存与完整分析产物。
 
-> **多源合并采集**：中国区采集会自动重试间歇可用的 cn RSS，并合并产品页内嵌评论与
-> 美国区 itml 批次（去重后通常 **45 条** 左右），保证每次输入链接都能采到 35+ 条真实评论；
-> 分析输入即为合并去重后的全部评论。
+## 数据来源与限制（如实声明）
 
-分析结果输出到 `data/processed/<app_id>/analysis/`，包含：范围、清洗统计、
-动态主题、带证据的发现、需求（PRD）、测试用例、追溯校验报告、进度事件。
+- **元数据**：Apple iTunes Lookup API（美国区）。
+- **评论**：Apple iTunes WebObjects `userReviewsRow` 官方接口（美国区 storefront）。
+- **当前限制**：该接口固定只返回 10 条热门评论，且不返回每条评论的版本号；
+  旧版美区 RSS 已停用，AMP 评论 token 当前不可获取。以上限制已写入
+  `data/raw/<app_id>/collection_notes.json`，报告与 UI 也会如实展示，**绝不编造评论**。
+- **导入兜底**：支持 JSON/CSV 评论数据集导入；更丰富的美区样本可由此补充。
+- **数量上限**：评论不足 200 条全量使用；超过 200 条只取前 200 条。
+- **礼貌限速**：请求间隔 ≥ 1 秒，原始响应按页缓存，支持断点续采。
 
-模型设计（提示词、防幻觉、失败处理、无硬编码承诺）见 [docs/AI.md](docs/AI.md)。
-
-## Web UI（M4）
-
-启动 `python app/server.py` 后打开 `http://127.0.0.1:8765`：
-
-- 输入美国区 App Store 链接或应用 ID + 分析目标，点击「开始分析」；
-- 页面实时展示 S0-S8 阶段进度（轮询 `/api/status/<run_id>`）；
-- 完成后通过 Tab 查看：摘要 / 原始评论（按来源与日期展示采集结果）/ 动态主题 /
-  带证据的发现 / 需求 PRD / 测试用例 / 追溯校验报告 / 清洗后数据；
-- 「统计 / 模型 / 假设 / 已移除」用不同徽章区分（README R6）；
-- 支持直接上传 JSON/CSV 评论数据集再分析（README R10）；
-- 未配置 LLM 时自动进入确定性模式，界面明确提示，不伪装成功。
-
-服务器与前端均为纯标准库实现（`app/server.py` + `app/static/`），无需 npm/pip 安装。
-
-## 数据来源与限制（重要）
-
-### 数据来源
-
-- **应用元数据**：Apple iTunes Search API（Lookup），按链接国家取数，`https://itunes.apple.com/lookup?id=<id>&country=cn`
-- **评论数据**（默认中国区）：Apple iTunes Customer Reviews RSS（cn 区仍可用，每页约 35 条），
-  `https://itunes.apple.com/cn/rss/customerreviews/id=<id>/page=1/sortBy=mostRecent/json`
-  - 中国区产品页内嵌的 8 条真实评论也会读取（`reviews-amp-page-cn.json`）
-  - 美国区通道（WebObjects `userReviewsRow`）保留但默认停用，仅在显式传入 `us` 链接或 `--country us` 时启用
-- **采集数量**：按真实评论条数采集，评论少于 200 条时全量取回；超过 200 条只保留**最新 200 条**
-  （RSS 翻页与多源合并两个层面都会截断，`collection_notes.json` 中如实标注）。
-
-输入链接按国家识别 storefront（默认中国区，如 `https://apps.apple.com/cn/app/.../id839285684`），
-**评论数据从链接对应的商店采集**；纯数字 ID 默认走中国区，美国区逻辑保留但默认停用。
-
-### 已知限制（实测）
-
-在美国区，旧版 RSS/AMP 接口已失效；中国区 cn RSS 仍可用。补充对策：
-
-1. 使用仓库内 [.github/workflows/collect-reviews.yml](.github/workflows/collect-reviews.yml)
-   的定时采集（中国区 `--method rss`），结果自动提交到 `data/raw/`；
-2. 使用导入功能（JSON/CSV）喂入合规数据集；
-3. 在可直连的网络环境本地直接运行 `fetch_reviews.py --country cn`。
-
-缓存文件统一使用信封结构记录来源：
-
-```json
-{ "app_id": "...", "url": "https://...", "fetched_at": "...", "data": { ... } }
-```
-
-**缓存数据仅用于离线评审与复现，绝不冒充实时采集，也绝不编造评论。**
+缓存数据结构统一为信封格式（`url` / `fetched_at` / `data`），保证来源可溯源。
 
 ## 导入格式
 
-JSON（数组，或带 `feed.entry` 的 RSS 结构，或 `{data: [...]}` 信封）与 CSV 均可。
-字段名支持常见别名，最小要求有正文或标题：
+JSON（评论数组、RSS `feed.entry` 结构或 `{data:[...]}` 信封）与 CSV 均可，
+最小要求有正文或标题。字段别名见下表：
 
-```text
-id / review_id / reviewId      评论 ID（用于去重，缺省时按 作者+日期+内容 哈希去重）
-author / author_name / name    作者
-rating / stars / im:rating     1-5 星
-title / title.label            标题
-content / body / text          正文
-version / appVersion           版本
-updated / date / created_at    时间
-votes / helpful_votes          有用票数（可选）
-country / storefront           地区（默认 us）
-```
+| 含义 | 可用字段名 |
+| --- | --- |
+| 评论 ID | `id` / `review_id` / `reviewId` |
+| 作者 | `author` / `author_name` / `name` |
+| 评分 | `rating` / `stars` / `im:rating`（1–5） |
+| 标题 | `title` / `title.label` |
+| 正文 | `content` / `body` / `text` |
+| 版本 | `version` / `appVersion` |
+| 时间 | `updated` / `date` / `created_at` |
+| 有用票 | `votes` / `helpful_votes`（可选） |
+| 地区 | `country` / `storefront`（默认 us） |
+
+## Web UI
+
+`python app/server.py` 后打开 `http://127.0.0.1:8765`：
+
+- 首页：美区链接/应用 ID + 分析目标 + JSON/CSV 导入 + Start；
+- 进度页：S0–S8 阶段状态、耗时、错误与重试；
+- 结果页 Tab：摘要 / 原始评论 / 主题聚类 / 关键发现 / 需求 PRD / 验收用例 / 溯源校验 / 数据清洗；
+- 摘要含 KPI、评分环形图、语言分布、分析范围、运行模式与溯源通过率；
+- 发现页支持证据点击查看原文、低置信折叠、追问与反例挑战；
+- 需求页含版本甘特与 PRD 评审（接受 / 标记假设 / 删除 + 批注）；
+- 溯源页含全链路 SVG 图、逐项检查与引用白名单拦截记录；
+- 支持全局筛选（星级 / 语言 / 版本）、S0–S8 侧栏导航、演示模式、Markdown/JSON 一键导出。
 
 ## 目录结构
 
 ```text
-src/app_review_insights/   核心代码（collector / importer / cleaner / models / storage）
-scripts/                   命令行入口（fetch / import / clean）
-tests/                     单元测试
-data/raw/<app_id>/         原始缓存（可复现数据）
-data/processed/<app_id>/   清洗后结构化结果
-docs/                      架构与决策文档（后续里程碑补充）
-.github/workflows/         CI 与定时采集
+app/server.py                零依赖 Web 服务器（REST + 后台流水线）
+app/static/                  原生 HTML/CSS/JS 前端
+src/app_review_insights/     核心代码（采集/导入/清洗/分析/规划/校验/LLM）
+scripts/                     命令行入口（fetch / import / clean / analyze / self_check）
+tests/                       75 个单元/集成测试
+data/raw/<app_id>/           原始缓存与采集说明
+data/processed/<app_id>/     清洗结果与分析产物
+docs/AI.md                   模型、提示词、配置与防幻觉设计
+docs/EVALUATION.md           评估书要求逐项对照
+PLAN.md                      实施计划与架构
+design-system/               亮色全息设计系统（MASTER.md）
+.github/workflows/           CI 测试与定时采集
 ```
 
 ## 密钥与配置
 
-复制 `.env.example` 为 `.env` 并填写（M2 起需要 LLM 配置）。真实密钥绝不提交到仓库。
+复制 `.env.example` 为 `.env` 并填写：
 
-## Roadmap
+```text
+LLM_PROVIDER=deepseek
+LLM_BASE_URL=https://api.deepseek.com
+LLM_API_KEY=
+LLM_MODEL=deepseek-chat
+```
 
-详见 [PLAN.md](PLAN.md) 第 10 节：M0 基建 → M1 数据层 → M2 分析层 → M3 规划层 → M4 应用层 → M5 交付加固。
+密钥只走环境变量，真实 key 绝不提交仓库。未配置时系统进入确定性模式。
+
+## 评估要求对照
+
+评估书的 Background / Objective / AI Requirements / Deliverables / Technical
+Requirements / Evaluation Criteria / Important Notes 每条要求与项目实现位置的
+完整对照，见 [docs/EVALUATION.md](docs/EVALUATION.md)。
