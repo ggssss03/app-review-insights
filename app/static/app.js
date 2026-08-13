@@ -46,18 +46,70 @@ async function init() {
   $("export-md").addEventListener("click", () => exportReport("md"));
   $("export-json").addEventListener("click", () => exportReport("json"));
   $("review-dialog-close").addEventListener("click", () => $("review-dialog").close());
+  $("ask-dialog-close").addEventListener("click", () => $("ask-dialog").close());
+  $("challenge-dialog-close").addEventListener("click", () => $("challenge-dialog").close());
+  $("demo-toggle").addEventListener("click", () => {
+    const on = document.body.classList.toggle("demo");
+    $("demo-toggle").setAttribute("aria-pressed", String(on));
+  });
+  document.querySelectorAll("#stage-sidebar button").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      switchTab(btn.dataset.tab);
+      highlightStage(btn.dataset.stage);
+    });
+  });
+  ["filter-rating", "filter-lang", "filter-version"].forEach((id) => {
+    $(id).addEventListener("change", () => {
+      delete stageCache["raw"];
+      window.__filters.rating = $("filter-rating").value;
+      window.__filters.lang = $("filter-lang").value;
+      window.__filters.version = $("filter-version").value;
+      if (["summary", "topics", "traceability"].includes(currentTab)) switchTab("raw");
+      else renderTab(currentTab);
+    });
+  });
+  $("ask-submit").addEventListener("click", submitAsk);
+  $("challenge-submit").addEventListener("click", submitChallenge);
   document.addEventListener("click", (e) => {
+    const traceNode = e.target.closest(".trace-node");
+    if (traceNode) {
+      if (traceNode.dataset.review) openReviewDialog(traceNode.dataset.review);
+      else if (traceNode.dataset.tab) switchTab(traceNode.dataset.tab);
+      return;
+    }
     const trigger = e.target.closest("[data-review]");
     if (trigger) {
       e.preventDefault();
       openReviewDialog(trigger.dataset.review);
+      return;
     }
+    const ask = e.target.closest("[data-ask]");
+    if (ask) {
+      openAskDialog(ask.dataset.ask);
+      return;
+    }
+    const challenge = e.target.closest("[data-challenge]");
+    if (challenge) {
+      openChallengeDialog(challenge.dataset.challenge);
+      return;
+    }
+    const action = e.target.closest(".review-actions button[data-action]");
+    if (action) {
+      applyReviewAction(action);
+    }
+  });
+  document.addEventListener("input", (e) => {
+    if (e.target.matches(".review-note")) updateReviewNote(e.target);
   });
 }
 
 let currentAppId = null;
 let currentRunId = null;
 let pollTimer = null;
+let currentTab = "summary";
+const askTarget = {};
+window.__filters = { rating: "", lang: "", version: "" };
+window.__reviewState = {};
 
 async function start() {
   const url = $("url").value.trim();
@@ -127,6 +179,7 @@ async function loadResults(summary) {
   $("result-card").classList.remove("hidden");
   $("summary-data") || null;
   window.__summary = summary;
+  populateVersionFilter();
   renderTab("summary");
   const cc = (summary && summary.counts) || {};
   tickerPush(`分析完成：${cc.reviews || 0} 条评论 · ${cc.findings || 0} 项发现 · ${(summary && summary.traceability ? summary.traceability.passed_checks : 0) || 0} 项追溯通过`);
@@ -139,19 +192,24 @@ async function fetchStage(stage) {
 }
 
 async function renderTab(tab) {
+  currentTab = tab;
   const el = $("tab-content");
   try {
     if (tab === "summary") {
       el.innerHTML = renderSummary(window.__summary);
       setTimeout(drawRatingDonut, 30);
     }
-    else if (tab === "raw") el.innerHTML = renderRaw(await fetchStage("raw"));
-    else if (tab === "topics") el.innerHTML = renderTopics(await fetchStage("topics"));
-    else if (tab === "findings") el.innerHTML = renderFindings(await fetchStage("findings"));
-    else if (tab === "requirements") el.innerHTML = renderRequirements(await fetchStage("requirements"));
-    else if (tab === "testcases") el.innerHTML = renderTestCases(await fetchStage("testcases"));
-    else if (tab === "traceability") el.innerHTML = renderTraceability(await fetchStage("traceability"));
-    else if (tab === "clean") el.innerHTML = renderClean(await fetchStage("clean"));
+    else if (tab === "raw") el.innerHTML = await renderRaw(await fetchStage("raw"));
+    else if (tab === "topics") {
+      const t = await fetchStage("topics");
+      el.innerHTML = renderTopics(t);
+      setTimeout(() => drawBubbleChart(t), 40);
+    }
+    else if (tab === "findings") el.innerHTML = await renderFindings(await fetchStage("findings"));
+    else if (tab === "requirements") el.innerHTML = await renderRequirements(await fetchStage("requirements"));
+    else if (tab === "testcases") el.innerHTML = await renderTestCases(await fetchStage("testcases"));
+    else if (tab === "traceability") el.innerHTML = await renderTraceability(await fetchStage("traceability"));
+    else if (tab === "clean") el.innerHTML = await renderClean(await fetchStage("clean"));
   } catch (e) {
     el.innerHTML = `<div class="msg error">加载失败：${esc(e.message)}</div>`;
   }
@@ -161,29 +219,47 @@ async function renderTab(tab) {
   });
 }
 
+function summaryNotes(s) {
+  const notes = s.notes || [];
+  const reqNote = notes[0] || "";
+  const tcNote = notes[1] || "";
+  const rest = notes.slice(2);
+  const noteItems = [];
+  if (reqNote && tcNote && reqNote === tcNote) {
+    noteItems.push(`需求与测试用例：${reqNote}`);
+  } else {
+    if (reqNote) noteItems.push(`需求生成：${reqNote}`);
+    if (tcNote) noteItems.push(`测试用例：${tcNote}`);
+  }
+  rest.forEach((n) => noteItems.push(n));
+  return noteItems;
+}
+
 function renderSummary(s) {
   if (!s) return "<p>暂无结果。</p>";
   const c = s.counts || {};
+  const trace = s.traceability || {};
+  const modeBadge = badge(s.model_driven ? "模型驱动" : "确定性模式", s.model_driven ? "model" : "stat");
+  const noteItems = summaryNotes(s);
   const cards = [
     ["评论", c.reviews || 0], ["主题聚类", c.topics || 0], ["关键发现", c.findings || 0],
     ["需求规约", c.requirements || 0], ["验收用例", c.test_cases || 0],
   ].map(([lbl, num]) =>
     `<div class="kpi-card"><div class="num" data-count="${Number(num) || 0}">0</div><div class="lbl">${lbl}</div></div>`
   ).join("");
-  const trace = s.traceability || {};
   setTimeout(() => animateCounts(), 30);
   return `
     <div class="summary-grid">${cards}</div>
     ${renderDist(s.clean_stats)}
     ${renderScope(s.scope)}
     <div class="meta-row">
+      <div class="meta-chip"><span class="meta-label">运行模式</span>${modeBadge}</div>
       <div class="meta-chip"><span class="meta-label">说明</span>
-        <ul class="note-list">${(s.notes || []).map((n) => `<li>${esc(n)}</li>`).join("")}</ul>
+        <ul class="note-list">${noteItems.map((n) => `<li>${esc(n)}</li>`).join("")}</ul>
       </div>
       <div class="meta-chip">
         <span class="meta-label">溯源校验</span>
         <span class="trace-big">${trace.passed_checks || 0}/${trace.total_checks || 0} <small>通过</small></span>
-        <span class="trace-tag ${s.model_driven ? "model" : ""}">${s.model_driven ? "模型驱动" : "确定性模式"}</span>
       </div>
     </div>
   `;
@@ -261,6 +337,7 @@ function renderTopics(t) {
       </div>
       ${modelTag}
     </div>
+    <div class="bubble-wrap"><canvas id="bubble-canvas" width="0" height="0"></canvas></div>
     ${cards}`;
 }
 
@@ -273,11 +350,19 @@ const RAW_SOURCE_LABELS = {
   import: "导入数据",
 };
 
-function renderRaw(reviews) {
+async function renderRaw(reviews) {
   if (!reviews || !reviews.length) {
     return `<div class="page-head"><div><h2>原始评论</h2></div></div><p>暂无原始评论数据（请先采集或导入）。</p>`;
   }
-  const rows = reviews
+  let filtered = reviews;
+  if (hasFilters()) {
+    const ids = await filteredReviewIds();
+    filtered = reviews.filter((r) => ids.has(String(r.review_id)));
+    if (!filtered.length) {
+      return `<div class="page-head"><div><h2>原始评论</h2></div></div><p>筛选后无数据。</p>`;
+    }
+  }
+  const rows = filtered
     .slice()
     .sort((a, b) => String(b.updated || "").localeCompare(String(a.updated || "")))
     .slice(0, 100)
@@ -295,7 +380,7 @@ function renderRaw(reviews) {
     <div class="page-head">
       <div>
         <h2>原始评论</h2>
-        <p class="page-sub">共 ${reviews.length} 条原始评论（按日期倒序，最多展示 100 条）· 来源与采集时间见原始缓存</p>
+        <p class="page-sub">共 ${filtered.length} 条原始评论（按日期倒序，最多展示 100 条）· 来源与采集时间见原始缓存</p>
       </div>
     </div>
     <div class="table-wrap">
@@ -434,6 +519,235 @@ function drawRatingDonut() {
   }
 }
 
+function highlightStage(stage) {
+  document.querySelectorAll("#stage-sidebar button").forEach((b) => {
+    b.classList.toggle("active", b.dataset.stage === stage);
+  });
+}
+
+function switchTab(tab) {
+  document.querySelectorAll(".tab").forEach((b) => b.classList.toggle("active", b.dataset.tab === tab));
+  renderTab(tab);
+}
+
+function hasFilters() {
+  const f = window.__filters || {};
+  return Boolean(f.rating || f.lang || f.version);
+}
+
+function filterReviews(list) {
+  const f = window.__filters || {};
+  return (list || []).filter((r) => {
+    if (f.rating && String(r.rating || "") !== String(f.rating)) return false;
+    if (f.lang && String(r.lang || "") !== String(f.lang)) return false;
+    if (f.version && String(r.version || "") !== String(f.version)) return false;
+    return true;
+  });
+}
+
+async function filteredReviewIds() {
+  const clean = await getStage("clean");
+  const reviews = clean && clean.reviews ? clean.reviews : Array.isArray(clean) ? clean : [];
+  return new Set(filterReviews(reviews).map((r) => String(r.review_id)).filter(Boolean));
+}
+
+async function populateVersionFilter() {
+  const clean = await getStage("clean");
+  const reviews = clean && clean.reviews ? clean.reviews : Array.isArray(clean) ? clean : [];
+  const versions = [...new Set(reviews.map((r) => r.version).filter(Boolean))].sort();
+  const sel = $("filter-version");
+  sel.innerHTML = versions.length
+    ? `<option value="">全部版本</option>${versions.map((v) => `<option value="${esc(v)}">${esc(v)}</option>`).join("")}`
+    : `<option value="">全部版本（本样本无版本字段）</option>`;
+}
+
+function drawBubbleChart(topics) {
+  const canvas = document.getElementById("bubble-canvas");
+  if (!canvas || !topics || !topics.topics) return;
+  const data = topics.topics.slice().sort((a, b) => (b.count || 0) - (a.count || 0));
+  const ctx = canvas.getContext("2d");
+  const w = canvas.width = canvas.clientWidth * 2;
+  const h = canvas.height = 720;
+  ctx.clearRect(0, 0, w, h);
+  const colors = ["#22d3ee", "#a78bfa", "#f472b6", "#34d399", "#fbbf24", "#60a5fa", "#fb923c", "#f87171"];
+  let x = w / 2, y = h / 2;
+  data.forEach((t, i) => {
+    const count = Number(t.count) || 1;
+    const radius = Math.max(38, Math.min(120, 34 + Math.sqrt(count) * 22));
+    const angle = i * 2.399963;
+    const dist = 6 + i * 18;
+    const cx = w / 2 + Math.cos(angle) * dist * 6;
+    const cy = h / 2 + Math.sin(angle) * dist * 6;
+    ctx.beginPath();
+    ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+    ctx.fillStyle = colors[i % colors.length] + "2e";
+    ctx.strokeStyle = colors[i % colors.length];
+    ctx.lineWidth = 2;
+    ctx.fill();
+    ctx.stroke();
+    ctx.fillStyle = "#eef1f8";
+    ctx.font = "700 15px 'Microsoft YaHei', sans-serif";
+    ctx.textAlign = "center";
+    ctx.fillText(t.label || `主题${t.topic_id}`, cx, cy - 4);
+    ctx.fillStyle = "#9aa5b8";
+    ctx.font = "11px monospace";
+    ctx.fillText(`${count} 条`, cx, cy + 14);
+  });
+}
+
+function renderGantt(requirements) {
+  if (!requirements || !requirements.length) return "";
+  const lanes = {};
+  for (const r of requirements) {
+    const v = String(r.planned_version || "V1");
+    (lanes[v] = lanes[v] || []).push(r);
+  }
+  return `<div class="gantt">${Object.keys(lanes).sort().map((v) => `
+    <div class="gantt-lane">
+      <h4>版本 ${esc(v)}</h4>
+      ${lanes[v].map((r) => `<div class="gantt-row"><span class="gantt-code">${esc(r.code)}</span><div class="gantt-bar" title="${esc(r.title)}">${esc(r.title)} · ${esc(r.priority)}</div></div>`).join("")}
+    </div>`).join("")}</div>`;
+}
+
+function renderTraceGraph(t) {
+  if (!t) return "";
+  const findings = t.findings || [];
+  const requirements = t.requirements || [];
+  const testcases = t.test_cases || [];
+  const byId = (list, key) => Object.fromEntries(list.map((x) => [x[key], x]));
+  const fMap = byId(findings, "id");
+  const rMap = byId(requirements, "code");
+  const nodeW = 150, nodeH = 26, gapX = 90, gapY = 30;
+  let y = 20;
+  let links = "";
+  const reviews = [];
+  const fPos = {}, rPos = {}, tcPos = {};
+  const nodes = [];
+  findings.forEach((f, i) => {
+    const nx = 60, ny = y + i * (nodeH + gapY);
+    fPos[f.id] = [nx, ny];
+    (f.evidence_review_ids || []).forEach((rid) => reviews.push(rid));
+  });
+  requirements.forEach((r, i) => {
+    const nx = 60 + nodeW + gapX, ny = y + i * (nodeH + gapY);
+    rPos[r.code] = [nx, ny];
+    (r.finding_ids || []).forEach((fid) => {
+      if (fPos[fid]) links += `<line class="trace-link" x1="${fPos[fid][0] + nodeW}" y1="${fPos[fid][1] + nodeH / 2}" x2="${nx}" y2="${ny + nodeH / 2}"/>`;
+    });
+  });
+  testcases.forEach((tc, i) => {
+    const nx = 60 + (nodeW + gapX) * 2, ny = y + i * (nodeH + gapY);
+    tcPos[tc.code] = [nx, ny];
+    (tc.requirement_ids || []).forEach((rid) => {
+      if (rPos[rid]) links += `<line class="trace-link" x1="${rPos[rid][0] + nodeW}" y1="${rPos[rid][1] + nodeH / 2}" x2="${nx}" y2="${ny + nodeH / 2}"/>`;
+    });
+  });
+  const uniqueReviews = [...new Set(reviews)];
+  const revMap = {};
+  uniqueReviews.forEach((rid, i) => {
+    const nx = 60 + (nodeW + gapX) * 3, ny = y + i * (nodeH + gapY);
+    revMap[rid] = [nx, ny];
+  });
+  findings.forEach((f) => {
+    (f.evidence_review_ids || []).forEach((rid) => {
+      if (revMap[rid]) links += `<line class="trace-link" x1="${revMap[rid][0]}" y1="${revMap[rid][1] + nodeH / 2}" x2="${fPos[f.id][0] + nodeW}" y2="${fPos[f.id][1] + nodeH / 2}"/>`;
+    });
+  });
+  const boxes = [];
+  findings.forEach((f) => boxes.push(`<g class="trace-node" data-tab="findings" data-id="${esc(f.id)}" transform="translate(${fPos[f.id][0]},${fPos[f.id][1]})"><rect width="${nodeW}" height="${nodeH}" rx="8"/><text x="8" y="17">${esc(f.id)}</text></g>`));
+  requirements.forEach((r) => boxes.push(`<g class="trace-node" data-tab="requirements" data-id="${esc(r.code)}" transform="translate(${rPos[r.code][0]},${rPos[r.code][1]})"><rect width="${nodeW}" height="${nodeH}" rx="8"/><text x="8" y="17">${esc(r.code)} ${esc(r.title).slice(0, 10)}</text></g>`));
+  testcases.forEach((tc) => boxes.push(`<g class="trace-node" data-tab="testcases" data-id="${esc(tc.code)}" transform="translate(${tcPos[tc.code][0]},${tcPos[tc.code][1]})"><rect width="${nodeW}" height="${nodeH}" rx="8"/><text x="8" y="17">${esc(tc.code)} ${esc(tc.title).slice(0, 10)}</text></g>`));
+  uniqueReviews.forEach((rid) => boxes.push(`<g class="trace-node" data-tab="raw" data-review="${esc(rid)}" transform="translate(${revMap[rid][0]},${revMap[rid][1]})"><rect width="${nodeW}" height="${nodeH}" rx="8"/><text x="8" y="17">评论 ${esc(rid).slice(0, 10)}</text></g>`));
+  const maxY = Math.max(y + Math.max(findings.length, requirements.length, testcases.length, uniqueReviews.length) * (nodeH + gapY) + 20, 220);
+  return `<div class="trace-graph"><svg viewBox="0 0 ${60 + (nodeW + gapX) * 4} ${maxY}" role="img" aria-label="全链路溯源图">${links}${boxes.join("")}</svg></div>`;
+}
+
+async function targetReviewIds(id) {
+  const findings = await getStage("findings");
+  const f = (findings || []).find((x) => x.id === id);
+  if (f) return f.evidence_review_ids || [];
+  const reqs = await getStage("requirements");
+  const r = (reqs || []).find((x) => x.code === id);
+  if (r) return r.review_ids || [];
+  return [];
+}
+
+function openAskDialog(id) {
+  askTarget.id = id;
+  askTarget.mode = "qa";
+  $("ask-context").textContent = `针对：${id}`;
+  $("ask-question").value = "";
+  $("ask-result").textContent = "";
+  $("ask-dialog").showModal();
+}
+
+async function submitAsk() {
+  const question = $("ask-question").value.trim();
+  if (!question) return;
+  const ids = await targetReviewIds(askTarget.id);
+  $("ask-result").textContent = "正在分析…";
+  try {
+    const resp = await api("/api/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ mode: "qa", question, context: askTarget.id, review_ids: ids }),
+    });
+    const d = resp.data || {};
+    $("ask-result").textContent = `${d.answer || "无答案"}\n\n引用：${(d.references || []).join(", ") || "无"}\n置信：${Math.round((Number(d.confidence) || 0) * 100)}%${d.uncertainty ? `\n不确定性：${d.uncertainty}` : ""}`;
+  } catch (e) {
+    $("ask-result").textContent = `失败：${e.message}`;
+  }
+}
+
+let challengeId = null;
+function openChallengeDialog(id) {
+  challengeId = id;
+  $("challenge-context").textContent = `挑战发现：${id}`;
+  $("challenge-review").value = "";
+  $("challenge-result").textContent = "";
+  $("challenge-dialog").showModal();
+}
+
+async function submitChallenge() {
+  const text = $("challenge-review").value.trim();
+  if (!text) return;
+  const findings = await getStage("findings");
+  const f = (findings || []).find((x) => x.id === challengeId);
+  const ids = f ? f.evidence_review_ids || [] : [];
+  $("challenge-result").textContent = "正在判断…";
+  try {
+    const resp = await api("/api/ask", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ mode: "challenge", statement: f ? f.statement : challengeId, review_text: text, review_ids: ids }),
+    });
+    const d = resp.data || {};
+    $("challenge-result").textContent = `判定：${d.verdict || "未知"}\n说明：${d.explanation || "—"}\n建议置信：${Math.round((Number(d.suggested_confidence) || 0) * 100)}%\n冲突：${(d.conflicts || []).join("；") || "无"}`;
+  } catch (e) {
+    $("challenge-result").textContent = `失败：${e.message}`;
+  }
+}
+
+function applyReviewAction(btn) {
+  const card = btn.closest("[data-req]");
+  if (!card) return;
+  const code = card.dataset.req;
+  const action = btn.dataset.action;
+  window.__reviewState[code] = window.__reviewState[code] || { action: "kept", note: "" };
+  window.__reviewState[code].action = action;
+  card.classList.add("reviewed");
+  card.style.opacity = action === "delete" ? "0.45" : "1";
+  const verdict = card.querySelector(".review-verdict");
+  const labels = { accept: "已接受", assumption: "已标记假设", delete: "已删除" };
+  if (verdict) verdict.textContent = labels[action] || "";
+}
+
+function updateReviewNote(el) {
+  const code = el.dataset.note;
+  window.__reviewState[code] = window.__reviewState[code] || { action: "kept", note: "" };
+  window.__reviewState[code].note = el.value;
+}
+
 async function openReviewDialog(reviewId) {
   const dialog = $("review-dialog");
   if (!dialog || !reviewId) return;
@@ -477,7 +791,7 @@ async function exportReport(fmt) {
   const stages = ["raw", "scope", "clean", "topics", "findings", "requirements", "testcases", "traceability"];
   const artifacts = {};
   for (const stage of stages) artifacts[stage] = await fetchStage(stage);
-  const payload = { summary, artifacts };
+  const payload = { summary, artifacts, review_state: window.__reviewState || {} };
   let text = "";
   let name = `app-review-${summary.app_id || "report"}`;
   if (fmt === "json") {
@@ -511,9 +825,14 @@ async function exportReport(fmt) {
       ``,
       ...(artifacts.testcases || []).map((t) => `- ${t.code} ${t.title}`),
       ``,
+      ...(() => {
+        const reviews = Object.entries(window.__reviewState || {}).filter(([, s]) => s && (s.action !== "kept" || s.note));
+        if (!reviews.length) return [];
+        return ["## 需求评审", "", ...reviews.map(([code, s]) => `- ${code}：${s.action}${s.note ? `（${s.note}）` : ""}`), ""];
+      })(),
       `## 数据说明`,
       ``,
-      ...(summary.notes || []).map((n) => `- ${n}`),
+      ...summaryNotes(summary).map((n) => `- ${n}`),
     ];
     text = lines.join("\n");
   }
@@ -823,9 +1142,15 @@ const CHECK_LABELS = {
   requirement_review_chain: "需求评论链校验",
 };
 
-renderFindings = function (f) {
+renderFindings = async function (f) {
   if (!f || !f.length) return `<div class="page-head"><h2>◆ 关键发现</h2></div><p>暂无发现。</p>`;
-  const sorted = f.slice().sort((a, b) => (Number(b.confidence) || 0) - (Number(a.confidence) || 0));
+  let list = f;
+  if (hasFilters()) {
+    const ids = await filteredReviewIds();
+    list = f.filter((x) => (x.evidence_review_ids || []).some((rid) => ids.has(String(rid))));
+  }
+  if (!list.length) return `<div class="page-head"><h2>◆ 关键发现</h2></div><p>筛选后无发现。</p>`;
+  const sorted = list.slice().sort((a, b) => (Number(b.confidence) || 0) - (Number(a.confidence) || 0));
   const cards = sorted.map((x) => {
     const confVal = Number(x.confidence) || 0;
     const conf = Math.round(confVal * 100);
@@ -840,6 +1165,8 @@ renderFindings = function (f) {
         <span class="code-chip">${esc(x.id)}</span>
         <span class="chip prov-${esc(x.provenance)}">${esc(prov)}</span>
         ${x.status ? `<span class="chip status-${esc(x.status)}">${esc(status)}</span>` : ""}
+        <span class="chip mini ask" data-ask="${esc(x.id)}" title="追问">追问</span>
+        <span class="chip mini challenge" data-challenge="${esc(x.id)}" title="反例挑战">挑战</span>
         <div class="conf-meter">
           <span class="conf-label">置信 ${conf}%</span>
           <div class="conf-track"><div class="conf-fill ${confCls}" style="width:${conf}%"></div></div>
@@ -871,7 +1198,7 @@ renderFindings = function (f) {
     <div class="page-head">
       <div>
         <h2>◆ 关键发现</h2>
-        <p class="page-sub">${f.length} 项发现 · 按置信度排序 · 统计 + 模型双重证据评估</p>
+        <p class="page-sub">${sorted.length} 项发现 · 按置信度排序 · 统计 + 模型双重证据评估</p>
       </div>
     </div>
     <div class="conf-legend">
@@ -882,18 +1209,29 @@ renderFindings = function (f) {
     ${cards}`;
 };
 
-renderRequirements = function (r) {
+renderRequirements = async function (r) {
   if (!r || !r.length) return `<div class="page-head"><h2>▣ 需求规约 (PRD)</h2></div><p>暂无需求（需要 LLM 配置生成 PRD）。</p>`;
-  const cards = r.map((x) => {
+  let list = r;
+  if (hasFilters()) {
+    const ids = await filteredReviewIds();
+    list = r.filter((x) => (x.review_ids || []).some((rid) => ids.has(String(rid))));
+  }
+  if (!list.length) return `<div class="page-head"><h2>▣ 需求规约 (PRD)</h2></div><p>筛选后无需求。</p>`;
+  const cards = list.map((x) => {
     const prio = String(x.priority || "").toUpperCase();
     const prioCls = prio.startsWith("P0") ? "p0" : prio.startsWith("P1") ? "p1" : prio.startsWith("P2") ? "p2" : "p3";
+    const state = window.__reviewState[x.code] || {};
+    const action = state.action || "kept";
+    const note = state.note || "";
+    const verdict = action === "accept" ? "已接受" : action === "assumption" ? "已标记假设" : action === "delete" ? "已删除" : "";
     return `
-    <div class="req-card">
+    <div class="req-card ${action !== "kept" ? "reviewed" : ""}" data-req="${esc(x.code)}" style="${action === "delete" ? "opacity:.45" : ""}">
       <div class="req-head">
         <span class="code-chip">${esc(x.code)}</span>
         <h3>${esc(x.title)}</h3>
         <span class="prio ${prioCls}">${esc(PRIO_LABELS[prio] || x.priority || "—")}</span>
         <span class="version-tag">版本 ${esc(x.planned_version || "—")}</span>
+        <span class="chip mini ask" data-ask="${esc(x.code)}" title="追问">追问</span>
       </div>
       ${x.description ? `<p class="req-desc">${esc(x.description)}</p>` : ""}
       <div class="req-meta">
@@ -901,21 +1239,35 @@ renderRequirements = function (r) {
         ${(x.review_ids || []).length ? `<div class="link-row"><span class="link-label">来源评论</span>${x.review_ids.slice(0, 6).map((id) => `<span class="chip mini evidence" data-review="${esc(id)}" title="查看原文">${esc(id)}</span>`).join("")}</div>` : ""}
       </div>
       ${(x.acceptance_criteria || []).length ? `<ul class="ac-list">${x.acceptance_criteria.map((c) => `<li><span class="ac-mark">✓</span>${esc(c)}</li>`).join("")}</ul>` : ""}
+      <div class="review-actions">
+        <button type="button" class="accept" data-action="accept">接受</button>
+        <button type="button" class="assumption" data-action="assumption">标记假设</button>
+        <button type="button" class="delete" data-action="delete">删除</button>
+      </div>
+      <textarea class="review-note" data-note="${esc(x.code)}" rows="2" placeholder="批注（可选）">${esc(note)}</textarea>
+      <span class="review-verdict">${esc(verdict)}</span>
     </div>`;
   }).join("");
   return `
     <div class="page-head">
       <div>
         <h2>▣ 需求规约 (PRD)</h2>
-        <p class="page-sub">${r.length} 项需求 · 版本规划与验收标准</p>
+        <p class="page-sub">${list.length} 项需求 · 版本规划与验收标准</p>
       </div>
     </div>
+    ${renderGantt(list)}
     ${cards}`;
 };
 
-renderTestCases = function (t) {
+renderTestCases = async function (t) {
   if (!t || !t.length) return `<div class="page-head"><h2>▤ 验收用例</h2></div><p>暂无测试用例（需要 LLM 配置生成）。</p>`;
-  const cards = t.map((x) => {
+  let list = t;
+  if (hasFilters()) {
+    const ids = await filteredReviewIds();
+    list = t.filter((x) => (x.review_ids || []).some((rid) => ids.has(String(rid))));
+  }
+  if (!list.length) return `<div class="page-head"><h2>▤ 验收用例</h2></div><p>筛选后无用例。</p>`;
+  const cards = list.map((x) => {
     const g = x.gherkin || {};
     const steps = [
       ...(g.given || []).map((s) => `<div class="gstep given"><span class="gword">Given</span><span class="gtext">${esc(s)}</span></div>`),
@@ -938,7 +1290,7 @@ renderTestCases = function (t) {
     <div class="page-head">
       <div>
         <h2>▤ 验收用例</h2>
-        <p class="page-sub">${t.length} 个 Gherkin 场景 · 覆盖需求验收</p>
+        <p class="page-sub">${list.length} 个 Gherkin 场景 · 覆盖需求验收</p>
       </div>
     </div>
     ${cards}`;
@@ -982,16 +1334,21 @@ renderTraceability = function (t) {
       </div>
     </div>
     <div class="check-list">${rows}</div>
+    ${renderTraceGraph(t)}
     ${dropped.length
       ? `<div class="audit-log"><h3>引用白名单拦截记录</h3><div class="audit-tags">${dropped.map((id) => `<span class="chip mini removed">${esc(id)}</span>`).join("")}</div><p class="audit-note">以上模型引用不在白名单内，已在生成阶段丢弃，未进入交付物。</p></div>`
       : `<div class="audit-log empty"><h3>引用白名单拦截记录</h3><p class="audit-note">本次未拦截到非法引用；模型输出均通过引用校验。</p></div>`}`;
 };
 
-renderClean = function (c) {
+renderClean = async function (c) {
   if (!c) return `<div class="page-head"><h2>✧ 数据清洗</h2></div><p>暂无清洗数据。</p>`;
   const s = c.stats || {};
   const langName = (l) => (l === "zh" ? "中文" : l === "en" ? "英文" : String(l || "?").toUpperCase());
-  const rows = (c.reviews || []).slice(0, 50).map((r) => `
+  const filtered = filterReviews(c.reviews || []);
+  if ((c.reviews || []).length && !filtered.length) {
+    return `<div class="page-head"><h2>✧ 数据清洗</h2></div><p>筛选后无数据。</p>`;
+  }
+  const rows = filtered.slice(0, 50).map((r) => `
     <tr>
       <td class="cell-id">${esc(r.review_id || r.dedup_key || "—")}</td>
       <td><span class="stars s${r.rating}">${"★".repeat(r.rating || 0)}<span class="stars-ghost">${"★".repeat(5 - (r.rating || 0))}</span></span></td>
@@ -1009,7 +1366,7 @@ renderClean = function (c) {
     <div class="page-head">
       <div>
         <h2>✧ 数据清洗</h2>
-        <p class="page-sub">${s.rules_note ? esc(s.rules_note) : "确定性清洗规则"}</p>
+        <p class="page-sub">${s.rules_note ? esc(s.rules_note) : "确定性清洗规则"} · 当前展示 ${filtered.length} 条</p>
       </div>
     </div>
     <div class="clean-stats">${chips}</div>

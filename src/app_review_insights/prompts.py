@@ -109,3 +109,39 @@ def testcase_messages(requirements: list[dict]) -> list[dict]:
         {"role": "system", "content": SYSTEM_CORE},
         {"role": "user", "content": f"{TESTCASE_TASK}\n\n需求列表：\n{block}"},
     ]
+
+
+ASK_TASK = (
+    "你是 App Store 评论分析助手。请基于用户问题和提供的上下文回答问题。\n"
+    "只能引用下面给出的 review_id 白名单；不要编造评论或结论；证据不足时明确说明。\n"
+    "输出 JSON：{\"answer\": string, \"references\": [string], \"confidence\": 0-1, \"uncertainty\": string}"
+)
+
+CHALLENGE_TASK = (
+    "下面有一条已生成的产品发现，以及一条评论（可能是反例）。请判断这条评论是否推翻、削弱或支持该发现。\n"
+    "只能引用给出的 review_id 白名单；不要编造。输出 JSON：\n"
+    "{\"verdict\": \"support\"|\"weaken\"|\"overturn\", \"explanation\": string, "
+    "\"suggested_confidence\": 0-1, \"conflicts\": [string]}"
+)
+
+
+def ask_messages(question: str, context: str, allowed_review_ids: list[str]) -> list[dict]:
+    ids = ", ".join(str(i) for i in allowed_review_ids) or "（无）"
+    return [
+        {"role": "system", "content": SYSTEM_CORE},
+        {"role": "user", "content": (
+            f"{ASK_TASK}\n\n问题：{question}\n上下文：{context}\n"
+            f"允许引用的 review_id 白名单：{ids}"
+        )},
+    ]
+
+
+def challenge_messages(statement: str, review_text: str, allowed_review_ids: list[str]) -> list[dict]:
+    ids = ", ".join(str(i) for i in allowed_review_ids) or "（无）"
+    return [
+        {"role": "system", "content": SYSTEM_CORE},
+        {"role": "user", "content": (
+            f"{CHALLENGE_TASK}\n\n发现陈述：{statement}\n评论原文：{review_text}\n"
+            f"允许引用的 review_id 白名单：{ids}"
+        )},
+    ]

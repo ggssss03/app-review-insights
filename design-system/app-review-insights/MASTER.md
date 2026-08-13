@@ -7,9 +7,9 @@
 ---
 
 **Project:** App Review Insights
-**Generated:** 2026-08-13 11:12:16
-**Category:** Smart Home/IoT Dashboard
-**Design Dials:** Variance 9/10 (Bold / Asymmetric) | Motion 9/10 (Complex) | Density 6/10 (Standard)
+**Generated:** 2026-08-13 18:05:56
+**Category:** Space Tech / Aerospace
+**Design Dials:** Variance 7/10 (Balanced / Modern) | Motion 5/10 (Standard) | Density 7/10 (Standard)
 
 ---
 
@@ -19,18 +19,18 @@
 
 | Role | Hex | CSS Variable |
 |------|-----|--------------|
-| Primary | `#1E40AF` | `--color-primary` |
+| Primary | `#7C3AED` | `--color-primary` |
 | On Primary | `#FFFFFF` | `--color-on-primary` |
-| Secondary | `#3B82F6` | `--color-secondary` |
-| Accent/CTA | `#D97706` | `--color-accent` |
-| Background | `#F8FAFC` | `--color-background` |
-| Foreground | `#1E3A8A` | `--color-foreground` |
-| Muted | `#E9EEF6` | `--color-muted` |
-| Border | `#DBEAFE` | `--color-border` |
+| Secondary | `#6366F1` | `--color-secondary` |
+| Accent/CTA | `#EC4899` | `--color-accent` |
+| Background | `#FAF5FF` | `--color-background` |
+| Foreground | `#0F172A` | `--color-foreground` |
+| Muted | `#F7F3FD` | `--color-muted` |
+| Border | `#EFE7FC` | `--color-border` |
 | Destructive | `#DC2626` | `--color-destructive` |
-| Ring | `#1E40AF` | `--color-ring` |
+| Ring | `#7C3AED` | `--color-ring` |
 
-**Color Notes:** Blue data + amber highlights [Accent adjusted from #F59E0B for WCAG 3:1]
+**Color Notes:** AI purple + generation pink
 
 ### Typography
 
@@ -46,7 +46,7 @@
 
 ### Spacing Variables
 
-*Density: 6/10 — Standard*
+*Density: 7/10 — Standard*
 
 | Token | Value | Usage |
 |-------|-------|-------|
@@ -76,7 +76,7 @@
 ```css
 /* Primary Button */
 .btn-primary {
-  background: #D97706;
+  background: #EC4899;
   color: white;
   padding: 12px 24px;
   border-radius: 8px;
@@ -93,8 +93,8 @@
 /* Secondary Button */
 .btn-secondary {
   background: transparent;
-  color: #1E40AF;
-  border: 2px solid #1E40AF;
+  color: #7C3AED;
+  border: 2px solid #7C3AED;
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 600;
@@ -107,7 +107,7 @@
 
 ```css
 .card {
-  background: #F8FAFC;
+  background: #FAF5FF;
   border-radius: 12px;
   padding: 24px;
   box-shadow: var(--shadow-md);
@@ -133,9 +133,9 @@
 }
 
 .input:focus {
-  border-color: #1E40AF;
+  border-color: #7C3AED;
   outline: none;
-  box-shadow: 0 0 0 3px #1E40AF20;
+  box-shadow: 0 0 0 3px #7C3AED20;
 }
 ```
 
@@ -161,44 +161,44 @@
 
 ## Style Guidelines
 
-**Style:** Bento Grids
+**Style:** Drill-Down Analytics
 
-**Keywords:** Apple-style, modular, cards, organized, clean, hierarchy, grid, rounded, soft
+**Keywords:** Hierarchical data exploration, expandable sections, interactive drill-down paths, summary-to-detail flow, context preservation
 
-**Best For:** Product features, dashboards, personal sites, marketing summaries, galleries
+**Best For:** Sales analytics, product analytics, funnel analysis, multi-dimensional data exploration, business intelligence
 
-**Key Effects:** Hover scale (1.02), soft shadow expansion, smooth layout shifts, content reveal
+**Key Effects:** Drill-down expand animations, breadcrumb click transitions, smooth detail reveal, level change smooth, data reload animation
 
 ### Page Pattern
 
-**Pattern Name:** AI Personalization Landing
+**Pattern Name:** Real-Time / Operations Landing
 
-- **Conversion Strategy:** 20%+ conversion with personalization. Requires analytics integration. Fallback for new users.
-- **CTA Placement:** Context-aware placement based on user segment
-- **Section Order:** 1. Dynamic hero (personalized), 2. Relevant features, 3. Tailored testimonials, 4. Smart CTA
+- **Conversion Strategy:** For ops/security/iot products. Demo or sandbox link. Trust signals.
+- **CTA Placement:** Primary CTA in nav + After metrics
+- **Section Order:** 1. Hero (product + live preview or status), 2. Key metrics/indicators, 3. How it works, 4. CTA (Start trial / Contact)
 
 ---
 
 ## Motion
 
-**Page Transition** (Complex) — Trigger: route change | Duration: 500-800ms | Easing: `expo.inOut`
+**Stagger List** (Standard) — Trigger: load or scroll | Duration: 300-450ms | Easing: `back.out(1.4)`
 
 ```js
-const state = Flip.getState('.hero-image'); navigate(); Flip.from(state, { duration: 0.6, ease: 'expo.inOut', absolute: true, zIndex: 100 });
+gsap.from('.grid-item', { opacity: 0, scale: 0.92, y: 16, duration: 0.4, stagger: { each: 0.06, from: 'start', grid: 'auto' }, ease: 'back.out(1.4)' });
 ```
 
-**Framework notes:** Requires the GSAP Flip plugin; the 'from' and 'to' route must render the same element with a shared data-flip-id
+**Framework notes:** grid: 'auto' lets GSAP infer rows/columns from a CSS grid layout for a natural wave stagger
 
-- ✅ Verify the shared element exists in both DOM states before calling Flip.from to avoid a silent no-op
-- ❌ Don't use shared-element transitions across more than one element pair per navigation; compounding Flips are hard to time correctly
-- ⚡ Flip recalculates layout (FLIP technique) so test on low-end devices for jank
+- ✅ Combine with from: 'center' for a bento-grid layout to draw the eye inward first
+- ❌ Don't use back.out on dense data tables; the overshoot reads as sloppy on informational UI
+- ⚡ Group DOM writes; avoid interleaving layout reads (getBoundingClientRect) between staggered tweens
 
 ---
 
 ## Anti-Patterns (Do NOT Use)
 
-- ❌ Slow updates
-- ❌ No automation
+- ❌ Generic design
+- ❌ No immersion
 
 ### Additional Forbidden Patterns
 

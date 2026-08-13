@@ -318,6 +318,29 @@ class Handler(BaseHTTPRequestHandler):
                 length = int(self.headers.get("Content-Length", 0))
                 content = self.rfile.read(length).decode("utf-8") if length else ""
                 self._send_json(self.app.import_content(app_id, content, fmt))
+            elif path == "api/ask":
+                length = int(self.headers.get("Content-Length", 0))
+                payload = json.loads(self.rfile.read(length).decode("utf-8")) if length else {}
+                llm = build_llm()
+                if llm is None:
+                    self._send_json({"error": "未配置 LLM，无法追问/挑战"}, status=400)
+                else:
+                    from app_review_insights.prompts import ask_messages, challenge_messages
+
+                    mode = str(payload.get("mode") or "qa")
+                    if mode == "challenge":
+                        messages = challenge_messages(
+                            str(payload.get("statement") or ""),
+                            str(payload.get("review_text") or ""),
+                            payload.get("review_ids") or [],
+                        )
+                    else:
+                        messages = ask_messages(
+                            str(payload.get("question") or ""),
+                            str(payload.get("context") or ""),
+                            payload.get("review_ids") or [],
+                        )
+                    self._send_json({"data": llm.chat_json(messages)})
             else:
                 self._send_json({"error": "not found"}, status=404)
         except Exception as exc:  # noqa: BLE001

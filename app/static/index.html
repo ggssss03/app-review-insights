@@ -29,12 +29,26 @@
       </div>
     </div>
     <div class="topbar-right">
+      <button id="demo-toggle" class="demo-toggle" type="button" aria-pressed="false">演示模式</button>
       <span class="status-pill">
         <span class="pulse-dot" aria-hidden="true"></span>
         <span id="health" class="health" role="status">系统自检中…</span>
       </span>
     </div>
   </header>
+
+  <nav id="stage-sidebar" class="stage-sidebar" aria-label="流水线阶段导航">
+    <span class="stage-sidebar-title">流水线</span>
+    <button type="button" data-stage="S0" data-tab="summary">S0 范围</button>
+    <button type="button" data-stage="S1" data-tab="raw">S1 采集</button>
+    <button type="button" data-stage="S2" data-tab="clean">S2 清洗</button>
+    <button type="button" data-stage="S3" data-tab="topics">S3 主题</button>
+    <button type="button" data-stage="S4" data-tab="findings">S4 发现</button>
+    <button type="button" data-stage="S5" data-tab="requirements">S5 需求</button>
+    <button type="button" data-stage="S6" data-tab="testcases">S6 用例</button>
+    <button type="button" data-stage="S7" data-tab="traceability">S7 溯源</button>
+    <button type="button" data-stage="S8" data-tab="summary">S8 汇总</button>
+  </nav>
 
   <main id="main">
     <section class="hero" aria-label="产品介绍">
@@ -137,6 +151,22 @@
           <button id="export-md" class="btn secondary" type="button">导出 Markdown</button>
           <button id="export-json" class="btn secondary" type="button">导出 JSON</button>
         </div>
+        <div id="filter-bar" class="filter-bar" aria-label="全局筛选">
+          <select id="filter-rating" aria-label="星级筛选">
+            <option value="">全部星级</option>
+            <option value="1">1★</option>
+            <option value="2">2★</option>
+            <option value="3">3★</option>
+            <option value="4">4★</option>
+            <option value="5">5★</option>
+          </select>
+          <select id="filter-lang" aria-label="语言筛选">
+            <option value="">全部语言</option>
+            <option value="en">英文</option>
+            <option value="zh">中文</option>
+          </select>
+          <select id="filter-version" aria-label="版本筛选"><option value="">全部版本</option></select>
+        </div>
       </div>
       <div class="tabs" role="tablist">
         <button class="tab active" data-tab="summary" role="tab" aria-selected="true">
@@ -204,10 +234,35 @@
     <div id="review-dialog-body" class="dialog-body"></div>
   </dialog>
 
-  <div class="ticker" aria-hidden="true">
-    <span class="ticker-label"><span class="live-dot"></span>LIVE</span>
-    <div class="ticker-viewport"><div id="ticker-track" class="ticker-track"></div></div>
-  </div>
+  <dialog id="ask-dialog" class="review-dialog">
+    <div class="dialog-head">
+      <strong>追问分析结论</strong>
+      <button id="ask-dialog-close" class="dialog-close" type="button" aria-label="关闭">✕</button>
+    </div>
+    <div class="dialog-body">
+      <p id="ask-context" class="review-facts"></p>
+      <textarea id="ask-question" rows="4" placeholder="例如：这条需求的证据够吗？"></textarea>
+      <div class="dialog-actions">
+        <button id="ask-submit" class="btn secondary" type="button">提交追问</button>
+      </div>
+      <div id="ask-result" class="ask-result"></div>
+    </div>
+  </dialog>
+
+  <dialog id="challenge-dialog" class="review-dialog">
+    <div class="dialog-head">
+      <strong>反例挑战</strong>
+      <button id="challenge-dialog-close" class="dialog-close" type="button" aria-label="关闭">✕</button>
+    </div>
+    <div class="dialog-body">
+      <p id="challenge-context" class="review-facts"></p>
+      <textarea id="challenge-review" rows="5" placeholder="粘贴一条反例评论，或填写你自己的质疑"></textarea>
+      <div class="dialog-actions">
+        <button id="challenge-submit" class="btn secondary" type="button">判断支持/削弱/推翻</button>
+      </div>
+      <div id="challenge-result" class="ask-result"></div>
+    </div>
+  </dialog>
 
   <footer class="footer">
     数据来源：Apple iTunes Customer Reviews RSS（中国区可用）· 离线缓存与限制见 <code>data/README.md</code> ·
