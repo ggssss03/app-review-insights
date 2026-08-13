@@ -1,18 +1,8 @@
 [
   {
-    "stage": "fetch",
-    "status": "running",
-    "detail": "正在重新采集评论（将覆盖旧缓存）"
-  },
-  {
-    "stage": "fetch",
-    "status": "ok",
-    "detail": "重新采集完成（us 区），新数据已覆盖旧缓存"
-  },
-  {
     "stage": "scope",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   },
   {
     "stage": "load",
@@ -21,8 +11,8 @@
   },
   {
     "stage": "clean",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   },
   {
     "stage": "clean",
@@ -31,27 +21,27 @@
   },
   {
     "stage": "topics",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   },
   {
     "stage": "findings",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   },
   {
     "stage": "requirements",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   },
   {
     "stage": "testcases",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   },
   {
     "stage": "traceability",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   }
 ]

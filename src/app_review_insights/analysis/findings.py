@@ -55,6 +55,7 @@ def build_findings(
     *,
     max_model_findings_per_topic: int = 3,
     focus_areas: Optional[list[str]] = None,
+    audit: Optional[dict] = None,
 ) -> list[dict]:
     """生成发现列表：stat 兜底 + model 增强；模型输出执行引用白名单校验。"""
     findings: list[dict] = []
@@ -94,6 +95,10 @@ def build_findings(
                     continue
                 evidence = [str(i) for i in (item.get("evidence_review_ids") or [])]
                 valid = [i for i in evidence if i in allowed]
+                if audit is not None:
+                    dropped = [i for i in evidence if i not in allowed]
+                    if dropped:
+                        audit.setdefault("dropped_refs", []).extend(dropped)
                 if not valid:
                     continue  # 引用白名单：非法引用直接丢弃
                 model_count += 1

@@ -1730,3 +1730,67 @@ tbody tr:last-child td { border-bottom: none; }
   .grid-overlay { animation: none; }
   .form-card::before { animation: none; }
 }
+
+/* ============ P1 高性价比增强 ============ */
+
+.result-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 14px 4px 10px; border-bottom: 1px solid var(--line); }
+.toolbar-title { font-family: var(--display); font-weight: 700; color: var(--text); }
+.toolbar-actions { display: flex; gap: 8px; }
+
+.donut-wrap { position: relative; width: 220px; height: 220px; margin: 6px auto 10px; }
+.donut-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; }
+.donut-center b { font-family: var(--display); font-size: 30px; color: var(--text); }
+.donut-center span { font-size: 11px; color: var(--muted); }
+.donut-legend { display: grid; gap: 6px; }
+.donut-legend-item { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--muted); }
+.donut-legend-item b { margin-left: auto; font-family: var(--mono); color: var(--text); }
+.swatch { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+.swatch.s5 { background: #34d399; }
+.swatch.s4 { background: #22d3ee; }
+.swatch.s3 { background: #facc15; }
+.swatch.s2 { background: #f97316; }
+.swatch.s1 { background: #ef4444; }
+
+.conf-legend { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; margin: 12px 2px; font-size: 11.5px; color: var(--muted); }
+.conf-swatch { width: 9px; height: 9px; border-radius: 2px; display: inline-block; margin-right: 5px; }
+.conf-swatch.low { background: #9aa5b8; }
+.conf-swatch.mid { background: #60a5fa; }
+.conf-swatch.high { background: #34d399; }
+.conf-fill.conf-low { background: linear-gradient(90deg, #64748b, #9aa5b8); }
+.conf-fill.conf-mid { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+.conf-fill.conf-high { background: linear-gradient(90deg, #10b981, #34d399); }
+
+.chip.mini.evidence { cursor: pointer; }
+.chip.mini.evidence:hover { border-color: var(--cyan); color: var(--cyan); background: rgba(34, 211, 238, 0.12); }
+
+.cell-id.linklike { appearance: none; background: transparent; border: 0; padding: 0; color: var(--cyan); font-family: var(--mono); font-size: 11px; cursor: pointer; text-decoration: underline dotted; }
+.cell-id.linklike:hover { color: var(--text); }
+
+.finding-card.low { padding: 0; cursor: pointer; }
+.finding-card.low > summary { list-style: none; display: flex; align-items: center; gap: 10px; padding: 14px 16px; }
+.finding-card.low > summary::-webkit-details-marker { display: none; }
+.finding-card.low[open] > summary { border-bottom: 1px solid var(--line); }
+.finding-card.low .finding-head, .finding-card.low .finding-statement, .finding-card.low .finding-meta,
+.finding-card.low .conflict-list, .finding-card.low .evidence-row, .finding-card.low .rationale { padding-left: 16px; padding-right: 16px; }
+.low-flag { flex: none; font-family: var(--mono); font-size: 10px; color: #0c1a1f; background: var(--amber); padding: 2px 7px; border-radius: 999px; }
+.low-title { color: var(--muted); font-size: 12.5px; flex: 1; }
+.low-conf { flex: none; font-family: var(--mono); font-size: 11px; color: var(--amber); }
+
+.audit-log { margin-top: 14px; padding: 14px 16px; border: 1px solid var(--line); border-radius: var(--radius-sm); background: rgba(3, 6, 15, 0.55); }
+.audit-log h3 { font-size: 13px; margin: 0 0 8px; color: var(--text); }
+.audit-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.audit-note { margin: 8px 0 0; font-size: 12px; color: var(--muted); }
+.audit-log.empty .audit-note { color: var(--emerald); }
+
+.review-dialog { width: min(640px, 92vw); border: 1px solid var(--line-2); border-radius: var(--radius); background: #070b18; color: var(--text); padding: 0; }
+.review-dialog::backdrop { background: rgba(2, 4, 10, 0.72); backdrop-filter: blur(5px); }
+.dialog-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+.dialog-close { border: 0; background: transparent; color: var(--muted); cursor: pointer; font-size: 16px; }
+.dialog-close:hover { color: var(--text); }
+.dialog-body { padding: 16px; }
+.review-head { display: flex; align-items: center; gap: 10px; }
+.review-facts { display: flex; flex-wrap: wrap; gap: 12px; margin: 10px 0; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.dialog-body h4 { margin: 14px 0 6px; font-size: 14px; }
+.review-body { color: #dbeafe; font-size: 13.5px; line-height: 1.7; white-space: pre-wrap; }
+.review-cites { margin-top: 14px; }
+.review-cites ul { margin: 8px 0 0; padding-left: 18px; display: grid; gap: 6px; color: var(--muted); font-size: 12.5px; }

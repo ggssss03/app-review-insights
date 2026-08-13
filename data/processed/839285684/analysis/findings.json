@@ -22,7 +22,7 @@
   {
     "id": "F-model-0-1",
     "topic_id": 0,
-    "statement": "用户普遍认为该应用便捷高效，能适应忙碌日程，帮助建立锻炼习惯。",
+    "statement": "用户普遍认可该应用提供的便捷高效锻炼体验，尤其适合时间紧张或难以坚持锻炼的人群。",
     "evidence_review_ids": [
       "5684535804",
       "5786142670",
@@ -30,7 +30,7 @@
     ],
     "sample_count": 3,
     "confidence": 0.9,
-    "uncertainty": "评论均来自高评分用户，可能偏向正面，但样本量小。",
+    "uncertainty": "样本均来自5星好评，可能缺乏负面反馈，但多个评论一致强调便捷性。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -39,13 +39,14 @@
   {
     "id": "F-model-0-2",
     "topic_id": 0,
-    "statement": "应用提供多种锻炼类型和选项，适合不同用户需求（如产后、初学者等）。",
+    "statement": "应用提供多样化的锻炼类型和选择，满足不同用户需求（如产后、初学者等）。",
     "evidence_review_ids": [
-      "11593815773"
+      "11593815773",
+      "7911742368"
     ],
-    "sample_count": 1,
-    "confidence": 0.6,
-    "uncertainty": "仅一条评论提及，样本不足。",
+    "sample_count": 2,
+    "confidence": 0.8,
+    "uncertainty": "仅两条评论提及多样性，样本量较小。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -54,13 +55,13 @@
   {
     "id": "F-model-0-3",
     "topic_id": 0,
-    "statement": "应用价格实惠，性价比高。",
+    "statement": "用户认为应用价格便宜，性价比高。",
     "evidence_review_ids": [
       "12150581992"
     ],
     "sample_count": 1,
-    "confidence": 0.5,
-    "uncertainty": "仅一条评论提及价格，且未明确具体价格，样本不足。",
+    "confidence": 0.4,
+    "uncertainty": "仅一条评论提及价格，样本不足，且未涉及订阅转化细节。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -101,14 +102,14 @@
   {
     "id": "F-model-2-1",
     "topic_id": 2,
-    "statement": "用户对应用更新后的体验给予正面评价，认为更新带来了改进。",
+    "statement": "用户对应用更新后的体验表示满意，认为更新带来了更好的使用感受。",
     "evidence_review_ids": [
       "8320450139",
       "5377927335"
     ],
     "sample_count": 2,
     "confidence": 0.8,
-    "uncertainty": "仅基于两条评论，且未提供具体更新内容细节。",
+    "uncertainty": "样本量有限，且未提供具体更新内容，但评论明确提及更新后体验更佳。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -117,13 +118,13 @@
   {
     "id": "F-model-2-2",
     "topic_id": 2,
-    "statement": "应用在用户完成初始问卷后提供高级版订阅选项，但评论未明确提及订阅转化率或价格问题。",
+    "statement": "应用在注册流程中提供高级版订阅选项，但未发现用户对订阅价格或转化过程的负面反馈。",
     "evidence_review_ids": [
       "10175260415"
     ],
     "sample_count": 1,
-    "confidence": 0.3,
-    "uncertainty": "仅一条评论提及订阅选项，且未涉及价格或转化细节，样本不足。",
+    "confidence": 0.4,
+    "uncertainty": "仅一条评论提及订阅选项，且未详细说明价格或转化体验，证据不足。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",

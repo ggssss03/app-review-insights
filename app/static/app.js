@@ -43,6 +43,16 @@ async function init() {
   );
   $("start-btn").addEventListener("click", start);
   $("import-btn").addEventListener("click", doImport);
+  $("export-md").addEventListener("click", () => exportReport("md"));
+  $("export-json").addEventListener("click", () => exportReport("json"));
+  $("review-dialog-close").addEventListener("click", () => $("review-dialog").close());
+  document.addEventListener("click", (e) => {
+    const trigger = e.target.closest("[data-review]");
+    if (trigger) {
+      e.preventDefault();
+      openReviewDialog(trigger.dataset.review);
+    }
+  });
 }
 
 let currentAppId = null;
@@ -53,6 +63,7 @@ async function start() {
   const url = $("url").value.trim();
   const goal = $("goal").value.trim();
   if (!url) return showMsg("请填写 App Store 链接或应用 ID", true);
+  Object.keys(stageCache).forEach((k) => delete stageCache[k]);
   $("start-btn").disabled = true;
   $("form-msg").textContent = "已提交，正在启动分析…";
   $("progress-card").classList.remove("hidden");
@@ -130,7 +141,10 @@ async function fetchStage(stage) {
 async function renderTab(tab) {
   const el = $("tab-content");
   try {
-    if (tab === "summary") el.innerHTML = renderSummary(window.__summary);
+    if (tab === "summary") {
+      el.innerHTML = renderSummary(window.__summary);
+      setTimeout(drawRatingDonut, 30);
+    }
     else if (tab === "raw") el.innerHTML = renderRaw(await fetchStage("raw"));
     else if (tab === "topics") el.innerHTML = renderTopics(await fetchStage("topics"));
     else if (tab === "findings") el.innerHTML = renderFindings(await fetchStage("findings"));
@@ -270,7 +284,7 @@ function renderRaw(reviews) {
     .map((r) => `
       <tr>
         <td><span class="badge stat">${esc(RAW_SOURCE_LABELS[r.source] || r.source || "?")}</span><br>
-            <span class="cell-id">${esc(r.review_id || "—")}</span></td>
+            ${r.review_id ? `<button type="button" class="cell-id linklike" data-review="${esc(r.review_id)}" title="查看原文与引用">${esc(r.review_id)}</button>` : `<span class="cell-id">${esc(r.review_id || "—")}</span>`}</td>
         <td><span class="stars s${r.rating || 0}">${"★".repeat(r.rating || 0)}<span class="stars-ghost">${"★".repeat(5 - (r.rating || 0))}</span></span></td>
         <td><span class="version-tag">${esc(r.version || "—")}</span></td>
         <td class="cell-id">${esc(r.updated || "—")}</td>
@@ -375,6 +389,140 @@ async function doImport() {
   } catch (e) {
     showMsg(`导入失败：${e.message}`, true);
   }
+}
+
+const stageCache = {};
+async function getStage(stage) {
+  if (!(stage in stageCache)) stageCache[stage] = await fetchStage(stage);
+  return stageCache[stage];
+}
+
+function drawRatingDonut() {
+  const canvas = document.getElementById("rating-donut");
+  if (!canvas) return;
+  const s = window.__summary && window.__summary.clean_stats;
+  const rd = (s && s.rating_distribution) || {};
+  const keys = ["5", "4", "3", "2", "1"];
+  const colors = { "5": "#34d399", "4": "#22d3ee", "3": "#facc15", "2": "#f97316", "1": "#ef4444" };
+  const vals = keys.map((k) => Number(rd[k]) || 0);
+  const total = vals.reduce((a, b) => a + b, 0);
+  const ctx = canvas.getContext("2d");
+  const cx = canvas.width / 2;
+  const cy = canvas.height / 2;
+  const radius = 88;
+  const thickness = 30;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.beginPath();
+  ctx.arc(cx, cy, radius, 0, Math.PI * 2);
+  ctx.strokeStyle = "rgba(148, 163, 184, 0.12)";
+  ctx.lineWidth = thickness;
+  ctx.stroke();
+  let start = -Math.PI / 2;
+  if (total > 0) {
+    keys.forEach((k, i) => {
+      const v = vals[i];
+      if (!v) return;
+      const angle = (v / total) * Math.PI * 2;
+      ctx.beginPath();
+      ctx.arc(cx, cy, radius, start, start + angle);
+      ctx.arc(cx, cy, radius - thickness, start + angle, start, true);
+      ctx.closePath();
+      ctx.fillStyle = colors[k];
+      ctx.fill();
+      start += angle;
+    });
+  }
+}
+
+async function openReviewDialog(reviewId) {
+  const dialog = $("review-dialog");
+  if (!dialog || !reviewId) return;
+  const body = $("review-dialog-body");
+  body.innerHTML = `<div class="msg">正在加载原文…</div>`;
+  dialog.showModal();
+  try {
+    const [raw, findings, requirements] = await Promise.all([
+      getStage("raw"),
+      getStage("findings"),
+      getStage("requirements"),
+    ]);
+    const review = (raw || []).find((r) => String(r.review_id) === String(reviewId));
+    const cites = (findings || []).filter((f) => (f.evidence_review_ids || []).includes(String(reviewId)));
+    const reqs = (requirements || []).filter((r) => (r.review_ids || []).includes(String(reviewId)));
+    const stars = review && review.rating ? "★".repeat(review.rating) + "☆".repeat(5 - review.rating) : "—";
+    const citeHtml = [...cites, ...reqs].length
+      ? [...cites.map((f) => `<li>发现 ${esc(f.id)}：${esc(f.statement)}</li>`), ...reqs.map((r) => `<li>需求 ${esc(r.code)}：${esc(r.title)}</li>`)].join("")
+      : "<li>未被任何发现或需求直接引用。</li>";
+    body.innerHTML = `
+      <div class="review-head">
+        <span class="cell-id">${esc(reviewId)}</span>
+        <span class="stars s${review ? review.rating || 0 : 0}">${esc(stars)}</span>
+      </div>
+      <div class="review-facts">
+        <span>版本 ${esc(review && review.version ? review.version : "—")}</span>
+        <span>日期 ${esc(review && review.updated ? review.updated : "—")}</span>
+        <span>来源 ${esc(review && review.source ? review.source : "—")}</span>
+      </div>
+      ${review && review.title ? `<h4>${esc(review.title)}</h4>` : ""}
+      <p class="review-body">${esc(review && review.body ? review.body : "未找到该评论原文。")}</p>
+      <div class="review-cites"><h4>被引用位置</h4><ul>${citeHtml}</ul></div>
+    `;
+  } catch (e) {
+    body.innerHTML = `<div class="msg error">加载失败：${esc(e.message)}</div>`;
+  }
+}
+
+async function exportReport(fmt) {
+  const summary = window.__summary || {};
+  const stages = ["raw", "scope", "clean", "topics", "findings", "requirements", "testcases", "traceability"];
+  const artifacts = {};
+  for (const stage of stages) artifacts[stage] = await fetchStage(stage);
+  const payload = { summary, artifacts };
+  let text = "";
+  let name = `app-review-${summary.app_id || "report"}`;
+  if (fmt === "json") {
+    text = JSON.stringify(payload, null, 2);
+    name += ".json";
+  } else {
+    name += ".md";
+    const c = summary.counts || {};
+    const trace = summary.traceability || {};
+    const lines = [
+      `# App Review Insights 分析报告`,
+      ``,
+      `- App ID：${summary.app_id || "—"}`,
+      `- 分析目标：${summary.goal_text || "（未指定）"}`,
+      `- 评论 ${c.reviews || 0} · 主题 ${c.topics || 0} · 发现 ${c.findings || 0} · 需求 ${c.requirements || 0} · 用例 ${c.test_cases || 0}`,
+      `- 追溯校验：${trace.passed_checks || 0}/${trace.total_checks || 0} 通过`,
+      ``,
+      `## 分析范围`,
+      ``,
+      ...(artifacts.scope && artifacts.scope.note ? [`- ${artifacts.scope.note}`] : []),
+      ``,
+      `## 关键发现`,
+      ``,
+      ...(artifacts.findings || []).map((f) => `- [${f.provenance}] ${f.statement}（置信 ${Math.round((Number(f.confidence) || 0) * 100)}%，证据 ${(f.evidence_review_ids || []).length} 条）`),
+      ``,
+      `## 需求 / PRD`,
+      ``,
+      ...(artifacts.requirements || []).map((r) => `- ${r.code} ${r.title}（${r.priority}/${r.planned_version}）`),
+      ``,
+      `## 测试用例`,
+      ``,
+      ...(artifacts.testcases || []).map((t) => `- ${t.code} ${t.title}`),
+      ``,
+      `## 数据说明`,
+      ``,
+      ...(summary.notes || []).map((n) => `- ${n}`),
+    ];
+    text = lines.join("\n");
+  }
+  const blob = new Blob([text], { type: fmt === "json" ? "application/json" : "text/markdown;charset=utf-8" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = name;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 0);
 }
 
 function showMsg(text, isError = false) {
@@ -585,12 +733,24 @@ function renderDist(cs) {
   const ratingKeys = ["5", "4", "3", "2", "1"];
   const ratingVals = ratingKeys.map((k) => Number(rd[k] || 0));
   const ratingShares = pctShares(ratingVals);
-  const ratingRows = hasRating
-    ? ratingKeys.map((k, i) => {
-        const n = ratingVals[i];
-        const pct = ratingShares[i];
-        return `<div class="dist-row"><span class="dist-label">${k}★</span><div class="dist-track"><div class="dist-fill f${k}" style="width:${pct}%"></div></div><span class="dist-val">${n} · ${pct}%</span></div>`;
-      }).join("")
+  const ratingTotal = ratingVals.reduce((a, b) => a + b, 0);
+  const ratingAvg = ratingTotal ? ratingVals.reduce((a, b, i) => a + b * (5 - i), 0) / ratingTotal : 0;
+  const ratingLegend = ratingKeys.map((k, i) => {
+    const n = ratingVals[i];
+    const pct = ratingShares[i];
+    return n
+      ? `<div class="donut-legend-item"><span class="swatch s${k}"></span><span>${k}★ · ${n} 条</span><b>${pct}%</b></div>`
+      : "";
+  }).join("");
+  const ratingDonut = hasRating
+    ? `<div class="dist-col">
+         <h3 class="dist-title">★ 评分分布</h3>
+         <div class="donut-wrap">
+           <canvas id="rating-donut" width="220" height="220" role="img" aria-label="评分分布环形图"></canvas>
+           <div class="donut-center"><b>${ratingAvg.toFixed(1)}</b><span>平均分 · ${ratingTotal} 条</span></div>
+         </div>
+         <div class="donut-legend">${ratingLegend}</div>
+       </div>`
     : "";
 
   const langEntries = Object.entries(ld);
@@ -605,7 +765,7 @@ function renderDist(cs) {
     .join("");
 
   return `<div class="dist-panel">
-    ${hasRating ? `<div class="dist-col"><h3 class="dist-title">★ 评分分布</h3>${ratingRows}</div>` : ""}
+    ${ratingDonut}
     ${hasLang ? `<div class="dist-col"><h3 class="dist-title">◉ 语言分布</h3>${langRows}</div>` : ""}
   </div>`;
 }
@@ -665,21 +825,24 @@ const CHECK_LABELS = {
 
 renderFindings = function (f) {
   if (!f || !f.length) return `<div class="page-head"><h2>◆ 关键发现</h2></div><p>暂无发现。</p>`;
-  const cards = f.map((x) => {
-    const conf = Math.round((Number(x.confidence) || 0) * 100);
+  const sorted = f.slice().sort((a, b) => (Number(b.confidence) || 0) - (Number(a.confidence) || 0));
+  const cards = sorted.map((x) => {
+    const confVal = Number(x.confidence) || 0;
+    const conf = Math.round(confVal * 100);
+    const confCls = confVal < 0.5 ? "conf-low" : confVal < 0.8 ? "conf-mid" : "conf-high";
     const evidence = x.evidence_review_ids || [];
     const conflicts = x.conflicts || [];
     const prov = PROVENANCE_LABELS[x.provenance] || esc(x.provenance || "未知");
     const status = STATUS_LABELS[x.status] || esc(x.status || "");
-    return `
-    <div class="finding-card">
+    const evidenceChips = evidence.slice(0, 8).map((id) => `<span class="chip mini evidence" data-review="${esc(id)}" title="查看原文">${esc(id)}</span>`).join("");
+    const inner = `
       <div class="finding-head">
         <span class="code-chip">${esc(x.id)}</span>
         <span class="chip prov-${esc(x.provenance)}">${esc(prov)}</span>
         ${x.status ? `<span class="chip status-${esc(x.status)}">${esc(status)}</span>` : ""}
         <div class="conf-meter">
           <span class="conf-label">置信 ${conf}%</span>
-          <div class="conf-track"><div class="conf-fill" style="width:${conf}%"></div></div>
+          <div class="conf-track"><div class="conf-fill ${confCls}" style="width:${conf}%"></div></div>
         </div>
       </div>
       <p class="finding-statement">${esc(x.statement)}</p>
@@ -689,16 +852,32 @@ renderFindings = function (f) {
         ${x.uncertainty && x.uncertainty !== "无" ? `<span class="meta-item warn">⚠ ${esc(x.uncertainty)}</span>` : ""}
       </div>
       ${conflicts.length ? `<div class="conflict-list">${conflicts.map((c) => `<div class="conflict-line">✕ ${esc(c)}</div>`).join("")}</div>` : ""}
-      ${evidence.length ? `<div class="evidence-row">证据：${evidence.slice(0, 8).map((id) => `<span class="chip mini">${esc(id)}</span>`).join("")}${evidence.length > 8 ? `<span class="chip mini dim">+${evidence.length - 8}</span>` : ""}</div>` : ""}
+      ${evidence.length ? `<div class="evidence-row">证据：${evidenceChips}${evidence.length > 8 ? `<span class="chip mini dim">+${evidence.length - 8}</span>` : ""}</div>` : ""}
       ${x.rationale ? `<div class="rationale">${esc(x.rationale)}</div>` : ""}
-    </div>`;
+    `;
+    if (confVal < 0.5) {
+      return `<details class="finding-card low">
+        <summary>
+          <span class="low-flag">⚠ 证据不足</span>
+          <span class="low-title">${esc(x.id)} · ${esc(x.statement)}</span>
+          <span class="low-conf">置信 ${conf}%</span>
+        </summary>
+        ${inner}
+      </details>`;
+    }
+    return `<div class="finding-card">${inner}</div>`;
   }).join("");
   return `
     <div class="page-head">
       <div>
         <h2>◆ 关键发现</h2>
-        <p class="page-sub">${f.length} 项发现 · 统计 + 模型双重证据评估</p>
+        <p class="page-sub">${f.length} 项发现 · 按置信度排序 · 统计 + 模型双重证据评估</p>
       </div>
+    </div>
+    <div class="conf-legend">
+      <span class="conf-swatch low"></span> 证据不足 &lt;50%
+      <span class="conf-swatch mid"></span> 中等 50–80%
+      <span class="conf-swatch high"></span> 高置信 &gt;80%
     </div>
     ${cards}`;
 };
@@ -719,7 +898,7 @@ renderRequirements = function (r) {
       ${x.description ? `<p class="req-desc">${esc(x.description)}</p>` : ""}
       <div class="req-meta">
         ${(x.finding_ids || []).length ? `<div class="link-row"><span class="link-label">来源发现</span>${x.finding_ids.map((id) => `<span class="chip mini">${esc(id)}</span>`).join("")}</div>` : ""}
-        ${(x.review_ids || []).length ? `<div class="link-row"><span class="link-label">来源评论</span>${x.review_ids.slice(0, 6).map((id) => `<span class="chip mini">${esc(id)}</span>`).join("")}</div>` : ""}
+        ${(x.review_ids || []).length ? `<div class="link-row"><span class="link-label">来源评论</span>${x.review_ids.slice(0, 6).map((id) => `<span class="chip mini evidence" data-review="${esc(id)}" title="查看原文">${esc(id)}</span>`).join("")}</div>` : ""}
       </div>
       ${(x.acceptance_criteria || []).length ? `<ul class="ac-list">${x.acceptance_criteria.map((c) => `<li><span class="ac-mark">✓</span>${esc(c)}</li>`).join("")}</ul>` : ""}
     </div>`;
@@ -751,7 +930,7 @@ renderTestCases = function (t) {
         <span class="chip mini model">验收</span>
       </div>
       <div class="req-link">需求：${(x.requirement_ids || []).map((id) => `<span class="chip mini">${esc(id)}</span>`).join("") || "—"}</div>
-      ${x.review_ids && x.review_ids.length ? `<div class="req-link">评论：${x.review_ids.slice(0, 6).map((id) => `<span class="chip mini">${esc(id)}</span>`).join("")}</div>` : ""}
+      ${x.review_ids && x.review_ids.length ? `<div class="req-link">评论：${x.review_ids.slice(0, 6).map((id) => `<span class="chip mini evidence" data-review="${esc(id)}" title="查看原文">${esc(id)}</span>`).join("")}</div>` : ""}
       <div class="gherkin">${steps}</div>
     </div>`;
   }).join("");
@@ -772,6 +951,7 @@ renderTraceability = function (t) {
   const passed = sum.passed_checks || 0;
   const pct = total ? Math.round((passed / total) * 100) : 0;
   const checks = t.checks || [];
+  const dropped = t.dropped_refs || [];
   const rows = checks.map((c) => `
     <div class="check-row ${c.passed ? "pass" : "fail"}">
       <span class="check-icon">${c.passed ? "✓" : "✕"}</span>
@@ -797,10 +977,14 @@ renderTraceability = function (t) {
         <div class="trace-chip"><b>${t.removed_findings ? t.removed_findings.length : 0}</b><span>移除发现</span></div>
         <div class="trace-chip"><b>${t.removed_test_cases ? t.removed_test_cases.length : 0}</b><span>移除用例</span></div>
         <div class="trace-chip"><b>${t.assumption_requirements ? t.assumption_requirements.length : 0}</b><span>假设需求</span></div>
+        <div class="trace-chip"><b>${dropped.length}</b><span>拦截引用</span></div>
         <div class="trace-chip"><b>${checks.length}</b><span>总检查项</span></div>
       </div>
     </div>
-    <div class="check-list">${rows}</div>`;
+    <div class="check-list">${rows}</div>
+    ${dropped.length
+      ? `<div class="audit-log"><h3>引用白名单拦截记录</h3><div class="audit-tags">${dropped.map((id) => `<span class="chip mini removed">${esc(id)}</span>`).join("")}</div><p class="audit-note">以上模型引用不在白名单内，已在生成阶段丢弃，未进入交付物。</p></div>`
+      : `<div class="audit-log empty"><h3>引用白名单拦截记录</h3><p class="audit-note">本次未拦截到非法引用；模型输出均通过引用校验。</p></div>`}`;
 };
 
 renderClean = function (c) {

@@ -22,13 +22,13 @@
         }
       ],
       "label": "便捷高效的锻炼体验",
-      "description": "用户称赞该应用方便、易用，适合忙碌或产后恢复人群，提供多种锻炼选项，且价格实惠。",
+      "description": "用户称赞该应用方便、易用，适合忙碌或初学者，并提供多种锻炼选项和提醒功能，帮助保持锻炼一致性。",
       "keywords": [
         "convenient",
         "consistent",
         "beginner",
         "workout options",
-        "cheap price"
+        "reminder"
       ]
     },
     {
@@ -41,11 +41,12 @@
         }
       ],
       "label": "适合老年人的温和锻炼",
-      "description": "用户提到该应用适合老年人或身体不便者，提供温和的锻炼指导，不评判用户。",
+      "description": "用户提到该应用适合老年人或身体不便者，提供温和的锻炼指导，不具评判性。",
       "keywords": [
         "seniors",
-        "gentle exercise",
-        "no judgement"
+        "gentle",
+        "no judgment",
+        "exercise classes"
       ]
     },
     {
@@ -66,12 +67,13 @@
         }
       ],
       "label": "更新后更佳的应用体验",
-      "description": "用户喜欢应用的更新，认为新版本更好，并提到应用会询问个人数据以定制锻炼计划。",
+      "description": "用户对应用的更新表示满意，认为新版本改进明显，且整体体验良好，值得推荐。",
       "keywords": [
         "updates",
-        "new version",
-        "personalized",
-        "questions"
+        "improved",
+        "amazing",
+        "worth it",
+        "great app"
       ]
     }
   ],

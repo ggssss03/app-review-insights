@@ -131,6 +131,13 @@
     </section>
 
     <section id="result-card" class="card hidden" aria-label="分析结果">
+      <div class="result-toolbar">
+        <div class="toolbar-title">分析结果</div>
+        <div class="toolbar-actions">
+          <button id="export-md" class="btn secondary" type="button">导出 Markdown</button>
+          <button id="export-json" class="btn secondary" type="button">导出 JSON</button>
+        </div>
+      </div>
       <div class="tabs" role="tablist">
         <button class="tab active" data-tab="summary" role="tab" aria-selected="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -188,6 +195,14 @@
       <div id="tab-content" role="tabpanel"></div>
     </section>
   </main>
+
+  <dialog id="review-dialog" class="review-dialog">
+    <div class="dialog-head">
+      <strong>评论原文与引用</strong>
+      <button id="review-dialog-close" class="dialog-close" type="button" aria-label="关闭">✕</button>
+    </div>
+    <div id="review-dialog-body" class="dialog-body"></div>
+  </dialog>
 
   <div class="ticker" aria-hidden="true">
     <span class="ticker-label"><span class="live-dot"></span>LIVE</span>

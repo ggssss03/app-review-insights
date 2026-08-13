@@ -52,11 +52,6 @@
       "passed": true
     },
     {
-      "check": "requirement_support",
-      "id": "R3",
-      "passed": true
-    },
-    {
       "check": "testcase_link",
       "id": "TC1",
       "passed": true
@@ -64,26 +59,6 @@
     {
       "check": "testcase_link",
       "id": "TC2",
-      "passed": true
-    },
-    {
-      "check": "testcase_link",
-      "id": "TC3",
-      "passed": true
-    },
-    {
-      "check": "testcase_link",
-      "id": "TC4",
-      "passed": true
-    },
-    {
-      "check": "testcase_link",
-      "id": "TC5",
-      "passed": true
-    },
-    {
-      "check": "testcase_link",
-      "id": "TC6",
       "passed": true
     },
     {
@@ -96,13 +71,6 @@
     {
       "check": "requirement_review_chain",
       "id": "R2",
-      "passed": true,
-      "detail": "链路完整",
-      "missing": []
-    },
-    {
-      "check": "requirement_review_chain",
-      "id": "R3",
       "passed": true,
       "detail": "链路完整",
       "missing": []
@@ -132,7 +100,7 @@
     {
       "id": "F-model-0-1",
       "topic_id": 0,
-      "statement": "用户普遍认为该应用便捷高效，能适应忙碌日程，帮助建立锻炼习惯。",
+      "statement": "用户普遍认可该应用提供的便捷高效锻炼体验，尤其适合时间紧张或难以坚持锻炼的人群。",
       "evidence_review_ids": [
         "5684535804",
         "5786142670",
@@ -140,7 +108,7 @@
       ],
       "sample_count": 3,
       "confidence": 0.9,
-      "uncertainty": "评论均来自高评分用户，可能偏向正面，但样本量小。",
+      "uncertainty": "样本均来自5星好评，可能缺乏负面反馈，但多个评论一致强调便捷性。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -149,13 +117,14 @@
     {
       "id": "F-model-0-2",
       "topic_id": 0,
-      "statement": "应用提供多种锻炼类型和选项，适合不同用户需求（如产后、初学者等）。",
+      "statement": "应用提供多样化的锻炼类型和选择，满足不同用户需求（如产后、初学者等）。",
       "evidence_review_ids": [
-        "11593815773"
+        "11593815773",
+        "7911742368"
       ],
-      "sample_count": 1,
-      "confidence": 0.6,
-      "uncertainty": "仅一条评论提及，样本不足。",
+      "sample_count": 2,
+      "confidence": 0.8,
+      "uncertainty": "仅两条评论提及多样性，样本量较小。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -164,13 +133,13 @@
     {
       "id": "F-model-0-3",
       "topic_id": 0,
-      "statement": "应用价格实惠，性价比高。",
+      "statement": "用户认为应用价格便宜，性价比高。",
       "evidence_review_ids": [
         "12150581992"
       ],
       "sample_count": 1,
-      "confidence": 0.5,
-      "uncertainty": "仅一条评论提及价格，且未明确具体价格，样本不足。",
+      "confidence": 0.4,
+      "uncertainty": "仅一条评论提及价格，样本不足，且未涉及订阅转化细节。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -211,14 +180,14 @@
     {
       "id": "F-model-2-1",
       "topic_id": 2,
-      "statement": "用户对应用更新后的体验给予正面评价，认为更新带来了改进。",
+      "statement": "用户对应用更新后的体验表示满意，认为更新带来了更好的使用感受。",
       "evidence_review_ids": [
         "8320450139",
         "5377927335"
       ],
       "sample_count": 2,
       "confidence": 0.8,
-      "uncertainty": "仅基于两条评论，且未提供具体更新内容细节。",
+      "uncertainty": "样本量有限，且未提供具体更新内容，但评论明确提及更新后体验更佳。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -227,13 +196,13 @@
     {
       "id": "F-model-2-2",
       "topic_id": 2,
-      "statement": "应用在用户完成初始问卷后提供高级版订阅选项，但评论未明确提及订阅转化率或价格问题。",
+      "statement": "应用在注册流程中提供高级版订阅选项，但未发现用户对订阅价格或转化过程的负面反馈。",
       "evidence_review_ids": [
         "10175260415"
       ],
       "sample_count": 1,
-      "confidence": 0.3,
-      "uncertainty": "仅一条评论提及订阅选项，且未涉及价格或转化细节，样本不足。",
+      "confidence": 0.4,
+      "uncertainty": "仅一条评论提及订阅选项，且未详细说明价格或转化体验，证据不足。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -243,54 +212,37 @@
   "requirements": [
     {
       "code": "R1",
-      "title": "强化便捷高效的锻炼体验",
-      "description": "基于用户对应用便捷高效、适应忙碌日程的正面反馈，进一步优化核心锻炼流程，确保用户能快速开始和完成锻炼，巩固这一核心优势。",
-      "priority": "P0",
+      "title": "强化订阅价值感知与转化引导",
+      "description": "基于用户对应用性价比的认可（F-model-0-3），在订阅流程中突出价格优势与价值对比，优化高级版订阅的呈现方式，提升转化率。",
+      "priority": "P1",
       "planned_version": "V1",
       "finding_ids": [
-        "F-stat-0",
-        "F-model-0-1"
+        "F-model-0-3"
       ],
-      "review_ids": [],
+      "review_ids": [
+        "12150581992"
+      ],
       "acceptance_criteria": [
-        "用户从打开应用到开始锻炼的步骤不超过3步",
-        "提供快捷锻炼模式，支持用户自定义时长（如10/15/20分钟）",
-        "在应用内突出显示“快速开始”按钮，减少浏览时间"
+        "在订阅页面展示价格对比或价值说明，突出性价比",
+        "A/B测试至少两种订阅引导文案，转化率提升5%"
       ],
       "status": "kept"
     },
     {
       "code": "R2",
-      "title": "扩展多样化锻炼类型以满足不同用户需求",
-      "description": "用户提到应用提供多种锻炼类型（如产后、初学者等），应继续丰富锻炼库，覆盖更多细分人群，提升应用对不同用户群体的吸引力。",
-      "priority": "P1",
+      "title": "优化订阅流程的用户体验",
+      "description": "针对注册流程中的高级版订阅选项，确保流程顺畅无负面反馈，并增加用户对订阅价值的理解，减少潜在流失。",
+      "priority": "P2",
       "planned_version": "V2",
       "finding_ids": [
-        "F-model-0-2"
-      ],
-      "review_ids": [],
-      "acceptance_criteria": [
-        "新增至少3种针对特定人群的锻炼计划（如产后恢复、老年人、办公室人群）",
-        "在问卷中增加更多选项以识别用户需求，并推荐相应计划",
-        "确保新锻炼计划在应用内可搜索和筛选"
-      ],
-      "status": "kept"
-    },
-    {
-      "code": "R3",
-      "title": "优化订阅转化流程并强化价格价值感知",
-      "description": "虽然用户认为价格实惠，但订阅转化率相关证据不足。需优化高级版订阅的呈现方式，强调性价比，并可能通过免费试用或限时优惠提升转化。",
-      "priority": "P1",
-      "planned_version": "V2",
-      "finding_ids": [
-        "F-model-0-3",
         "F-model-2-2"
       ],
-      "review_ids": [],
+      "review_ids": [
+        "10175260415"
+      ],
       "acceptance_criteria": [
-        "在订阅页面突出显示价格对比（如每月成本 vs 健身课程费用）",
-        "提供7天免费试用，试用结束后自动转为付费订阅",
-        "在用户完成初始问卷后，展示个性化订阅推荐，并附上用户好评"
+        "订阅流程中无用户负面反馈",
+        "订阅页面加载时间小于2秒"
       ],
       "status": "kept"
     }
@@ -298,121 +250,47 @@
   "test_cases": [
     {
       "code": "TC1",
-      "title": "快速开始锻炼流程",
+      "title": "验证订阅流程中突出价格优势与价值对比",
       "requirement_ids": [
         "R1"
       ],
-      "review_ids": [],
+      "review_ids": [
+        "12150581992"
+      ],
       "gherkin": {
         "given": [
-          "用户已登录并处于首页"
+          "用户已进入订阅流程页面",
+          "订阅流程中显示高级版订阅选项"
         ],
         "when": [
-          "用户点击'开始锻炼'按钮"
+          "用户查看高级版订阅的呈现方式"
         ],
         "then": [
-          "系统在3秒内加载出锻炼界面",
-          "用户可立即开始锻炼"
+          "系统应突出显示价格优势与价值对比信息",
+          "系统应展示高级版订阅的性价比优势"
         ]
       }
     },
     {
       "code": "TC2",
-      "title": "完成锻炼后记录与反馈",
-      "requirement_ids": [
-        "R1"
-      ],
-      "review_ids": [],
-      "gherkin": {
-        "given": [
-          "用户正在锻炼中"
-        ],
-        "when": [
-          "用户完成所有锻炼动作并点击'结束'"
-        ],
-        "then": [
-          "系统显示锻炼总结页面",
-          "系统自动保存锻炼记录"
-        ]
-      }
-    },
-    {
-      "code": "TC3",
-      "title": "查看多样化锻炼类型",
+      "title": "验证订阅流程顺畅无负面反馈",
       "requirement_ids": [
         "R2"
       ],
-      "review_ids": [],
-      "gherkin": {
-        "given": [
-          "用户已登录并进入锻炼库"
-        ],
-        "when": [
-          "用户浏览锻炼类型列表"
-        ],
-        "then": [
-          "系统展示包括产后、初学者等多种锻炼类型",
-          "每种类型有对应的标签和描述"
-        ]
-      }
-    },
-    {
-      "code": "TC4",
-      "title": "筛选特定人群锻炼",
-      "requirement_ids": [
-        "R2"
+      "review_ids": [
+        "10175260415"
       ],
-      "review_ids": [],
       "gherkin": {
         "given": [
-          "用户已进入锻炼库"
+          "用户已进入注册流程",
+          "注册流程中包含高级版订阅选项"
         ],
         "when": [
-          "用户选择'产后'筛选条件"
+          "用户完成订阅流程"
         ],
         "then": [
-          "系统只显示产后相关锻炼",
-          "每个锻炼卡片显示适合人群标签"
-        ]
-      }
-    },
-    {
-      "code": "TC5",
-      "title": "订阅高级版并查看价格",
-      "requirement_ids": [
-        "R3"
-      ],
-      "review_ids": [],
-      "gherkin": {
-        "given": [
-          "用户未订阅高级版"
-        ],
-        "when": [
-          "用户点击'升级高级版'按钮"
-        ],
-        "then": [
-          "系统显示订阅页面",
-          "页面展示价格和权益说明"
-        ]
-      }
-    },
-    {
-      "code": "TC6",
-      "title": "免费试用高级版",
-      "requirement_ids": [
-        "R3"
-      ],
-      "review_ids": [],
-      "gherkin": {
-        "given": [
-          "用户处于订阅页面"
-        ],
-        "when": [
-          "用户点击'开始免费试用'"
-        ],
-        "then": [
-          "系统激活免费试用",
-          "用户获得高级版权限"
+          "系统应确保流程顺畅无负面反馈",
+          "系统应提供订阅价值的相关说明"
         ]
       }
     }
@@ -420,9 +298,13 @@
   "removed_findings": [],
   "removed_test_cases": [],
   "assumption_requirements": [],
+  "dropped_refs": [
+    "F-model-0-3",
+    "F-model-0-3"
+  ],
   "summary": {
-    "total_checks": 20,
-    "passed_checks": 20,
+    "total_checks": 14,
+    "passed_checks": 14,
     "failed_checks": 0
   }
 }

@@ -17,6 +17,7 @@ def generate_requirements(
     llm: Optional[object] = None,
     *,
     focus_areas: Optional[list[str]] = None,
+    audit: Optional[dict] = None,
 ) -> tuple[list[dict], str]:
     """根据发现生成需求与版本规划；LLM 不可用时返回空并说明。"""
     supported = [f for f in findings if f.get("status") == "kept" and f.get("evidence_review_ids")]
@@ -33,10 +34,16 @@ def generate_requirements(
         for item in (result.get("requirements") or []):
             if not isinstance(item, dict):
                 continue
-            finding_ids = [str(i) for i in (item.get("finding_ids") or [])]
-            review_ids = [str(i) for i in (item.get("review_ids") or [])]
-            finding_ids = [i for i in finding_ids if i in allowed_findings]
-            review_ids = [i for i in review_ids if i in allowed_reviews]
+            raw_finding_ids = [str(i) for i in (item.get("finding_ids") or [])]
+            raw_review_ids = [str(i) for i in (item.get("review_ids") or [])]
+            finding_ids = [i for i in raw_finding_ids if i in allowed_findings]
+            review_ids = [i for i in raw_review_ids if i in allowed_reviews]
+            if audit is not None:
+                dropped = [i for i in raw_finding_ids if i not in finding_ids] + [
+                    i for i in raw_review_ids if i not in review_ids
+                ]
+                if dropped:
+                    audit.setdefault("dropped_refs", []).extend(dropped)
             if not review_ids:
                 review_ids = sorted({
                     rid for fid in finding_ids for rid in evidence_by_finding.get(fid, [])
@@ -59,7 +66,12 @@ def generate_requirements(
         return [], f"需求生成失败（{exc}），请检查 LLM 配置。"
 
 
-def generate_test_cases(requirements: list[dict], llm: Optional[object] = None) -> tuple[list[dict], str]:
+def generate_test_cases(
+    requirements: list[dict],
+    llm: Optional[object] = None,
+    *,
+    audit: Optional[dict] = None,
+) -> tuple[list[dict], str]:
     """根据需求生成 Gherkin 测试用例。"""
     if llm is None or not requirements:
         return [], "未生成测试用例：需要 LLM 配置（或没有需求）。"
@@ -74,8 +86,16 @@ def generate_test_cases(requirements: list[dict], llm: Optional[object] = None) 
         for item in (result.get("test_cases") or []):
             if not isinstance(item, dict):
                 continue
-            req_ids = [str(i) for i in (item.get("requirement_ids") or []) if str(i) in allowed_requirements]
-            review_ids = [str(i) for i in (item.get("review_ids") or []) if str(i) in allowed_reviews]
+            raw_req_ids = [str(i) for i in (item.get("requirement_ids") or [])]
+            raw_review_ids = [str(i) for i in (item.get("review_ids") or [])]
+            req_ids = [i for i in raw_req_ids if i in allowed_requirements]
+            review_ids = [i for i in raw_review_ids if i in allowed_reviews]
+            if audit is not None:
+                dropped = [i for i in raw_req_ids if i not in req_ids] + [
+                    i for i in raw_review_ids if i not in review_ids
+                ]
+                if dropped:
+                    audit.setdefault("dropped_refs", []).extend(dropped)
             if not review_ids:
                 review_ids = sorted({
                     rid for cid in req_ids for rid in review_ids_by_requirement.get(cid, [])

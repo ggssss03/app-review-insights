@@ -8,6 +8,8 @@ def validate_traceability(
     findings: list[dict],
     requirements: list[dict],
     test_cases: list[dict],
+    *,
+    dropped_refs: list[str] | None = None,
 ) -> dict:
     """校验 评论 -> 发现 -> 需求 -> 测试 链路，并应用修订。"""
     review_ids = {r["review_key"] for r in reviews}
@@ -90,6 +92,7 @@ def validate_traceability(
         "removed_findings": removed_findings,
         "removed_test_cases": removed_tests,
         "assumption_requirements": assumption_requirements,
+        "dropped_refs": dropped_refs or [],
         "summary": {
             "total_checks": len(checks),
             "passed_checks": sum(1 for c in checks if c["passed"]),

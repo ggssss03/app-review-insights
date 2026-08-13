@@ -128,10 +128,14 @@ def run_pipeline(
         embed_backend=embed_backend, llm=llm, goal_text=goal_text,
     )
     focus_areas = scope.get("focus_areas") or None
-    findings = stage("findings", build_findings, scoped_reviews, topics, llm, focus_areas=focus_areas)
-    requirements, req_note = stage("requirements", generate_requirements, findings, llm, focus_areas=focus_areas)
-    test_cases, tc_note = stage("testcases", generate_test_cases, requirements, llm)
-    trace = stage("traceability", validate_traceability, reviews, findings, requirements, test_cases)
+    audit: dict = {"dropped_refs": []}
+    findings = stage("findings", build_findings, scoped_reviews, topics, llm,
+                     focus_areas=focus_areas, audit=audit)
+    requirements, req_note = stage("requirements", generate_requirements, findings, llm,
+                                   focus_areas=focus_areas, audit=audit)
+    test_cases, tc_note = stage("testcases", generate_test_cases, requirements, llm, audit=audit)
+    trace = stage("traceability", validate_traceability, reviews, findings, requirements, test_cases,
+                  dropped_refs=audit.get("dropped_refs", []))
 
     summary_scope = dict(scope)
     summary = {
