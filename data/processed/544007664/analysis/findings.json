@@ -1,0 +1,100 @@
+[
+  {
+    "id": "F-stat-0",
+    "topic_id": 0,
+    "statement": "主题「Music discovery and personal expression」共出现 2 条相关评论，平均评分 4.5。",
+    "evidence_review_ids": [
+      "11771024140",
+      "13764780153"
+    ],
+    "sample_count": 2,
+    "confidence": 0.2,
+    "uncertainty": "样本量有限，结论强度受限",
+    "conflicts": [],
+    "provenance": "stat",
+    "status": "kept",
+    "rationale": "确定性统计：样本数、评分分布。"
+  },
+  {
+    "id": "F-model-0-1",
+    "topic_id": 0,
+    "statement": "用户欣赏通过歌词搜索音乐的功能，认为它能快速显示歌曲和艺术家，并让用户感到高兴，即使自己不太懂音乐也能通过节拍找到音乐。",
+    "evidence_review_ids": [
+      "11771024140"
+    ],
+    "sample_count": 1,
+    "confidence": 0.5,
+    "uncertainty": "仅一篇评论支持，且评论后半部分内容模糊，无法确证具体功能细节。",
+    "conflicts": [],
+    "provenance": "model",
+    "status": "kept",
+    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+  },
+  {
+    "id": "F-stat-1",
+    "topic_id": 1,
+    "statement": "主题「Video experience and monetization concerns」共出现 8 条相关评论，平均评分 4.25。",
+    "evidence_review_ids": [
+      "13586547955",
+      "12381013413",
+      "13409317590",
+      "9237567498",
+      "9334614435",
+      "7334073117",
+      "11781399978",
+      "9252857964"
+    ],
+    "sample_count": 8,
+    "confidence": 0.8,
+    "uncertainty": "样本量有限，结论强度受限",
+    "conflicts": [],
+    "provenance": "stat",
+    "status": "kept",
+    "rationale": "确定性统计：样本数、评分分布。"
+  },
+  {
+    "id": "F-model-1-1",
+    "topic_id": 1,
+    "statement": "用户抱怨广告数量过多（视频前、中、后各多个），并认为付费订阅价格不合理，强制用户购买Premium。",
+    "evidence_review_ids": [
+      "11781399978"
+    ],
+    "sample_count": 1,
+    "confidence": 0.7,
+    "uncertainty": "单一评论，未提供其他用户佐证；评论结尾截断，可能遗漏更多细节。",
+    "conflicts": [],
+    "provenance": "model",
+    "status": "kept",
+    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+  },
+  {
+    "id": "F-model-1-2",
+    "topic_id": 1,
+    "statement": "应用界面杂乱、不直观，学习曲线陡峭，与Google背景不符。",
+    "evidence_review_ids": [
+      "7334073117"
+    ],
+    "sample_count": 1,
+    "confidence": 0.6,
+    "uncertainty": "主观评价，单一来源，评论内容截断。",
+    "conflicts": [],
+    "provenance": "model",
+    "status": "kept",
+    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+  },
+  {
+    "id": "F-model-1-3",
+    "topic_id": 1,
+    "statement": "默认在滚动浏览视频时自动播放预览（无声音），干扰用户体验。",
+    "evidence_review_ids": [
+      "9334614435"
+    ],
+    "sample_count": 1,
+    "confidence": 0.7,
+    "uncertainty": "评论标题明确，但正文截断；可能后续提及更多问题。",
+    "conflicts": [],
+    "provenance": "model",
+    "status": "kept",
+    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+  }
+]

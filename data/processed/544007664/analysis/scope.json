@@ -1,0 +1,16 @@
+{
+  "focus_areas": [
+    "features",
+    "other",
+    "performance",
+    "pricing",
+    "subscription_conversion",
+    "usability"
+  ],
+  "star_filter": {
+    "min": null,
+    "max": null
+  },
+  "version_filter": null,
+  "note": "模型解析（无分析目标，默认全量分析）"
+}

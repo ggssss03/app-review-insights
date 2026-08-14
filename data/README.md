@@ -1,7 +1,8 @@
 # data/ 目录说明
 
 本目录存放**可复现的原始数据与处理结果**，并明确标注来源与限制。
-仓库只缓存美国区主评估样例；中国区（cn）缓存已全部移除（本地与 GitHub 均不保留）。
+仓库缓存三个美国区样例：主评估样例 `839285684`（Workout for Women: Home & Gym）、
+`389801252`（Instagram）、`544007664`（YouTube）；中国区（cn）缓存已全部移除（本地与 GitHub 均不保留）。
 
 ## 布局
 
@@ -18,8 +19,10 @@ data/processed/839285684/
     analysis/                    分析流水线各阶段产物（scope/topics/findings/requirements/testcases/traceability/summary/progress）
 ```
 
-> 主评估样例 `839285684`（Workout for Women: Home & Gym）只使用美国区 `itml` 评论
-> （Apple WebObjects userReviewsRow 官方接口，当前仅返回 10 条热门评论）；
+> `389801252` 与 `544007664` 使用相同目录结构（`data/raw/<app_id>/` 与 `data/processed/<app_id>/analysis/`）。
+
+> 三个样例都只使用美国区 `itml` 评论（Apple WebObjects userReviewsRow 官方接口，
+> 当前每个样例仅返回 10 条热门评论）；
 > 该接口的分页参数已被苹果忽略，更多美区评论请通过 GitHub Actions 采集或导入合规数据集。
 > 评估书要求评论数据必须来自美国区 storefront，因此仓库不缓存任何中区评论。
 

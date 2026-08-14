@@ -1,0 +1,50 @@
+{
+  "app_id": "389801252",
+  "goal_text": "订阅转化与付费墙体验",
+  "scope": {
+    "focus_areas": [
+      "pricing",
+      "subscription_conversion"
+    ],
+    "star_filter": {
+      "min": null,
+      "max": null
+    },
+    "version_filter": null,
+    "note": "模型解析（分析目标聚焦订阅转化与付费墙体验，因此重点分析订阅转化相关评论及定价/付费机制相关反馈。）"
+  },
+  "clean_stats": {
+    "input_count": 10,
+    "unique_count": 10,
+    "removed_duplicates": 0,
+    "junk_count": 0,
+    "rating_distribution": {
+      "3": 1,
+      "4": 2,
+      "5": 7
+    },
+    "language_distribution": {
+      "en": 10
+    },
+    "rules_note": "清洗/去重/语言识别使用确定性规则（详见 PLAN.md 第 7 节）。"
+  },
+  "counts": {
+    "reviews": 10,
+    "topics": 2,
+    "findings": 5,
+    "requirements": 1,
+    "test_cases": 3
+  },
+  "model_driven": true,
+  "notes": [
+    "模型生成",
+    "模型生成",
+    "主题发现使用 tfidf 嵌入；模型驱动主题命名：True。",
+    "数据来源与限制见 data/README.md；空数据/网络限制如实标注，不编造。"
+  ],
+  "traceability": {
+    "total_checks": 10,
+    "passed_checks": 10,
+    "failed_checks": 0
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "topics": [
+    {
+      "topic_id": 1,
+      "count": 8,
+      "samples": [
+        {
+          "review_id": "11781399978",
+          "text": "Ad problems If you’re gonna force people to buy your premium make it affordable for everyone. Having 8 ads before, in the middle of, and after a video is beyond annoying. And the next button feature d"
+        },
+        {
+          "review_id": "12381013413",
+          "text": "I have patience, and it pays off. A while, back friends of mine that I was just being acquainted with some of my stories. They’re very colorful and insane. Have a channel out there cause even my stori"
+        },
+        {
+          "review_id": "13409317590",
+          "text": "How Artificial Intelligence is changing you tube and the wider internet I think AI technology is making you tube smarter and more efficient than every before the goal is to outsmart the algorithm whic"
+        },
+        {
+          "review_id": "13586547955",
+          "text": "5 stars with a few fixes The clarity, the speed of the videos sound qualities are all five star. There are a couple suggestions I would like to make, however number one for on screen performance they "
+        }
+      ],
+      "label": "Video experience and monetization concerns",
+      "description": "Comments about YouTube's ad load, premium pricing, AI-driven recommendations, and video playback quality. Users express frustration with excessive ads and suggest improvements for a better viewing experience.",
+      "keywords": [
+        "ads",
+        "premium",
+        "algorithm",
+        "video quality",
+        "suggestions"
+      ]
+    },
+    {
+      "topic_id": 0,
+      "count": 2,
+      "samples": [
+        {
+          "review_id": "11771024140",
+          "text": "titles to the shadows eyes in the skies its so great to come find music with a lyric and it brings it right up and the name of the artist i dont really now music but when i hear a beat i can get to it"
+        },
+        {
+          "review_id": "13764780153",
+          "text": "Hi my name is AvaT gold The pet shelter teacher  chef.  Food cart drive thru  kitchen at the door  order up the stuff on the kitchen counter. I take care with my husband. His name is Shea Reeves. He’s"
+        }
+      ],
+      "label": "Music discovery and personal expression",
+      "description": "Comments about finding music through lyrics, artist names, and beats, as well as imaginative role-playing scenarios. Reflects personal, creative engagement with the platform's features.",
+      "keywords": [
+        "music",
+        "lyrics",
+        "beat",
+        "artist",
+        "creative"
+      ]
+    }
+  ],
+  "memberships": [
+    {
+      "review_key": "13586547955",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "12381013413",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "13409317590",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "9237567498",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "9334614435",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "7334073117",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "11771024140",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "11781399978",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "13764780153",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "9252857964",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    }
+  ],
+  "embed_backend": "tfidf",
+  "model_driven": true
+}

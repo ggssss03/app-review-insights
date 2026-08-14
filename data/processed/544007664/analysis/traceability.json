@@ -1,0 +1,497 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "check": "finding_evidence",
+      "id": "F-stat-0",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
+      "id": "F-model-0-1",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
+      "id": "F-stat-1",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
+      "id": "F-model-1-1",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
+      "id": "F-model-1-2",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
+      "id": "F-model-1-3",
+      "passed": true
+    },
+    {
+      "check": "requirement_support",
+      "id": "R1",
+      "passed": true
+    },
+    {
+      "check": "requirement_support",
+      "id": "R2",
+      "passed": true
+    },
+    {
+      "check": "requirement_support",
+      "id": "R3",
+      "passed": true
+    },
+    {
+      "check": "requirement_support",
+      "id": "R4",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC1",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC2",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC3",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC4",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC5",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC6",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC7",
+      "passed": true
+    },
+    {
+      "check": "testcase_link",
+      "id": "TC8",
+      "passed": true
+    },
+    {
+      "check": "requirement_review_chain",
+      "id": "R1",
+      "passed": true,
+      "detail": "链路完整",
+      "missing": []
+    },
+    {
+      "check": "requirement_review_chain",
+      "id": "R2",
+      "passed": true,
+      "detail": "链路完整",
+      "missing": []
+    },
+    {
+      "check": "requirement_review_chain",
+      "id": "R3",
+      "passed": true,
+      "detail": "链路完整",
+      "missing": []
+    },
+    {
+      "check": "requirement_review_chain",
+      "id": "R4",
+      "passed": true,
+      "detail": "链路完整",
+      "missing": []
+    }
+  ],
+  "findings": [
+    {
+      "id": "F-stat-0",
+      "topic_id": 0,
+      "statement": "主题「Music discovery and personal expression」共出现 2 条相关评论，平均评分 4.5。",
+      "evidence_review_ids": [
+        "11771024140",
+        "13764780153"
+      ],
+      "sample_count": 2,
+      "confidence": 0.2,
+      "uncertainty": "样本量有限，结论强度受限",
+      "conflicts": [],
+      "provenance": "stat",
+      "status": "kept",
+      "rationale": "确定性统计：样本数、评分分布。"
+    },
+    {
+      "id": "F-model-0-1",
+      "topic_id": 0,
+      "statement": "用户欣赏通过歌词搜索音乐的功能，认为它能快速显示歌曲和艺术家，并让用户感到高兴，即使自己不太懂音乐也能通过节拍找到音乐。",
+      "evidence_review_ids": [
+        "11771024140"
+      ],
+      "sample_count": 1,
+      "confidence": 0.5,
+      "uncertainty": "仅一篇评论支持，且评论后半部分内容模糊，无法确证具体功能细节。",
+      "conflicts": [],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    },
+    {
+      "id": "F-stat-1",
+      "topic_id": 1,
+      "statement": "主题「Video experience and monetization concerns」共出现 8 条相关评论，平均评分 4.25。",
+      "evidence_review_ids": [
+        "13586547955",
+        "12381013413",
+        "13409317590",
+        "9237567498",
+        "9334614435",
+        "7334073117",
+        "11781399978",
+        "9252857964"
+      ],
+      "sample_count": 8,
+      "confidence": 0.8,
+      "uncertainty": "样本量有限，结论强度受限",
+      "conflicts": [],
+      "provenance": "stat",
+      "status": "kept",
+      "rationale": "确定性统计：样本数、评分分布。"
+    },
+    {
+      "id": "F-model-1-1",
+      "topic_id": 1,
+      "statement": "用户抱怨广告数量过多（视频前、中、后各多个），并认为付费订阅价格不合理，强制用户购买Premium。",
+      "evidence_review_ids": [
+        "11781399978"
+      ],
+      "sample_count": 1,
+      "confidence": 0.7,
+      "uncertainty": "单一评论，未提供其他用户佐证；评论结尾截断，可能遗漏更多细节。",
+      "conflicts": [],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    },
+    {
+      "id": "F-model-1-2",
+      "topic_id": 1,
+      "statement": "应用界面杂乱、不直观，学习曲线陡峭，与Google背景不符。",
+      "evidence_review_ids": [
+        "7334073117"
+      ],
+      "sample_count": 1,
+      "confidence": 0.6,
+      "uncertainty": "主观评价，单一来源，评论内容截断。",
+      "conflicts": [],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    },
+    {
+      "id": "F-model-1-3",
+      "topic_id": 1,
+      "statement": "默认在滚动浏览视频时自动播放预览（无声音），干扰用户体验。",
+      "evidence_review_ids": [
+        "9334614435"
+      ],
+      "sample_count": 1,
+      "confidence": 0.7,
+      "uncertainty": "评论标题明确，但正文截断；可能后续提及更多问题。",
+      "conflicts": [],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    }
+  ],
+  "requirements": [
+    {
+      "code": "R1",
+      "title": "优化广告策略与订阅定价",
+      "description": "用户抱怨广告数量过多（视频前、中、后多个），且付费订阅价格不合理，被迫购买Premium。需要减少广告干扰，提供更灵活的订阅选项或合理定价，以提升用户体验和订阅转化率。",
+      "priority": "P0",
+      "planned_version": "V1",
+      "finding_ids": [
+        "F-model-1-1"
+      ],
+      "review_ids": [
+        "11781399978"
+      ],
+      "acceptance_criteria": [
+        "广告展示频率降低，单个视频前/中/后广告总数不超过2个",
+        "提供至少两种订阅方案（如月度、年度），价格较现有方案更合理",
+        "允许用户关闭广告或选择按次付费，不强制购买Premium",
+        "订阅流程清晰，付款前明确展示权益与价格"
+      ],
+      "status": "kept"
+    },
+    {
+      "code": "R2",
+      "title": "改进界面可用性",
+      "description": "用户反映应用界面杂乱、不直观，学习曲线陡峭，与Google背景不符。需要重新设计信息架构和交互逻辑，使界面简洁、符合用户预期。",
+      "priority": "P1",
+      "planned_version": "V1",
+      "finding_ids": [
+        "F-model-1-2"
+      ],
+      "review_ids": [
+        "7334073117"
+      ],
+      "acceptance_criteria": [
+        "主界面导航层级不超过3层，常用功能可在2次点击内到达",
+        "去除冗余元素，统一图标、字体和颜色样式",
+        "新增新用户引导流程，首次使用时可快速熟悉核心功能",
+        "通过可用性测试，目标用户任务完成率提升20%以上"
+      ],
+      "status": "kept"
+    },
+    {
+      "code": "R3",
+      "title": "增加关闭自动预览选项",
+      "description": "用户抱怨在滚动浏览视频时默认自动播放预览（无声音），干扰体验。需要提供设置选项，允许用户关闭自动预览。",
+      "priority": "P1",
+      "planned_version": "V1",
+      "finding_ids": [
+        "F-model-1-3"
+      ],
+      "review_ids": [
+        "9334614435"
+      ],
+      "acceptance_criteria": [
+        "设置中新增'自动预览'开关，默认开启，可一键关闭",
+        "关闭后，滚动浏览时不再自动播放任何预览视频",
+        "开关状态实时生效，并持久化保存",
+        "关闭自动预览后，列表加载速度不受明显影响"
+      ],
+      "status": "kept"
+    },
+    {
+      "code": "R4",
+      "title": "增强歌词搜索与音乐发现功能",
+      "description": "用户高度评价通过歌词搜索音乐的功能，认为它能快速显示歌曲和艺术家，并帮助不懂音乐的用户通过节拍发现音乐。需要进一步优化该功能，提升识别准确率和响应速度。",
+      "priority": "P2",
+      "planned_version": "V2",
+      "finding_ids": [
+        "F-model-0-1"
+      ],
+      "review_ids": [
+        "11771024140"
+      ],
+      "acceptance_criteria": [
+        "歌词搜索结果准确率不低于当前版本",
+        "搜索响应时间不超过2秒（在标准网络环境下）",
+        "增加歌词匹配的容错能力，支持模糊搜索和常见错别字纠正",
+        "在搜索结果中展示相关歌曲、艺术家及专辑信息，并提供一键播放"
+      ],
+      "status": "kept"
+    }
+  ],
+  "test_cases": [
+    {
+      "code": "TC1",
+      "title": "减少视频播放过程中的广告数量",
+      "requirement_ids": [
+        "R1"
+      ],
+      "review_ids": [
+        "11781399978"
+      ],
+      "gherkin": {
+        "given": [
+          "用户未订阅Premium",
+          "用户正在观看一个视频"
+        ],
+        "when": [
+          "用户完成视频播放"
+        ],
+        "then": [
+          "系统在视频播放前、中、后总共显示不超过1个广告",
+          "广告不会中断视频播放超过一次"
+        ]
+      }
+    },
+    {
+      "code": "TC2",
+      "title": "提供灵活的订阅选项与合理定价",
+      "requirement_ids": [
+        "R1"
+      ],
+      "review_ids": [
+        "11781399978"
+      ],
+      "gherkin": {
+        "given": [
+          "用户打开订阅页面"
+        ],
+        "when": [
+          "用户查看可用订阅方案"
+        ],
+        "then": [
+          "系统展示至少两种订阅选项（如按月、按年或去广告）",
+          "每种方案均显示明确的价格",
+          "用户可以选择去除广告的付费方案"
+        ]
+      }
+    },
+    {
+      "code": "TC3",
+      "title": "重新设计信息架构与导航",
+      "requirement_ids": [
+        "R2"
+      ],
+      "review_ids": [
+        "7334073117"
+      ],
+      "gherkin": {
+        "given": [
+          "用户首次打开应用"
+        ],
+        "when": [
+          "用户浏览应用的首页和主要功能入口"
+        ],
+        "then": [
+          "首页展示清晰的功能分区",
+          "主要操作（如搜索、播放、订阅）在3次点击内可达",
+          "界面布局与Google设计规范一致"
+        ]
+      }
+    },
+    {
+      "code": "TC4",
+      "title": "降低界面学习成本",
+      "requirement_ids": [
+        "R2"
+      ],
+      "review_ids": [
+        "7334073117"
+      ],
+      "gherkin": {
+        "given": [
+          "用户是普通用户"
+        ],
+        "when": [
+          "用户尝试完成一个常见任务（如搜索并播放音乐）"
+        ],
+        "then": [
+          "系统在无帮助提示下也能被理解",
+          "按钮图标和文案含义明确"
+        ]
+      }
+    },
+    {
+      "code": "TC5",
+      "title": "设置中提供关闭自动预览的选项",
+      "requirement_ids": [
+        "R3"
+      ],
+      "review_ids": [
+        "9334614435"
+      ],
+      "gherkin": {
+        "given": [
+          "用户打开设置页面"
+        ],
+        "when": [
+          "用户查找自动预览相关设置"
+        ],
+        "then": [
+          "系统显示“关闭自动预览”开关",
+          "该开关默认为开启自动预览，用户可手动关闭"
+        ]
+      }
+    },
+    {
+      "code": "TC6",
+      "title": "关闭自动预览后滚动时不自动播放",
+      "requirement_ids": [
+        "R3"
+      ],
+      "review_ids": [
+        "9334614435"
+      ],
+      "gherkin": {
+        "given": [
+          "用户已在设置中关闭自动预览"
+        ],
+        "when": [
+          "用户在视频列表中滚动浏览"
+        ],
+        "then": [
+          "列表中的视频不会自动播放预览",
+          "只有用户点击视频时才播放"
+        ]
+      }
+    },
+    {
+      "code": "TC7",
+      "title": "通过歌词搜索快速返回歌曲和艺术家",
+      "requirement_ids": [
+        "R4"
+      ],
+      "review_ids": [
+        "11771024140"
+      ],
+      "gherkin": {
+        "given": [
+          "用户知道部分歌词内容"
+        ],
+        "when": [
+          "用户在搜索框中输入歌词片段并搜索"
+        ],
+        "then": [
+          "系统快速返回匹配的歌曲列表",
+          "每条结果包含歌曲名和艺术家",
+          "搜索结果按匹配度排序"
+        ]
+      }
+    },
+    {
+      "code": "TC8",
+      "title": "通过歌词或节拍发现音乐",
+      "requirement_ids": [
+        "R4"
+      ],
+      "review_ids": [
+        "11771024140"
+      ],
+      "gherkin": {
+        "given": [
+          "用户不知道歌曲名称但记得旋律或节拍",
+          "用户使用歌词搜索或节拍识别功能"
+        ],
+        "when": [
+          "用户输入歌词或节拍进行搜索"
+        ],
+        "then": [
+          "系统识别出对应歌曲",
+          "系统推荐相似风格或相关的音乐"
+        ]
+      }
+    }
+  ],
+  "removed_findings": [],
+  "removed_test_cases": [],
+  "assumption_requirements": [],
+  "dropped_refs": [],
+  "summary": {
+    "total_checks": 22,
+    "passed_checks": 22,
+    "failed_checks": 0
+  }
+}

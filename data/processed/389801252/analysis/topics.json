@@ -1,0 +1,107 @@
+{
+  "topics": [
+    {
+      "topic_id": 0,
+      "count": 9,
+      "samples": [
+        {
+          "review_id": "3939277903",
+          "text": "Some things to fix So there are MANY nsfw accounts on instagram....if you report it for sexual pornography it will say \"we reviewed your report and found that it done not violate our community guideli"
+        },
+        {
+          "review_id": "5289482643",
+          "text": "If I could give it zero stars I would I had Instagram in the past and then deleted my old account. I made a new one recently and it has been a total nightmare. Worst app ever. I have to blame the new "
+        },
+        {
+          "review_id": "10283660915",
+          "text": "My problem Instagram is a really good app and I love it but I had a problem recently… Someone made an account pretending to be me they used one my pictures from my page and used my name and middle nam"
+        },
+        {
+          "review_id": "10428454135",
+          "text": "No notes Dear Instagram, i don't wanna be mean but I have had an issue with your the update that has been around for a while now, i never received the notes update. \nI have not received this update, a"
+        }
+      ],
+      "label": "账号安全与内容审核问题",
+      "description": "用户反馈包括NSFW账号举报无效、账号被冒充、未收到更新等，主要涉及安全性和内容审核的负面体验，可能影响用户对平台的信任和付费意愿。",
+      "keywords": [
+        "NSFW",
+        "举报",
+        "账号冒充",
+        "更新问题",
+        "负面体验"
+      ]
+    },
+    {
+      "topic_id": 1,
+      "count": 1,
+      "samples": [
+        {
+          "review_id": "11443389782",
+          "text": "Creative and User-Enhancing Suggestions Dear Instagram Developers, I hope this message finds you well. I am writing to offer a few suggestions that I believe would greatly benefit and enhance the func"
+        }
+      ],
+      "label": "功能增强建议",
+      "description": "用户向开发者提出创意性建议，旨在提升应用功能和用户体验，表明用户对产品有较高参与度但未直接涉及付费。",
+      "keywords": [
+        "建议",
+        "功能增强",
+        "创意",
+        "开发者"
+      ]
+    }
+  ],
+  "memberships": [
+    {
+      "review_key": "13539617732",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "11443389782",
+      "topic_id": 1,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "10283660915",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "5289482643",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "3939277903",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "10683597684",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "10428454135",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "10688170385",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "14346271880",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    },
+    {
+      "review_key": "11167799332",
+      "topic_id": 0,
+      "method": "embedding+cluster"
+    }
+  ],
+  "embed_backend": "tfidf",
+  "model_driven": true
+}

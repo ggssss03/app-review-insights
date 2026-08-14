@@ -1,0 +1,86 @@
+[
+  {
+    "id": "F-stat-0",
+    "topic_id": 0,
+    "statement": "主题「账号安全与内容审核问题」共出现 9 条相关评论，平均评分 4.56。",
+    "evidence_review_ids": [
+      "13539617732",
+      "10283660915",
+      "5289482643",
+      "3939277903",
+      "10683597684",
+      "10428454135",
+      "10688170385",
+      "14346271880",
+      "11167799332"
+    ],
+    "sample_count": 9,
+    "confidence": 0.9,
+    "uncertainty": "样本量有限，结论强度受限",
+    "conflicts": [],
+    "provenance": "stat",
+    "status": "kept",
+    "rationale": "确定性统计：样本数、评分分布。"
+  },
+  {
+    "id": "F-model-0-1",
+    "topic_id": 0,
+    "statement": "Instagram 对用户举报的 NSFW 内容审核结果与其指南不一致，用户举报色情内容后官方回复称未违规。",
+    "evidence_review_ids": [
+      "3939277903"
+    ],
+    "sample_count": 1,
+    "confidence": 0.5,
+    "uncertainty": "仅依据单条评论，且版本未知，可能不具代表性，需更多样本验证。",
+    "conflicts": [],
+    "provenance": "model",
+    "status": "kept",
+    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+  },
+  {
+    "id": "F-model-0-2",
+    "topic_id": 0,
+    "statement": "新注册的账号容易被自动化系统误判为机器人，导致正常用户被屏蔽或评论受限。",
+    "evidence_review_ids": [
+      "5289482643",
+      "11167799332"
+    ],
+    "sample_count": 2,
+    "confidence": 0.6,
+    "uncertainty": "两则评论均未提供具体误判机制，且版本未知，样本量有限。",
+    "conflicts": [],
+    "provenance": "model",
+    "status": "kept",
+    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+  },
+  {
+    "id": "F-model-0-3",
+    "topic_id": 0,
+    "statement": "用户遭遇身份冒充并举报，但问题未得到有效解决，账号安全保护不足。",
+    "evidence_review_ids": [
+      "10283660915"
+    ],
+    "sample_count": 1,
+    "confidence": 0.5,
+    "uncertainty": "仅单个案例，缺乏后续处理细节，无法评估普遍性。",
+    "conflicts": [],
+    "provenance": "model",
+    "status": "kept",
+    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+  },
+  {
+    "id": "F-stat-1",
+    "topic_id": 1,
+    "statement": "主题「功能增强建议」共出现 1 条相关评论，平均评分 5.0。",
+    "evidence_review_ids": [
+      "11443389782"
+    ],
+    "sample_count": 1,
+    "confidence": 0.1,
+    "uncertainty": "样本量有限，结论强度受限",
+    "conflicts": [],
+    "provenance": "stat",
+    "status": "kept",
+    "rationale": "确定性统计：样本数、评分分布。"
+  }
+]

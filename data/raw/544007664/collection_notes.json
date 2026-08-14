@@ -1,0 +1,25 @@
+{
+  "app_id": "544007664",
+  "url": "",
+  "fetched_at": "2026-08-14T03:15:52+00:00",
+  "data": {
+    "app_id": "544007664",
+    "country": "us",
+    "method": "itml",
+    "fetched_at": "2026-08-14T03:15:52+00:00",
+    "pages_fetched": 1,
+    "pages_skipped": 0,
+    "reviews_total": 10,
+    "reviews_by_sort": {
+      "mostRecent": 10
+    },
+    "empty_pages": [],
+    "errors": [],
+    "notes": [
+      "数据来源：Apple iTunes WebObjects userReviewsRow 官方接口（2026 年实测仍可用）。",
+      "注意：该接口当前只返回同一批热门评论（分页参数已被苹果忽略），批量数据请使用 GitHub Actions 定时刷新或导入 JSON/CSV。"
+    ],
+    "storefront_ok": true,
+    "storefront_app": "YouTube"
+  }
+}
