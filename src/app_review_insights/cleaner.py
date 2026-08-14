@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 import re
 from collections import Counter
-from typing import Iterable, Optional
+from typing import Iterable
 
 from .models import ReviewRaw
 

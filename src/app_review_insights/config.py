@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import os
 import pathlib
-from typing import Optional
 
 
 def load_dotenv(path: str | pathlib.Path = ".env") -> None:

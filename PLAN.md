@@ -61,7 +61,7 @@ flowchart LR
 | 采集 | httpx + US RSS | urllib + 美区 itml | 官方接口稳定，无需第三方依赖 |
 | LLM | OpenAI 兼容适配器 | DeepSeek（可切） | 便宜、中英混合好、防厂商锁定 |
 | 结构化输出 | Pydantic + JSON Schema | JSON 校验 + 重试 | 强制字段、降低幻觉、失败可重试 |
-| 测试 | pytest + Playwright | 标准库 unittest | 零依赖，75 个用例全过 |
+| 测试 | pytest + Playwright | 标准库 unittest | 零依赖，76 个用例全过 |
 | 图表 | Recharts / ECharts | Canvas2D / SVG / CSS 自绘 | 保持零依赖，按需实现 |
 
 ## 5. 数据策略（美国区优先）

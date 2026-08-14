@@ -14,5 +14,4 @@
 #   pydantic>=2.8
 #   （如需 React 前端，另行引入 node 工具链）
 #
-# 测试：
-#   pytest>=8
+# 测试：python -m unittest discover -s tests -v（无第三方依赖）

@@ -1,9 +1,0 @@
-{
-  "focus_areas": [],
-  "star_filter": {
-    "min": null,
-    "max": null
-  },
-  "version_filter": null,
-  "note": "模型解析（用户未提供具体分析目标，默认对全部评论进行全量分析。）"
-}

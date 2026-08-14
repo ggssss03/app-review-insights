@@ -11,5 +11,7 @@ venv/
 node_modules/
 dist/
 build/
+plugins/
+.agents/
 讲解.md
 讲解.html

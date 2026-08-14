@@ -2,7 +2,7 @@ name: Collect App Store reviews
 
 on:
   schedule:
-    # 每周一 03:00 UTC（中国区 cn RSS 采集）
+    # 每周一 03:00 UTC（主样例美区 itml 采集）
     - cron: "0 3 * * 1"
   workflow_dispatch:
 
@@ -25,8 +25,6 @@ jobs:
           if ! ls data/raw/839285684/reviews-amp-offset-*.json >/dev/null 2>&1; then
             python scripts/fetch_reviews.py 839285684 --country us --refresh --method itml || true
           fi
-          python scripts/fetch_reviews.py 1544884479 --country cn --delay 0.5 --refresh --method auto
-          python scripts/fetch_reviews.py 1321803705 --country cn --delay 0.5 --refresh --method auto
         env:
           PYTHONPATH: src
       - name: Commit cached data

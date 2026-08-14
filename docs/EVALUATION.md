@@ -61,7 +61,7 @@
 | 可用公共 API/采集库，但须说明数据源与限制 | 仅用 Apple Lookup 与 WebObjects 官方接口；限制写入 `collection_notes.json` 与 README | README 数据来源节 |
 | 注意限速，不给目标站点异常负载 | 请求间隔 ≥ 1 秒 + 断点续采 + 缓存 | `collector.py` |
 | 提供示例环境文件，不含密钥 | `.env.example` 只有占位 | `.env.example` |
-| 不接受只写文档不可运行的提交 | 全流程可执行 + 75 个测试 + `self_check.py` | `python scripts/self_check.py` |
+| 不接受只写文档不可运行的提交 | 全流程可执行 + 76 个测试 + `self_check.py` | `python scripts/self_check.py` |
 
 ## 6. Evaluation Criteria（评分标准）
 
@@ -90,7 +90,7 @@
 ## 8. 本地验证命令
 
 ```bash
-PYTHONPATH=src python -m unittest discover -s tests -v   # 75 个用例
+PYTHONPATH=src python -m unittest discover -s tests -v   # 76 个用例
 python scripts/self_check.py                              # 一键自检
 python app/server.py --port 8765                         # 启动 UI
 ```

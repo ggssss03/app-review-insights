@@ -44,7 +44,7 @@ PYTHONPATH=src python scripts/clean_reviews.py 839285684
 PYTHONPATH=src python scripts/analyze.py 839285684 --goal "订阅转化与付费墙体验"
 
 # 5) 运行测试与一键自检
-PYTHONPATH=src python -m unittest discover -s tests -v   # 75 个用例
+PYTHONPATH=src python -m unittest discover -s tests -v   # 76 个用例
 python scripts/self_check.py
 
 # 6) 启动 Web UI
@@ -90,11 +90,11 @@ JSON（评论数组、RSS `feed.entry` 结构或 `{data:[...]}` 信封）与 CSV
 `python app/server.py` 后打开 `http://127.0.0.1:8765`：
 
 - 首页：美区链接/应用 ID + 分析目标 + JSON/CSV 导入 + Start；
-- 进度页：S0–S8 阶段状态、耗时、错误与重试；
+- 进度页：S0–S8 阶段状态、错误与重试；
 - 结果页 Tab：摘要 / 原始评论 / 主题聚类 / 关键发现 / 需求 PRD / 验收用例 / 溯源校验 / 数据清洗；
 - 摘要含 KPI、评分环形图、语言分布、分析范围、运行模式与溯源通过率；
 - 发现页支持证据点击查看原文、低置信折叠、追问与反例挑战；
-- 需求页含版本甘特与 PRD 评审（接受 / 标记假设 / 删除 + 批注）；
+- 需求页含版本甘特与评审交互（接受 / 标记假设 / 删除 + 批注，前端演示，不落盘）；
 - 溯源页含全链路 SVG 图、逐项检查与引用白名单拦截记录；
 - 支持全局筛选（星级 / 语言 / 版本）、S0–S8 侧栏导航、演示模式、Markdown/JSON 一键导出。
 
@@ -105,7 +105,7 @@ app/server.py                零依赖 Web 服务器（REST + 后台流水线）
 app/static/                  原生 HTML/CSS/JS 前端
 src/app_review_insights/     核心代码（采集/导入/清洗/分析/规划/校验/LLM）
 scripts/                     命令行入口（fetch / import / clean / analyze / self_check）
-tests/                       75 个单元/集成测试
+tests/                       76 个单元/集成测试
 data/raw/<app_id>/           原始缓存与采集说明
 data/processed/<app_id>/     清洗结果与分析产物
 docs/AI.md                   模型、提示词、配置与防幻觉设计
