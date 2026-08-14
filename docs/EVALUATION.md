@@ -73,7 +73,7 @@
 | 发现区分证据/统计/模型/不确定性/冲突 | `provenance`、`confidence`、`uncertainty`、`conflicts` 字段 + UI 徽章 | 发现 Tab |
 | PRD 有依据、边界清晰、分优先级与版本 | 需求链接 finding/review，P0–P2、V1/V2、验收标准 | 需求 Tab |
 | 测试覆盖 PRD 且可追溯回评论 | Gherkin 用例链接需求与评论，S7 校验通过 | 用例/溯源 Tab |
-| UI 清晰、本地可运行、交付说明清楚 | 亮色全息 UI + 零依赖启动 + README/PLAN/EVALUATION 三文档 | `python app/server.py` |
+| UI 清晰、本地可运行、交付说明清楚 | 亮色全息 UI + 零依赖启动 + README（含架构与分工）与 EVALUATION 对照文档 | `python app/server.py` |
 
 ## 7. Important Notes（重要说明）
 

@@ -46,7 +46,7 @@ https://apps.apple.com/us/app/workout-for-women-home-gym/id839285684
 | R8 | 密钥走环境变量，不入仓库 | `.env.example` 占位，git 无密钥 |
 | R9 | GitHub 项目、本地可运行、源码/运行/采集说明/缓存样例 | 本文档 + data/ |
 | R10 | 支持 JSON/CSV 导入；未见输入也有依据地产出 | 导入入口 + 场景测试 |
-| R11 | 完整 commit 历史体现迭代 | git log（50+ 次提交） |
+| R11 | 完整 commit 历史体现迭代 | git log（56 次提交） |
 
 ## 4. 快速开始
 
