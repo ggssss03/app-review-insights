@@ -5,7 +5,7 @@ from __future__ import annotations
 import csv
 import json
 import pathlib
-from typing import Any, Iterable, Optional
+from typing import Any, Iterable
 
 from .models import ReviewRaw, utcnow_iso
 from .storage import write_json

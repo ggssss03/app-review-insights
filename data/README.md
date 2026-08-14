@@ -8,7 +8,7 @@
 
 ```text
 data/raw/839285684/
-    app.json                     应用元数据（Lookup，美区，带来源信封）
+    app.json                     应用元数据（Lookup，美区，带来源信封；如已采集）
     reviews-itml-mostRecent-p0.json  WebObjects userReviewsRow 响应（美国区）
     collection_notes.json        每次采集的统计与注意事项
     imported-reviews.json        导入的外部数据集（source=import，如存在）
@@ -19,7 +19,9 @@ data/processed/839285684/
     analysis/                    分析流水线各阶段产物（scope/topics/findings/requirements/testcases/traceability/summary/progress）
 ```
 
-> `389801252` 与 `544007664` 使用相同目录结构（`data/raw/<app_id>/` 与 `data/processed/<app_id>/analysis/`）。
+> `389801252` 与 `544007664` 同样位于 `data/raw/<app_id>/` 与
+> `data/processed/<app_id>/analysis/`，包含 `collection_notes.json`、`reviews-itml-*.json`
+> 与完整分析产物；`app.json` / `reviews_clean.*` 为可选产物（主样例已生成）。
 
 > 三个样例都只使用美国区 `itml` 评论（Apple WebObjects userReviewsRow 官方接口，
 > 当前每个样例仅返回 10 条热门评论）；
