@@ -138,6 +138,6 @@ def clean_reviews(raw_reviews: Iterable[ReviewRaw]) -> dict:
         "junk_count": junk_count,
         "rating_distribution": {str(k): v for k, v in sorted(rating_dist.items())},
         "language_distribution": dict(lang_dist),
-        "rules_note": "清洗/去重/语言识别使用确定性规则（详见 PLAN.md 第 7 节）。",
+        "rules_note": "清洗/去重/语言识别使用确定性规则（规则/统计/模型分工见 README.md）。",
     }
     return {"reviews": cleaned, "stats": stats}

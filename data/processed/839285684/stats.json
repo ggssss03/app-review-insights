@@ -9,5 +9,5 @@
   "language_distribution": {
     "en": 10
   },
-  "rules_note": "清洗/去重/语言识别使用确定性规则（详见 PLAN.md 第 7 节）。"
+  "rules_note": "清洗/去重/语言识别使用确定性规则（规则/统计/模型分工见 README.md）。"
 }

@@ -36,7 +36,7 @@
 | 评估书要求 | 项目实现 | 验证 |
 | --- | --- | --- |
 | 至少一个核心语义任务模型驱动 | LLM 承担：范围抽取、主题命名/归并、发现生成、需求生成、测试用例生成（5 个任务） | `docs/AI.md`；`summary.json` 的 `model_driven=true` |
-| 规则/统计/模型分工明确并说明理由 | 规则承担采集/清洗/去重/规范化/校验；统计承担分布与样本数；模型承担语义综合，边界见 `PLAN.md` | `PLAN.md` 第 7 节 |
+| 规则/统计/模型分工明确并说明理由 | 规则承担采集/清洗/去重/规范化/校验；统计承担分布与样本数；模型承担语义综合，边界见 README.md「规则 / 统计 / 模型分工」 | README.md 对应章节 |
 | 每条主要发现含来源评论 ID/摘录、样本数、置信度/不确定性、冲突证据 | `findings.json` 字段：`evidence_review_ids`/`sample_count`/`confidence`/`uncertainty`/`conflicts` | 查看发现 Tab |
 | 模型结论与确定性统计可区分 | 每条发现带 `provenance`（`stat`/`model`），UI 用不同徽章 | 发现 Tab 徽章 |
 | 文档化模型/供应商、主要 prompt、配置、失败处理、防幻觉 | `docs/AI.md` + `prompts.py` 集中管理全部提示词 | `docs/AI.md` |
