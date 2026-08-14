@@ -2,7 +2,7 @@
   {
     "id": "F-stat-0",
     "topic_id": 0,
-    "statement": "主题「Convenient and Affordable Workout App」共出现 6 条相关评论，平均评分 5.0。",
+    "statement": "主题「Convenient & affordable for busy lifestyles」共出现 6 条相关评论，平均评分 5.0。",
     "evidence_review_ids": [
       "11593815773",
       "5786142670",
@@ -22,13 +22,30 @@
   {
     "id": "F-model-0-1",
     "topic_id": 0,
-    "statement": "用户认为该应用价格实惠，评价为“awesome cheap price”，这可能对订阅转化有积极影响。",
+    "statement": "用户明确提到应用价格便宜（'awesome cheap price'），这表明定价实惠是提升付费意愿的一个正面因素。",
     "evidence_review_ids": [
       "12150581992"
     ],
     "sample_count": 1,
-    "confidence": 0.5,
-    "uncertainty": "仅一条评论提及价格，且未具体说明订阅价格或付费模式，无法全面评估定价策略对订阅转化的影响。",
+    "confidence": 0.3,
+    "uncertainty": "仅有1条评论提及价格，且没有直接关联到订阅转化行为，无法确认价格优惠对订阅决策的实际影响。",
+    "conflicts": [],
+    "provenance": "model",
+    "status": "kept",
+    "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+  },
+  {
+    "id": "F-model-0-2",
+    "topic_id": 0,
+    "statement": "用户反复强调应用的便捷性和省时特点（如适合忙碌日程、容易坚持），这些因素可能间接促进用户长期使用并增加订阅可能性，但评论中未明确提及订阅。",
+    "evidence_review_ids": [
+      "5684535804",
+      "5786142670",
+      "7911742368"
+    ],
+    "sample_count": 3,
+    "confidence": 0.4,
+    "uncertainty": "这些评论均未涉及价格或订阅，推断基于主题相关性，缺乏直接证据。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",
@@ -37,7 +54,7 @@
   {
     "id": "F-stat-1",
     "topic_id": 1,
-    "statement": "主题「Non-Intimidating Exercise for Seniors」共出现 1 条相关评论，平均评分 5.0。",
+    "statement": "主题「Non-judgmental exercise for seniors」共出现 1 条相关评论，平均评分 5.0。",
     "evidence_review_ids": [
       "9220792708"
     ],
@@ -52,7 +69,7 @@
   {
     "id": "F-stat-2",
     "topic_id": 2,
-    "statement": "主题「Positive Experience with App Updates and Onboarding」共出现 3 条相关评论，平均评分 5.0。",
+    "statement": "主题「Great app with recent updates and personalization」共出现 3 条相关评论，平均评分 5.0。",
     "evidence_review_ids": [
       "8320450139",
       "5377927335",
@@ -69,13 +86,13 @@
   {
     "id": "F-model-2-1",
     "topic_id": 2,
-    "statement": "在应用引导流程中，用户完成身高体重等身体数据填写后会看到高级版订阅选项。",
+    "statement": "用户在完成个人数据问卷后，应用向用户提供了 premium 订阅选项，这表明应用在用户注册流程中嵌入了订阅转化环节。",
     "evidence_review_ids": [
       "10175260415"
     ],
     "sample_count": 1,
     "confidence": 0.3,
-    "uncertainty": "仅一条评论提及此选项，且未说明用户是否购买或对价格的具体看法；评论内容被截断。",
+    "uncertainty": "仅有一条相关评论，且评论内容在提及 premium 选项后被截断，无法确认用户对订阅价格或转化结果的态度。",
     "conflicts": [],
     "provenance": "model",
     "status": "kept",

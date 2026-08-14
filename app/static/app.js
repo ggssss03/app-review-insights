@@ -587,15 +587,33 @@ function drawBubbleChart(topics) {
   const radii = data.map((t) => Math.max(52, Math.min(120, 36 + Math.sqrt(Number(t.count) || 1) * 20)));
   const sumD = radii.reduce((a, r) => a + r * 2, 0);
   const gapX = Math.max(14, Math.min(52, (cssW - 40 - sumD) / Math.max(1, data.length - 1)));
-  const totalW = sumD + gapX * (data.length - 1);
-  let cursor = cssW / 2 - totalW / 2;
+  const centers = new Array(data.length);
+  const mid = Math.floor((data.length - 1) / 2);
+  if (data.length % 2 === 1) {
+    centers[mid] = cssW / 2;
+    for (let i = mid - 1; i >= 0; i--) {
+      centers[i] = centers[i + 1] - radii[i + 1] - gapX - radii[i];
+    }
+    for (let i = mid + 1; i < data.length; i++) {
+      centers[i] = centers[i - 1] + radii[i - 1] + gapX + radii[i];
+    }
+  } else if (data.length > 0) {
+    const halfSpan = (radii[mid] + gapX + radii[mid + 1]) / 2;
+    centers[mid] = cssW / 2 - halfSpan;
+    centers[mid + 1] = cssW / 2 + halfSpan;
+    for (let i = mid - 1; i >= 0; i--) {
+      centers[i] = centers[i + 1] - radii[i + 1] - gapX - radii[i];
+    }
+    for (let i = mid + 2; i < data.length; i++) {
+      centers[i] = centers[i - 1] + radii[i - 1] + gapX + radii[i];
+    }
+  }
 
   data.forEach((t, i) => {
     const count = Number(t.count) || 1;
     const radius = radii[i];
-    const cx = cursor + radius;
+    const cx = centers[i];
     const cy = cssH / 2;
-    cursor += radius * 2 + gapX;
     ctx.beginPath();
     ctx.arc(cx, cy, radius, 0, Math.PI * 2);
     ctx.fillStyle = colors[i % colors.length] + "33";

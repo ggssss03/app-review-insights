@@ -13,6 +13,11 @@
     },
     {
       "check": "finding_evidence",
+      "id": "F-model-0-2",
+      "passed": true
+    },
+    {
+      "check": "finding_evidence",
       "id": "F-stat-1",
       "passed": true
     },
@@ -52,16 +57,6 @@
       "passed": true
     },
     {
-      "check": "testcase_link",
-      "id": "TC4",
-      "passed": true
-    },
-    {
-      "check": "testcase_link",
-      "id": "TC5",
-      "passed": true
-    },
-    {
       "check": "requirement_review_chain",
       "id": "R1",
       "passed": true,
@@ -80,7 +75,7 @@
     {
       "id": "F-stat-0",
       "topic_id": 0,
-      "statement": "主题「Convenient and Affordable Workout App」共出现 6 条相关评论，平均评分 5.0。",
+      "statement": "主题「Convenient & affordable for busy lifestyles」共出现 6 条相关评论，平均评分 5.0。",
       "evidence_review_ids": [
         "11593815773",
         "5786142670",
@@ -100,13 +95,30 @@
     {
       "id": "F-model-0-1",
       "topic_id": 0,
-      "statement": "用户认为该应用价格实惠，评价为“awesome cheap price”，这可能对订阅转化有积极影响。",
+      "statement": "用户明确提到应用价格便宜（'awesome cheap price'），这表明定价实惠是提升付费意愿的一个正面因素。",
       "evidence_review_ids": [
         "12150581992"
       ],
       "sample_count": 1,
-      "confidence": 0.5,
-      "uncertainty": "仅一条评论提及价格，且未具体说明订阅价格或付费模式，无法全面评估定价策略对订阅转化的影响。",
+      "confidence": 0.3,
+      "uncertainty": "仅有1条评论提及价格，且没有直接关联到订阅转化行为，无法确认价格优惠对订阅决策的实际影响。",
+      "conflicts": [],
+      "provenance": "model",
+      "status": "kept",
+      "rationale": "模型基于引用白名单内的评论生成，输出经 JSON Schema 校验。"
+    },
+    {
+      "id": "F-model-0-2",
+      "topic_id": 0,
+      "statement": "用户反复强调应用的便捷性和省时特点（如适合忙碌日程、容易坚持），这些因素可能间接促进用户长期使用并增加订阅可能性，但评论中未明确提及订阅。",
+      "evidence_review_ids": [
+        "5684535804",
+        "5786142670",
+        "7911742368"
+      ],
+      "sample_count": 3,
+      "confidence": 0.4,
+      "uncertainty": "这些评论均未涉及价格或订阅，推断基于主题相关性，缺乏直接证据。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -115,7 +127,7 @@
     {
       "id": "F-stat-1",
       "topic_id": 1,
-      "statement": "主题「Non-Intimidating Exercise for Seniors」共出现 1 条相关评论，平均评分 5.0。",
+      "statement": "主题「Non-judgmental exercise for seniors」共出现 1 条相关评论，平均评分 5.0。",
       "evidence_review_ids": [
         "9220792708"
       ],
@@ -130,7 +142,7 @@
     {
       "id": "F-stat-2",
       "topic_id": 2,
-      "statement": "主题「Positive Experience with App Updates and Onboarding」共出现 3 条相关评论，平均评分 5.0。",
+      "statement": "主题「Great app with recent updates and personalization」共出现 3 条相关评论，平均评分 5.0。",
       "evidence_review_ids": [
         "8320450139",
         "5377927335",
@@ -147,13 +159,13 @@
     {
       "id": "F-model-2-1",
       "topic_id": 2,
-      "statement": "在应用引导流程中，用户完成身高体重等身体数据填写后会看到高级版订阅选项。",
+      "statement": "用户在完成个人数据问卷后，应用向用户提供了 premium 订阅选项，这表明应用在用户注册流程中嵌入了订阅转化环节。",
       "evidence_review_ids": [
         "10175260415"
       ],
       "sample_count": 1,
       "confidence": 0.3,
-      "uncertainty": "仅一条评论提及此选项，且未说明用户是否购买或对价格的具体看法；评论内容被截断。",
+      "uncertainty": "仅有一条相关评论，且评论内容在提及 premium 选项后被截断，无法确认用户对订阅价格或转化结果的态度。",
       "conflicts": [],
       "provenance": "model",
       "status": "kept",
@@ -163,13 +175,13 @@
   "requirements": [
     {
       "code": "R1",
-      "title": "维持并突出价格优势以促进订阅转化",
-      "description": "用户反馈中对应用价格实惠的正面评价（平均评分5.0）可能对订阅转化有积极影响，但直接提及价格的样本仅1条，置信度较低。在订阅页面和引导流程中突出性价比优势，强化用户对价格的认可，以提升订阅转化率。",
-      "priority": "P1",
+      "title": "在订阅页和商店描述中强化价格实惠与便捷价值",
+      "description": "基于用户对价格便宜和便捷省时的正面反馈，在定价展示和订阅引导中突出这些优势，以提升付费意愿。",
+      "priority": "P0",
       "planned_version": "V1",
       "finding_ids": [
-        "F-stat-0",
-        "F-model-0-1"
+        "F-model-0-1",
+        "F-stat-0"
       ],
       "review_ids": [
         "11593815773",
@@ -180,31 +192,32 @@
         "7911742368"
       ],
       "acceptance_criteria": [
-        "在订阅页面增加价格对比或价值说明",
-        "引导流程中在订阅展示前强化应用口碑和性价比",
-        "A/B测试显示订阅页面转化率提升5%"
+        "订阅页文案明确包含价格实惠的描述",
+        "App Store 描述中突出便捷省时和适合忙碌生活的理念",
+        "完成一次 A/B 测试验证点击率提升"
       ],
       "status": "kept"
     },
     {
       "code": "R2",
-      "title": "优化引导流程中的订阅展示时机与个性化",
-      "description": "当前引导流程在用户填写身体数据后展示高级版订阅选项，虽然整体引导体验正面（样本3，平均评分5.0），但订阅展示存在优化空间。通过优化展示时机和内容，如用户完成设置后以非打扰方式呈现、或根据身体目标定制订阅理由，可提升订阅转化率且不损害引导体验。",
+      "title": "优化个人问卷后的订阅转化时机",
+      "description": "用户在完成个人数据问卷后收到 premium 选项，但需结合便捷省时优势优化展示内容，以提高订阅转化率。",
       "priority": "P1",
-      "planned_version": "V2",
+      "planned_version": "V1",
       "finding_ids": [
-        "F-stat-2",
-        "F-model-2-1"
+        "F-model-2-1",
+        "F-model-0-2"
       ],
       "review_ids": [
         "10175260415",
-        "5377927335",
-        "8320450139"
+        "5684535804",
+        "5786142670",
+        "7911742368"
       ],
       "acceptance_criteria": [
-        "订阅弹窗在引导流程中的展示次数不超过1次",
-        "提供关闭或稍后选项以保持引导流畅性",
-        "订阅转化率相对基线提升10%"
+        "问卷完成页保留 premium 订阅入口",
+        "订阅弹窗文案包含省时便捷相关关键词",
+        "转化率相对于当前版本提升至少 5%"
       ],
       "status": "kept"
     }
@@ -212,7 +225,7 @@
   "test_cases": [
     {
       "code": "TC1",
-      "title": "订阅页面应突出价格优势以促进转化",
+      "title": "订阅页展示价格实惠与便捷价值",
       "requirement_ids": [
         "R1"
       ],
@@ -226,118 +239,67 @@
       ],
       "gherkin": {
         "given": [
-          "用户已进入 App 的订阅页面"
+          "用户访问订阅页"
         ],
         "when": [
-          "用户浏览订阅选项"
+          "用户查看订阅价格和卖点描述"
         ],
         "then": [
-          "页面展示价格对比或优惠信息，突出性价比",
-          "页面文案包含至少一个强调价格实惠的关键词（如“超值”、“实惠”、“低至”）"
+          "页面显示价格实惠的文案",
+          "页面展示便捷省时的价值主张"
         ]
       }
     },
     {
       "code": "TC2",
-      "title": "引导流程中订阅展示应包含价格优势信息",
+      "title": "商店描述中强化价格实惠与便捷价值",
       "requirement_ids": [
-        "R1",
-        "R2"
+        "R1"
       ],
       "review_ids": [
-        "10175260415",
         "11593815773",
         "12150581992",
-        "5377927335",
         "5684535804",
         "5786142670",
         "6138213011",
-        "7911742368",
-        "8320450139"
+        "7911742368"
       ],
       "gherkin": {
         "given": [
-          "用户正在完成引导流程中的身体数据填写"
+          "用户打开 App Store 商店页"
         ],
         "when": [
-          "用户完成填写身体数据并进入下一步"
+          "用户浏览应用描述"
         ],
         "then": [
-          "引导流程中的订阅卡片展示价格优势信息（如月度价格、优惠折扣）",
-          "该展示为非打扰式且可关闭"
+          "描述中包含价格实惠的表述",
+          "描述中突出便捷省时的优势"
         ]
       }
     },
     {
       "code": "TC3",
-      "title": "用户完成身体数据设置后才展示订阅选项",
+      "title": "问卷调查后展示订阅推荐且包含便捷优势",
       "requirement_ids": [
         "R2"
       ],
       "review_ids": [
         "10175260415",
-        "5377927335",
-        "8320450139"
+        "5684535804",
+        "5786142670",
+        "7911742368"
       ],
       "gherkin": {
         "given": [
-          "用户正在引导流程中"
+          "用户已完成个人数据问卷"
         ],
         "when": [
-          "用户尚未完成身体数据设置"
+          "系统向用户展示 premium 订阅选项"
         ],
         "then": [
-          "不展示任何订阅选项",
-          "仅在用户完成身体数据设置并进入后续步骤时展示订阅选项"
-        ]
-      }
-    },
-    {
-      "code": "TC4",
-      "title": "订阅展示采用非打扰式设计",
-      "requirement_ids": [
-        "R2"
-      ],
-      "review_ids": [
-        "10175260415",
-        "5377927335",
-        "8320450139"
-      ],
-      "gherkin": {
-        "given": [
-          "用户已完成身体数据设置"
-        ],
-        "when": [
-          "订阅选项在引导流程中展示"
-        ],
-        "then": [
-          "展示方式不打断用户主要任务（如不使用全屏强制弹窗）",
-          "用户可选择暂时跳过或永久关闭，且不影响正常使用引导流程"
-        ]
-      }
-    },
-    {
-      "code": "TC5",
-      "title": "订阅理由根据用户身体目标进行个性化",
-      "requirement_ids": [
-        "R2"
-      ],
-      "review_ids": [
-        "10175260415",
-        "5377927335",
-        "8320450139"
-      ],
-      "gherkin": {
-        "given": [
-          "用户已完成身体数据设置并在引导流程中展示订阅选项",
-          "用户设置的身体目标为减脂"
-        ],
-        "when": [
-          "订阅理由区域渲染时"
-        ],
-        "then": [
-          "订阅理由包含与减脂相关的定制内容（如“为您的减脂目标提供专属计划”）",
-          "如果用户目标为增肌，则展示对应增肌相关的订阅理由"
+          "订阅选项在问卷完成后立即出现",
+          "订阅内容包含便捷省时的优势说明",
+          "订阅页面提供一键订阅按钮"
         ]
       }
     }
@@ -347,8 +309,8 @@
   "assumption_requirements": [],
   "dropped_refs": [],
   "summary": {
-    "total_checks": 14,
-    "passed_checks": 14,
+    "total_checks": 13,
+    "passed_checks": 13,
     "failed_checks": 0
   }
 }

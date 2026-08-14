@@ -20,7 +20,10 @@ SCOPE_TASK = (
 
 TOPIC_NAMING_TASK = (
     "以下是按相似度聚类出的评论主题，每个主题附了代表评论摘录。\n"
-    "请为每个主题给出人类可读的名称与描述。输出 JSON：\n"
+    "请为每个主题给出人类可读的名称与描述。\n"
+    "主题名称与描述必须使用评论的主要语言：评论为英文则输出英文，"
+    "评论为中文则输出中文，不要中英混杂。\n"
+    "输出 JSON：\n"
     '{"topics": [{"topic_id": int, "label": string, "description": string, "keywords": [string]}]}\n'
     "topic_id 必须与输入的 cluster id 完全一致，数量也必须一致。"
 )
