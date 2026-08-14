@@ -1,17 +1,21 @@
 {
   "app_id": "839285684",
-  "goal_text": "订阅转化与付费墙体验",
+  "goal_text": "",
   "scope": {
     "focus_areas": [
+      "features",
+      "other",
+      "performance",
       "pricing",
-      "subscription_conversion"
+      "subscription_conversion",
+      "usability"
     ],
     "star_filter": {
       "min": null,
       "max": null
     },
     "version_filter": null,
-    "note": "模型解析（分析目标聚焦于订阅转化与付费墙体验，因此重点分析相关评论。）"
+    "note": "模型解析（用户未提供具体分析目标，默认进行全量分析。）"
   },
   "clean_stats": {
     "input_count": 10,
@@ -29,9 +33,9 @@
   "counts": {
     "reviews": 10,
     "topics": 3,
-    "findings": 6,
-    "requirements": 2,
-    "test_cases": 3
+    "findings": 9,
+    "requirements": 4,
+    "test_cases": 4
   },
   "model_driven": true,
   "notes": [
@@ -41,8 +45,8 @@
     "数据来源与限制见 data/README.md；空数据/网络限制如实标注，不编造。"
   ],
   "traceability": {
-    "total_checks": 13,
-    "passed_checks": 13,
+    "total_checks": 21,
+    "passed_checks": 21,
     "failed_checks": 0
   }
 }

@@ -11,8 +11,8 @@
   },
   {
     "stage": "clean",
-    "status": "ok",
-    "detail": "完成"
+    "status": "cached",
+    "detail": "使用缓存结果"
   },
   {
     "stage": "clean",
