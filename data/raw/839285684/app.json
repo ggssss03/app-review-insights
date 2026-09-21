@@ -1,19 +1,19 @@
 {
   "app_id": "839285684",
   "url": "https://apps.apple.com/us/app/workout-for-women-home-gym/id839285684?uo=4",
-  "fetched_at": "2026-09-14T08:45:31+00:00",
+  "fetched_at": "2026-09-21T08:47:05+00:00",
   "data": {
     "app_id": "839285684",
     "track_name": "Workout for Women: Home & Gym",
     "genre": "Health & Fitness",
-    "rating_count": 531452,
-    "avg_rating": 4.84647,
+    "rating_count": 531558,
+    "avg_rating": 4.8464,
     "version": "8.5.2",
     "release_date": "2026-09-03T18:27:21Z",
     "minimum_os_version": "15.0",
     "url": "https://apps.apple.com/us/app/workout-for-women-home-gym/id839285684?uo=4",
     "storefront": "us",
-    "fetched_at": "2026-09-14T08:45:31+00:00",
+    "fetched_at": "2026-09-21T08:47:05+00:00",
     "raw": {
       "screenshotUrls": [
         "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/63/ad/64/63ad64ef-2696-b233-1787-8ee7585056f3/OOG104_Strength_A-Page1_en-US_6.7_01.jpg/320x480bb.jpg",
@@ -39,8 +39,12 @@
       ],
       "appletvScreenshotUrls": [],
       "artworkUrl512": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/a6/70/34a67076-ca2e-84f0-9850-9e7766210268/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/512x512bb.jpg",
-      "advisories": [],
       "isGameCenterEnabled": false,
+      "advisories": [],
+      "kind": "software",
+      "artistViewUrl": "https://apps.apple.com/us/developer/fast-builder-limited/id596300475?uo=4",
+      "artworkUrl60": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/a6/70/34a67076-ca2e-84f0-9850-9e7766210268/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/60x60bb.jpg",
+      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/a6/70/34a67076-ca2e-84f0-9850-9e7766210268/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg",
       "features": [
         "iosUniversal"
       ],
@@ -176,10 +180,7 @@
         "iPhone18ProMax-iPhone18ProMax",
         "iPhoneDuo-iPhoneDuo"
       ],
-      "kind": "software",
-      "artistViewUrl": "https://apps.apple.com/us/developer/fast-builder-limited/id596300475?uo=4",
-      "artworkUrl60": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/a6/70/34a67076-ca2e-84f0-9850-9e7766210268/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/60x60bb.jpg",
-      "artworkUrl100": "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/34/a6/70/34a67076-ca2e-84f0-9850-9e7766210268/AppIcon-0-0-1x_U007epad-0-1-0-85-220.png/100x100bb.jpg",
+      "currentVersionReleaseDate": "2026-09-03T18:27:21Z",
       "languageCodesISO2A": [
         "AR",
         "HR",
@@ -205,43 +206,42 @@
         "TH",
         "TR"
       ],
-      "averageUserRatingForCurrentVersion": 4.84647,
-      "sellerUrl": "https://7mfitness.com",
       "fileSizeBytes": "941691904",
       "formattedPrice": "Free",
-      "userRatingCountForCurrentVersion": 531452,
+      "userRatingCountForCurrentVersion": 531558,
       "trackContentRating": "4+",
-      "currentVersionReleaseDate": "2026-09-03T18:27:21Z",
-      "releaseNotes": "Bug fixes and optimizations. \n\nWe're always hard at work on our next update. Make sure to leave us a review and let us know what you would like to see next!\n\nHappy sweating~",
-      "price": 0.0,
-      "bundleId": "com.oneothergame.7min-fitness",
-      "releaseDate": "2014-03-21T16:41:53Z",
-      "trackId": 839285684,
-      "trackName": "Workout for Women: Home & Gym",
-      "genreIds": [
-        "6013",
-        "6012"
-      ],
-      "primaryGenreName": "Health & Fitness",
-      "primaryGenreId": 6013,
-      "sellerName": "Fast Builder Limited",
-      "isVppDeviceBasedLicensingEnabled": true,
-      "version": "8.5.2",
-      "wrapperType": "software",
-      "currency": "USD",
-      "description": "** #1 Rated Female Focused Workout App 2024 **\n\nLooking for a workout app that is tailored specifically to your needs? Short on time but still want to get healthier? Workout for Women is the app for you. \n\nWorkout anywhere, anytime. A personal trainer right in your pocket.\n\nTop 10 features of our app:\n\nCustomized workouts - Our app allows you to create your own personalized workout plan based on your fitness goals and preferences.\n\nVariety - We offer a wide range of workouts including yoga, strength training, cardio, and flexibility exercises to keep things interesting and challenging.\n\nEasy to follow - Our app provides step-by-step instructions and video demos to ensure that you are performing each exercise correctly and safely.\n\nConvenience - You can access our workouts anytime, anywhere, so you can fit in a workout whenever it's convenient for you.\n\nMotivation - Our app includes tips and tricks to keep you motivated and on track to achieve your fitness goals.\n\nProgress tracking - You can track your progress and see how far you have come, which can help keep you motivated and on track.\n\nSafety - Our app provides safety guidelines and tips to prevent injury and ensure that you are working out safely and effectively.\n\nExpert guidance - Our app is developed by experienced fitness professionals who are committed to providing you with the highest quality workouts and advice.\n\nBeginner friendly - Whether you are a beginner or an advanced fitness enthusiast, our app has something for everyone.\n\nFun - Our workouts are designed to be enjoyable and fun, so you can look forward to your workouts and stay motivated to achieve your fitness goals.\n\nFree, quick and effective. What are you waiting for? Take control of your health and fitness and sweat with us!\n\nLet 7M help you get healthier today!\n\n\nSUBSCRIPTION INFORMATION\nGet a 7M Supporter subscription and enjoy full access to all features and content. The subscription will automatically renew unless turned off in your iTunes Account Settings at least 24 hours before current period ends. You can go to your iTunes Account settings to manage your subscription and turn off auto-renew. Your iTunes Account will be charged when the purchase is confirmed. If you subscribe before your free trial ends, the rest of your free trial period will be forfeited as soon as your purchase is confirmed.\n\nNote: This app is developed for informational purposes only. You should always consult your physician or doctor before starting any new fitness program.\n\nThis app integrates with the Apple Health app.\n\nTerms of use: https://7mfitness.com/terms-of-use\nPrivacy policy: https://7mfitness.com/privacy-policy",
-      "minimumOsVersion": "15.0",
-      "trackCensoredName": "Workout for Women: Home & Gym",
-      "trackViewUrl": "https://apps.apple.com/us/app/workout-for-women-home-gym/id839285684?uo=4",
-      "contentAdvisoryRating": "4+",
-      "averageUserRating": 4.84647,
+      "sellerUrl": "https://7mfitness.com",
+      "averageUserRatingForCurrentVersion": 4.8464,
+      "artistId": 596300475,
+      "artistName": "Fast Builder Limited",
       "genres": [
         "Health & Fitness",
         "Lifestyle"
       ],
-      "artistId": 596300475,
-      "artistName": "Fast Builder Limited",
-      "userRatingCount": 531452
+      "price": 0.0,
+      "genreIds": [
+        "6013",
+        "6012"
+      ],
+      "releaseDate": "2014-03-21T16:41:53Z",
+      "sellerName": "Fast Builder Limited",
+      "trackId": 839285684,
+      "trackName": "Workout for Women: Home & Gym",
+      "releaseNotes": "Bug fixes and optimizations. \n\nWe're always hard at work on our next update. Make sure to leave us a review and let us know what you would like to see next!\n\nHappy sweating~",
+      "version": "8.5.2",
+      "wrapperType": "software",
+      "currency": "USD",
+      "description": "** #1 Rated Female Focused Workout App 2024 **\n\nLooking for a workout app that is tailored specifically to your needs? Short on time but still want to get healthier? Workout for Women is the app for you. \n\nWorkout anywhere, anytime. A personal trainer right in your pocket.\n\nTop 10 features of our app:\n\nCustomized workouts - Our app allows you to create your own personalized workout plan based on your fitness goals and preferences.\n\nVariety - We offer a wide range of workouts including yoga, strength training, cardio, and flexibility exercises to keep things interesting and challenging.\n\nEasy to follow - Our app provides step-by-step instructions and video demos to ensure that you are performing each exercise correctly and safely.\n\nConvenience - You can access our workouts anytime, anywhere, so you can fit in a workout whenever it's convenient for you.\n\nMotivation - Our app includes tips and tricks to keep you motivated and on track to achieve your fitness goals.\n\nProgress tracking - You can track your progress and see how far you have come, which can help keep you motivated and on track.\n\nSafety - Our app provides safety guidelines and tips to prevent injury and ensure that you are working out safely and effectively.\n\nExpert guidance - Our app is developed by experienced fitness professionals who are committed to providing you with the highest quality workouts and advice.\n\nBeginner friendly - Whether you are a beginner or an advanced fitness enthusiast, our app has something for everyone.\n\nFun - Our workouts are designed to be enjoyable and fun, so you can look forward to your workouts and stay motivated to achieve your fitness goals.\n\nFree, quick and effective. What are you waiting for? Take control of your health and fitness and sweat with us!\n\nLet 7M help you get healthier today!\n\n\nSUBSCRIPTION INFORMATION\nGet a 7M Supporter subscription and enjoy full access to all features and content. The subscription will automatically renew unless turned off in your iTunes Account Settings at least 24 hours before current period ends. You can go to your iTunes Account settings to manage your subscription and turn off auto-renew. Your iTunes Account will be charged when the purchase is confirmed. If you subscribe before your free trial ends, the rest of your free trial period will be forfeited as soon as your purchase is confirmed.\n\nNote: This app is developed for informational purposes only. You should always consult your physician or doctor before starting any new fitness program.\n\nThis app integrates with the Apple Health app.\n\nTerms of use: https://7mfitness.com/terms-of-use\nPrivacy policy: https://7mfitness.com/privacy-policy",
+      "averageUserRating": 4.8464,
+      "minimumOsVersion": "15.0",
+      "trackCensoredName": "Workout for Women: Home & Gym",
+      "trackViewUrl": "https://apps.apple.com/us/app/workout-for-women-home-gym/id839285684?uo=4",
+      "contentAdvisoryRating": "4+",
+      "bundleId": "com.oneothergame.7min-fitness",
+      "primaryGenreName": "Health & Fitness",
+      "primaryGenreId": 6013,
+      "isVppDeviceBasedLicensingEnabled": true,
+      "userRatingCount": 531558
     }
   }
 }
